@@ -1,4 +1,2 @@
-# ProjectTemplate
-This is a project template for SGD semester projects.
-
-haha andrew is stinky!!
+# Dungeon: Stars
+A top-down sci-fi arcade style 2D action bullet hell shooter.
