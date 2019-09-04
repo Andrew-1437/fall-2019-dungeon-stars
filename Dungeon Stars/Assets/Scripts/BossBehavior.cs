@@ -37,8 +37,9 @@ public class BossBehavior : MonoBehaviour {
         {
             print("Ohshit! Boss cannot find camera!");
         }
-        triggers = GetComponentsInChildren<GameObject>();
-        activeAllTriggers(false);
+        //triggers = GetComponentsInChildren<GameObject>();
+        //activeAllTriggers(false);
+        //gameObject.SetActive(false);
         //gameObject.SetActive(true);
     }
 
@@ -81,10 +82,12 @@ public class BossBehavior : MonoBehaviour {
 
     public void activeAllTriggers(bool x)
     {
+        gameObject.SetActive(x);
+        /*
         foreach (GameObject trigger in triggers)
         {
             trigger.SetActive(x);
-        }
+        } */
     }
     
     //Takes damage from another source (another script)

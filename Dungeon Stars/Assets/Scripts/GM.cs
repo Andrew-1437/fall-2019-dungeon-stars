@@ -11,6 +11,7 @@ public class GM : MonoBehaviour {
     public GameObject playerObject;
     public GameObject fx;
     private GameObject player;
+    private PlayerController playerController;
     private GameObject enemies;
     private GameObject hud;
     private GameObject boss;
@@ -18,14 +19,7 @@ public class GM : MonoBehaviour {
 
     public bool gameStart;
 
-    public GameObject[] dialogues;
-    private int dialogueIndex = 0;
-
     public bool allowBoss;
-
-    public GameObject preBossText;
-
-    public GameObject[] deathTexts;
 
     public SimpleHealthBar hp;
     public SimpleHealthBar shield;
@@ -36,11 +30,12 @@ public class GM : MonoBehaviour {
 
     private void Start()
     {
+        /*
         player = GameObject.FindWithTag("Player");
         if(player == null)
         {
             print("Ohshit. Player not found!");
-        }
+        } */
         enemies = GameObject.FindWithTag("AllEnemies");
         if (enemies == null)
         {
@@ -106,7 +101,7 @@ public class GM : MonoBehaviour {
                 player.GetComponent<PlayerController>().Die();
             }
             SpawnPlayer();
-            player = GameObject.FindWithTag("Player");
+            
         }
         //Spawns another Player without destroying the original (for the lolz)
         if (Input.GetKeyDown("9"))
@@ -129,8 +124,8 @@ public class GM : MonoBehaviour {
         //GUI Updates
         if (player != null)
         {
-            health.text = "Health: " + Mathf.FloorToInt(player.GetComponent<PlayerController>().hp);
-            if (player.GetComponent<PlayerController>().hp < .3f * player.GetComponent<PlayerController>().maxHp)
+            health.text = "Health: " + Mathf.FloorToInt(playerController.hp);
+            if (playerController.hp < .3f * playerController.maxHp)
             {
                 Color color = new Color(0.9f, 0f, 0f);
                 hp.UpdateColor(color);
@@ -141,9 +136,9 @@ public class GM : MonoBehaviour {
                 hp.UpdateColor(color);
             }
 
-            if (player.GetComponent<PlayerController>().shield > 0.0f)
+            if (playerController.shield > 0.0f)
             {
-                shields.text = "Shields: " + Mathf.FloorToInt(player.GetComponent<PlayerController>().shield);
+                shields.text = "Shields: " + Mathf.FloorToInt(playerController.shield);
                 shields.color = new Color(50.0f / 255.0f, 50.0f / 255.0f, 50.0f / 255.0f);
             }
             else
@@ -152,8 +147,8 @@ public class GM : MonoBehaviour {
                 shields.color = new Color(0.9f, 0.0f, 0.0f);
             }
 
-            hp.UpdateBar(player.GetComponent<PlayerController>().hp, player.GetComponent<PlayerController>().maxHp);
-            shield.UpdateBar(player.GetComponent<PlayerController>().shield, player.GetComponent<PlayerController>().maxShield);
+            hp.UpdateBar(playerController.hp, playerController.maxHp);
+            shield.UpdateBar(playerController.shield, playerController.maxShield);
         }
         else
         {
@@ -172,28 +167,21 @@ public class GM : MonoBehaviour {
     public void CallEvent(string x)
     {
         SendMessage(x);
-        if(x == "Boss" && allowBoss)
+        if (x == "Boss" && allowBoss)
         {
             AwakenBoss();
-        }
-        if(x == "PreBoss" && allowBoss)
-        {
-            preBossText.SetActive(true);
-        }
-        if(x == "NextText")
-        {
-            dialogues[dialogueIndex].SetActive(true);
-            dialogueIndex++;
         }
     }
 
     public void FindPlayer()
     {
         player = GameObject.FindWithTag("Player");
-        if (player != null)
+        if (player == null)
         {
             print("Ohshit! GM cannot find player!");
+            return;
         }
+        playerController = player.GetComponent<PlayerController>();
     }
 
     public void SpawnPlayer()

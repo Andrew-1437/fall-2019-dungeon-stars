@@ -164,6 +164,27 @@ public class PlayerController : MonoBehaviour {
             ShieldFlashRed(shieldRef, shieldOpacity);
             gameObject.GetComponent<AudioSource>().Play();
         }
+        //Freeze Time
+        if (Input.GetKeyDown(KeyCode.Pause) && Time.timeScale == 1f)
+        {
+            Time.timeScale = 0f;
+        }
+        else if (Input.GetKeyDown(KeyCode.Pause) && Time.timeScale != 1f)
+        {
+            Time.timeScale = 1f;
+        }
+        //Godmode 
+        /*
+        if (Input.GetKeyDown(KeyCode.Alpha1) && dmgMod != 0f)
+        {
+            dmgMod = 0f;
+            print("Godmode on");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha1) && dmgMod == 0f)
+        {
+            dmgMod = 1f;
+            print("Godmode off");
+        } */
 
         //Shield mechanics************
         if (shieldDown)
