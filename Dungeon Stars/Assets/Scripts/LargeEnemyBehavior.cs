@@ -8,12 +8,12 @@ public class LargeEnemyBehavior : MonoBehaviour {
     public GameObject explosion;
 
     //Camera Shake
-    private GameObject camera;
+    protected GameObject gameCamera;
 
-    public void Start()
+    protected void Start()
     {
-        camera = GameObject.FindWithTag("MainCamera");
-        if (camera == null)
+        gameCamera = GameObject.FindWithTag("MainCamera");
+        if (gameCamera == null)
         {
             print("Ohshit! Obstacle cannot find camera!");
         }
@@ -32,6 +32,6 @@ public class LargeEnemyBehavior : MonoBehaviour {
     {
         Destroy(gameObject);
         Instantiate(explosion, gameObject.GetComponent<Transform>().position, gameObject.GetComponent<Transform>().rotation);
-        camera.GetComponent<CameraShaker>().LargeShake(0.2f);
+        gameCamera.GetComponent<CameraShaker>().LargeShake(0.2f);
     }
 }

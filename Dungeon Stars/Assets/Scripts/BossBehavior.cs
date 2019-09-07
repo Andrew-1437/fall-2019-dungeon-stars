@@ -68,7 +68,7 @@ public class BossBehavior : LargeEnemyBehavior {
     {
         Destroy(gameObject);
         Instantiate(explosion, gameObject.GetComponent<Transform>().position, gameObject.GetComponent<Transform>().rotation);
-        base.camera.GetComponent<CameraShaker>().HugeShake();
+        gameCamera.GetComponent<CameraShaker>().HugeShake();
         mainFlowchart.SendFungusMessage("LevelComplete");
     }
 
