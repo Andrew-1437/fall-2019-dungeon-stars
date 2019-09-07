@@ -17,13 +17,14 @@ public class MissileBehavior : MonoBehaviour {
     private void Start()
     {
         deathTime = Time.time + lifeTime;
+        target = FindClosestByTag(targetTag);
     }
 
     void Update()
     {
         gameObject.GetComponent<Rigidbody2D>().velocity = gameObject.GetComponent<Transform>().up * speed;
 
-        target = FindClosestByTag(targetTag);
+        
         if (target != null)
         {
             Vector3 targetDir = target.GetComponent<Transform>().position - transform.position;
@@ -32,6 +33,7 @@ public class MissileBehavior : MonoBehaviour {
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, q, turn * Time.deltaTime);
         }
+        else { target = FindClosestByTag(targetTag); }
 
         if (Time.time >= deathTime)
         {
