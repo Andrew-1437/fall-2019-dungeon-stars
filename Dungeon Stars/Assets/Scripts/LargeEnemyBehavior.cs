@@ -10,7 +10,7 @@ public class LargeEnemyBehavior : MonoBehaviour {
     //Camera Shake
     private GameObject camera;
 
-    private void Start()
+    public void Start()
     {
         camera = GameObject.FindWithTag("MainCamera");
         if (camera == null)

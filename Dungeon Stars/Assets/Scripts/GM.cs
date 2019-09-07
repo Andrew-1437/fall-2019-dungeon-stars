@@ -46,7 +46,7 @@ public class GM : MonoBehaviour {
         {
             print("Ohshit. GUI not found!");
         }
-        if (!allowBoss) //If Level does not have a boss
+        if (allowBoss) //If Level has a boss
         {
             boss = GameObject.FindWithTag("Boss");
             if (boss == null)

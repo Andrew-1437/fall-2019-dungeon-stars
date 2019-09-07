@@ -112,18 +112,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &1270022528 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 677459759403048358, guid: 0ea578368fa70084d8a1e8638cf45cca,
-    type: 3}
-  m_PrefabInstance: {fileID: 677459758986888677}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1596599738
 GameObject:
   m_ObjectHideFlags: 1
@@ -153,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1270022528}
+  selectedFlowchart: {fileID: 677459758986888678}
 --- !u!4 &1596599740
 Transform:
   m_ObjectHideFlags: 1
@@ -235,5 +223,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: selectedBlocks.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
+--- !u!114 &677459758986888678 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
+    type: 3}
+  m_PrefabInstance: {fileID: 677459758986888677}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

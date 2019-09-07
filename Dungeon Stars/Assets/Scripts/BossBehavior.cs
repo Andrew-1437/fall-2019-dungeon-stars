@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossBehavior : MonoBehaviour {
+public class BossBehavior : LargeEnemyBehavior {
 
     //Health
     public float hp;
     public float dmgMod;
 
     //Camera Shake
-    private GameObject camera;
+    //private GameObject camera;
 
     //Visual FX
-    public GameObject explosion;
+    //public GameObject explosion;
     public GameObject miniExplosion;
 
     public bool awake;
@@ -32,15 +32,7 @@ public class BossBehavior : MonoBehaviour {
     private void Start()
     {
         dieTime = Mathf.Infinity;
-        camera = GameObject.FindWithTag("MainCamera");
-        if (camera == null)
-        {
-            print("Ohshit! Boss cannot find camera!");
-        }
-        //triggers = GetComponentsInChildren<GameObject>();
-        //activeAllTriggers(false);
-        //gameObject.SetActive(false);
-        //gameObject.SetActive(true);
+        base.Start();
     }
 
     private void Update()
@@ -76,7 +68,7 @@ public class BossBehavior : MonoBehaviour {
     {
         Destroy(gameObject);
         Instantiate(explosion, gameObject.GetComponent<Transform>().position, gameObject.GetComponent<Transform>().rotation);
-        camera.GetComponent<CameraShaker>().HugeShake();
+        base.camera.GetComponent<CameraShaker>().HugeShake();
         mainFlowchart.SendFungusMessage("LevelComplete");
     }
 

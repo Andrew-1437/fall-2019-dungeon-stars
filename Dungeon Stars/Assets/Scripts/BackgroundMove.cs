@@ -6,22 +6,20 @@ public class BackgroundMove : MonoBehaviour {
 
     public float speed;
 
-    private GameObject gm;
+    public GM gm;
+
+    private Rigidbody2D rb;
 
     private void Start()
     {
-        gm = GameObject.FindWithTag("GameController");
-        if (gm == null)
-        {
-            print("Ohshit! Game Controller not found by BackgroundMove!");
-        }
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        if (gm.GetComponent<GM>().gameStart)
+        if (gm.gameStart)
         {
-            transform.position = transform.position + Vector3.up * -speed;
+            rb.velocity = new Vector2(0.0f, -speed);
         }
     }
 

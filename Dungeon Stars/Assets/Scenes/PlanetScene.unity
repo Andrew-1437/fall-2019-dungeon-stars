@@ -3118,6 +3118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.2
+  gm: {fileID: 1109737344}
 --- !u!4 &461205484
 Transform:
   m_ObjectHideFlags: 0
@@ -3141,7 +3142,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461205482}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -8215,10 +8216,7 @@ MonoBehaviour:
     type: 3}
   fx: {fileID: 1757046686617944, guid: 3289a0dc30ea3614687b08a565b49233, type: 3}
   gameStart: 0
-  dialogues: []
   allowBoss: 0
-  preBossText: {fileID: 0}
-  deathTexts: []
   hp: {fileID: 953241123}
   shield: {fileID: 270813738}
   mainFlowchart: {fileID: 0}
@@ -15614,7 +15612,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2019406978}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -15640,6 +15638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.2
+  gm: {fileID: 1109737344}
 --- !u!1001 &2021990125
 PrefabInstance:
   m_ObjectHideFlags: 0
