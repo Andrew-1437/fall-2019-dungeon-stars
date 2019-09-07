@@ -21,7 +21,7 @@ public class BackgroundMove : MonoBehaviour {
     {
         if (gm.GetComponent<GM>().gameStart)
         {
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, -speed);
+            transform.position = transform.position + Vector3.up * -speed;
         }
     }
 
