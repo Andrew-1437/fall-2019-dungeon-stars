@@ -163,7 +163,7 @@ public class GM : MonoBehaviour {
         bossWarnUI.GetComponent<FlashUI>().awake = true;
     }
 
-    //Scene specific events
+    //Scene specific events ***Obsolete
     public void CallEvent(string x)
     {
         SendMessage(x);
@@ -171,6 +171,11 @@ public class GM : MonoBehaviour {
         {
             AwakenBoss();
         }
+    }
+
+    public void EndLevel()
+    {
+        mainFlowchart.SendFungusMessage("LevelComplete");
     }
 
     public void FindPlayer()

@@ -37,4 +37,9 @@ public class FlashUI : MonoBehaviour {
         elements[0].SetColor(new Color(1.0f, 1.0f, 1.0f, alpha));
         elements[1].SetColor(new Color(1.0f, 1.0f, 1.0f, alpha));
     }
+
+    public void wake()
+    {
+        awake = true;
+    }
 }
