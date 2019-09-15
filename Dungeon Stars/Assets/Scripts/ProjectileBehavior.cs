@@ -8,6 +8,7 @@ public class ProjectileBehavior : MonoBehaviour {
     public float dmgValue; //Damage projectile will do
     public float lifeTime;
     private float deathTime;
+    public bool perist;
 
     private void Start()
     {

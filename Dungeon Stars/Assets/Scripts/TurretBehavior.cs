@@ -28,7 +28,7 @@ public class TurretBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        target = GameObject.FindWithTag("Player");
+        
         if (target != null)
         {
             Vector3 targetDir = target.GetComponent<Transform>().position - transform.position;
@@ -36,6 +36,10 @@ public class TurretBehavior : MonoBehaviour {
             float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg - 90;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, q, turn * Time.deltaTime);
+        }
+        else
+        {
+            target = GameObject.FindWithTag("Player");
         }
 
         if (awake && (Time.time > nextBurst || Time.time < burstEnd))

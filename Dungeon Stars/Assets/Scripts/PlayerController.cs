@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject explosionFx;
     public ParticleSystem speedFX;
     public ParticleSystem fireRateFX;
+    public ParticleSystem smokeFX;
 
     //Sound FX**************
     private AudioSource[] audio;
@@ -236,7 +237,15 @@ public class PlayerController : MonoBehaviour {
             fireRateFX.Stop();
         }
 
-        
+        //FX
+        if(hp <= maxHp * .3f && !smokeFX.isPlaying)
+        {
+            smokeFX.Play();
+        }
+        if (hp > maxHp * .3f && smokeFX.isPlaying)
+        {
+            smokeFX.Stop();
+        }
 
         //Debug
         //print(shield);
@@ -272,8 +281,11 @@ public class PlayerController : MonoBehaviour {
                 shield = 0;
             }
 
-            camera.GetComponent<CameraShaker>().SmallShake(); ;
-            Destroy(other.gameObject);
+            camera.GetComponent<CameraShaker>().SmallShake();
+            if (!other.gameObject.GetComponent<ProjectileBehavior>().perist)
+            {
+                Destroy(other.gameObject);
+            }
             
         }
 
