@@ -203,4 +203,9 @@ public class GM : MonoBehaviour {
         //int index = Random.Range(0, deathTexts.Length);
         //deathTexts[index].SetActive(true);
     }
+
+    public void SetPlayerShipTo(GameObject playerShip)
+    {
+        playerObject = playerShip;
+    }
 }
