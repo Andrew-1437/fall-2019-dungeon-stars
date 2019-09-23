@@ -60,6 +60,9 @@ public class GM : MonoBehaviour {
             }
         }
 
+        GameObject selection = GameObject.FindWithTag("Selections");
+        playerObject = selection.GetComponent<MaintainSelection>().selectedShip;
+
     }
 
     private void Update()

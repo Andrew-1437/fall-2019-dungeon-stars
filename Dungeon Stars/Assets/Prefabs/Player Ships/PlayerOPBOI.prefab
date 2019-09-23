@@ -172,6 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b130d96ba8e0b0642a4bdc72a4d87743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipName: Meme Ship
+  desc: You may ask why. I say why not.
   maxHp: 1000
   maxShield: 500
   hp: 0
@@ -592,7 +594,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ab19b97e860b91b4eaecad15be1828b7, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 0.6
   m_Pitch: 1.7
   Loop: 1
   Mute: 0
