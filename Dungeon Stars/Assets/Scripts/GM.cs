@@ -60,6 +60,9 @@ public class GM : MonoBehaviour {
             }
         }
 
+        GameObject selection = GameObject.FindWithTag("Selections");
+        playerObject = selection.GetComponent<MaintainSelection>().selectedShip;
+
     }
 
     private void Update()
@@ -202,5 +205,10 @@ public class GM : MonoBehaviour {
         mainFlowchart.SendFungusMessage("death");
         //int index = Random.Range(0, deathTexts.Length);
         //deathTexts[index].SetActive(true);
+    }
+
+    public void SetPlayerShipTo(GameObject playerShip)
+    {
+        playerObject = playerShip;
     }
 }

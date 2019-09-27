@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+    //Name and Description
+    [Header("Name and Descriptions")]
+    public string shipName;
+    public string desc;
+
+
     //HP & Shields***********
     [Header("HP & Shields")]
     public float maxHp; //Represents max hp

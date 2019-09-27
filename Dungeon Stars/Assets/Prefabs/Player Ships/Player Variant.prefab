@@ -170,14 +170,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b130d96ba8e0b0642a4bdc72a4d87743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipName: Interceptor Variant
+  desc: Standard Interceptor but with a railgun and buffed shields to support it.
   maxHp: 100
-  maxShield: 50
+  maxShield: 65
   hp: 0
   shield: 0
   shieldRef: {fileID: 1115304763530712}
-  shieldRecharge: 0.05
-  shieldRegenDelay: 3
-  shieldDelay: 5
+  shieldRecharge: 0.06
+  shieldRegenDelay: 2.5
+  shieldDelay: 4.5
   level: 0
   speed: 12
   rotate: 20
