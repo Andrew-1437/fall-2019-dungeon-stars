@@ -49,6 +49,10 @@ public class MissileBehavior : MonoBehaviour {
             Destroy(gameObject);
             Instantiate(explosion, transform.position, transform.rotation);
         }
+        if (gameObject.tag == "EnemyMissile" && other.tag == "AntiProjectile")
+        {
+            Destroy(gameObject);
+        }
     }
 
     GameObject FindClosestByTag(string tag)
