@@ -39,10 +39,11 @@ public class ObstacleBehavior : MonoBehaviour {
     {
         if (other.tag == "Projectile")
         {
-            hp -= other.gameObject.GetComponent<ProjectileBehavior>().dmgValue;
-            if (!other.gameObject.GetComponent<ProjectileBehavior>().perist)
+            ProjectileBehavior hit = other.gameObject.GetComponent<ProjectileBehavior>();
+            hp -= hit.dmgValue;
+            if (!hit.perist)
             {
-                Destroy(other.gameObject);
+                hit.DestroyProjectile();
             }
             if(hp <= 0)
             {

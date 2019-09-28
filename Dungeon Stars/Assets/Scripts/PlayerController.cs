@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour {
     [Header("Name and Descriptions")]
     public string shipName;
     public string desc;
+    public string primaryWeap;
+    public string secondaryWeap;
+    public string tertiaryWeap;
 
 
     //HP & Shields***********

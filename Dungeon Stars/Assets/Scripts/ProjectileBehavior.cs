@@ -9,6 +9,7 @@ public class ProjectileBehavior : MonoBehaviour {
     public float lifeTime;
     private float deathTime;
     public bool perist;
+    public GameObject particleFX;
 
     private void Start()
     {
@@ -27,6 +28,15 @@ public class ProjectileBehavior : MonoBehaviour {
         }
     }
 
-
+    public void DestroyProjectile()
+    {
+        if (particleFX)
+        {
+            particleFX.transform.parent = null;
+            particleFX.GetComponent<ParticleSystem>().Stop();
+            Destroy(particleFX, 5);
+        }
+        Destroy(gameObject);
+    }
 
 }

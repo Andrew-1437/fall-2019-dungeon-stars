@@ -44,9 +44,9 @@ public class ShipSelect : MonoBehaviour
         shield.text = "Shield: " + ship.maxShield;
         shieldRecharge.text = "Shield Recharge: " + (ship.shieldRecharge*30f) + "(" + ship.shieldRegenDelay + "s)";
         speed.text = "Speed: " + ship.speed;
-        //primary
-        //secondary
-        //tertiary
+        primary.text = "Primary Weapons: " + ship.primaryWeap;
+        secondary.text = "Secondary Weapons: " + ship.secondaryWeap;
+        tertiary.text = "Tertiary Weapons: " + ship.tertiaryWeap;
         description.text = ship.desc;
 
         if(Input.GetKeyDown(KeyCode.E))

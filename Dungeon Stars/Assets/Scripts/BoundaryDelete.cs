@@ -7,6 +7,13 @@ public class BoundaryDelete : MonoBehaviour {
     //Cleans up stray projectiles
     void OnTriggerExit2D(Collider2D other)
     {
-        Destroy(other.gameObject);
+        if (other.tag == "Projectile" || other.tag == "EnemyProjectile")
+        {
+            other.gameObject.GetComponent<ProjectileBehavior>().DestroyProjectile();
+        }
+        else
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
