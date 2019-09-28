@@ -11,6 +11,7 @@ public class GM : MonoBehaviour {
     public GameObject playerObject;
     public GameObject fx;
     private GameObject player;
+    public int playerLives;
     private PlayerController playerController;
     private GameObject enemies;
     private GameObject hud;
@@ -194,10 +195,19 @@ public class GM : MonoBehaviour {
 
     public void SpawnPlayer()
     {
-        Instantiate(playerObject, transform.position, transform.rotation);
-        Instantiate(fx, transform.position, transform.rotation);
-        GetComponent<AudioSource>().Play();
-        FindPlayer();
+        if (playerLives > 0)
+        {
+            Instantiate(playerObject, transform.position, transform.rotation);
+            Instantiate(fx, transform.position, transform.rotation);
+            GetComponent<AudioSource>().Play();
+            FindPlayer();
+            playerLives--;
+        }
+        else
+        {
+            print("no lives");
+        }
+        
     }
 
     public void DeathText()
