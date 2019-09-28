@@ -52,6 +52,11 @@ public class PlayerController : MonoBehaviour {
     private float nextFire;
     private float nextSecondary;
 
+    //Missile count
+    public int maxMissile;
+    public int currentMissileCount;
+
+    
     //PowerUp Mods
     public float dmgMod;    //Value to modify damage taken, for things like armor (1 = full damage, 0 = no damage, >1 = Extra damage, <1 = Healing??)
     private float fireRateMod;
@@ -95,6 +100,7 @@ public class PlayerController : MonoBehaviour {
         fireRateEnd = 0.0f;
         speedEnd = 0.0f;
         shieldBoostEnd = 0.0f;
+        currentMissileCount = maxMissile;
 
         camera = GameObject.FindWithTag("MainCamera");
         if(camera == null)
@@ -148,7 +154,12 @@ public class PlayerController : MonoBehaviour {
 
         if(Input.GetButtonDown("Fire3"))
         {
-            Instantiate(explosive, spawner.position, spawner.rotation);
+            if (currentMissileCount>0)
+            {
+                Instantiate(explosive, spawner.position, spawner.rotation);
+                currentMissileCount--;
+            }
+            
         }
 
 
