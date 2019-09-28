@@ -22,8 +22,10 @@ public class GM : MonoBehaviour {
 
     public bool allowBoss;
 
+    public Text lives;
     public SimpleHealthBar hp;
     public SimpleHealthBar shield;
+    public Text missileCount;
 
     public Fungus.Flowchart mainFlowchart;
 
@@ -150,6 +152,9 @@ public class GM : MonoBehaviour {
                 shields.text = "Shields: =OFFLINE=";
                 shields.color = new Color(0.9f, 0.0f, 0.0f);
             }
+
+            missileCount.text = "Missiles: " + playerController.currentMissileCount + "/" + playerController.maxMissile;
+            lives.text = "Lives: " + playerLives;
 
             hp.UpdateBar(playerController.hp, playerController.maxHp);
             shield.UpdateBar(playerController.shield, playerController.maxShield);
