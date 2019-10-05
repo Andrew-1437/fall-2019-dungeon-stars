@@ -37,7 +37,7 @@ public class BombBehavior : ProjectileBehavior
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(proxy && other.tag == "Enemy")
+        if(proxy && other.tag == "Obstacle")
         {
             Detonate();
         }
