@@ -11,20 +11,20 @@ public class ProjectileBehavior : MonoBehaviour {
     public bool perist;
     public GameObject particleFX;
 
-    private void Start()
+    protected void Start()
     {
         deathTime = Time.time + lifeTime;
     }
 
-    void FixedUpdate () {
+    protected void FixedUpdate () {
         transform.position = transform.position + transform.up * speed;
 	}
 
-    private void Update()
+    protected void Update()
     {
         if(Time.time >= deathTime)
         {
-            Destroy(gameObject);
+            this.DestroyProjectile();
         }
     }
 
@@ -33,10 +33,18 @@ public class ProjectileBehavior : MonoBehaviour {
         if (particleFX)
         {
             particleFX.transform.parent = null;
-            particleFX.GetComponent<ParticleSystem>().Stop();
+            if(particleFX.GetComponent<ParticleSystem>()) particleFX.GetComponent<ParticleSystem>().Stop();
             Destroy(particleFX, 5);
         }
         Destroy(gameObject);
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (gameObject.tag == "EnemyProjectile" && other.tag == "AntiProjectile")
+        {
+            this.DestroyProjectile();
+        }
+        
+    }
 }
