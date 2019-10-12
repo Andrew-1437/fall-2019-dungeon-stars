@@ -175,7 +175,7 @@ MonoBehaviour:
     with its strong shields and weapons.
   primaryWeap: Lectro Bolts
   secondaryWeap: Bolts
-  tertiaryWeap: Missiles
+  tertiaryWeap: Chain Orb
   maxHp: 40
   maxShield: 80
   hp: 0
@@ -200,9 +200,12 @@ MonoBehaviour:
   - {fileID: 8597321315343796439, guid: 54b13847ce7a38844b732e5bfe280992, type: 3}
   - {fileID: 5957229176549922166, guid: fb21c6f724888ce4fa214f708560ac96, type: 3}
   - {fileID: 6436069487473613827, guid: a2524304dec9b294498099a49b5eea0d, type: 3}
-  explosive: {fileID: 1300305888479880, guid: 288ed6b5d99c676428592a8bea975f14, type: 3}
+  explosive: {fileID: 455191990633966392, guid: 0100f2ca2934a844ea7b17ea8a4d5e66,
+    type: 3}
   fireRate: 0.06
   secondaryFireRate: 0.27
+  maxMissile: 50
+  currentMissileCount: 50
   dmgMod: 1
   explosionFx: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   speedFX: {fileID: 2686207012470100422}
