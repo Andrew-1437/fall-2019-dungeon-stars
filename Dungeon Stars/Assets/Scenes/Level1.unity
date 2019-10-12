@@ -155,10 +155,13 @@ MonoBehaviour:
   playerObject: {fileID: 1328236367363624, guid: b70064a0a7a1539458bd482b6b6803d1,
     type: 3}
   fx: {fileID: 1757046686617944, guid: 3289a0dc30ea3614687b08a565b49233, type: 3}
+  playerLives: 10
   gameStart: 0
   allowBoss: 1
+  lives: {fileID: 0}
   hp: {fileID: 951831340}
   shield: {fileID: 423459735}
+  missileCount: {fileID: 0}
   mainFlowchart: {fileID: 1270022528}
 --- !u!4 &1774853
 Transform:
@@ -6086,10 +6089,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1270022531}
     m_Modifications:
-    - target: {fileID: 100000, guid: b20518d45890e4be59ba82946f88026c, type: 3}
-      propertyPath: m_Name
-      value: Cmdr Laera Tatum
-      objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: b20518d45890e4be59ba82946f88026c, type: 3}
       propertyPath: portraits.Array.size
       value: 1
@@ -6115,6 +6114,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: aa94eb3d2aec4544e9c870ffae176a14,
         type: 3}
+    - target: {fileID: 100000, guid: b20518d45890e4be59ba82946f88026c, type: 3}
+      propertyPath: m_Name
+      value: Cmdr Laera Tatum
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b20518d45890e4be59ba82946f88026c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -14828,11 +14831,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1531415282}
     m_Modifications:
-    - target: {fileID: 8276755172130688712, guid: 2c84f9aa158646d4aa13c7fb093a3eb2,
-        type: 3}
-      propertyPath: m_Name
-      value: Stats Bar
-      objectReference: {fileID: 0}
     - target: {fileID: 8276755172117235264, guid: 2c84f9aa158646d4aa13c7fb093a3eb2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14937,6 +14935,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8276755172130688712, guid: 2c84f9aa158646d4aa13c7fb093a3eb2,
+        type: 3}
+      propertyPath: m_Name
+      value: Stats Bar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c84f9aa158646d4aa13c7fb093a3eb2, type: 3}
