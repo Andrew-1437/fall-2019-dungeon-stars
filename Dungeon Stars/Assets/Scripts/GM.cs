@@ -130,7 +130,7 @@ public class GM : MonoBehaviour {
         //GUI Updates
         if (player != null)
         {
-            health.text = "Health: " + Mathf.FloorToInt(playerController.hp);
+            health.text = "Health: " + Mathf.FloorToInt(playerController.hp) + "/" + Mathf.FloorToInt(playerController.maxHp);
             if (playerController.hp < .3f * playerController.maxHp)
             {
                 Color color = new Color(0.9f, 0f, 0f);
@@ -144,7 +144,7 @@ public class GM : MonoBehaviour {
 
             if (playerController.shield > 0.0f)
             {
-                shields.text = "Shields: " + Mathf.FloorToInt(playerController.shield);
+                shields.text = "Shields: " + Mathf.FloorToInt(playerController.shield) + "/" + Mathf.FloorToInt(playerController.maxShield);
                 shields.color = new Color(50.0f / 255.0f, 50.0f / 255.0f, 50.0f / 255.0f);
             }
             else
