@@ -64,7 +64,10 @@ public class GM : MonoBehaviour {
         }
 
         GameObject selection = GameObject.FindWithTag("Selections");
-        playerObject = selection.GetComponent<MaintainSelection>().selectedShip;
+        if (selection)
+        {
+            playerObject = selection.GetComponent<MaintainSelection>().selectedShip;
+        }
 
     }
 
