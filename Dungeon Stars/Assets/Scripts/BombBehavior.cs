@@ -14,18 +14,18 @@ public class BombBehavior : ProjectileBehavior
     public bool keyDown;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         base.Start();
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         base.FixedUpdate();
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         base.Update();
         if(keyUp && Input.GetButtonUp("Fire3") ||

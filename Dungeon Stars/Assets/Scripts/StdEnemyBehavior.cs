@@ -21,6 +21,9 @@ public class StdEnemyBehavior : MonoBehaviour {
 
     private bool awake;
 
+    private bool stunned = false;
+    private float stunTimer;
+
     private GameObject gm;
 
 
@@ -41,13 +44,23 @@ public class StdEnemyBehavior : MonoBehaviour {
     {
         if (gm.GetComponent<GM>().gameStart)
         {
-            if (awake)
+            if (!stunned)
             {
-                gameObject.GetComponent<Rigidbody2D>().velocity = (gameObject.GetComponent<Transform>().up * speed) + new Vector3(0.0f, -1.0f, 0.0f);
+                if (awake)
+                {
+                    gameObject.GetComponent<Rigidbody2D>().velocity = (gameObject.GetComponent<Transform>().up * speed) + new Vector3(0.0f, -1.0f, 0.0f);
+                }
+                else
+                {
+                    gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, -1.0f);
+                }
             }
             else
             {
-                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, -1.0f);
+                if(Time.time >= stunTimer)
+                {
+                    stunned = false;
+                }
             }
         }
     }
@@ -76,6 +89,12 @@ public class StdEnemyBehavior : MonoBehaviour {
         {
             awake = true;
         }
+    }
+
+    public void Stun(float stunTime)
+    {
+        stunned = true;
+        stunTimer = Time.time + stunTime;
     }
 
 
