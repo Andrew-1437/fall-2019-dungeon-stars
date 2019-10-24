@@ -176,7 +176,7 @@ MonoBehaviour:
   desc: You may ask why. I say why not.
   primaryWeap: Bolts
   secondaryWeap: Rapid-Bolts
-  tertiaryWeap: Missiles
+  tertiaryWeap: Nuke
   maxHp: 1000
   maxShield: 500
   hp: 0
@@ -193,9 +193,12 @@ MonoBehaviour:
   spawner: {fileID: 4120237883135858}
   secondary:
   - {fileID: 3423613018609564896, guid: d34b3c900b98d824189b35f54f597a60, type: 3}
-  explosive: {fileID: 1300305888479880, guid: 288ed6b5d99c676428592a8bea975f14, type: 3}
+  explosive: {fileID: 455191990633966392, guid: d7f2efdff57ca08419403c66fa742efb,
+    type: 3}
   fireRate: 0.1
   secondaryFireRate: 0.11
+  maxMissile: 10000
+  currentMissileCount: 10000
   dmgMod: 1
   explosionFx: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   speedFX: {fileID: 7694389818219640913}
@@ -592,7 +595,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1328236367363624}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ab19b97e860b91b4eaecad15be1828b7, type: 3}
@@ -5551,14 +5554,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4504378209215118}
     m_Modifications:
-    - target: {fileID: 100000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
-      propertyPath: m_Name
-      value: FireRateFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 7
@@ -5627,6 +5622,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
+      propertyPath: m_Name
+      value: FireRateFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
 --- !u!4 &803307970261515603 stripped
@@ -5648,10 +5651,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4504378209215118}
     m_Modifications:
-    - target: {fileID: 100000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
-      propertyPath: m_Name
-      value: SpeedBoostFX
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5695,6 +5694,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
+      propertyPath: m_Name
+      value: SpeedBoostFX
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
       propertyPath: InitialModule.startSize.scalar
