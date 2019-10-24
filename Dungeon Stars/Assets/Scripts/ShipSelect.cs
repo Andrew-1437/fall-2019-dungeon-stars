@@ -74,7 +74,9 @@ public class ShipSelect : MonoBehaviour
 
     public void SelectNextShip(int select = 1)
     {
-        index = (index + select) % ships.Length;
+        index = (index + select);
+        if (index < 0) index = ships.Length - 1;
+        index = index % ships.Length;
         if (currentShip) { Destroy(currentShip); }
 
         currentShip = Instantiate(ships[index], spawn) as GameObject;
