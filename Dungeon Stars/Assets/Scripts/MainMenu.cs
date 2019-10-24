@@ -5,12 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public SceneLoader sceneLoader;
     public string sceneToLoad; 
 
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(sceneToLoad);
+        //SceneManager.LoadScene(sceneToLoad);
+        sceneLoader.LoadScene(sceneToLoad);
+        gameObject.SetActive(false);
     }
 
     public void Play2Player()
@@ -20,7 +23,9 @@ public class MainMenu : MonoBehaviour
 
     public void Tutorial()
     {
-        SceneManager.LoadScene("Tutorial");
+        //SceneManager.LoadScene("Tutorial");
+        sceneLoader.LoadScene("Tutorial");
+        gameObject.SetActive(false);
     }
 
     public void QuitGame()

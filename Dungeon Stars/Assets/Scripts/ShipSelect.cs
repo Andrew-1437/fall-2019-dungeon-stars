@@ -13,10 +13,12 @@ public class ShipSelect : MonoBehaviour
 
     public Transform spawn;
 
+    public SceneLoader sceneLoader;
     public MaintainSelection selection;
     public string nextSceneName;
 
     [Header("UI Elements")]
+    public GameObject canvas;
     public TextMeshProUGUI shipName;
     public TextMeshProUGUI health;
     public TextMeshProUGUI shield;
@@ -64,7 +66,9 @@ public class ShipSelect : MonoBehaviour
         {
             selection.selectedShip = ships[index];
             SceneLoader.DontDestroyOnLoad(selection.gameObject);
-            SceneManager.LoadScene(nextSceneName);
+            //SceneManager.LoadScene(nextSceneName);
+            canvas.SetActive(false);
+            sceneLoader.LoadScene(nextSceneName);
         }
     }
 

@@ -15,7 +15,7 @@ public class EasterEgg : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         set = 0;
-        activeTime = initialTime;
+        activeTime = Time.time + initialTime;
     }
 
     // Update is called once per frame
