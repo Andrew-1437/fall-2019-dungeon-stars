@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GM : MonoBehaviour {
 
@@ -124,12 +125,18 @@ public class GM : MonoBehaviour {
             SpawnPlayer();
             //player = GameObject.FindWithTag("Player");
         }
-
+        //Quick exit to menu
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
         //Summons Boss
         if(Input.GetKeyDown("b") && allowBoss)
         {
             AwakenBoss();
         }
+
+
         //GUI Updates
         if (player != null)
         {
