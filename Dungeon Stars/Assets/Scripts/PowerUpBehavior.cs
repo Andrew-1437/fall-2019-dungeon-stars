@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class PowerUpBehavior : MonoBehaviour {
 
+    public enum PowerUps { None, LevelUp, Repair, SpeedUp, FireUp, Ammo };
+
+    public PowerUps type;
+
     public float speed;
     public float duration;
 
     private bool awake;
+
+    public GameObject marker;  // Used to identify in scene in edit mode
 
     private GameObject gm;
 
@@ -20,6 +26,8 @@ public class PowerUpBehavior : MonoBehaviour {
         {
             print("Ohshit! Game Controller not found by PowerUp!");
         }
+
+        marker.SetActive(false);
     }
 
     private void FixedUpdate()
