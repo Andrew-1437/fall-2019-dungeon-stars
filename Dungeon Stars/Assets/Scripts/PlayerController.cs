@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour {
 
     
     //PowerUp Mods
-    public float dmgMod;    //Value to modify damage taken, for things like armor (1 = full damage, 0 = no damage, >1 = Extra damage, <1 = Healing??)
+    public float dmgMod;    //Value to modify damage taken, for things like armor (1 = full damage, 0 = no damage, >1 = Extra damage, <0 = Healing??)
     private float fireRateMod;
     private float fireRateEnd;
 
@@ -67,7 +67,23 @@ public class PlayerController : MonoBehaviour {
 
     private float shieldBoostEnd;
 
-    
+    //Ship Components & Hardmode (WIP)
+    // TODO: Make this work
+    [Header("Hard Mode")]
+    public bool hardmode;
+
+    [System.Serializable]
+    public struct ShipComponents
+    {
+        public bool hull;
+        public bool engines;
+        public bool weapons;
+        public bool shieldpow;
+    }
+
+    //Rigidbody
+    private Rigidbody2D rb;
+
     //Camera Shake
     private GameObject camera;
 
@@ -129,8 +145,8 @@ public class PlayerController : MonoBehaviour {
         {
             move.Normalize();
         }
-        gameObject.GetComponent<Rigidbody2D>().velocity = move * speed * speedMod;
-        gameObject.GetComponent<Transform>().rotation = Quaternion.Euler(0.0f,horizontal * rotate, 0.0f);
+        rb.velocity = move * speed * speedMod;
+        transform.rotation = Quaternion.Euler(0.0f,horizontal * rotate, 0.0f);
 
     }
 
