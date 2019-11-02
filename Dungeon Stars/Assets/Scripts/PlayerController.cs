@@ -148,6 +148,22 @@ public class PlayerController : MonoBehaviour {
         rb.velocity = move * speed * speedMod;
         transform.rotation = Quaternion.Euler(0.0f,horizontal * rotate, 0.0f);
 
+        Vector2 position = transform.position;
+        if (position.x>26.97)
+        {
+            position.x = (float)26.97;
+        } else if(position.x<-26.97)
+        {
+            position.x = (float)-26.97;
+        }
+        if (position.y>12.6)
+        {
+            position.y = (float)12.6;
+        } else if (position.y<-12.6)
+        {
+            position.y = (float)-12.6; 
+        }
+        transform.position = position;
     }
 
     void Update()
