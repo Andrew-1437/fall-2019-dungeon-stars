@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour {
 
     
     //PowerUp Mods
-    public float dmgMod;    //Value to modify damage taken, for things like armor (1 = full damage, 0 = no damage, >1 = Extra damage, <1 = Healing??)
+    public float dmgMod;    //Value to modify damage taken, for things like armor (1 = full damage, 0 = no damage, >1 = Extra damage, <0 = Healing??)
     private float fireRateMod;
     private float fireRateEnd;
 
@@ -67,7 +67,23 @@ public class PlayerController : MonoBehaviour {
 
     private float shieldBoostEnd;
 
-    
+    //Ship Components & Hardmode (WIP)
+    // TODO: Make this work
+    [Header("Hard Mode")]
+    public bool hardmode;
+
+    [System.Serializable]
+    public struct ShipComponents
+    {
+        public bool hull;
+        public bool engines;
+        public bool weapons;
+        public bool shieldpow;
+    }
+
+    //Rigidbody
+    private Rigidbody2D rb;
+
     //Camera Shake
     private GameObject camera;
 
@@ -113,8 +129,8 @@ public class PlayerController : MonoBehaviour {
         {
             print("Ohshit! Game Controller not found by player!");
         }
-        
 
+        rb = GetComponent<Rigidbody2D>();
     }
 
     //Movement***********
@@ -129,8 +145,8 @@ public class PlayerController : MonoBehaviour {
         {
             move.Normalize();
         }
-        gameObject.GetComponent<Rigidbody2D>().velocity = move * speed * speedMod;
-        gameObject.GetComponent<Transform>().rotation = Quaternion.Euler(0.0f,horizontal * rotate, 0.0f);
+        rb.velocity = move * speed * speedMod;
+        transform.rotation = Quaternion.Euler(0.0f,horizontal * rotate, 0.0f);
 
         Vector2 position = transform.position;
         if (position.x>26.97)
@@ -373,49 +389,41 @@ public class PlayerController : MonoBehaviour {
         }
 
         //PowerUps
-        if(other.tag == "Repair")
+        if (other.tag == "PowerUp")
         {
-            hp = maxHp;
-            shield = maxShield;
-            shieldDown = false;
-            shieldOpacity = 4.0f;
-            ShieldFlash(shieldRef, shieldOpacity);
+            PowerUpBehavior pow = other.gameObject.GetComponent<PowerUpBehavior>();
+            if (pow.type == PowerUpBehavior.PowerUps.Repair)
+            {
+                hp = maxHp;
+                shield = maxShield;
+                shieldDown = false;
+                shieldOpacity = 4.0f;
+                ShieldFlash(shieldRef, shieldOpacity);
+                
+            }
+            if (pow.type == PowerUpBehavior.PowerUps.FireUp)
+            {
+                fireRateMod = 0.5f;
+                fireRateEnd = Time.time + other.GetComponent<PowerUpBehavior>().duration;
+                fireRateFX.Play();
+            }
+            if (pow.type == PowerUpBehavior.PowerUps.SpeedUp)
+            {
+                speedMod = 1.5f;
+                speedEnd = Time.time + other.GetComponent<PowerUpBehavior>().duration;
+                speedFX.Play();
+            }
+            if (pow.type == PowerUpBehavior.PowerUps.LevelUp)
+            {
+                levelUp();
+            }
+            if (pow.type == PowerUpBehavior.PowerUps.Ammo)
+            {
+                currentMissileCount = maxMissile;
+            }
             audio[3].Play();
             Destroy(other.gameObject);
         }
-        if(other.tag == "FireRateBoost")
-        {
-            fireRateMod = 0.5f;
-            audio[3].Play();
-            fireRateEnd = Time.time + other.GetComponent<PowerUpBehavior>().duration;
-            Destroy(other.gameObject);
-            fireRateFX.Play();
-        }
-        if(other.tag == "SpeedBoost")
-        {
-            speedMod = 1.5f;
-            audio[3].Play();
-            speedEnd = Time.time + other.GetComponent<PowerUpBehavior>().duration;
-            Destroy(other.gameObject);
-            speedFX.Play();
-        }
-        if (other.tag == "LevelUp")
-        {
-            levelUp();
-            audio[3].Play();
-            Destroy(other.gameObject);
-
-        }
-        /*
-        if (other.tag == "ShieldBoost")
-        {
-            shield = 200;
-            audio[3].Play();
-            shieldBoostEnd = Time.time + other.GetComponent<PowerUpBehavior>().duration;
-            Destroy(other.gameObject);
-            audio[1].Play();
-        }
-        */
         /*
         //Events
         if(other.tag == "Event")

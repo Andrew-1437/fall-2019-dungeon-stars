@@ -6,70 +6,49 @@ using UnityEngine.SceneManagement;
 
 public class GM : MonoBehaviour {
 
-    public Text health;
-    public Text shields;
-
+    [Header("References")]
     public GameObject playerObject;
     public GameObject fx;
     private GameObject player;
     public int playerLives;
     private PlayerController playerController;
-    private GameObject enemies;
-    private GameObject hud;
-    private GameObject boss;
-    private GameObject bossWarnUI;
+    public GameObject enemies;
+    public GameObject ui;
+    public GameObject boss;
+    public GameObject bossWarnUI;
+    private BossBehavior bossStats;
+    private float bossMaxHp;
 
     public bool gameStart;
 
     public bool allowBoss;
 
+    [Header("UI")]
+    public Text health;
+    public Text shields;
     public Text lives;
     public SimpleHealthBar hp;
     public SimpleHealthBar shield;
+    public SimpleHealthBar bossHp;
     public Text missileCount;
 
+    [Header("Flowchart")]
     public Fungus.Flowchart mainFlowchart;
 
 
 
     private void Start()
     {
-        /*
-        player = GameObject.FindWithTag("Player");
-        if(player == null)
-        {
-            print("Ohshit. Player not found!");
-        } */
-        enemies = GameObject.FindWithTag("AllEnemies");
-        if (enemies == null)
-        {
-            print("Ohshit. Enemies not found!");
-        }
-        hud = GameObject.FindWithTag("GUI");
-        if (hud == null)
-        {
-            print("Ohshit. GUI not found!");
-        }
-        if (allowBoss) //If Level has a boss
-        {
-            boss = GameObject.FindWithTag("Boss");
-            if (boss == null)
-            {
-                print("Ohshit. Boss not found!");
-            }
-            bossWarnUI = GameObject.FindWithTag("BossWarn");
-            if (bossWarnUI == null)
-            {
-                print("Ohshit. Boss Warning not found!");
-            }
-        }
-
         GameObject selection = GameObject.FindWithTag("Selections");
         if (selection)
         {
             playerObject = selection.GetComponent<MaintainSelection>().selectedShip;
         }
-
+        if (boss)
+        {
+            bossStats = boss.GetComponent<BossBehavior>();
+            bossMaxHp = bossStats.hp;
+        }
     }
 
     private void Update()
@@ -91,14 +70,14 @@ public class GM : MonoBehaviour {
         //Toggle GUI Elements
         if(Input.GetKeyDown("2"))
         {
-            hud.SetActive(!hud.activeSelf);
-            if (hud.activeSelf)
+            ui.SetActive(!ui.activeSelf);
+            if (ui.activeSelf)
             {
-                print("HUD enabled");
+                print("UI enabled");
             }
             else
             {
-                print("HUD disabled");
+                print("UI disabled");
             }
         }
         //Spawns another Player
@@ -168,6 +147,10 @@ public class GM : MonoBehaviour {
 
             hp.UpdateBar(playerController.hp, playerController.maxHp);
             shield.UpdateBar(playerController.shield, playerController.maxShield);
+            if (boss)
+            {
+                bossHp.UpdateBar(bossStats.hp, bossMaxHp);
+            }
         }
         else
         {
