@@ -129,8 +129,8 @@ public class PlayerController : MonoBehaviour {
         {
             print("Ohshit! Game Controller not found by player!");
         }
-        
 
+        rb = GetComponent<Rigidbody2D>();
     }
 
     //Movement***********
