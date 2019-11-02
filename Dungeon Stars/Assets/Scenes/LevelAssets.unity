@@ -304,6 +304,10 @@ PrefabInstance:
       propertyPath: ManualMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 171180, guid: 15dec7b07032b2f4aa6f855bfbe120f7, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 427242, guid: 15dec7b07032b2f4aa6f855bfbe120f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
@@ -311,6 +315,10 @@ PrefabInstance:
     - target: {fileID: 427242, guid: 15dec7b07032b2f4aa6f855bfbe120f7, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 163122, guid: 15dec7b07032b2f4aa6f855bfbe120f7, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15dec7b07032b2f4aa6f855bfbe120f7, type: 3}
@@ -1077,9 +1085,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6015b2ba4a823d440bb14097dabb88a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
-  collisionVal: 0
-  explosion: {fileID: 0}
+  hp: 30
+  collisionVal: 5
+  explosion: {fileID: 100010, guid: 74f150540a0de664bac84f89b4c8c69a, type: 3}
   awake: 0
   isATurret: 0
 --- !u!1001 &718503688
@@ -1889,7 +1897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 30
   collisionVal: 5
-  explosion: {fileID: 0}
+  explosion: {fileID: 100010, guid: 74f150540a0de664bac84f89b4c8c69a, type: 3}
   awake: 0
   isATurret: 0
 --- !u!1001 &1250799146
@@ -2671,7 +2679,8 @@ PrefabInstance:
       propertyPath: commandList.Array.size
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7973466359431362884, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
 --- !u!4 &677459758986888679 stripped
 Transform:
