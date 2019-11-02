@@ -150,14 +150,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34a1677b842162f4591c2fe020ef95f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 1715962977}
-  shields: {fileID: 26651956}
   playerObject: {fileID: 1328236367363624, guid: b70064a0a7a1539458bd482b6b6803d1,
     type: 3}
   fx: {fileID: 1757046686617944, guid: 3289a0dc30ea3614687b08a565b49233, type: 3}
   playerLives: 999
+  enemies: {fileID: 1902089301397593434}
+  ui: {fileID: 1902089301847521430}
+  boss: {fileID: 0}
+  bossWarnUI: {fileID: 0}
   gameStart: 0
   allowBoss: 0
+  health: {fileID: 1715962977}
+  shields: {fileID: 26651956}
   lives: {fileID: 1054170420791728917}
   hp: {fileID: 683854489}
   shield: {fileID: 2066155636}
