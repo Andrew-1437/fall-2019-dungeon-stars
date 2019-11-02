@@ -309,29 +309,9 @@ public class PlayerController : MonoBehaviour {
         //Damage from projectiles
         if(other.tag == "EnemyProjectile")
         {
-            float dmg = other.gameObject.GetComponent<ProjectileBehavior>().dmgValue * dmgMod;
-            shield -= dmg;  //All damage hits shield first
-            if(!shieldDown)
-            {
-                shieldOpacity = 1.0f;
-                ShieldFlash(shieldRef, shieldOpacity);
-                shieldRegenTime = Time.time + shieldRegenDelay;
-            }
-            if(shield < 0 && !shieldDown)
-            {
-                //Mark shield is down and set time when shield returns
-                shieldDown = true;
-                shieldUpTime = Time.time + shieldDelay;
-                hp += shield;   //Excess damage to shield carries over. If shield is already 0, this does full damage to hp
-                shield = 0;
-                shieldOpacity = 3.0f;
-                ShieldFlashRed(shieldRef, shieldOpacity);
-                gameObject.GetComponent<AudioSource>().Play();
-            }
-            else if(shield < 0) {
-                hp += shield;   //Excess damage to shield carries over. If shield is already 0, this does full damage to hp
-                shield = 0;
-            }
+            float dmg = other.gameObject.GetComponent<ProjectileBehavior>().dmgValue;
+
+            damage(dmg);
 
             camera.GetComponent<CameraShaker>().SmallShake();
             if (!other.gameObject.GetComponent<ProjectileBehavior>().perist)
@@ -351,7 +331,7 @@ public class PlayerController : MonoBehaviour {
         {
             //Total collision dmg = collision value of other * (player speed + other speed)
             float collisionDmg = other.gameObject.GetComponent<ObstacleBehavior>().collisionVal 
-                * (gameObject.GetComponent<Rigidbody2D>().velocity.magnitude 
+                * (rb.velocity.magnitude 
                 + other.GetComponent<Rigidbody2D>().velocity.magnitude);
             hp -= collisionDmg;
             other.gameObject.GetComponent<ObstacleBehavior>().hp -= collisionDmg;
@@ -511,6 +491,35 @@ public class PlayerController : MonoBehaviour {
             hp += maxHp * 0.05f;
             maxShield = maxShield * 1.05f;
             shield += maxShield * 0.05f;
+        }
+    }
+
+    public void damage(float baseDmg)
+    {
+        float dmg = baseDmg * dmgMod;
+
+        shield -= dmg;  //All damage hits shield first
+        if (!shieldDown)
+        {
+            shieldOpacity = 1.0f;
+            ShieldFlash(shieldRef, shieldOpacity);
+            shieldRegenTime = Time.time + shieldRegenDelay;
+        }
+        if (shield < 0 && !shieldDown)
+        {
+            //Mark shield is down and set time when shield returns
+            shieldDown = true;
+            shieldUpTime = Time.time + shieldDelay;
+            hp += shield;   //Excess damage to shield carries over. If shield is already 0, this does full damage to hp
+            shield = 0;
+            shieldOpacity = 3.0f;
+            ShieldFlashRed(shieldRef, shieldOpacity);
+            gameObject.GetComponent<AudioSource>().Play();
+        }
+        else if (shield < 0)
+        {
+            hp += shield;   //Excess damage to shield carries over. If shield is already 0, this does full damage to hp
+            shield = 0;
         }
     }
 
