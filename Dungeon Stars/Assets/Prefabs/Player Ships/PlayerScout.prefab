@@ -199,12 +199,14 @@ MonoBehaviour:
   - {fileID: 8597321315343796439, guid: 54b13847ce7a38844b732e5bfe280992, type: 3}
   - {fileID: 5957229176549922166, guid: fb21c6f724888ce4fa214f708560ac96, type: 3}
   - {fileID: 6436069487473613827, guid: a2524304dec9b294498099a49b5eea0d, type: 3}
-  explosive: {fileID: 1300305888479880, guid: f9431b23c6c9d27448233eea14de1801, type: 3}
+  explosive: {fileID: 6450759887378058983, guid: f23e8fde65d91814286b048f63890ec8,
+    type: 3}
   fireRate: 0.1
   secondaryFireRate: 0.27
   maxMissile: 120
   currentMissileCount: 120
   dmgMod: 1
+  hardmode: 0
   explosionFx: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   speedFX: {fileID: 2686207012470100422}
   fireRateFX: {fileID: 2374638732097293114}
@@ -5463,6 +5465,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4504378209215118}
     m_Modifications:
+    - target: {fileID: 100000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
+      propertyPath: m_Name
+      value: FireRateFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 6
@@ -5531,14 +5541,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
-      propertyPath: m_Name
-      value: FireRateFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
 --- !u!4 &2374638732115644026 stripped
@@ -5560,6 +5562,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4504378209215118}
     m_Modifications:
+    - target: {fileID: 100000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
+      propertyPath: m_Name
+      value: SpeedBoostFX
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5631,10 +5637,6 @@ PrefabInstance:
     - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
       propertyPath: playOnAwake
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
-      propertyPath: m_Name
-      value: SpeedBoostFX
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
