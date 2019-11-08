@@ -331,9 +331,8 @@ public class PlayerController : MonoBehaviour {
         {
             //Total collision dmg = collision value of other * (player speed + other speed)
             float collisionDmg = other.gameObject.GetComponent<ObstacleBehavior>().collisionVal 
-                * (rb.velocity.magnitude 
-                + other.GetComponent<Rigidbody2D>().velocity.magnitude);
-            hp -= collisionDmg;
+                * (rb.velocity.magnitude + other.GetComponent<Rigidbody2D>().velocity.magnitude);
+            damage(collisionDmg);
             other.gameObject.GetComponent<ObstacleBehavior>().hp -= collisionDmg;
             audio[2].Play();
             camera.GetComponent<CameraShaker>().LargeShake();
@@ -384,13 +383,13 @@ public class PlayerController : MonoBehaviour {
             if (pow.type == PowerUpBehavior.PowerUps.FireUp)
             {
                 fireRateMod = 0.5f;
-                fireRateEnd = Time.time + other.GetComponent<PowerUpBehavior>().duration;
+                fireRateEnd = Time.time + pow.duration;
                 fireRateFX.Play();
             }
             if (pow.type == PowerUpBehavior.PowerUps.SpeedUp)
             {
                 speedMod = 1.5f;
-                speedEnd = Time.time + other.GetComponent<PowerUpBehavior>().duration;
+                speedEnd = Time.time + pow.duration;
                 speedFX.Play();
             }
             if (pow.type == PowerUpBehavior.PowerUps.LevelUp)
