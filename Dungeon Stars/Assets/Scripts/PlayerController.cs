@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour {
     public float shieldRecharge;    //Represents rate at which shield recharges/frame
     public float shieldRegenDelay; //Represents time in seconds since last damage before shield will regen IF SHIELD IS ACTIVE
     public float shieldDelay;   //Represents time in seconds the shield will take to reboot after being disabled
-    private bool shieldDown;    //True if shields are disabled -"Shields offline!"
+    [HideInInspector]
+    public bool shieldDown;    //True if shields are disabled -"Shields offline!"
     private float shieldRegenTime;  //Time relative to game time when shield will regen IF SHIELD IS ACTIVE
     private float shieldUpTime; //Time relative to game time when shield will reactivate
     private float shieldOpacity;
@@ -60,6 +61,7 @@ public class PlayerController : MonoBehaviour {
     //PowerUp Mods
     public float dmgMod;    //Value to modify damage taken, for things like armor (1 = full damage, 0 = no damage, >1 = Extra damage, <0 = Healing??)
     private float fireRateMod;
+    private float heatGenMod;  // Fire rate boost also reduces heat generated if using heat
     private float fireRateEnd;
 
     private float speedMod;
@@ -67,11 +69,36 @@ public class PlayerController : MonoBehaviour {
 
     private float shieldBoostEnd;
 
+    // Heat Management
+    [HideInInspector]
+    public bool enableHeat;
+    [HideInInspector]
+    public float heat;
+    private float heatMod = 1f;
+    [HideInInspector]
+    public bool overheating = false;
+    [HideInInspector]
+    public float heatDisperse;
+    [HideInInspector]
+    public bool primaryUsesHeat;
+    [HideInInspector]
+    public float primHeatGen; 
+    [HideInInspector]
+    public bool secondaryUsesHeat;
+    [HideInInspector]
+    public float secHeatGen;
+    [HideInInspector]
+    public AudioSource heatWarnAudio;
+    //public ParticleSystem heatFX;
+
+
     //Ship Components & Hardmode (WIP)
     // TODO: Make this work
-    [Header("Hard Mode")]
-    public bool hardmode;
+    //[Header("Hard Mode")]
+    //public bool hardmode;
 
+    /*
+    // Placeholder for eventual ship components
     [System.Serializable]
     public struct ShipComponents
     {
@@ -79,7 +106,7 @@ public class PlayerController : MonoBehaviour {
         public bool engines;
         public bool weapons;
         public bool shieldpow;
-    }
+    } */
 
     //Rigidbody
     private Rigidbody2D rb;
@@ -173,15 +200,25 @@ public class PlayerController : MonoBehaviour {
         //Primary Fire
         if(Input.GetButton("Fire1") && Time.time > nextFire)
         {
-            nextFire = Time.time + fireRate * fireRateMod;
+            nextFire = Time.time + fireRate * fireRateMod * heatMod;
             Instantiate(primary[level], spawner.position, spawner.rotation);
+
+            if(enableHeat && primaryUsesHeat)
+            {
+                heat += primHeatGen * heatGenMod;
+            }
         }
 
         //Secondary Fire
         if(Input.GetButton("Fire2") && Time.time > nextSecondary)
         {
-            nextSecondary = Time.time + secondaryFireRate * fireRateMod;
+            nextSecondary = Time.time + secondaryFireRate * fireRateMod * heatMod;
             Instantiate(secondary[level], spawner.position, spawner.rotation);
+
+            if (enableHeat && secondaryUsesHeat)
+            {
+                heat += secHeatGen * heatGenMod;
+            }
         }
 
         if(Input.GetButtonDown("Fire3"))
@@ -192,6 +229,34 @@ public class PlayerController : MonoBehaviour {
                 currentMissileCount--;
             }
             
+        }
+
+        if(enableHeat)
+        {
+            heat -= heatDisperse * (1f/heatGenMod);
+            heat = Mathf.Clamp(heat, 0f, 100f);
+
+            if(heat >= 80f)
+            {
+                //print("OVERHEAT");
+                hullDamage(maxHp * .001f);
+
+                if (!overheating)
+                {
+                    heatMod = 1.4f;
+                    overheating = true;
+                    heatWarnAudio.Play();
+                }
+            }
+            else
+            {
+                if (overheating)
+                {
+                    heatMod = 1f;
+                    overheating = false;
+                    heatWarnAudio.Stop();
+                }
+            }
         }
 
 
@@ -286,15 +351,16 @@ public class PlayerController : MonoBehaviour {
         if(Time.time > fireRateEnd)
         {
             fireRateMod = 1.0f;
+            heatGenMod = 1.0f;
             fireRateFX.Stop();
         }
 
         //FX
-        if(hp <= maxHp * .3f && !smokeFX.isPlaying)
+        if ((hp <= maxHp * .3f || overheating) && !smokeFX.isPlaying)
         {
             smokeFX.Play();
         }
-        if (hp > maxHp * .3f && smokeFX.isPlaying)
+        if ((hp > maxHp * .3f || !overheating) && smokeFX.isPlaying)
         {
             smokeFX.Stop();
         }
@@ -331,9 +397,8 @@ public class PlayerController : MonoBehaviour {
         {
             //Total collision dmg = collision value of other * (player speed + other speed)
             float collisionDmg = other.gameObject.GetComponent<ObstacleBehavior>().collisionVal 
-                * (rb.velocity.magnitude 
-                + other.GetComponent<Rigidbody2D>().velocity.magnitude);
-            hp -= collisionDmg;
+                * (rb.velocity.magnitude + other.GetComponent<Rigidbody2D>().velocity.magnitude);
+            damage(collisionDmg);
             other.gameObject.GetComponent<ObstacleBehavior>().hp -= collisionDmg;
             audio[2].Play();
             camera.GetComponent<CameraShaker>().LargeShake();
@@ -384,13 +449,14 @@ public class PlayerController : MonoBehaviour {
             if (pow.type == PowerUpBehavior.PowerUps.FireUp)
             {
                 fireRateMod = 0.5f;
-                fireRateEnd = Time.time + other.GetComponent<PowerUpBehavior>().duration;
+                heatGenMod = 0.2f;
+                fireRateEnd = Time.time + pow.duration;
                 fireRateFX.Play();
             }
             if (pow.type == PowerUpBehavior.PowerUps.SpeedUp)
             {
                 speedMod = 1.5f;
-                speedEnd = Time.time + other.GetComponent<PowerUpBehavior>().duration;
+                speedEnd = Time.time + pow.duration;
                 speedFX.Play();
             }
             if (pow.type == PowerUpBehavior.PowerUps.LevelUp)
@@ -494,6 +560,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    // Take damage normally. First absorbed by shield, then hull
     public void damage(float baseDmg)
     {
         float dmg = baseDmg * dmgMod;
@@ -505,7 +572,7 @@ public class PlayerController : MonoBehaviour {
             ShieldFlash(shieldRef, shieldOpacity);
             shieldRegenTime = Time.time + shieldRegenDelay;
         }
-        if (shield < 0 && !shieldDown)
+        if (shield <= 0 && !shieldDown)
         {
             //Mark shield is down and set time when shield returns
             shieldDown = true;
@@ -516,11 +583,19 @@ public class PlayerController : MonoBehaviour {
             ShieldFlashRed(shieldRef, shieldOpacity);
             gameObject.GetComponent<AudioSource>().Play();
         }
-        else if (shield < 0)
+        else if (shield <= 0)
         {
             hp += shield;   //Excess damage to shield carries over. If shield is already 0, this does full damage to hp
             shield = 0;
         }
+    }
+
+    // Damage IGNORES shields. Directly to hull
+    public void hullDamage(float baseDmg)
+    {
+        float dmg = baseDmg * dmgMod;
+
+        hp -= dmg;
     }
 
     

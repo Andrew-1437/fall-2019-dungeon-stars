@@ -60,7 +60,8 @@ public class BossBehavior : LargeEnemyBehavior {
         if (other.tag == "Projectile")
         {
             hp -= other.gameObject.GetComponent<ProjectileBehavior>().dmgValue * dmgMod;
-            Destroy(other.gameObject);
+            if(!other.gameObject.GetComponent<ProjectileBehavior>().perist)
+                other.gameObject.GetComponent<ProjectileBehavior>().DestroyProjectile();
         }
     }
 

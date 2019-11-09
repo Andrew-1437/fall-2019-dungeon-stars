@@ -28,7 +28,7 @@ public class ProjectileBehavior : MonoBehaviour {
         }
     }
 
-    public void DestroyProjectile()
+    public virtual void DestroyProjectile()
     {
         if (particleFX)
         {
