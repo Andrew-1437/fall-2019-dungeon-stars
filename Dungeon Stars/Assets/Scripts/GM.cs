@@ -31,6 +31,8 @@ public class GM : MonoBehaviour {
     public SimpleHealthBar shield;
     public SimpleHealthBar bossHp;
     public Text missileCount;
+    public GameObject heatBar;
+    public SimpleHealthBar heat;
 
     [Header("Flowchart")]
     public Fungus.Flowchart mainFlowchart;
@@ -147,15 +149,20 @@ public class GM : MonoBehaviour {
 
             hp.UpdateBar(playerController.hp, playerController.maxHp);
             shield.UpdateBar(playerController.shield, playerController.maxShield);
-            if (boss)
+            heatBar.SetActive(playerController.enableHeat);
+            if(playerController.enableHeat)
             {
-                bossHp.UpdateBar(bossStats.hp, bossMaxHp);
+                heat.UpdateBar(playerController.heat, 100f);
             }
         }
         else
         {
             health.text = "Health: =NULL=";
             shields.text = "Shields: =NULL=";
+        }
+        if (boss)
+        {
+            bossHp.UpdateBar(bossStats.hp, bossMaxHp);
         }
     }
 
