@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ShockBeam : ProjectileBehavior
@@ -25,8 +26,8 @@ public class ShockBeam : ProjectileBehavior
 
         //arcRange = Vector3.Distance(transform.position, endpoint.position);
         //print(arcRange);
-
-        target = FindClosestByTag("Obstacle");
+        string[] tags = { "Obstacle", "Boss" };
+        target = FindClosestByTags(tags);
     }
 
     // Update is called once per frame
@@ -48,17 +49,31 @@ public class ShockBeam : ProjectileBehavior
         }
     }
 
-    GameObject FindClosestByTag(string tag)
+    GameObject FindClosestByTags(string[] tags)
     {
-        GameObject[] gos;
-        gos = GameObject.FindGameObjectsWithTag(tag);
+        GameObject[] gos = { };
+        foreach (string tag in tags)
+        {
+            GameObject[] g = GameObject.FindGameObjectsWithTag(tag);
+            gos = gos.Concat(g).ToArray();
+        }
         GameObject closest = null;
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;
         //print(gos.Length);
         foreach (GameObject go in gos)
         {
-            if (tag == "Player")
+            if (tag == "Player" || go.tag == "Boss" || go.GetComponent<ObstacleBehavior>().awake)
+            {
+                Vector3 diff = go.transform.position - position;
+                float curDistance = diff.sqrMagnitude;
+                if (curDistance < distance && curDistance < arcRange)
+                {
+                    closest = go;
+                    distance = curDistance;
+                }
+            } /*
+            else if(tag == "Boss")
             {
                 Vector3 diff = go.transform.position - position;
                 float curDistance = diff.sqrMagnitude;
@@ -80,7 +95,7 @@ public class ShockBeam : ProjectileBehavior
                         distance = curDistance;
                     }
                 }
-            }
+            } */
         }
         return closest;
     }
