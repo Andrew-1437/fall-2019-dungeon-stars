@@ -153,6 +153,12 @@ public class GM : MonoBehaviour {
             if(playerController.enableHeat)
             {
                 heat.UpdateBar(playerController.heat, 100f);
+                Color heatColor = new Color(1f, 230f / 255f, 0f);
+                if(playerController.overheating)
+                {
+                    heatColor = new Color(1f, 30f / 255f, 0f);
+                }
+                heat.UpdateColor(heatColor);
             }
         }
         else

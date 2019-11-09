@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour {
     public float shieldRecharge;    //Represents rate at which shield recharges/frame
     public float shieldRegenDelay; //Represents time in seconds since last damage before shield will regen IF SHIELD IS ACTIVE
     public float shieldDelay;   //Represents time in seconds the shield will take to reboot after being disabled
-    private bool shieldDown;    //True if shields are disabled -"Shields offline!"
+    [HideInInspector]
+    public bool shieldDown;    //True if shields are disabled -"Shields offline!"
     private float shieldRegenTime;  //Time relative to game time when shield will regen IF SHIELD IS ACTIVE
     private float shieldUpTime; //Time relative to game time when shield will reactivate
     private float shieldOpacity;
@@ -60,6 +61,7 @@ public class PlayerController : MonoBehaviour {
     //PowerUp Mods
     public float dmgMod;    //Value to modify damage taken, for things like armor (1 = full damage, 0 = no damage, >1 = Extra damage, <0 = Healing??)
     private float fireRateMod;
+    private float heatGenMod;  // Fire rate boost also reduces heat generated if using heat
     private float fireRateEnd;
 
     private float speedMod;
@@ -73,7 +75,8 @@ public class PlayerController : MonoBehaviour {
     [HideInInspector]
     public float heat;
     private float heatMod = 1f;
-    private bool overheating = false;
+    [HideInInspector]
+    public bool overheating = false;
     [HideInInspector]
     public float heatDisperse;
     [HideInInspector]
@@ -202,7 +205,7 @@ public class PlayerController : MonoBehaviour {
 
             if(enableHeat && primaryUsesHeat)
             {
-                heat += primHeatGen;
+                heat += primHeatGen * heatGenMod;
             }
         }
 
@@ -214,7 +217,7 @@ public class PlayerController : MonoBehaviour {
 
             if (enableHeat && secondaryUsesHeat)
             {
-                heat += secHeatGen;
+                heat += secHeatGen * heatGenMod;
             }
         }
 
@@ -230,13 +233,13 @@ public class PlayerController : MonoBehaviour {
 
         if(enableHeat)
         {
-            heat -= heatDisperse;
+            heat -= heatDisperse * (1f/heatGenMod);
             heat = Mathf.Clamp(heat, 0f, 100f);
 
             if(heat >= 80f)
             {
                 //print("OVERHEAT");
-                hullDamage(.01f);
+                hullDamage(maxHp * .001f);
 
                 if (!overheating)
                 {
@@ -348,6 +351,7 @@ public class PlayerController : MonoBehaviour {
         if(Time.time > fireRateEnd)
         {
             fireRateMod = 1.0f;
+            heatGenMod = 1.0f;
             fireRateFX.Stop();
         }
 
@@ -445,6 +449,7 @@ public class PlayerController : MonoBehaviour {
             if (pow.type == PowerUpBehavior.PowerUps.FireUp)
             {
                 fireRateMod = 0.5f;
+                heatGenMod = 0.2f;
                 fireRateEnd = Time.time + pow.duration;
                 fireRateFX.Play();
             }

@@ -41,10 +41,10 @@ public class PCInspectorEditor : Editor
             heatDisperse.floatValue = EditorGUILayout.FloatField("Heat Dispersion / Tick", heatDisperse.floatValue);
             primaryUsesHeat.boolValue = EditorGUILayout.Toggle("Primary Uses Heat", primaryUsesHeat.boolValue);
             if (primaryUsesHeat.boolValue)
-                primHeatGen.floatValue = EditorGUILayout.FloatField("Heat Gen / Tick", primHeatGen.floatValue);
+                primHeatGen.floatValue = EditorGUILayout.FloatField("Heat Gen / Shot", primHeatGen.floatValue);
             secondaryUsesHeat.boolValue = EditorGUILayout.Toggle("Secondary Uses Heat", secondaryUsesHeat.boolValue);
             if (secondaryUsesHeat.boolValue)
-                secHeatGen.floatValue = EditorGUILayout.FloatField("Heat Gen / Tick", secHeatGen.floatValue);
+                secHeatGen.floatValue = EditorGUILayout.FloatField("Heat Gen / Shot", secHeatGen.floatValue);
             heatWarnAudio.objectReferenceValue = (AudioSource)EditorGUILayout.ObjectField("Heat Warning Audio", heatWarnAudio.objectReferenceValue, typeof(AudioSource));
         }
 
