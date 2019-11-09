@@ -144,7 +144,7 @@ public class GM : MonoBehaviour {
                 shields.color = new Color(0.9f, 0.0f, 0.0f);
             }
 
-            missileCount.text = "Missiles: " + playerController.currentMissileCount + "/" + playerController.maxMissile;
+            missileCount.text = "Tertiary Ammo: " + playerController.currentMissileCount + "/" + playerController.maxMissile;
             lives.text = "Lives: " + playerLives;
 
             hp.UpdateBar(playerController.hp, playerController.maxHp);
@@ -163,8 +163,8 @@ public class GM : MonoBehaviour {
         }
         else
         {
-            health.text = "Health: =NULL=";
-            shields.text = "Shields: =NULL=";
+            health.text = "Health: ";
+            shields.text = "Shields: ";
         }
         if (boss)
         {
