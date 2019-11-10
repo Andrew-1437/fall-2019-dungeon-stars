@@ -71,6 +71,7 @@ MonoBehaviour:
   hp: 10
   collisionVal: 1
   explosion: {fileID: 100010, guid: 74f150540a0de664bac84f89b4c8c69a, type: 3}
+  score: 100
   awake: 0
   isATurret: 0
 --- !u!114 &114979533683665214
@@ -116,6 +117,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

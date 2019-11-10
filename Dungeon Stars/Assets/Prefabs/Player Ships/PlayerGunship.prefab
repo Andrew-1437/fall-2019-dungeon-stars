@@ -184,6 +184,7 @@ MonoBehaviour:
   shieldRecharge: 0.03
   shieldRegenDelay: 3.5
   shieldDelay: 7.5
+  shieldDown: 0
   level: 0
   speed: 10.5
   rotate: 20
@@ -207,6 +208,18 @@ MonoBehaviour:
   maxMissile: 40
   currentMissileCount: 40
   dmgMod: 0.9
+  enableHeat: 0
+  heat: 0
+  overheating: 0
+  heatDisperse: 0
+  primaryUsesHeat: 0
+  primHeatGen: 0
+  secondaryUsesHeat: 0
+  secHeatGen: 0
+  heatWarnAudio: {fileID: 0}
+  dieCost: 2000
+  weapon1Cost: 1
+  weapon2Cost: 1
   explosionFx: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   speedFX: {fileID: 4856222607397157694}
   fireRateFX: {fileID: 371119980702395932}

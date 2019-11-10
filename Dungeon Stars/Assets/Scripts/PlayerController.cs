@@ -91,6 +91,12 @@ public class PlayerController : MonoBehaviour {
     public AudioSource heatWarnAudio;
     //public ParticleSystem heatFX;
 
+    //score
+    public int dieCost;
+    public int weapon1Cost;
+    public int weapon2Cost;
+
+
 
     //Ship Components & Hardmode (WIP)
     // TODO: Make this work
@@ -202,7 +208,11 @@ public class PlayerController : MonoBehaviour {
         {
             nextFire = Time.time + fireRate * fireRateMod * heatMod;
             Instantiate(primary[level], spawner.position, spawner.rotation);
-
+            gm.GetComponent<GM>().score -= weapon1Cost;
+            if (gm.GetComponent<GM>().score<0)
+            {
+                gm.GetComponent<GM>().score = 0;
+            }
             if(enableHeat && primaryUsesHeat)
             {
                 heat += primHeatGen * heatGenMod;
@@ -214,7 +224,11 @@ public class PlayerController : MonoBehaviour {
         {
             nextSecondary = Time.time + secondaryFireRate * fireRateMod * heatMod;
             Instantiate(secondary[level], spawner.position, spawner.rotation);
-
+            gm.GetComponent<GM>().score -= weapon2Cost;
+            if (gm.GetComponent<GM>().score < 0)
+            {
+                gm.GetComponent<GM>().score = 0;
+            }
             if (enableHeat && secondaryUsesHeat)
             {
                 heat += secHeatGen * heatGenMod;
@@ -532,6 +546,11 @@ public class PlayerController : MonoBehaviour {
         Destroy(gameObject);
         Instantiate(explosionFx, gameObject.GetComponent<Transform>().position, gameObject.GetComponent<Transform>().rotation);
         gm.GetComponent<GM>().DeathText();
+        gm.GetComponent<GM>().score -= dieCost;
+        if (gm.GetComponent<GM>().score < 0)
+        {
+            gm.GetComponent<GM>().score = 0;
+        }
     }
 
     private void ShieldFlash(GameObject shieldRef, float opacity)

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObstacleBehavior : MonoBehaviour {
-
+    //GM
+    private GM gm;
+    
     //Hp********************
     public float hp;    //Hp of the enemy
     public float collisionVal;  //Base damage done on a collision with the player
@@ -13,6 +15,9 @@ public class ObstacleBehavior : MonoBehaviour {
 
     //Visual FX
     public GameObject explosion;
+
+    //Score
+    public int score;
 
     public bool awake;
     public bool isATurret;
@@ -25,6 +30,8 @@ public class ObstacleBehavior : MonoBehaviour {
         {
             print("Ohshit! Obstacle cannot find camera!");
         }
+        GameObject gmobject = GameObject.FindWithTag("GameController");
+        gm = gmobject.GetComponent<GM>();
     }
 
     private void Update()
@@ -61,6 +68,7 @@ public class ObstacleBehavior : MonoBehaviour {
         Destroy(gameObject);
         Instantiate(explosion, gameObject.GetComponent<Transform>().position, gameObject.GetComponent<Transform>().rotation);
         camera.GetComponent<CameraShaker>().CustomShake(collisionVal / 12.0f);
+        gm.score+=score;
         if (isATurret)
         {
             GetComponentInParent<LargeEnemyBehavior>().turrets--;
