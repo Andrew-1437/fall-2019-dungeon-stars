@@ -65,6 +65,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -126,6 +127,7 @@ MonoBehaviour:
   hp: 20
   collisionVal: 1
   explosion: {fileID: 100010, guid: 74f150540a0de664bac84f89b4c8c69a, type: 3}
+  score: 0
   awake: 0
   isATurret: 1
 --- !u!114 &3803303394382805199
@@ -227,6 +229,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -288,6 +291,7 @@ MonoBehaviour:
   hp: 20
   collisionVal: 1
   explosion: {fileID: 100010, guid: 74f150540a0de664bac84f89b4c8c69a, type: 3}
+  score: 0
   awake: 0
   isATurret: 1
 --- !u!114 &1409797128148145485
@@ -413,6 +417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turrets: 2
   explosion: {fileID: 100010, guid: 30c4c673696f6254ebe0e3a26d31092f, type: 3}
+  score: 150
 --- !u!70 &8005554461654911713
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -494,6 +499,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
