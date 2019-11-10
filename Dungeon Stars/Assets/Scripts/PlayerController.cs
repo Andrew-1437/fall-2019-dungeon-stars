@@ -528,9 +528,9 @@ public class PlayerController : MonoBehaviour {
     //Kills player "Ripperoni"
     public void Die()
     {
-        camera.GetComponent<CameraShaker>().HugeShake();
         Destroy(gameObject);
         Instantiate(explosionFx, gameObject.GetComponent<Transform>().position, gameObject.GetComponent<Transform>().rotation);
+        camera.GetComponent<CameraShaker>().HugeShake();
         gm.GetComponent<GM>().DeathText();
     }
 
