@@ -70,6 +70,7 @@ public class ShipSelect : MonoBehaviour
             canvas.SetActive(false);
             sceneLoader.LoadScene(nextSceneName);
         }
+
     }
 
     public void SelectNextShip(int select = 1)
