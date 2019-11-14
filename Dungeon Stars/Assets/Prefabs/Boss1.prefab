@@ -192,6 +192,7 @@ MonoBehaviour:
   hp: 30
   collisionVal: 1
   explosion: {fileID: 100010, guid: 74f150540a0de664bac84f89b4c8c69a, type: 3}
+  score: 0
   awake: 0
   isATurret: 1
 --- !u!114 &114449106344033244
@@ -336,6 +337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turrets: 0
   explosion: {fileID: 100010, guid: 30c4c673696f6254ebe0e3a26d31092f, type: 3}
+  score: 10000
   hp: 1000
   dmgMod: 1
   miniExplosion: {fileID: 100010, guid: 645413a00f7bd0242bbd6d0e5eb6f439, type: 3}
@@ -533,6 +535,7 @@ MonoBehaviour:
   hp: 30
   collisionVal: 1
   explosion: {fileID: 100010, guid: 74f150540a0de664bac84f89b4c8c69a, type: 3}
+  score: 0
   awake: 0
   isATurret: 1
 --- !u!114 &114600695613876182

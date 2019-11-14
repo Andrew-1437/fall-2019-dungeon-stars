@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LargeEnemyBehavior : MonoBehaviour {
+    //GM
+    private GM gm;
 
     public short turrets;
     public GameObject explosion;
 
     //Camera Shake
     protected GameObject gameCamera;
+
+    //Score
+    public int score;
 
     protected void Start()
     {
@@ -17,6 +22,8 @@ public class LargeEnemyBehavior : MonoBehaviour {
         {
             print("Ohshit! Obstacle cannot find camera!");
         }
+        GameObject gmobject = GameObject.FindWithTag("GameController");
+        gm = gmobject.GetComponent<GM>();
     }
 
     private void Update()
@@ -33,5 +40,6 @@ public class LargeEnemyBehavior : MonoBehaviour {
         Destroy(gameObject);
         Instantiate(explosion, gameObject.GetComponent<Transform>().position, gameObject.GetComponent<Transform>().rotation);
         gameCamera.GetComponent<CameraShaker>().LargeShake(0.2f);
+        gm.score += score;
     }
 }

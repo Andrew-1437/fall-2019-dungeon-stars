@@ -183,6 +183,7 @@ MonoBehaviour:
   shieldRecharge: 0.05
   shieldRegenDelay: 3
   shieldDelay: 5
+  shieldDown: 0
   level: 0
   speed: 13
   rotate: 20
@@ -205,7 +206,18 @@ MonoBehaviour:
   maxMissile: 60
   currentMissileCount: 60
   dmgMod: 1
-  hardmode: 0
+  enableHeat: 0
+  heat: 0
+  overheating: 0
+  heatDisperse: 0
+  primaryUsesHeat: 0
+  primHeatGen: 0
+  secondaryUsesHeat: 0
+  secHeatGen: 0
+  heatWarnAudio: {fileID: 0}
+  dieCost: 2000
+  weapon1Cost: 1
+  weapon2Cost: 1
   explosionFx: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   speedFX: {fileID: 6882835510082918313}
   fireRateFX: {fileID: 313201674347606980}
@@ -5464,14 +5476,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4504378209215118}
     m_Modifications:
-    - target: {fileID: 100000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
-      propertyPath: m_Name
-      value: FireRateFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 7
@@ -5540,6 +5544,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
+      propertyPath: m_Name
+      value: FireRateFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
 --- !u!4 &313201674365957764 stripped
@@ -5561,10 +5573,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4504378209215118}
     m_Modifications:
-    - target: {fileID: 100000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
-      propertyPath: m_Name
-      value: SpeedBoostFX
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5636,6 +5644,10 @@ PrefabInstance:
     - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
+      propertyPath: m_Name
+      value: SpeedBoostFX
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}

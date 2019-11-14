@@ -18,6 +18,7 @@ public class GM : MonoBehaviour {
     public GameObject bossWarnUI;
     private BossBehavior bossStats;
     private float bossMaxHp;
+    public int score;
 
     public bool gameStart;
 
@@ -33,6 +34,7 @@ public class GM : MonoBehaviour {
     public Text missileCount;
     public GameObject heatBar;
     public SimpleHealthBar heat;
+    public Text scores;
 
     [Header("Flowchart")]
     public Fungus.Flowchart mainFlowchart;
@@ -144,8 +146,9 @@ public class GM : MonoBehaviour {
                 shields.color = new Color(0.9f, 0.0f, 0.0f);
             }
 
-            missileCount.text = "Tertiary Ammo: " + playerController.currentMissileCount + "/" + playerController.maxMissile;
+            missileCount.text = "Ammo: " + playerController.currentMissileCount + "/" + playerController.maxMissile;
             lives.text = "Lives: " + playerLives;
+            scores.text = "Score: "+score.ToString();
 
             hp.UpdateBar(playerController.hp, playerController.maxHp);
             shield.UpdateBar(playerController.shield, playerController.maxShield);
@@ -169,6 +172,11 @@ public class GM : MonoBehaviour {
         if (boss)
         {
             bossHp.UpdateBar(bossStats.hp, bossMaxHp);
+        }
+
+        if (score<0)
+        {
+            score = 0;
         }
     }
 
