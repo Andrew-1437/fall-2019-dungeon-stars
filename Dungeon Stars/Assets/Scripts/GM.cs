@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GM : MonoBehaviour {
 
@@ -10,7 +11,6 @@ public class GM : MonoBehaviour {
     public GameObject playerObject;
     public GameObject fx;
     private GameObject player;
-    public int playerLives;
     private PlayerController playerController;
     public GameObject enemies;
     public GameObject ui;
@@ -18,11 +18,16 @@ public class GM : MonoBehaviour {
     public GameObject bossWarnUI;
     private BossBehavior bossStats;
     private float bossMaxHp;
+
+    [Header("Score")]
     public int score;
+    public int baseAmmoScore;  // Highest score bonus if have max ammo 
+    public int baseHpScore;  // Highest score bonus if have max hp
 
+    [Header("Level Management")]
     public bool gameStart;
-
     public bool allowBoss;
+    public int playerLives;
 
     [Header("UI")]
     public Text health;
@@ -35,6 +40,10 @@ public class GM : MonoBehaviour {
     public GameObject heatBar;
     public SimpleHealthBar heat;
     public Text scores;
+    public TextMeshProUGUI baseScore;
+    public TextMeshProUGUI ammoScore;
+    public TextMeshProUGUI hullScore;
+    public TextMeshProUGUI totalScore;
 
     [Header("Flowchart")]
     public Fungus.Flowchart mainFlowchart;
@@ -240,5 +249,28 @@ public class GM : MonoBehaviour {
     public void SetPlayerShipTo(GameObject playerShip)
     {
         playerObject = playerShip;
+    }
+
+    public int FinalScore()
+    {
+        int finalScore = score;
+        int ammoScr = CalcAmmoScore();
+        int hpScr = CalcHpScore();
+        baseScore.text = "Base Score: " + finalScore;
+        ammoScore.text = "Ammo Score: +" + ammoScr;
+        hullScore.text = "Hull Score: +" + hpScr;
+        totalScore.text = "Total Score: " + (finalScore + ammoScr + hpScr);
+
+        return finalScore + ammoScr + hpScr;
+    }
+
+    public int CalcAmmoScore()
+    {
+        return (int)(((float)playerController.currentMissileCount / (float)playerController.maxMissile) * baseAmmoScore);
+    }
+
+    public int CalcHpScore()
+    {
+        return (int)((playerController.hp / playerController.maxHp) * baseHpScore);
     }
 }

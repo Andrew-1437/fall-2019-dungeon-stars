@@ -412,7 +412,7 @@ public class PlayerController : MonoBehaviour {
             //Total collision dmg = collision value of other * (player speed + other speed)
             float collisionDmg = other.gameObject.GetComponent<ObstacleBehavior>().collisionVal 
                 * (rb.velocity.magnitude + other.GetComponent<Rigidbody2D>().velocity.magnitude);
-            damage(collisionDmg);
+            hullDamage(collisionDmg);
             other.gameObject.GetComponent<ObstacleBehavior>().hp -= collisionDmg;
             audio[2].Play();
             camera.GetComponent<CameraShaker>().LargeShake();
