@@ -224,7 +224,8 @@ public class GM : MonoBehaviour {
         }
         else
         {
-            print("no lives");
+            mainFlowchart.SendFungusMessage("GameOver");
+            //print("no lives");
         }
         
     }
