@@ -12,7 +12,7 @@ public class OmniController : MonoBehaviour
 
     private void Awake()
     {
-        if(omniController != null && omniController != this)
+        if(omniController != null && omniController == this)
         {
             Destroy(gameObject);
         }

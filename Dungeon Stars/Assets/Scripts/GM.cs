@@ -259,9 +259,14 @@ public class GM : MonoBehaviour {
         baseScore.text = "Base Score: " + finalScore;
         ammoScore.text = "Ammo Score: +" + ammoScr;
         hullScore.text = "Hull Score: +" + hpScr;
-        totalScore.text = "Total Score: " + (finalScore + ammoScr + hpScr);
 
-        return finalScore + ammoScr + hpScr;
+        int total = finalScore + ammoScr + hpScr;
+
+        totalScore.text = "Total Score: " + total;
+
+        OmniController.omniController.totalScore += total;
+        //print(OmniController.omniController.totalScore);
+        return total;
     }
 
     public int CalcAmmoScore()
