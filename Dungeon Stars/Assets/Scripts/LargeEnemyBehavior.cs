@@ -17,14 +17,14 @@ public class LargeEnemyBehavior : MonoBehaviour {
 
     protected void Start()
     {
-        /*
+        
         gameCamera = GameObject.FindWithTag("MainCamera");
         if (gameCamera == null)
         {
             print("Ohshit! Obstacle cannot find camera!");
         }
-        GameObject gmobject = GameObject.FindWithTag("GameController");
-        gm = gmobject.GetComponent<GM>(); */
+        //GameObject gmobject = GameObject.FindWithTag("GameController");
+        //gm = gmobject.GetComponent<GM>(); 
         gm = GM.gameController;
     }
 

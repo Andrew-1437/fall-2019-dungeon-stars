@@ -8,6 +8,8 @@ public class PeriodicBeam : ProjectileBehavior
     [Header("Periodic Beam")]
     public LineRenderer lr;
     public LightningBoltScript bolt;
+    public ParticleSystem particleL;
+    public ParticleSystem particleR;
     Collider2D coll;
 
     public float waitTime;
@@ -25,7 +27,7 @@ public class PeriodicBeam : ProjectileBehavior
 
         coll = GetComponent<Collider2D>();
 
-        stage = 0;
+        stage = -1;
         coll.enabled = false;
         lr.enabled = false;
         chargeBegin = Time.time + waitTime * 2f;
@@ -41,31 +43,49 @@ public class PeriodicBeam : ProjectileBehavior
         // Not firing
         if (stage == 0 && Time.time >= chargeBegin)
         {
-            print("Prepping to fire...");
+            //print("Prepping to fire...");
             stage = 1;
             bolt.ChaosFactor = 0f;
             lr.enabled = true;
             lr.widthMultiplier = .2f;
             fireBegin = Time.time + chargeTime;
+            particleL.Play();
+            particleR.Play();
         }
         else if (stage == 1 && Time.time >= fireBegin)
         {
-            print("Firing!");
+            //print("Firing!");
             stage = 2;
             bolt.ChaosFactor = .01f;
             lr.widthMultiplier = 4f;
             coll.enabled = true;
             waitBegin = Time.time + fireTime;
+            particleL.Stop();
+            particleR.Stop();
         }
         else if (stage == 2 && Time.time >= waitBegin)
         {
-            print("Stopped firing.");
-            stage = 0;
+            //print("Stopped firing.");
+            stage = -1;
             
             lr.enabled = false;
             coll.enabled = false;
             chargeBegin = Time.time + waitTime;
+
+            
         }
-        print(stage);
+        //print(stage);
+    }
+
+    public void StartNow()
+    {
+        stage = 1;
+        bolt.ChaosFactor = 0f;
+        lr.enabled = true;
+        lr.widthMultiplier = .2f;
+        fireBegin = Time.time + chargeTime;
+
+        particleL.Play();
+        particleR.Play();
     }
 }

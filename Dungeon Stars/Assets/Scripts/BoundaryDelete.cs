@@ -11,6 +11,10 @@ public class BoundaryDelete : MonoBehaviour {
         {
             other.gameObject.GetComponent<ProjectileBehavior>().DestroyProjectile();
         }
+        else if (other.tag == "Dps")
+        {
+            return;
+        }
         else
         {
             Destroy(other.gameObject);
