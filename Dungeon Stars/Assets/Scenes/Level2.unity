@@ -13877,7 +13877,7 @@ MonoBehaviour:
   durationOLD: 0
 --- !u!114 &1915930482
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -13903,6 +13903,18 @@ MonoBehaviour:
   returnValueType: System.Int32
   showInherited: 0
   callMode: 0
+--- !u!114 &1915930484 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 677459759403040860, guid: 0ea578368fa70084d8a1e8638cf45cca,
+    type: 3}
+  m_PrefabInstance: {fileID: 2021848588}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915930468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1915930489 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 677459759988343918, guid: 0ea578368fa70084d8a1e8638cf45cca,
@@ -14358,22 +14370,32 @@ PrefabInstance:
     - target: {fileID: 677459759403048358, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: selectedCommands.Array.size
-      value: 15
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 677459759403048358, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: scrollPos.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459759403048358, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: scrollPos.y
+      value: 98
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459759403048358, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: selectedBlocks.Array.data[0]
+      value: 
+      objectReference: {fileID: 1915930484}
     - target: {fileID: 644551051741092430, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_Text
       value: =Arriving at Planet=
       objectReference: {fileID: 0}
-    - target: {fileID: 677459758986115416, guid: 0ea578368fa70084d8a1e8638cf45cca,
+    - target: {fileID: 677459758740752516, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
-      propertyPath: speed
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 677459759489935520, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_Name
-      value: Capital Ship Warning
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 677459759988343911, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
@@ -14472,6 +14494,16 @@ PrefabInstance:
       propertyPath: commandList.Array.data[15]
       value: 
       objectReference: {fileID: 1915930471}
+    - target: {fileID: 677459759489935520, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_Name
+      value: Capital Ship Warning
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459758986115416, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: speed
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: selectedCommands.Array.size
@@ -15395,6 +15427,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2354518172327578614}
     m_Modifications:
+    - target: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+      propertyPath: m_Name
+      value: Afterburner
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.66
@@ -15438,10 +15474,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
-      propertyPath: m_Name
-      value: Afterburner
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15534,6 +15566,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2354518172327578614}
     m_Modifications:
+    - target: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+      propertyPath: m_Name
+      value: Afterburner (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.6
@@ -15577,10 +15613,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
-      propertyPath: m_Name
-      value: Afterburner (1)
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalPosition.z

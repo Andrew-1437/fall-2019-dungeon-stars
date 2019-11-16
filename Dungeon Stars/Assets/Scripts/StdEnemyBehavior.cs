@@ -24,7 +24,8 @@ public class StdEnemyBehavior : MonoBehaviour {
     private bool stunned = false;
     private float stunTimer;
 
-    private GameObject gm;
+    GM gm;
+    Rigidbody2D rb;
 
 
     private void Start()
@@ -33,26 +34,29 @@ public class StdEnemyBehavior : MonoBehaviour {
         nextFire = 0.0f;
         awake = false;
 
+        /*
         gm = GameObject.FindWithTag("GameController");
         if (gm == null)
         {
             print("Ohshit! Game Controller not found by stdEnemy!");
-        }
+        } */
+        gm = GM.gameController;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
-        if (gm.GetComponent<GM>().gameStart)
+        if (gm.gameStart)
         {
             if (!stunned)
             {
                 if (awake)
                 {
-                    gameObject.GetComponent<Rigidbody2D>().velocity = (gameObject.GetComponent<Transform>().up * speed) + new Vector3(0.0f, -1.0f, 0.0f);
+                    rb.velocity = (transform.up * speed) + new Vector3(0.0f, -1.0f, 0.0f);
                 }
                 else
                 {
-                    gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, -1.0f);
+                    rb.velocity = new Vector2(0.0f, -1.0f);
                 }
             }
             else
