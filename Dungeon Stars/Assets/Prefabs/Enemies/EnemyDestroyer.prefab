@@ -560,7 +560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86112901b817d54ea5e5691938e522c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.7
+  speed: 1.25
   projectile: {fileID: 0}
   hardpoint: {fileID: 0}
   shootDelay: 0
@@ -580,7 +580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turrets: 3
   explosion: {fileID: 100010, guid: 30c4c673696f6254ebe0e3a26d31092f, type: 3}
-  score: 350
+  score: 3000
 --- !u!70 &8361794000605671278
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -739,10 +739,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5874831765997327116}
     m_Modifications:
-    - target: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
-      propertyPath: m_Name
-      value: Afterburner (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.6
@@ -786,6 +782,10 @@ PrefabInstance:
     - target: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+      propertyPath: m_Name
+      value: Afterburner (1)
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalPosition.z
@@ -878,10 +878,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5874831765997327116}
     m_Modifications:
-    - target: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
-      propertyPath: m_Name
-      value: Afterburner
-      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.66
@@ -925,6 +921,10 @@ PrefabInstance:
     - target: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+      propertyPath: m_Name
+      value: Afterburner
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalPosition.z

@@ -176,13 +176,13 @@ MonoBehaviour:
   primaryWeap: Heavy Bolts
   secondaryWeap: Tri-Bolts
   tertiaryWeap: Cluster Bomb
-  maxHp: 200
-  maxShield: 90
+  maxHp: 1000
+  maxShield: 150
   hp: 0
   shield: 0
   shieldRef: {fileID: 1115304763530712}
-  shieldRecharge: 0.03
-  shieldRegenDelay: 3.5
+  shieldRecharge: 0.000075
+  shieldRegenDelay: 3
   shieldDelay: 7.5
   shieldDown: 0
   level: 0
@@ -203,11 +203,11 @@ MonoBehaviour:
   - {fileID: 9155367235327037550, guid: 0fd65c5f7747591419a66050eb27779b, type: 3}
   explosive: {fileID: 455191990633966392, guid: 3e8795971add4554f9541ab561c5d666,
     type: 3}
-  fireRate: 0.37
-  secondaryFireRate: 0.76
+  fireRate: 0.25
+  secondaryFireRate: 2.5
   maxMissile: 40
   currentMissileCount: 40
-  dmgMod: 0.9
+  dmgMod: 0.8
   enableHeat: 0
   heat: 0
   overheating: 0
@@ -217,9 +217,9 @@ MonoBehaviour:
   secondaryUsesHeat: 0
   secHeatGen: 0
   heatWarnAudio: {fileID: 0}
-  dieCost: 2000
-  weapon1Cost: 1
-  weapon2Cost: 1
+  dieCost: 500000
+  weapon1Cost: 10
+  weapon2Cost: 100
   explosionFx: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   speedFX: {fileID: 4856222607397157694}
   fireRateFX: {fileID: 371119980702395932}

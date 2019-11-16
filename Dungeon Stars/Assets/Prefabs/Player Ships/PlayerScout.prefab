@@ -175,14 +175,14 @@ MonoBehaviour:
   primaryWeap: Rapid-Bolts
   secondaryWeap: Bolts
   tertiaryWeap: Light Missiles
-  maxHp: 75
-  maxShield: 30
+  maxHp: 1000
+  maxShield: 100
   hp: 0
   shield: 0
   shieldRef: {fileID: 1115304763530712}
-  shieldRecharge: 0.08
-  shieldRegenDelay: 1.8
-  shieldDelay: 3.6
+  shieldRecharge: 0.0001
+  shieldRegenDelay: 2
+  shieldDelay: 5
   shieldDown: 0
   level: 0
   speed: 16
@@ -202,11 +202,11 @@ MonoBehaviour:
   - {fileID: 6436069487473613827, guid: a2524304dec9b294498099a49b5eea0d, type: 3}
   explosive: {fileID: 6450759887378058983, guid: f23e8fde65d91814286b048f63890ec8,
     type: 3}
-  fireRate: 0.1
-  secondaryFireRate: 0.27
+  fireRate: 0.05
+  secondaryFireRate: 0.2
   maxMissile: 120
   currentMissileCount: 120
-  dmgMod: 1
+  dmgMod: 1.2
   enableHeat: 0
   heat: 0
   overheating: 0
@@ -216,9 +216,9 @@ MonoBehaviour:
   secondaryUsesHeat: 0
   secHeatGen: 0
   heatWarnAudio: {fileID: 0}
-  dieCost: 2000
-  weapon1Cost: 1
-  weapon2Cost: 1
+  dieCost: 500000
+  weapon1Cost: 2
+  weapon2Cost: 10
   explosionFx: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   speedFX: {fileID: 2686207012470100422}
   fireRateFX: {fileID: 2374638732097293114}
