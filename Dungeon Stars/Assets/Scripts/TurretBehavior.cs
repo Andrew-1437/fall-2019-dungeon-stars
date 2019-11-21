@@ -16,6 +16,8 @@ public class TurretBehavior : MonoBehaviour {
 
     public float turn;
 
+    public Transform hardpoint;
+
     private bool awake;
 
     // Use this for initialization
@@ -23,6 +25,11 @@ public class TurretBehavior : MonoBehaviour {
         nextBurst = 0.0f;
         nextFire = 0.0f;
         awake = false;
+
+        if(hardpoint == null)
+        {
+            hardpoint = transform;
+        }
     }
 	
 	// Update is called once per frame
@@ -51,7 +58,7 @@ public class TurretBehavior : MonoBehaviour {
             }
             if (Time.time > nextFire && Time.time < burstEnd)
             {
-                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, hardpoint.position, hardpoint.rotation);
                 nextFire = Time.time + fireRate;
             }
 

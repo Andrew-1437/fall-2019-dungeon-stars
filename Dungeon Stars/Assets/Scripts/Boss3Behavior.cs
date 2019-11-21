@@ -4,17 +4,37 @@ using UnityEngine;
 
 public class Boss3Behavior : MonoBehaviour
 {
-    public PeriodicBeam[] beams;
-    private float shootTime = 10f;
-    public GameObject root;
+    short stage;
+
     public BossBehavior boss;
 
+    [Header("Stage 1")]
+    public GameObject stage1;
+    public PeriodicBeam[] beams;
+    private float shootTime = 10f;
+    
+
+    [Header("Stage 2")]
+    public GameObject stage2;
+    public GameObject multiCannon1;
+    public GameObject multiCannon2;
+
+    public Transform cannon1pos;
+    public Transform cannon2pos;
+
     Rigidbody2D rb;
+
+    ObstacleBehavior cannon1;
+    ObstacleBehavior cannon2;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        stage = 1;
+
+        cannon1 = multiCannon1.GetComponent<ObstacleBehavior>();
+        cannon2 = multiCannon2.GetComponent<ObstacleBehavior>();
     }
 
     private void FixedUpdate()
@@ -25,17 +45,24 @@ public class Boss3Behavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (boss.awake && !root.activeSelf)
+        if (stage == 1)
         {
-            root.SetActive(true);
-            shootTime = Time.time + 5f;
+            if (boss.awake && !stage1.activeSelf)
+            {
+                stage1.SetActive(true);
+                shootTime = Time.time + 5f;
+            }
+            if (stage1.activeSelf && Time.time >= shootTime)
+            {
+                shootTime = Time.time + 10f;
+                RandomBeams(5);
+            }
         }
-        if (root.activeSelf && Time.time >= shootTime)
-        {
-            shootTime = Time.time + 10f;
-            RandomBeams(5);
-        }
-        
+        float cann1hp = 0f;
+        float cann2hp = 0f;
+        if (multiCannon1 != null) cann1hp = cannon1.hp;
+        if (multiCannon2 != null) cann2hp = cannon2.hp;
+        boss.hp = cann1hp + cann2hp;
     }
 
     public void RandomBeams(int numBeams)
@@ -44,5 +71,19 @@ public class Boss3Behavior : MonoBehaviour
         {
             beams[Random.Range(0, beams.Length - 1)].StartNow();
         }
+    }
+
+    public void NextStage()
+    {
+        stage = 2;
+        stage2.SetActive(true);
+        cannon1.awake = true;
+        cannon2.awake = true;
+    }
+
+    public void IntoPosition()
+    {
+        multiCannon1.GetComponent<Boss3Movement>().InitialMove(cannon1pos.position);
+        multiCannon2.GetComponent<Boss3Movement>().InitialMove(cannon2pos.position);
     }
 }

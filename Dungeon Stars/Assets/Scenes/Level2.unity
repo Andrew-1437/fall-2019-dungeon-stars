@@ -13641,7 +13641,7 @@ MonoBehaviour:
       intValue: 0
       boolValue: 0
       floatValue: 0
-      stringValue: MainMenu
+      stringValue: Level3
       colorValue: {r: 0, g: 0, b: 0, a: 0}
       gameObjectValue: {fileID: 0}
       materialValue: {fileID: 0}
@@ -14262,6 +14262,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Basic Level Kit
       objectReference: {fileID: 0}
+    - target: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: selectedCommands.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: selectedBlocks.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: scrollPos.x
+      value: 136.93333
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: scrollPos.y
+      value: 87.88731
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: zoom
+      value: 0.9999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: selectedCommands.Array.data[0]
+      value: 
+      objectReference: {fileID: 174668863}
+    - target: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: description
+      value: Plays the capital ship warning
+      objectReference: {fileID: 0}
     - target: {fileID: 677459759118529197, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14317,11 +14352,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 677459759489738414, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 98.9
-      objectReference: {fileID: 0}
     - target: {fileID: 754778325972700006, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -14362,6 +14392,31 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 677459759489738414, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 98.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 644499616897639200, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_Text
+      value: =CAPITAL SHIP APPROACHING=
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459758986115416, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: speed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459758740752516, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459759489935520, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_Name
+      value: Capital Ship Warning
+      objectReference: {fileID: 0}
     - target: {fileID: 677459759403048358, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: selectedBlocks.Array.size
@@ -14387,16 +14442,6 @@ PrefabInstance:
       propertyPath: selectedBlocks.Array.data[0]
       value: 
       objectReference: {fileID: 1915930484}
-    - target: {fileID: 644551051741092430, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_Text
-      value: =Arriving at Planet=
-      objectReference: {fileID: 0}
-    - target: {fileID: 677459758740752516, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 677459759988343911, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: storyText
@@ -14494,51 +14539,6 @@ PrefabInstance:
       propertyPath: commandList.Array.data[15]
       value: 
       objectReference: {fileID: 1915930471}
-    - target: {fileID: 677459759489935520, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_Name
-      value: Capital Ship Warning
-      objectReference: {fileID: 0}
-    - target: {fileID: 677459758986115416, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: speed
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: selectedCommands.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: selectedBlocks.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: scrollPos.x
-      value: 136.93333
-      objectReference: {fileID: 0}
-    - target: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: scrollPos.y
-      value: 87.88731
-      objectReference: {fileID: 0}
-    - target: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: zoom
-      value: 0.9999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: selectedCommands.Array.data[0]
-      value: 
-      objectReference: {fileID: 174668863}
-    - target: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: description
-      value: Plays the capital ship warning
-      objectReference: {fileID: 0}
     - target: {fileID: 677459759500669820, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.size
@@ -14584,10 +14584,10 @@ PrefabInstance:
       propertyPath: commandList.Array.data[5]
       value: 
       objectReference: {fileID: 174668863}
-    - target: {fileID: 644499616897639200, guid: 0ea578368fa70084d8a1e8638cf45cca,
+    - target: {fileID: 644551051741092430, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_Text
-      value: =CAPITAL SHIP APPROACHING=
+      value: =Arriving at Planet=
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 677459759456096127, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}

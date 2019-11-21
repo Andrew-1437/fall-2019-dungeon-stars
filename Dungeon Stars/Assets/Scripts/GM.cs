@@ -272,7 +272,8 @@ public class GM : MonoBehaviour {
 
         totalScore.text = "Total Score: " + total;
 
-        OmniController.omniController.totalScore += total;
+        if(OmniController.omniController != null)
+            OmniController.omniController.totalScore += total;
         //print(OmniController.omniController.totalScore);
         return total;
     }

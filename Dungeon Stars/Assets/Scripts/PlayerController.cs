@@ -408,15 +408,20 @@ public class PlayerController : MonoBehaviour {
             Destroy(other.gameObject);
         }
 
+        // Collision damage
         if(other.tag == "Obstacle")
         {
-            //Total collision dmg = collision value of other * (player speed + other speed)
-            float collisionDmg = other.gameObject.GetComponent<ObstacleBehavior>().collisionVal 
-                * (rb.velocity.magnitude + other.GetComponent<Rigidbody2D>().velocity.magnitude);
-            hullDamage(collisionDmg);
-            other.gameObject.GetComponent<ObstacleBehavior>().hp -= collisionDmg;
-            audio[2].Play();
-            camera.GetComponent<CameraShaker>().LargeShake();
+            // Can't collide with a turret
+            if (!other.gameObject.GetComponent<ObstacleBehavior>().isATurret)
+            {
+                //Total collision dmg = collision value of other * (player speed + other speed)
+                float collisionDmg = other.gameObject.GetComponent<ObstacleBehavior>().collisionVal
+                    * (rb.velocity.magnitude + other.GetComponent<Rigidbody2D>().velocity.magnitude);
+                hullDamage(collisionDmg);
+                other.gameObject.GetComponent<ObstacleBehavior>().hp -= collisionDmg;
+                audio[2].Play();
+                camera.GetComponent<CameraShaker>().LargeShake();
+            }
         }
 
         if (other.tag == "Laser")
@@ -504,6 +509,7 @@ public class PlayerController : MonoBehaviour {
     
     private void OnTriggerStay2D(Collider2D other)
     {
+        // Continuous damage
         if(other.tag == "Dps")
         {
             damage(other.gameObject.GetComponent<ProjectileBehavior>().dmgValue);

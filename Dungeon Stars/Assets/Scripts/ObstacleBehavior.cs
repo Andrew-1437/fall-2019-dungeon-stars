@@ -30,8 +30,7 @@ public class ObstacleBehavior : MonoBehaviour {
         {
             print("Ohshit! Obstacle cannot find camera!");
         }
-        GameObject gmobject = GameObject.FindWithTag("GameController");
-        gm = gmobject.GetComponent<GM>();
+        gm = GM.gameController;
     }
 
     private void Update()
@@ -66,7 +65,7 @@ public class ObstacleBehavior : MonoBehaviour {
     private void Die()
     {
         Destroy(gameObject);
-        Instantiate(explosion, gameObject.GetComponent<Transform>().position, gameObject.GetComponent<Transform>().rotation);
+        Instantiate(explosion, transform.position, transform.rotation);
         camera.GetComponent<CameraShaker>().CustomShake(collisionVal / 12.0f);
         gm.score+=score;
         if (isATurret)
@@ -78,7 +77,7 @@ public class ObstacleBehavior : MonoBehaviour {
     private void DieByProjectile()
     {
         Destroy(gameObject);
-        Instantiate(explosion, gameObject.GetComponent<Transform>().position, gameObject.GetComponent<Transform>().rotation);
+        Instantiate(explosion, transform.position, transform.rotation);
         camera.GetComponent<CameraShaker>().CustomShake(collisionVal / 12.0f);  //Camera shake is proportional to collisionVal (heavier objects should shake camera more)
         if (isATurret)
         {
