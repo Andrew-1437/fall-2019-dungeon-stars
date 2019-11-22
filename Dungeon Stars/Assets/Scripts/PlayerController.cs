@@ -456,6 +456,7 @@ public class PlayerController : MonoBehaviour {
         //PowerUps
         if (other.tag == "PowerUp")
         {
+            OmniController.omniController.powerUpsCollected++;
             PowerUpBehavior pow = other.gameObject.GetComponent<PowerUpBehavior>();
             if (pow.type == PowerUpBehavior.PowerUps.Repair)
             {
@@ -520,6 +521,7 @@ public class PlayerController : MonoBehaviour {
     //Kills player "Ripperoni"
     public void Die()
     {
+        OmniController.omniController.timesDied++;
         Destroy(gameObject);
         Instantiate(explosionFx, transform.position, transform.rotation);
         camera.GetComponent<CameraShaker>().HugeShake();

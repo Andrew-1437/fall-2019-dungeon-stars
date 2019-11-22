@@ -10,6 +10,7 @@ public class OmniController : MonoBehaviour
     public int totalScore;
     public int enemiesKilled;
     public int timesDied;
+    public int powerUpsCollected;
 
     public bool twoPlayerMode;
 
@@ -25,4 +26,5 @@ public class OmniController : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
+    
 }

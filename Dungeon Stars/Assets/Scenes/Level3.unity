@@ -21948,10 +21948,10 @@ RectTransform:
   m_Father: {fileID: 1374555771}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -66.1, y: -287.69}
+  m_SizeDelta: {x: 733.9, y: 44.309998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1950157151
 MonoBehaviour:
@@ -22811,9 +22811,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Basic Level Kit
       objectReference: {fileID: 0}
-    - target: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
+    - target: {fileID: 9010069941308522081, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
-      propertyPath: selectedBlocks.Array.size
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 677459759118529197, guid: 0ea578368fa70084d8a1e8638cf45cca,
@@ -22871,6 +22871,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 677459759489738414, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 76
+      objectReference: {fileID: 0}
     - target: {fileID: 754778325972700006, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -22891,6 +22896,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 162.05
       objectReference: {fileID: 0}
+    - target: {fileID: 8097317296626033800, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 8.950073
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459759913781844, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ec1950f32ccd3624485a341ce39eabc6, type: 3}
     - target: {fileID: 677459758987481313, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: playerObject
@@ -22906,11 +22921,6 @@ PrefabInstance:
         type: 3}
       propertyPath: allowBoss
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 677459759489738414, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 76
       objectReference: {fileID: 0}
     - target: {fileID: 677459759988343906, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
@@ -22957,30 +22967,40 @@ PrefabInstance:
       propertyPath: commandList.Array.data[0]
       value: 
       objectReference: {fileID: 991868852}
-    - target: {fileID: 644499616897639200, guid: 0ea578368fa70084d8a1e8638cf45cca,
+    - target: {fileID: 7882380224260099194, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
-      propertyPath: m_Text
-      value: =UNIDENTIFIED SHIP DETECTED=
+      propertyPath: m_text
+      value: Twin Turrets of Terminating
       objectReference: {fileID: 0}
-    - target: {fileID: 677459759677413803, guid: 0ea578368fa70084d8a1e8638cf45cca,
+    - target: {fileID: 7882380224260099194, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_textInfo.characterCount
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 7882380224260099194, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7882380224260099194, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7882380224260099194, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7882380224260099194, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8097317296626033800, guid: 0ea578368fa70084d8a1e8638cf45cca,
+    - target: {fileID: 7882380224260099194, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 8.950073
-      objectReference: {fileID: 0}
-    - target: {fileID: 9010069941308522081, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8756929835002273270, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 411.9
+      propertyPath: m_margin.z
+      value: 0.0001218739
       objectReference: {fileID: 0}
     - target: {fileID: 677459759988343911, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
@@ -23088,40 +23108,25 @@ PrefabInstance:
       propertyPath: methodParameters.Array.data[0].objValue.stringValue
       value: GameSummary
       objectReference: {fileID: 0}
-    - target: {fileID: 7882380224260099194, guid: 0ea578368fa70084d8a1e8638cf45cca,
+    - target: {fileID: 677459759677413803, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
-      propertyPath: m_text
-      value: Twin Turrets of Terminating
-      objectReference: {fileID: 0}
-    - target: {fileID: 7882380224260099194, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 27
-      objectReference: {fileID: 0}
-    - target: {fileID: 7882380224260099194, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7882380224260099194, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7882380224260099194, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_firstOverflowCharacterIndex
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7882380224260099194, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7882380224260099194, guid: 0ea578368fa70084d8a1e8638cf45cca,
+    - target: {fileID: 8756929835002273270, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
-      propertyPath: m_margin.z
-      value: 0.0001218739
+      propertyPath: m_SizeDelta.x
+      value: 411.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: selectedBlocks.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 644499616897639200, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_Text
+      value: =UNIDENTIFIED SHIP DETECTED=
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2740152991574646411, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
