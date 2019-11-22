@@ -8,6 +8,9 @@ public class OmniController : MonoBehaviour
     public static OmniController omniController;
 
     public int totalScore;
+    public int enemiesKilled;
+    public int timesDied;
+
     public bool twoPlayerMode;
 
     private void Awake()

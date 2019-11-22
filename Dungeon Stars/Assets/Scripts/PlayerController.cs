@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour {
     private GameObject camera;
 
     //GM
-    private GameObject gm;
+    private GM gm;
 
     //Visual FX************
     [Header("Referenced Game Objects")]
@@ -157,13 +157,14 @@ public class PlayerController : MonoBehaviour {
         {
             print("Ohshit! Camera not found by player!");
         }
-        
+        /*
         gm = GameObject.FindWithTag("GameController");
         if (gm == null)
         {
             print("Ohshit! Game Controller not found by player!");
-        }
+        } */
 
+        gm = GM.gameController;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -209,10 +210,10 @@ public class PlayerController : MonoBehaviour {
         {
             nextFire = Time.time + fireRate * fireRateMod * heatMod;
             Instantiate(primary[level], spawner.position, spawner.rotation);
-            gm.GetComponent<GM>().score -= Mathf.Max(weapon1Cost - Mathf.FloorToInt(weapon1Cost * attackSpeedBuff),0);
-            if (gm.GetComponent<GM>().score<0)
+            gm.score -= Mathf.Max(weapon1Cost - Mathf.FloorToInt(weapon1Cost * attackSpeedBuff),0);
+            if (gm.score<0)
             {
-                gm.GetComponent<GM>().score = 0;
+                gm.score = 0;
             }
             if(enableHeat && primaryUsesHeat)
             {
@@ -225,10 +226,10 @@ public class PlayerController : MonoBehaviour {
         {
             nextSecondary = Time.time + secondaryFireRate * fireRateMod * heatMod;
             Instantiate(secondary[level], spawner.position, spawner.rotation);
-            gm.GetComponent<GM>().score -= Mathf.Max(weapon2Cost - Mathf.FloorToInt(weapon2Cost * attackSpeedBuff), 0);
-            if (gm.GetComponent<GM>().score < 0)
+            gm.score -= Mathf.Max(weapon2Cost - Mathf.FloorToInt(weapon2Cost * attackSpeedBuff), 0);
+            if (gm.score < 0)
             {
-                gm.GetComponent<GM>().score = 0;
+                gm.score = 0;
             }
             if (enableHeat && secondaryUsesHeat)
             {
@@ -409,15 +410,20 @@ public class PlayerController : MonoBehaviour {
             Destroy(other.gameObject);
         }
 
+        // Collision damage
         if(other.tag == "Obstacle")
         {
-            //Total collision dmg = collision value of other * (player speed + other speed)
-            float collisionDmg = other.gameObject.GetComponent<ObstacleBehavior>().collisionVal 
-                * (rb.velocity.magnitude + other.GetComponent<Rigidbody2D>().velocity.magnitude);
-            hullDamage(collisionDmg);
-            other.gameObject.GetComponent<ObstacleBehavior>().hp -= collisionDmg;
-            audio[2].Play();
-            camera.GetComponent<CameraShaker>().LargeShake();
+            // Can't collide with a turret
+            if (!other.gameObject.GetComponent<ObstacleBehavior>().isATurret)
+            {
+                //Total collision dmg = collision value of other * (player speed + other speed)
+                float collisionDmg = other.gameObject.GetComponent<ObstacleBehavior>().collisionVal
+                    * (rb.velocity.magnitude + other.GetComponent<Rigidbody2D>().velocity.magnitude);
+                hullDamage(collisionDmg);
+                other.gameObject.GetComponent<ObstacleBehavior>().hp -= collisionDmg;
+                audio[2].Play();
+                camera.GetComponent<CameraShaker>().LargeShake();
+            }
         }
 
         if (other.tag == "Laser")
@@ -502,56 +508,28 @@ public class PlayerController : MonoBehaviour {
             Die();
         }
     }
-    /*
+    
     private void OnTriggerStay2D(Collider2D other)
     {
-        if(other.tag == "Laser")
+        // Continuous damage
+        if(other.tag == "Dps")
         {
-            float dmg = other.gameObject.GetComponent<ProjectileBehavior>().dmgValue * dmgMod;
-            shield -= dmg;  //All damage hits shield first
-            if (!shieldDown)
-            {
-                shieldOpacity = 1.0f;
-                ShieldFlash(shieldRef, shieldOpacity);
-                shieldRegenTime = Time.time + shieldRegenDelay;
-            }
-            if (shield < 0 && !shieldDown)
-            {
-                //Mark shield is down and set time when shield returns
-                shieldDown = true;
-                shieldUpTime = Time.time + shieldDelay;
-                hp += shield;   //Excess damage to shield carries over. If shield is already 0, this does full damage to hp
-                shield = 0;
-                shieldOpacity = 3.0f;
-                ShieldFlashRed(shieldRef, shieldOpacity);
-                gameObject.GetComponent<AudioSource>().Play();
-            }
-            else if (shield < 0)
-            {
-                hp += shield;   //Excess damage to shield carries over. If shield is already 0, this does full damage to hp
-                shield = 0;
-            }
-        }
-
-        //Ripperoni
-        if (hp < 0)
-        {
-            Die();
+            damage(other.gameObject.GetComponent<ProjectileBehavior>().dmgValue);
         }
     }
-    */
+    
 
     //Kills player "Ripperoni"
     public void Die()
     {
         Destroy(gameObject);
-        Instantiate(explosionFx, gameObject.GetComponent<Transform>().position, gameObject.GetComponent<Transform>().rotation);
+        Instantiate(explosionFx, transform.position, transform.rotation);
         camera.GetComponent<CameraShaker>().HugeShake();
-        gm.GetComponent<GM>().DeathText();
-        gm.GetComponent<GM>().score -= dieCost;
-        if (gm.GetComponent<GM>().score < 0)
+        gm.DeathText();
+        gm.score -= dieCost;
+        if (gm.score < 0)
         {
-            gm.GetComponent<GM>().score = 0;
+            gm.score = 0;
         }
     }
 

@@ -17,13 +17,15 @@ public class LargeEnemyBehavior : MonoBehaviour {
 
     protected void Start()
     {
+        
         gameCamera = GameObject.FindWithTag("MainCamera");
         if (gameCamera == null)
         {
             print("Ohshit! Obstacle cannot find camera!");
         }
-        GameObject gmobject = GameObject.FindWithTag("GameController");
-        gm = gmobject.GetComponent<GM>();
+        //GameObject gmobject = GameObject.FindWithTag("GameController");
+        //gm = gmobject.GetComponent<GM>(); 
+        gm = GM.gameController;
     }
 
     private void Update()
@@ -38,7 +40,7 @@ public class LargeEnemyBehavior : MonoBehaviour {
     private void Die()
     {
         Destroy(gameObject);
-        Instantiate(explosion, gameObject.GetComponent<Transform>().position, gameObject.GetComponent<Transform>().rotation);
+        Instantiate(explosion, transform.position, transform.rotation);
         gameCamera.GetComponent<CameraShaker>().LargeShake(0.2f);
         gm.score += score;
     }
