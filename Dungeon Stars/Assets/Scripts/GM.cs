@@ -7,6 +7,9 @@ using TMPro;
 
 public class GM : MonoBehaviour {
 
+    [HideInInspector]
+    public static GM gameController;
+
     [Header("References")]
     public GameObject playerObject;
     public GameObject fx;
@@ -50,7 +53,7 @@ public class GM : MonoBehaviour {
 
 
 
-    private void Start()
+    private void Awake()
     {
         GameObject selection = GameObject.FindWithTag("Selections");
         if (selection)
@@ -62,6 +65,11 @@ public class GM : MonoBehaviour {
             bossStats = boss.GetComponent<BossBehavior>();
             bossMaxHp = bossStats.hp;
         }
+        if (gameController != null && gameController != this)
+        {
+            Destroy(gameController.gameObject);
+        }
+        gameController = this;
     }
 
     private void Update()
@@ -264,7 +272,8 @@ public class GM : MonoBehaviour {
 
         totalScore.text = "Total Score: " + total;
 
-        OmniController.omniController.totalScore += total;
+        if(OmniController.omniController != null)
+            OmniController.omniController.totalScore += total;
         //print(OmniController.omniController.totalScore);
         return total;
     }

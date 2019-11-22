@@ -11,25 +11,27 @@ public class DebrisBehavior : MonoBehaviour {
 
     private bool awake;
 
-    private GameObject gm;
+    private GM gm;
     private Rigidbody2D rb;
 
     private void Start()
     {
         angVel = Random.Range(-1*rotate, rotate);
 
+        /*
         gm = GameObject.FindWithTag("GameController");
         if (gm == null)
         {
             print("Ohshit! Game Controller not found by debris!");
-        }
+        } */
 
+        gm = GM.gameController;
         rb = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
-        if (gm.GetComponent<GM>().gameStart)
+        if (gm.gameStart)
         {
             if (awake)
             {
