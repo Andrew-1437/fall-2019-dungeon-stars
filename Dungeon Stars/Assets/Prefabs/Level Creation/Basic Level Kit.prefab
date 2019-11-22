@@ -2006,6 +2006,34 @@ MonoBehaviour:
     booleanRef: {fileID: 0}
     booleanVal: 1
   targetGameObjectOLD: {fileID: 0}
+--- !u!114 &6512132154064837527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677459759397034880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 54
+  indentLevel: 0
+  description: Get Score when level ends
+  targetObject: {fileID: 677459758987481318}
+  targetComponentAssemblyName: GM, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: GM
+  targetMethod: FinalScore
+  targetMethodText: 'FinalScore (): Int32'
+  methodParameters: []
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Int32
+  showInherited: 0
+  callMode: 0
 --- !u!114 &7455835203348022556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2168,34 +2196,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 8051387076984139525}
   message: GameOver
---- !u!114 &6512132154064837527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 677459759397034880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 54
-  indentLevel: 0
-  description: Get Score when level ends
-  targetObject: {fileID: 677459758987481318}
-  targetComponentAssemblyName: GM, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
-  targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: GM
-  targetMethod: FinalScore
-  targetMethodText: 'FinalScore (): Int32'
-  methodParameters: []
-  saveReturnValue: 0
-  returnValueVariableKey: 
-  returnValueType: System.Int32
-  showInherited: 0
-  callMode: 0
 --- !u!1 &677459759450998392
 GameObject:
   m_ObjectHideFlags: 0
@@ -4043,14 +4043,15 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
+  m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 8ceb9860e5f13bf41a3f31f035dee707,
+    type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
@@ -4208,6 +4209,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 677459759397229966}
     m_Modifications:
+    - target: {fileID: 100000, guid: b20518d45890e4be59ba82946f88026c, type: 3}
+      propertyPath: m_Name
+      value: Cmdr Laera Tatum
+      objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: b20518d45890e4be59ba82946f88026c, type: 3}
       propertyPath: portraits.Array.size
       value: 1
@@ -4233,10 +4238,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: aa94eb3d2aec4544e9c870ffae176a14,
         type: 3}
-    - target: {fileID: 100000, guid: b20518d45890e4be59ba82946f88026c, type: 3}
-      propertyPath: m_Name
-      value: Cmdr Laera Tatum
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b20518d45890e4be59ba82946f88026c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4556,6 +4557,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 677459759712866071}
     m_Modifications:
+    - target: {fileID: 114619465336459500, guid: b59119806c9b5fd42a60baad09521c69,
+        type: 3}
+      propertyPath: m_Text
+      value: =Arriving at LevelName=
+      objectReference: {fileID: 0}
     - target: {fileID: 224370048348082002, guid: b59119806c9b5fd42a60baad09521c69,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4645,11 +4651,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114619465336459500, guid: b59119806c9b5fd42a60baad09521c69,
-        type: 3}
-      propertyPath: m_Text
-      value: =Arriving at LevelName=
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b59119806c9b5fd42a60baad09521c69, type: 3}
@@ -4955,6 +4956,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 677459759712866071}
     m_Modifications:
+    - target: {fileID: 8276755172130688712, guid: 2c84f9aa158646d4aa13c7fb093a3eb2,
+        type: 3}
+      propertyPath: m_Name
+      value: Stats Bar
+      objectReference: {fileID: 0}
     - target: {fileID: 8276755172117235264, guid: 2c84f9aa158646d4aa13c7fb093a3eb2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5059,11 +5065,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8276755172130688712, guid: 2c84f9aa158646d4aa13c7fb093a3eb2,
-        type: 3}
-      propertyPath: m_Name
-      value: Stats Bar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c84f9aa158646d4aa13c7fb093a3eb2, type: 3}
@@ -5392,7 +5393,7 @@ PrefabInstance:
     - target: {fileID: 8547074217317953565, guid: b974a1d5aa75cb5429252082d98c0e08,
         type: 3}
       propertyPath: m_firstOverflowCharacterIndex
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8547074216134461128, guid: b974a1d5aa75cb5429252082d98c0e08,
         type: 3}
