@@ -33,20 +33,23 @@ public class GM : MonoBehaviour {
     public int playerLives;
 
     [Header("UI")]
-    public Text health;
-    public Text shields;
-    public Text lives;
+    public TextMeshProUGUI health;
+    public TextMeshProUGUI shields;
+    public TextMeshProUGUI level;
+    public TextMeshProUGUI lives;
     public SimpleHealthBar hp;
     public SimpleHealthBar shield;
     public SimpleHealthBar bossHp;
-    public Text missileCount;
+    public TextMeshProUGUI missileCount;
     public GameObject heatBar;
     public SimpleHealthBar heat;
-    public Text scores;
+    public TextMeshProUGUI scores;
     public TextMeshProUGUI baseScore;
     public TextMeshProUGUI ammoScore;
     public TextMeshProUGUI hullScore;
     public TextMeshProUGUI totalScore;
+    public TMP_ColorGradient shieldOnColor;
+    public TMP_ColorGradient shieldOffColor;
 
     [Header("Flowchart")]
     public Fungus.Flowchart mainFlowchart;
@@ -163,13 +166,15 @@ public class GM : MonoBehaviour {
             if (playerController.shield > 0.0f)
             {
                 shields.text = "Shields: " + Mathf.FloorToInt(playerController.shield) + "/" + Mathf.FloorToInt(playerController.maxShield);
-                shields.color = new Color(50.0f / 255.0f, 50.0f / 255.0f, 50.0f / 255.0f);
+                shields.colorGradientPreset = shieldOnColor;
             }
             else
             {
                 shields.text = "Shields: =OFFLINE=";
-                shields.color = new Color(0.9f, 0.0f, 0.0f);
+                shields.colorGradientPreset = shieldOffColor;
             }
+
+            level.text = "Power: " + (playerController.level + 1);
 
             missileCount.text = "Ammo: " + playerController.currentMissileCount + "/" + playerController.maxMissile;
             lives.text = "Lives: " + playerLives;
@@ -191,8 +196,9 @@ public class GM : MonoBehaviour {
         }
         else
         {
-            health.text = "Health: ";
-            shields.text = "Shields: ";
+            health.text = "Health: =NULL=";
+            shields.text = "Shields: =NULL=";
+            level.text = "Power: 0";
         }
         if (boss)
         {
