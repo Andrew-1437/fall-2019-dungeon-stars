@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 460567092914299313, guid: abe2bbd9b7b14974ea8a16c94809b8c7,
         type: 3}
       propertyPath: m_Name
-      value: ShockBeam Lvl2
+      value: ShockBeam Lvl2 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 182989440229038607, guid: abe2bbd9b7b14974ea8a16c94809b8c7,
         type: 3}
@@ -67,6 +67,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4668390929976613923, guid: abe2bbd9b7b14974ea8a16c94809b8c7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 9032515098260233071, guid: abe2bbd9b7b14974ea8a16c94809b8c7,
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
@@ -102,15 +107,10 @@ PrefabInstance:
       propertyPath: m_Parameters.colorGradient.key1.g
       value: 0.86221063
       objectReference: {fileID: 0}
-    - target: {fileID: 4668390929976613923, guid: abe2bbd9b7b14974ea8a16c94809b8c7,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 13
-      objectReference: {fileID: 0}
     - target: {fileID: 7159389624019785592, guid: abe2bbd9b7b14974ea8a16c94809b8c7,
         type: 3}
       propertyPath: dmgValue
-      value: 1.6
+      value: 3.1
       objectReference: {fileID: 0}
     - target: {fileID: 7159389624019785592, guid: abe2bbd9b7b14974ea8a16c94809b8c7,
         type: 3}
@@ -120,7 +120,7 @@ PrefabInstance:
     - target: {fileID: 7159389624019785592, guid: abe2bbd9b7b14974ea8a16c94809b8c7,
         type: 3}
       propertyPath: shieldRecharge
-      value: 0.23
+      value: 0.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abe2bbd9b7b14974ea8a16c94809b8c7, type: 3}

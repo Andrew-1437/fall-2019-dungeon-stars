@@ -155,8 +155,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.15}
-  m_Size: {x: 3.5, y: 4.9}
+  m_Offset: {x: 0, y: -0.07276487}
+  m_Size: {x: 3.5, y: 4.251225}
   m_Direction: 0
 --- !u!114 &114058955246685346
 MonoBehaviour:
@@ -176,17 +176,17 @@ MonoBehaviour:
   primaryWeap: Heavy Bolts
   secondaryWeap: Tri-Bolts
   tertiaryWeap: Cluster Bomb
-  maxHp: 1000
+  maxHp: 700
   maxShield: 150
   hp: 0
   shield: 0
   shieldRef: {fileID: 1115304763530712}
-  shieldRecharge: 0.000075
+  shieldRecharge: 0.0004
   shieldRegenDelay: 3
   shieldDelay: 7.5
   shieldDown: 0
   level: 0
-  speed: 10.5
+  speed: 12
   rotate: 20
   primary:
   - {fileID: 4764460429754885460, guid: 1e1c4f0fc0957e34fb367ce0a9d5cd03, type: 3}
@@ -204,10 +204,11 @@ MonoBehaviour:
   explosive: {fileID: 455191990633966392, guid: 3e8795971add4554f9541ab561c5d666,
     type: 3}
   fireRate: 0.25
-  secondaryFireRate: 2.5
+  secondaryFireRate: 1.8
   maxMissile: 40
   currentMissileCount: 40
   dmgMod: 0.8
+  invincible: 0
   enableHeat: 0
   heat: 0
   overheating: 0
@@ -219,7 +220,7 @@ MonoBehaviour:
   heatWarnAudio: {fileID: 0}
   dieCost: 500000
   weapon1Cost: 10
-  weapon2Cost: 100
+  weapon2Cost: 60
   explosionFx: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   speedFX: {fileID: 4856222607397157694}
   fireRateFX: {fileID: 371119980702395932}
@@ -5476,14 +5477,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4504378209215118}
     m_Modifications:
-    - target: {fileID: 100000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
-      propertyPath: m_Name
-      value: FireRateFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 8
@@ -5552,6 +5545,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
+      propertyPath: m_Name
+      value: FireRateFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35c2c14ced3e09a4f95481bfa77ec918, type: 3}
 --- !u!4 &371119980721793884 stripped
@@ -5573,9 +5574,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4504378209215118}
     m_Modifications:
-    - target: {fileID: 100000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
-      propertyPath: m_Name
-      value: SpeedBoostFX
+    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.98978424
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
+      propertyPath: simulationSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5621,33 +5646,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.98978424
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
-      propertyPath: simulationSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
-      propertyPath: prewarm
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
-      propertyPath: playOnAwake
-      value: 0
+    - target: {fileID: 100000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
+      propertyPath: m_Name
+      value: SpeedBoostFX
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}

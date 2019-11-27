@@ -70,6 +70,7 @@ MonoBehaviour:
   fireRate: 0.25
   burstTime: 1.2
   turn: 100
+  hardpoint: {fileID: 0}
 --- !u!58 &7154189538370116706
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -156,6 +157,7 @@ MonoBehaviour:
   fireRate: 0.4
   burstTime: 1.21
   turn: 80
+  hardpoint: {fileID: 0}
 --- !u!58 &7154189538570840545
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -580,7 +582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turrets: 3
   explosion: {fileID: 100010, guid: 30c4c673696f6254ebe0e3a26d31092f, type: 3}
-  score: 3000
+  score: 3500
 --- !u!70 &8361794000605671278
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -716,6 +718,7 @@ MonoBehaviour:
   fireRate: 0.25
   burstTime: 1.2
   turn: 100
+  hardpoint: {fileID: 0}
 --- !u!58 &3077883464871110040
 CircleCollider2D:
   m_ObjectHideFlags: 0

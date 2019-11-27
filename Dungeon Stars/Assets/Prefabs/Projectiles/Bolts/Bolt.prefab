@@ -64,8 +64,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.3
-  dmgValue: 10
+  dmgValue: 11
   lifeTime: 10
+  perist: 0
+  particleFX: {fileID: 0}
 --- !u!82 &82391300000007410
 AudioSource:
   m_ObjectHideFlags: 0
@@ -187,6 +189,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

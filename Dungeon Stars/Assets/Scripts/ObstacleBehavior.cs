@@ -67,7 +67,7 @@ public class ObstacleBehavior : MonoBehaviour {
         OmniController.omniController.enemiesKilled++;
         Destroy(gameObject);
         Instantiate(explosion, transform.position, transform.rotation);
-        camera.GetComponent<CameraShaker>().CustomShake(collisionVal / 12.0f);
+        camera.GetComponent<CameraShaker>().CustomShake(collisionVal / 60.0f);
         gm.score+=score;
         if (isATurret)
         {
@@ -79,7 +79,7 @@ public class ObstacleBehavior : MonoBehaviour {
     {
         Destroy(gameObject);
         Instantiate(explosion, transform.position, transform.rotation);
-        camera.GetComponent<CameraShaker>().CustomShake(collisionVal / 12.0f);  //Camera shake is proportional to collisionVal (heavier objects should shake camera more)
+        camera.GetComponent<CameraShaker>().CustomShake(collisionVal / 60.0f);  //Camera shake is proportional to collisionVal (heavier objects should shake camera more)
         if (isATurret)
         {
             GetComponentInParent<LargeEnemyBehavior>().turrets--;

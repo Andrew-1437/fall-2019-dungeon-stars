@@ -175,17 +175,17 @@ MonoBehaviour:
   primaryWeap: Bolts
   secondaryWeap: Heavy Bolts
   tertiaryWeap: Missiles
-  maxHp: 1000
-  maxShield: 100
+  maxHp: 500
+  maxShield: 125
   hp: 0
   shield: 0
   shieldRef: {fileID: 1115304763530712}
-  shieldRecharge: 0.0001
+  shieldRecharge: 0.001
   shieldRegenDelay: 2
   shieldDelay: 5
   shieldDown: 0
   level: 0
-  speed: 13
+  speed: 13.4
   rotate: 20
   primary:
   - {fileID: 1798592306547478, guid: 80ab67ac8ee09d24ea0226f938eaa479, type: 3}
@@ -206,6 +206,7 @@ MonoBehaviour:
   maxMissile: 60
   currentMissileCount: 60
   dmgMod: 1
+  invincible: 0
   enableHeat: 0
   heat: 0
   overheating: 0
@@ -5573,6 +5574,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4504378209215118}
     m_Modifications:
+    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.98978424
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
+      propertyPath: simulationSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5615,34 +5644,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.98978424
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
-      propertyPath: simulationSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
-      propertyPath: prewarm
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}
-      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 794dbd9c27a2ba048adcc8fd44972d1c, type: 3}

@@ -63,21 +63,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114759228771319250, guid: 96516287b56f63d4d9c752dbe72ca2c8,
-        type: 3}
-      propertyPath: hp
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 114759228771319250, guid: 96516287b56f63d4d9c752dbe72ca2c8,
-        type: 3}
-      propertyPath: collisionVal
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114759228771319250, guid: 96516287b56f63d4d9c752dbe72ca2c8,
-        type: 3}
-      propertyPath: score
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 114428325881992684, guid: 96516287b56f63d4d9c752dbe72ca2c8,
         type: 3}
       propertyPath: speed
@@ -87,6 +72,21 @@ PrefabInstance:
         type: 3}
       propertyPath: rotate
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 114759228771319250, guid: 96516287b56f63d4d9c752dbe72ca2c8,
+        type: 3}
+      propertyPath: hp
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114759228771319250, guid: 96516287b56f63d4d9c752dbe72ca2c8,
+        type: 3}
+      propertyPath: collisionVal
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114759228771319250, guid: 96516287b56f63d4d9c752dbe72ca2c8,
+        type: 3}
+      propertyPath: score
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96516287b56f63d4d9c752dbe72ca2c8, type: 3}
