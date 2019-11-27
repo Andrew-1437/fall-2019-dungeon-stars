@@ -74,66 +74,71 @@ public class GM : MonoBehaviour {
 
     private void Update()
     {
-        //Debug*************
-        //Toggle Enemies
-        if(Input.GetKeyDown("1"))
-        {
-            enemies.SetActive(!enemies.activeSelf);
-            if(enemies.activeSelf)
-            {
-                print("Enemies enabled");
-            }
-            else
-            {
-                print("Enemies disabled");
-            }
-        }
-        //Toggle GUI Elements
-        if(Input.GetKeyDown("2"))
-        {
-            ui.SetActive(!ui.activeSelf);
-            if (ui.activeSelf)
-            {
-                print("UI enabled");
-            }
-            else
-            {
-                print("UI disabled");
-            }
-        }
-        //Spawns another Player
-        if(Input.GetKeyDown("0"))
-        {
-            print("Respawning Player...");
-            player = GameObject.FindWithTag("Player");
-            if (player != null)
-            {
-                player.GetComponent<PlayerController>().Die();
-            }
-            SpawnPlayer();
-            
-        }
-        //Spawns another Player without destroying the original (for the lolz)
-        if (Input.GetKeyDown("9"))
-        {
-            print("Spawning new Player...");
-            //player = GameObject.FindWithTag("Player");
-            if (player != null)
-            {
-                //player.GetComponent<PlayerController>().Die();
-            }
-            SpawnPlayer();
-            //player = GameObject.FindWithTag("Player");
-        }
         //Quick exit to menu
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("MainMenu");
         }
-        //Summons Boss
-        if(Input.GetKeyDown("b") && allowBoss)
+
+        //Debug*************
+        if (OmniController.omniController.enableDebug)
         {
-            AwakenBoss();
+            //Toggle Enemies
+            if (Input.GetKeyDown("1"))
+            {
+                enemies.SetActive(!enemies.activeSelf);
+                if (enemies.activeSelf)
+                {
+                    print("Enemies enabled");
+                }
+                else
+                {
+                    print("Enemies disabled");
+                }
+            }
+            //Toggle GUI Elements
+            if (Input.GetKeyDown("2"))
+            {
+                ui.SetActive(!ui.activeSelf);
+                if (ui.activeSelf)
+                {
+                    print("UI enabled");
+                }
+                else
+                {
+                    print("UI disabled");
+                }
+            }
+            //Spawns another Player
+            if (Input.GetKeyDown("0"))
+            {
+                print("Respawning Player...");
+                player = GameObject.FindWithTag("Player");
+                if (player != null)
+                {
+                    player.GetComponent<PlayerController>().Die();
+                }
+                SpawnPlayer();
+
+            }
+            //Spawns another Player without destroying the original (for the lolz)
+            if (Input.GetKeyDown("9"))
+            {
+                print("Spawning new Player...");
+                //player = GameObject.FindWithTag("Player");
+                if (player != null)
+                {
+                    //player.GetComponent<PlayerController>().Die();
+                }
+                SpawnPlayer();
+                //player = GameObject.FindWithTag("Player");
+            }
+
+            //Summons Boss
+            if (Input.GetKeyDown("b") && allowBoss)
+            {
+                AwakenBoss();
+            }
         }
 
 
