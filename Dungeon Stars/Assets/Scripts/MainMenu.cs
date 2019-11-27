@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     {
         //SceneManager.LoadScene(sceneToLoad);
         sceneLoader.LoadScene(sceneToLoad);
+        OmniController.omniController.ResetGameplayVariables();
         gameObject.SetActive(false);
     }
 
@@ -25,6 +26,7 @@ public class MainMenu : MonoBehaviour
     {
         //SceneManager.LoadScene("Tutorial");
         sceneLoader.LoadScene("Tutorial");
+        OmniController.omniController.ResetGameplayVariables();
         gameObject.SetActive(false);
     }
 

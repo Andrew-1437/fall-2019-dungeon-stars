@@ -70,6 +70,10 @@ public class PlayerController : MonoBehaviour {
     private float shieldBoostEnd;
     private float attackSpeedBuff;
 
+    [HideInInspector]
+    public bool invincible;  // When true, take no damage
+    private float endSpawnInvincible;  // Time after spawn to end invulnerability
+
     // Heat Management
     [HideInInspector]
     public bool enableHeat;
@@ -119,7 +123,7 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody2D rb;
 
     //Camera Shake
-    private GameObject camera;
+    private new GameObject camera;
 
     //GM
     private GM gm;
@@ -132,7 +136,7 @@ public class PlayerController : MonoBehaviour {
     public ParticleSystem smokeFX;
 
     //Sound FX**************
-    private AudioSource[] audio;
+    private new AudioSource[] audio;
 
     //Initialize**********
     void Start()
@@ -166,6 +170,9 @@ public class PlayerController : MonoBehaviour {
 
         gm = GM.gameController;
         rb = GetComponent<Rigidbody2D>();
+
+        invincible = true;
+        endSpawnInvincible = Time.time + 1.5f;
     }
 
     //Movement***********
@@ -184,28 +191,26 @@ public class PlayerController : MonoBehaviour {
         transform.rotation = Quaternion.Euler(0.0f,horizontal * rotate, 0.0f);
 
         Vector2 position = transform.position;
-        if (position.x>26.97)
+        if (position.x>26.97f)
         {
-            position.x = (float)26.97;
-        } else if(position.x<-26.97)
+            position.x = 26.97f;
+        } else if(position.x<-26.97f)
         {
-            position.x = (float)-26.97;
+            position.x = -26.97f;
         }
-        if (position.y>12.6)
+        if (position.y>12.6f)
         {
-            position.y = (float)12.6;
-        } else if (position.y<-12.6)
+            position.y = 12.6f;
+        } else if (position.y<-12.6f)
         {
-            position.y = (float)-12.6; 
+            position.y = -12.6f; 
         }
         transform.position = position;
     }
 
     void Update()
     {
-        
-
-        //Primary Fire
+        // Primary Fire
         if(Input.GetButton("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate * fireRateMod * heatMod;
@@ -221,7 +226,7 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        //Secondary Fire
+        // Secondary Fire
         if(Input.GetButton("Fire2") && Time.time > nextSecondary)
         {
             nextSecondary = Time.time + secondaryFireRate * fireRateMod * heatMod;
@@ -237,6 +242,7 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
+        // Tertiary Fire
         if(Input.GetButtonDown("Fire3"))
         {
             if (currentMissileCount>0)
@@ -247,6 +253,7 @@ public class PlayerController : MonoBehaviour {
             
         }
 
+        // Heat updates
         if(enableHeat)
         {
             heat -= heatDisperse * (1f/heatGenMod);
@@ -277,50 +284,46 @@ public class PlayerController : MonoBehaviour {
 
 
         //Debug Tools
-        //Quick Level Up
-        if (Input.GetKeyDown(KeyCode.RightShift))
+        if (OmniController.omniController.enableDebug)
         {
-            levelUp();
-        }
-        //Self Destruct
-        if (hp <= 0 || Input.GetKeyDown("backspace"))
-        {
-            Die();
-        }
-        //Break Shields 
-        if (Input.GetKeyDown("delete") && !shieldDown)
-        {
-            //Mark shield is down and set time when shield returns
-            shieldDown = true;
-            shieldUpTime = Time.time + shieldDelay;
-            shield = 0;
-            shieldOpacity = 3.0f;
-            ShieldFlashRed(shieldRef, shieldOpacity);
-            gameObject.GetComponent<AudioSource>().Play();
+            //Quick Level Up
+            if (Input.GetKeyDown(KeyCode.RightShift))
+                levelUp();
+            //Self Destruct
+            if (hp <= 0 || Input.GetKeyDown("backspace"))
+                Die();
+            //Break Shields 
+            if (Input.GetKeyDown("delete") && !shieldDown)
+            {
+                //Mark shield is down and set time when shield returns
+                shieldDown = true;
+                shieldUpTime = Time.time + shieldDelay;
+                shield = 0;
+                shieldOpacity = 3.0f;
+                ShieldFlashRed(shieldRef, shieldOpacity);
+                gameObject.GetComponent<AudioSource>().Play();
+            }
+            
+            //Godmode 
+            /*
+            if (Input.GetKeyDown(KeyCode.Alpha1) && dmgMod != 0f)
+            {
+                dmgMod = 0f;
+                print("Godmode on");
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha1) && dmgMod == 0f)
+            {
+                dmgMod = 1f;
+                print("Godmode off");
+            } */
         }
         //Freeze Time
         if (Input.GetKeyDown(KeyCode.Pause) && Time.timeScale == 1f)
-        {
             Time.timeScale = 0f;
-        }
         else if (Input.GetKeyDown(KeyCode.Pause) && Time.timeScale != 1f)
-        {
             Time.timeScale = 1f;
-        }
-        //Godmode 
-        /*
-        if (Input.GetKeyDown(KeyCode.Alpha1) && dmgMod != 0f)
-        {
-            dmgMod = 0f;
-            print("Godmode on");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha1) && dmgMod == 0f)
-        {
-            dmgMod = 1f;
-            print("Godmode off");
-        } */
 
-        //Shield mechanics************
+        // Shield mechanics************
         if (shieldDown)
         {
             //After we have reached the time when shield is back up, shield returns with 50% hp
@@ -346,7 +349,7 @@ public class PlayerController : MonoBehaviour {
             shieldOpacity = 2.0f;
         }
 
-        //Shield Flashy stuff
+        // Shield Flashy stuff
         if(shieldOpacity > 0 && !shieldDown)
         {
             shieldOpacity -= 0.1f;
@@ -358,7 +361,7 @@ public class PlayerController : MonoBehaviour {
             ShieldFlashRed(shieldRef, shieldOpacity);
         }
 
-        //PowerUps
+        // PowerUps
         if(Time.time > speedEnd)
         {
             speedMod = 1.0f;
@@ -372,7 +375,7 @@ public class PlayerController : MonoBehaviour {
             fireRateFX.Stop();
         }
 
-        //FX
+        // FX
         if ((hp <= maxHp * .3f || overheating) && !smokeFX.isPlaying)
         {
             smokeFX.Play();
@@ -384,6 +387,12 @@ public class PlayerController : MonoBehaviour {
 
         //Debug
         //print(shield);
+
+        // End spawn invulnerability after enought time has passed
+        if(Time.time > endSpawnInvincible)
+        {
+            invincible = false;
+        }
     }
 
     //Collisions and damage
@@ -458,6 +467,7 @@ public class PlayerController : MonoBehaviour {
         //PowerUps
         if (other.tag == "PowerUp")
         {
+            OmniController.omniController.powerUpsCollected++;
             PowerUpBehavior pow = other.gameObject.GetComponent<PowerUpBehavior>();
             if (pow.type == PowerUpBehavior.PowerUps.Repair)
             {
@@ -522,6 +532,7 @@ public class PlayerController : MonoBehaviour {
     //Kills player "Ripperoni"
     public void Die()
     {
+        OmniController.omniController.timesDied++;
         Destroy(gameObject);
         Instantiate(explosionFx, transform.position, transform.rotation);
         camera.GetComponent<CameraShaker>().HugeShake();
@@ -561,39 +572,45 @@ public class PlayerController : MonoBehaviour {
     // Take damage normally. First absorbed by shield, then hull
     public void damage(float baseDmg)
     {
-        float dmg = baseDmg * dmgMod;
+        if (!invincible)
+        {
+            float dmg = baseDmg * dmgMod;
 
-        shield -= dmg;  //All damage hits shield first
-        if (!shieldDown)
-        {
-            shieldOpacity = 1.0f;
-            ShieldFlash(shieldRef, shieldOpacity);
-            shieldRegenTime = Time.time + shieldRegenDelay;
-        }
-        if (shield <= 0 && !shieldDown)
-        {
-            //Mark shield is down and set time when shield returns
-            shieldDown = true;
-            shieldUpTime = Time.time + shieldDelay;
-            hp += shield;   //Excess damage to shield carries over. If shield is already 0, this does full damage to hp
-            shield = 0;
-            shieldOpacity = 3.0f;
-            ShieldFlashRed(shieldRef, shieldOpacity);
-            gameObject.GetComponent<AudioSource>().Play();
-        }
-        else if (shield <= 0)
-        {
-            hp += shield;   //Excess damage to shield carries over. If shield is already 0, this does full damage to hp
-            shield = 0;
+            shield -= dmg;  //All damage hits shield first
+            if (!shieldDown)
+            {
+                shieldOpacity = 1.0f;
+                ShieldFlash(shieldRef, shieldOpacity);
+                shieldRegenTime = Time.time + shieldRegenDelay;
+            }
+            if (shield <= 0 && !shieldDown)
+            {
+                //Mark shield is down and set time when shield returns
+                shieldDown = true;
+                shieldUpTime = Time.time + shieldDelay;
+                hp += shield;   //Excess damage to shield carries over. If shield is already 0, this does full damage to hp
+                shield = 0;
+                shieldOpacity = 3.0f;
+                ShieldFlashRed(shieldRef, shieldOpacity);
+                gameObject.GetComponent<AudioSource>().Play();
+            }
+            else if (shield <= 0)
+            {
+                hp += shield;   //Excess damage to shield carries over. If shield is already 0, this does full damage to hp
+                shield = 0;
+            }
         }
     }
 
     // Damage IGNORES shields. Directly to hull
     public void hullDamage(float baseDmg)
     {
-        float dmg = baseDmg * dmgMod;
+        if (!invincible)
+        {
+            float dmg = baseDmg * dmgMod;
 
-        hp -= dmg;
+            hp -= dmg;
+        }
     }
 
     

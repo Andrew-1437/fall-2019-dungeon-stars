@@ -39,6 +39,7 @@ public class LargeEnemyBehavior : MonoBehaviour {
 
     private void Die()
     {
+        OmniController.omniController.enemiesKilled++;
         Destroy(gameObject);
         Instantiate(explosion, transform.position, transform.rotation);
         gameCamera.GetComponent<CameraShaker>().LargeShake(0.2f);
