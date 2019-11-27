@@ -167,10 +167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6015b2ba4a823d440bb14097dabb88a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 25
+  hp: 100
   collisionVal: 10
   explosion: {fileID: 100010, guid: 645413a00f7bd0242bbd6d0e5eb6f439, type: 3}
-  score: 250
+  score: 1000
   awake: 0
   isATurret: 0
 --- !u!114 &114946101557318650
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a5d70a7c751bd4384e7879a21202dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1.5
   rotate: 40
   projectile: {fileID: 9167071922923515404, guid: db93be6bf0435c9469d007fc634b3462,
     type: 3}

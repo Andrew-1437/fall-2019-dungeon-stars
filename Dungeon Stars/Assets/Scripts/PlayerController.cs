@@ -68,6 +68,7 @@ public class PlayerController : MonoBehaviour {
     private float speedEnd;
 
     private float shieldBoostEnd;
+    private float attackSpeedBuff;
 
     [HideInInspector]
     public bool invincible;  // When true, take no damage
@@ -214,7 +215,7 @@ public class PlayerController : MonoBehaviour {
         {
             nextFire = Time.time + fireRate * fireRateMod * heatMod;
             Instantiate(primary[level], spawner.position, spawner.rotation);
-            gm.score -= weapon1Cost;
+            gm.score -= Mathf.Max(weapon1Cost - Mathf.FloorToInt(weapon1Cost * attackSpeedBuff),0);
             if (gm.score<0)
             {
                 gm.score = 0;
@@ -230,7 +231,7 @@ public class PlayerController : MonoBehaviour {
         {
             nextSecondary = Time.time + secondaryFireRate * fireRateMod * heatMod;
             Instantiate(secondary[level], spawner.position, spawner.rotation);
-            gm.score -= weapon2Cost;
+            gm.score -= Mathf.Max(weapon2Cost - Mathf.FloorToInt(weapon2Cost * attackSpeedBuff), 0);
             if (gm.score < 0)
             {
                 gm.score = 0;
@@ -329,7 +330,7 @@ public class PlayerController : MonoBehaviour {
             if(Time.time >= shieldUpTime)
             {
                 shieldDown = false;
-                shield = maxShield / 2;
+                shield = maxShield / 4;
                 shieldOpacity = 4.0f;
                 ShieldFlash(shieldRef, shieldOpacity);
                 audio[1].Play();
@@ -337,7 +338,7 @@ public class PlayerController : MonoBehaviour {
         }
         if(shield < maxShield && !shieldDown && Time.time >= shieldRegenTime)
         {
-            shield += shieldRecharge;
+            shield += shieldRecharge * maxShield;
         }
         if(shield > maxShield && Time.time > shieldBoostEnd)
         {
@@ -370,6 +371,7 @@ public class PlayerController : MonoBehaviour {
         {
             fireRateMod = 1.0f;
             heatGenMod = 1.0f;
+            attackSpeedBuff = 0;
             fireRateFX.Stop();
         }
 
@@ -469,8 +471,7 @@ public class PlayerController : MonoBehaviour {
             PowerUpBehavior pow = other.gameObject.GetComponent<PowerUpBehavior>();
             if (pow.type == PowerUpBehavior.PowerUps.Repair)
             {
-                hp = maxHp;
-                shield = maxShield;
+                shield = Mathf.Min(maxShield,shield+maxShield*0.5f);
                 shieldDown = false;
                 shieldOpacity = 4.0f;
                 ShieldFlash(shieldRef, shieldOpacity);
@@ -478,14 +479,15 @@ public class PlayerController : MonoBehaviour {
             }
             if (pow.type == PowerUpBehavior.PowerUps.FireUp)
             {
-                fireRateMod = 0.5f;
+                fireRateMod = 0.75f;
                 heatGenMod = 0.2f;
+                attackSpeedBuff = 0.25f;
                 fireRateEnd = Time.time + pow.duration;
                 fireRateFX.Play();
             }
             if (pow.type == PowerUpBehavior.PowerUps.SpeedUp)
             {
-                speedMod = 1.5f;
+                speedMod = 1.25f;
                 speedEnd = Time.time + pow.duration;
                 speedFX.Play();
             }
@@ -561,10 +563,9 @@ public class PlayerController : MonoBehaviour {
         }
         else
         {
-            maxHp = maxHp * 1.05f;
-            hp += maxHp * 0.05f;
-            maxShield = maxShield * 1.05f;
-            shield += maxShield * 0.05f;
+            maxHp += 125f;
+            hp += 125f;
+            maxShield += 25f;
         }
     }
 

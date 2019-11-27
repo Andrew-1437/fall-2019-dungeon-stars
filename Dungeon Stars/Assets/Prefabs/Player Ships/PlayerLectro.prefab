@@ -177,14 +177,14 @@ MonoBehaviour:
   primaryWeap: Lectro Bolts
   secondaryWeap: Chain Lightning
   tertiaryWeap: Chain Bombs
-  maxHp: 40
-  maxShield: 80
+  maxHp: 750
+  maxShield: 250
   hp: 0
   shield: 0
   shieldRef: {fileID: 1115304763530712}
-  shieldRecharge: 0.096
-  shieldRegenDelay: 1.35
-  shieldDelay: 2.8
+  shieldRecharge: 0.00015
+  shieldRegenDelay: 1.5
+  shieldDelay: 3.5
   shieldDown: 0
   level: 0
   speed: 14.5
@@ -204,11 +204,11 @@ MonoBehaviour:
   - {fileID: 7070046915723255278, guid: 9957e6b28550328469a3a6f18bdd0f82, type: 3}
   explosive: {fileID: 455191990633966392, guid: 0100f2ca2934a844ea7b17ea8a4d5e66,
     type: 3}
-  fireRate: 0.06
+  fireRate: 0.025
   secondaryFireRate: 0.03
   maxMissile: 40
   currentMissileCount: 40
-  dmgMod: 1
+  dmgMod: 1.2
   enableHeat: 1
   heat: 0
   overheating: 0
@@ -218,7 +218,7 @@ MonoBehaviour:
   secondaryUsesHeat: 1
   secHeatGen: 0.9
   heatWarnAudio: {fileID: 5682743247166315512}
-  dieCost: 2000
+  dieCost: 500000
   weapon1Cost: 1
   weapon2Cost: 1
   explosionFx: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
