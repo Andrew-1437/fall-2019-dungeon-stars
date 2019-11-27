@@ -36,6 +36,10 @@ public class ShipSelect : MonoBehaviour
     {
         SelectNextShip(0);
         sound = GetComponent<AudioSource>();
+        if(OmniController.omniController.enableAllShips)
+        {
+            ships = OmniController.omniController.allShips;
+        }
     }
 
     // Update is called once per frame
