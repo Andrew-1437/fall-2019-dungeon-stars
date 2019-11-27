@@ -70,6 +70,9 @@ public class GM : MonoBehaviour {
             Destroy(gameController.gameObject);
         }
         gameController = this;
+
+        if (OmniController.omniController.infiniteLives)
+            playerLives = int.MaxValue;
     }
 
     private void Update()
