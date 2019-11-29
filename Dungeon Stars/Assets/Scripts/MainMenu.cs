@@ -14,12 +14,16 @@ public class MainMenu : MonoBehaviour
         //SceneManager.LoadScene(sceneToLoad);
         sceneLoader.LoadScene(sceneToLoad);
         OmniController.omniController.ResetGameplayVariables();
+        OmniController.omniController.SetTwoPlayers(false);
         gameObject.SetActive(false);
     }
 
     public void Play2Player()
     {
-        print("I dont have any friends to play with so these is no multiplayer yet D:");
+        sceneLoader.LoadScene(sceneToLoad);
+        OmniController.omniController.ResetGameplayVariables();
+        OmniController.omniController.SetTwoPlayers(true);
+        gameObject.SetActive(false);
     }
 
     public void Tutorial()

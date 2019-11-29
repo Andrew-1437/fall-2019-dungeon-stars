@@ -12,9 +12,12 @@ public class GM : MonoBehaviour {
 
     [Header("References")]
     public GameObject playerObject;
+    public GameObject playerObject2;
     public GameObject fx;
     private GameObject player;
+    private GameObject player2;
     private PlayerController playerController;
+    private PlayerController playerController2;
     public GameObject enemies;
     public GameObject ui;
     public GameObject boss;
@@ -31,8 +34,10 @@ public class GM : MonoBehaviour {
     public bool gameStart;
     public bool allowBoss;
     public int playerLives;
+    public bool twoPlayerMode;
 
     [Header("UI")]
+    public GameObject soloUIElements;
     public TextMeshProUGUI health;
     public TextMeshProUGUI shields;
     public TextMeshProUGUI level;
@@ -51,6 +56,9 @@ public class GM : MonoBehaviour {
     public TMP_ColorGradient shieldOnColor;
     public TMP_ColorGradient shieldOffColor;
 
+    [Header("Two Player UI")]
+    public GameObject duoUIElements;
+
     [Header("Flowchart")]
     public Fungus.Flowchart mainFlowchart;
 
@@ -58,10 +66,14 @@ public class GM : MonoBehaviour {
 
     private void Awake()
     {
+        twoPlayerMode = OmniController.omniController.twoPlayerMode;
+
         GameObject selection = GameObject.FindWithTag("Selections");
         if (selection)
         {
             playerObject = selection.GetComponent<MaintainSelection>().selectedShip;
+            if (twoPlayerMode)
+                playerObject2 = selection.GetComponent<MaintainSelection>().selectedShip2;
         }
         if (boss)
         {
@@ -121,10 +133,12 @@ public class GM : MonoBehaviour {
                 print("Respawning Player...");
                 player = GameObject.FindWithTag("Player");
                 if (player != null)
-                {
                     player.GetComponent<PlayerController>().Die();
-                }
+                if (twoPlayerMode && player2 != null)
+                    player2.GetComponent<PlayerController>().Die();
                 SpawnPlayer();
+                if (twoPlayerMode)
+                    SpawnPlayer2();
 
             }
             //Spawns another Player without destroying the original (for the lolz)
@@ -232,6 +246,7 @@ public class GM : MonoBehaviour {
         mainFlowchart.SendFungusMessage("LevelComplete");
     }
 
+    // Depreciating
     public void FindPlayer()
     {
         player = GameObject.FindWithTag("Player");
@@ -247,10 +262,11 @@ public class GM : MonoBehaviour {
     {
         if (playerLives > 0)
         {
-            Instantiate(playerObject, transform.position, transform.rotation);
+            player = Instantiate(playerObject, transform.position, transform.rotation) as GameObject;
             Instantiate(fx, transform.position, transform.rotation);
             GetComponent<AudioSource>().Play();
-            FindPlayer();
+            //FindPlayer();
+            playerController = player.GetComponent<PlayerController>();
             playerLives--;
         }
         else
@@ -258,7 +274,23 @@ public class GM : MonoBehaviour {
             mainFlowchart.SendFungusMessage("GameOver");
             //print("no lives");
         }
-        
+    }
+    public void SpawnPlayer2()
+    {
+        if (playerLives > 0)
+        {
+            player2 = Instantiate(playerObject2, transform.position - (Vector3.up * 3f), transform.rotation) as GameObject;
+            Instantiate(fx, transform.position, transform.rotation);
+            GetComponent<AudioSource>().Play();
+            //FindPlayer();
+            playerController2 = player2.GetComponent<PlayerController>();
+            playerLives--;
+        }
+        else
+        {
+            mainFlowchart.SendFungusMessage("GameOver");
+            //print("no lives");
+        }
     }
 
     public void DeathText()
@@ -271,6 +303,13 @@ public class GM : MonoBehaviour {
     public void SetPlayerShipTo(GameObject playerShip)
     {
         playerObject = playerShip;
+        playerObject2 = null;
+    }
+    // Optional two player method
+    public void SetPlayerShipTo(GameObject playerShip, GameObject player2Ship)
+    {
+        playerObject = playerShip;
+        playerObject2 = player2Ship;
     }
 
     public int FinalScore()
