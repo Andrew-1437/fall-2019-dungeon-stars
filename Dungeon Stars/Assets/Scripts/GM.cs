@@ -471,11 +471,21 @@ public class GM : MonoBehaviour {
 
     public int CalcAmmoScore()
     {
-        return (int)(((float)playerController.currentMissileCount / (float)playerController.maxMissile) * baseAmmoScore);
+        if(!twoPlayerMode)
+            return (int)(((float)playerController.currentMissileCount / (float)playerController.maxMissile) * baseAmmoScore);
+        else
+            return (int)(
+                ((float)(playerController.currentMissileCount + playerController2.currentMissileCount) /
+                (float)(playerController.maxMissile + playerController.maxMissile)) * baseAmmoScore);
     }
 
     public int CalcHpScore()
     {
-        return (int)((playerController.hp / playerController.maxHp) * baseHpScore);
+        if (!twoPlayerMode)
+            return (int)((playerController.hp / playerController.maxHp) * baseHpScore);
+        else
+            return (int)(
+                ((playerController.hp + playerController2.hp) / 
+                (playerController.maxHp + playerController2.maxHp)) * baseHpScore);
     }
 }
