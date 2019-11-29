@@ -541,6 +541,8 @@ public class PlayerController : MonoBehaviour {
         Instantiate(explosionFx, transform.position, transform.rotation);
         camera.GetComponent<CameraShaker>().HugeShake();
         gm.playerLives--;
+        if (gm.playerLives < 0)
+            gm.playerLives = 0;
         gm.DeathText(isPlayer2);
         gm.score -= dieCost;
         if (gm.score < 0)
