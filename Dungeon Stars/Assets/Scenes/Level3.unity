@@ -5318,7 +5318,7 @@ PrefabInstance:
     - target: {fileID: 6963321736297429324, guid: c1575cd382290cd4ea9c3fe17272600c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.874657
+      value: 21.62
       objectReference: {fileID: 0}
     - target: {fileID: 6963321736297429324, guid: c1575cd382290cd4ea9c3fe17272600c,
         type: 3}
@@ -5945,7 +5945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 93
   indentLevel: 0
-  storyText: 'Well, I doubt if there will be a next time...
+  storyText: 'Well, I doubt there will be a next time...
 
     Farewell, Cadet!'
   description: 
@@ -6251,7 +6251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 73
   indentLevel: 0
-  storyText: Finally! Those Federal operatives cannot threat this section anymore!
+  storyText: Finally! Those Federal operatives won't threaten this sector anymore!
   description: 
   character: {fileID: 755766377}
   portrait: {fileID: 21300000, guid: aa94eb3d2aec4544e9c870ffae176a14, type: 3}
@@ -23077,19 +23077,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Basic Level Kit
       objectReference: {fileID: 0}
-    - target: {fileID: 677459759403048358, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: selectedCommands.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8197805566145150742, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: methodParameters.Array.data[0].objValue.stringValue
-      value: GameSummary
-      objectReference: {fileID: 0}
     - target: {fileID: 9010069941308522081, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459759403048358, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: selectedCommands.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 677459759118529197, guid: 0ea578368fa70084d8a1e8638cf45cca,
@@ -23160,7 +23155,7 @@ PrefabInstance:
     - target: {fileID: 754778325972700006, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -359.6
+      value: -106.5
       objectReference: {fileID: 0}
     - target: {fileID: 754778325972700006, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
@@ -23170,7 +23165,7 @@ PrefabInstance:
     - target: {fileID: 754778325972700006, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50.53
+      value: 50.5
       objectReference: {fileID: 0}
     - target: {fileID: 754778325972700006, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
@@ -23288,11 +23283,97 @@ PrefabInstance:
       propertyPath: m_margin.z
       value: 0.0001218739
       objectReference: {fileID: 0}
+    - target: {fileID: 755423110745687536, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -269.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442933791517670570, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 601.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925860771580805969, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_text
+      value: =Arriving at Asteroid Field=
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925860771580805969, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925860771580805969, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925860771580805969, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925860771580805969, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925860771580805969, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348626508968152719, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 677459759677413803, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7367343496290604316, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459759988343913, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: commandList.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459759988343924, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 1506354625}
+    - target: {fileID: 4007827850887246468, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 718.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756929835002273270, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 411.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459759988343911, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: storyText
+      value: 'Cadet, it seems the station is hidden in this asteriod field! Be aware,
+        those stones are much harder than pirates. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459759988343921, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 1506354625}
+    - target: {fileID: 677459759988343922, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 1506354625}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.size
@@ -23347,12 +23428,12 @@ PrefabInstance:
         type: 3}
       propertyPath: commandList.Array.data[6]
       value: 
-      objectReference: {fileID: 991868834}
+      objectReference: {fileID: 991868835}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[7]
       value: 
-      objectReference: {fileID: 991868835}
+      objectReference: {fileID: 991868834}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[8]
@@ -23413,100 +23494,63 @@ PrefabInstance:
       propertyPath: commandList.Array.data[20]
       value: 
       objectReference: {fileID: 991868865}
-    - target: {fileID: 8756929835002273270, guid: 0ea578368fa70084d8a1e8638cf45cca,
+    - target: {fileID: 1845569446638922206, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 411.9
+      propertyPath: methodParameters.Array.data[0].objValue.stringValue
+      value: GameSummary
       objectReference: {fileID: 0}
-    - target: {fileID: 677459759988343911, guid: 0ea578368fa70084d8a1e8638cf45cca,
+    - target: {fileID: 8197805566145150742, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
-      propertyPath: storyText
-      value: 'Cadet, it seems the station is hidden in this asteriod field! Be aware,
-        those stones are much harder than pirates. '
+      propertyPath: methodParameters.Array.data[0].objValue.stringValue
+      value: GameSummary
       objectReference: {fileID: 0}
     - target: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: selectedBlocks.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6440787393661421421, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_text
+      value: =UNKNOWN CRAFT DETECTED=
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440787393661421421, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440787393661421421, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440787393661421421, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440787393661421421, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440787393661421421, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 644499616897639200, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_Text
       value: =UNIDENTIFIED SHIP DETECTED=
       objectReference: {fileID: 0}
-    - target: {fileID: 1845569446638922206, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: methodParameters.Array.data[0].objValue.stringValue
-      value: GameSummary
-      objectReference: {fileID: 0}
-    - target: {fileID: 755423110745687536, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -269.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 7367343496290604316, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 4348626508968152719, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 677459759988343921, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: character
-      value: 
-      objectReference: {fileID: 1506354625}
-    - target: {fileID: 677459759988343922, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: character
-      value: 
-      objectReference: {fileID: 1506354625}
-    - target: {fileID: 677459759988343924, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: character
-      value: 
-      objectReference: {fileID: 1506354625}
-    - target: {fileID: 1442933791517670570, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 601.69
-      objectReference: {fileID: 0}
-    - target: {fileID: 6925860771580805969, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_text
-      value: =Arriving at Asteroid Field=
-      objectReference: {fileID: 0}
-    - target: {fileID: 6925860771580805969, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 6925860771580805969, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_firstOverflowCharacterIndex
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 6925860771580805969, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6925860771580805969, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6925860771580805969, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2740152991574646411, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
     - {fileID: 2408103556732191100, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
+    - {fileID: 677459759988343914, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
+    - {fileID: 677459759988343915, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
+    - {fileID: 677459759988343912, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
+    - {fileID: 677459759988343904, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
 --- !u!4 &677459758986888678 stripped
 Transform:
@@ -23531,6 +23575,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Boss3
+      objectReference: {fileID: 0}
+    - target: {fileID: 113427116919041028, guid: 6ec1b977fcdb04740b43979453a0832f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 113427118112095752, guid: 6ec1b977fcdb04740b43979453a0832f,
         type: 3}
@@ -23602,5 +23651,90 @@ PrefabInstance:
       propertyPath: stage1
       value: 
       objectReference: {fileID: 1862378070}
+    - target: {fileID: 8004807131461434764, guid: 6ec1b977fcdb04740b43979453a0832f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 113427116482174995, guid: 6ec1b977fcdb04740b43979453a0832f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 113427117843747647, guid: 6ec1b977fcdb04740b43979453a0832f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229864229979268616, guid: 6ec1b977fcdb04740b43979453a0832f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229864229979169336, guid: 6ec1b977fcdb04740b43979453a0832f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229864230086681251, guid: 6ec1b977fcdb04740b43979453a0832f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229864230086715027, guid: 6ec1b977fcdb04740b43979453a0832f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229864230752400068, guid: 6ec1b977fcdb04740b43979453a0832f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229864230752433908, guid: 6ec1b977fcdb04740b43979453a0832f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229864230901758076, guid: 6ec1b977fcdb04740b43979453a0832f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229864230901660748, guid: 6ec1b977fcdb04740b43979453a0832f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229864231037357863, guid: 6ec1b977fcdb04740b43979453a0832f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229864231037389591, guid: 6ec1b977fcdb04740b43979453a0832f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229864231165943730, guid: 6ec1b977fcdb04740b43979453a0832f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229864231165975426, guid: 6ec1b977fcdb04740b43979453a0832f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780281384182466250, guid: 6ec1b977fcdb04740b43979453a0832f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780281384182366970, guid: 6ec1b977fcdb04740b43979453a0832f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ec1b977fcdb04740b43979453a0832f, type: 3}

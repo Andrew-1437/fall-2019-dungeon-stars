@@ -4032,6 +4032,16 @@ PrefabInstance:
       propertyPath: m_textInfo.lineCount
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6440787393661421421, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_text
+      value: =BOSS INCOMING=
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440787393661421421, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2408103556732191100, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
     - {fileID: 2740152991574646411, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
@@ -5689,6 +5699,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1270022531}
     m_Modifications:
+    - target: {fileID: 100000, guid: b20518d45890e4be59ba82946f88026c, type: 3}
+      propertyPath: m_Name
+      value: Cmdr Laera Tatum
+      objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: b20518d45890e4be59ba82946f88026c, type: 3}
       propertyPath: portraits.Array.size
       value: 1
@@ -5714,10 +5728,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: aa94eb3d2aec4544e9c870ffae176a14,
         type: 3}
-    - target: {fileID: 100000, guid: b20518d45890e4be59ba82946f88026c, type: 3}
-      propertyPath: m_Name
-      value: Cmdr Laera Tatum
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b20518d45890e4be59ba82946f88026c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8398,8 +8408,8 @@ MonoBehaviour:
   storyText: I gotta be more careful... If I fail the task, no one will pay for my
     ships!
   description: 
-  character: {fileID: 879752221}
-  portrait: {fileID: 21300000, guid: aa94eb3d2aec4544e9c870ffae176a14, type: 3}
+  character: {fileID: 561076205}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -9344,7 +9354,7 @@ MonoBehaviour:
   callMode: 0
 --- !u!114 &1270022583
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -9371,7 +9381,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1270022584
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -9400,7 +9410,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1270022585
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
