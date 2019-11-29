@@ -58,6 +58,24 @@ public class GM : MonoBehaviour {
 
     [Header("Two Player UI")]
     public GameObject duoUIElements;
+    [Header("Player 1")]
+    public TextMeshProUGUI health1;
+    public TextMeshProUGUI shields1;
+    public TextMeshProUGUI level1;
+    public SimpleHealthBar hp1;
+    public SimpleHealthBar shield1;
+    public TextMeshProUGUI missileCount1;
+    public GameObject heatBar1;
+    public SimpleHealthBar heat1;
+    [Header("Player 2")]
+    public TextMeshProUGUI health2;
+    public TextMeshProUGUI shields2;
+    public TextMeshProUGUI level2;
+    public SimpleHealthBar hp2;
+    public SimpleHealthBar shield2;
+    public TextMeshProUGUI missileCount2;
+    public GameObject heatBar2;
+    public SimpleHealthBar heat2;
 
     [Header("Flowchart")]
     public Fungus.Flowchart mainFlowchart;
@@ -88,6 +106,9 @@ public class GM : MonoBehaviour {
 
         if (OmniController.omniController.infiniteLives)
             playerLives = int.MaxValue;
+
+        soloUIElements.SetActive(!twoPlayerMode);
+        duoUIElements.SetActive(twoPlayerMode);
     }
 
     private void Update()
@@ -163,56 +184,163 @@ public class GM : MonoBehaviour {
 
 
         //GUI Updates
-        if (player != null)
+        lives.text = "Lives: " + playerLives;
+        scores.text = "Score: " + score.ToString();
+
+        // ONE PLAYER ===================
+        if (!twoPlayerMode)
         {
-            health.text = "Health: " + Mathf.FloorToInt(playerController.hp) + "/" + Mathf.FloorToInt(playerController.maxHp);
-            if (playerController.hp < .3f * playerController.maxHp)
+            if (player != null)
             {
-                Color color = new Color(0.9f, 0f, 0f);
-                hp.UpdateColor(color);
-            }
-            else
-            {
-                Color color = new Color(0f, 1f, 44.0f / 255.0f);
-                hp.UpdateColor(color);
-            }
-
-            if (playerController.shield > 0.0f)
-            {
-                shields.text = "Shields: " + Mathf.FloorToInt(playerController.shield) + "/" + Mathf.FloorToInt(playerController.maxShield);
-                shields.colorGradientPreset = shieldOnColor;
-            }
-            else
-            {
-                shields.text = "Shields: =OFFLINE=";
-                shields.colorGradientPreset = shieldOffColor;
-            }
-
-            level.text = "Power: " + (playerController.level + 1);
-
-            missileCount.text = "Ammo: " + playerController.currentMissileCount + "/" + playerController.maxMissile;
-            lives.text = "Lives: " + playerLives;
-            scores.text = "Score: "+score.ToString();
-
-            hp.UpdateBar(playerController.hp, playerController.maxHp);
-            shield.UpdateBar(playerController.shield, playerController.maxShield);
-            heatBar.SetActive(playerController.enableHeat);
-            if(playerController.enableHeat)
-            {
-                heat.UpdateBar(playerController.heat, 100f);
-                Color heatColor = new Color(1f, 230f / 255f, 0f);
-                if(playerController.overheating)
+                health.text = "Health: " + Mathf.FloorToInt(playerController.hp) + "/" + Mathf.FloorToInt(playerController.maxHp);
+                if (playerController.hp < .3f * playerController.maxHp)
                 {
-                    heatColor = new Color(1f, 30f / 255f, 0f);
+                    Color color = new Color(0.9f, 0f, 0f);
+                    hp.UpdateColor(color);
                 }
-                heat.UpdateColor(heatColor);
+                else
+                {
+                    Color color = new Color(0f, 1f, 44.0f / 255.0f);
+                    hp.UpdateColor(color);
+                }
+
+                if (playerController.shield > 0.0f)
+                {
+                    shields.text = "Shields: " + Mathf.FloorToInt(playerController.shield) + "/" + Mathf.FloorToInt(playerController.maxShield);
+                    shields.colorGradientPreset = shieldOnColor;
+                }
+                else
+                {
+                    shields.text = "Shields: =OFFLINE=";
+                    shields.colorGradientPreset = shieldOffColor;
+                }
+
+                level.text = "Power: " + (playerController.level + 1);
+
+                missileCount.text = "Ammo: " + playerController.currentMissileCount + "/" + playerController.maxMissile;
+
+                hp.UpdateBar(playerController.hp, playerController.maxHp);
+                shield.UpdateBar(playerController.shield, playerController.maxShield);
+                heatBar.SetActive(playerController.enableHeat);
+                if (playerController.enableHeat)
+                {
+                    heat.UpdateBar(playerController.heat, 100f);
+                    Color heatColor = new Color(1f, 230f / 255f, 0f);
+                    if (playerController.overheating)
+                    {
+                        heatColor = new Color(1f, 30f / 255f, 0f);
+                    }
+                    heat.UpdateColor(heatColor);
+                }
+            }
+            else
+            {
+                health.text = "Health: =NULL=";
+                shields.text = "Shields: =NULL=";
+                level.text = "Power: 0";
             }
         }
+        // TWO PLAYER ===================
         else
         {
-            health.text = "Health: =NULL=";
-            shields.text = "Shields: =NULL=";
-            level.text = "Power: 0";
+            if (player != null)
+            {
+                health1.text = "Health: " + Mathf.FloorToInt(playerController.hp) + "/" + Mathf.FloorToInt(playerController.maxHp);
+                if (playerController.hp < .3f * playerController.maxHp)
+                {
+                    Color color = new Color(0.9f, 0f, 0f);
+                    hp1.UpdateColor(color);
+                }
+                else
+                {
+                    Color color = new Color(0f, 1f, 44.0f / 255.0f);
+                    hp1.UpdateColor(color);
+                }
+
+                if (playerController.shield > 0.0f)
+                {
+                    shields1.text = "Shields: " + Mathf.FloorToInt(playerController.shield) + "/" + Mathf.FloorToInt(playerController.maxShield);
+                    shields1.colorGradientPreset = shieldOnColor;
+                }
+                else
+                {
+                    shields1.text = "Shields: =OFFLINE=";
+                    shields1.colorGradientPreset = shieldOffColor;
+                }
+
+                level1.text = "Power: " + (playerController.level + 1);
+
+                missileCount1.text = "Ammo: " + playerController.currentMissileCount + "/" + playerController.maxMissile;
+
+                hp1.UpdateBar(playerController.hp, playerController.maxHp);
+                shield1.UpdateBar(playerController.shield, playerController.maxShield);
+                heatBar1.SetActive(playerController.enableHeat);
+                if (playerController.enableHeat)
+                {
+                    heat1.UpdateBar(playerController.heat, 100f);
+                    Color heatColor = new Color(1f, 230f / 255f, 0f);
+                    if (playerController.overheating)
+                    {
+                        heatColor = new Color(1f, 30f / 255f, 0f);
+                    }
+                    heat1.UpdateColor(heatColor);
+                }
+            }
+            else
+            {
+                health1.text = "Health: =NULL=";
+                shields1.text = "Shields: =NULL=";
+                level.text = "Power: 0";
+            }
+            if (player2 != null)
+            {
+                health2.text = "Health: " + Mathf.FloorToInt(playerController2.hp) + "/" + Mathf.FloorToInt(playerController2.maxHp);
+                if (playerController2.hp < .3f * playerController2.maxHp)
+                {
+                    Color color = new Color(0.9f, 0f, 0f);
+                    hp2.UpdateColor(color);
+                }
+                else
+                {
+                    Color color = new Color(0f, 1f, 44.0f / 255.0f);
+                    hp2.UpdateColor(color);
+                }
+
+                if (playerController2.shield > 0.0f)
+                {
+                    shields2.text = "Shields: " + Mathf.FloorToInt(playerController2.shield) + "/" + Mathf.FloorToInt(playerController2.maxShield);
+                    shields2.colorGradientPreset = shieldOnColor;
+                }
+                else
+                {
+                    shields2.text = "Shields: =OFFLINE=";
+                    shields2.colorGradientPreset = shieldOffColor;
+                }
+
+                level2.text = "Power: " + (playerController2.level + 1);
+
+                missileCount2.text = "Ammo: " + playerController2.currentMissileCount + "/" + playerController2.maxMissile;
+
+                hp2.UpdateBar(playerController2.hp, playerController2.maxHp);
+                shield2.UpdateBar(playerController2.shield, playerController2.maxShield);
+                heatBar2.SetActive(playerController2.enableHeat);
+                if (playerController2.enableHeat)
+                {
+                    heat2.UpdateBar(playerController2.heat, 100f);
+                    Color heatColor = new Color(1f, 230f / 255f, 0f);
+                    if (playerController2.overheating)
+                    {
+                        heatColor = new Color(1f, 30f / 255f, 0f);
+                    }
+                    heat2.UpdateColor(heatColor);
+                }
+            }
+            else
+            {
+                health2.text = "Health: =NULL=";
+                shields2.text = "Shields: =NULL=";
+                level2.text = "Power: 0";
+            }
         }
         if (boss)
         {
