@@ -395,11 +395,13 @@ public class GM : MonoBehaviour {
             GetComponent<AudioSource>().Play();
             //FindPlayer();
             playerController = player.GetComponent<PlayerController>();
-            playerLives--;
+            //playerLives--;
         }
         else
         {
-            mainFlowchart.SendFungusMessage("GameOver");
+            // If both player 1 and player 2 are dead with no lives, end the game
+            if( player == null && player2 == null)
+                mainFlowchart.SendFungusMessage("GameOver");
             //print("no lives");
         }
     }
@@ -412,17 +414,25 @@ public class GM : MonoBehaviour {
             GetComponent<AudioSource>().Play();
             //FindPlayer();
             playerController2 = player2.GetComponent<PlayerController>();
-            playerLives--;
+            playerController2.isPlayer2 = true;
+            //playerLives--;
         }
         else
         {
-            mainFlowchart.SendFungusMessage("GameOver");
+            // If both player 1 and player 2 are dead with no lives, end the game
+            if (player == null && player2 == null)
+                mainFlowchart.SendFungusMessage("GameOver");
             //print("no lives");
         }
     }
 
-    public void DeathText()
+    public void DeathText(bool p2)
     {
+        if (p2)
+        {
+            mainFlowchart.SendFungusMessage("death p2");
+            return;
+        }
         mainFlowchart.SendFungusMessage("death");
         //int index = Random.Range(0, deathTexts.Length);
         //deathTexts[index].SetActive(true);

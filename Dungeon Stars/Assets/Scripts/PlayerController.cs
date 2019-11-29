@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour {
     public string secondaryWeap;
     public string tertiaryWeap;
 
+    [HideInInspector]
+    public bool isPlayer2 = false;
 
     //HP & Shields***********
     [Header("HP & Shields")]
@@ -69,6 +71,7 @@ public class PlayerController : MonoBehaviour {
 
     private float shieldBoostEnd;
     private float attackSpeedBuff;
+    
 
     [HideInInspector]
     public bool invincible;  // When true, take no damage
@@ -97,6 +100,7 @@ public class PlayerController : MonoBehaviour {
     //public ParticleSystem heatFX;
 
     //score
+    [Header("Score")]
     public int dieCost;
     public int weapon1Cost;
     public int weapon2Cost;
@@ -536,7 +540,8 @@ public class PlayerController : MonoBehaviour {
         Destroy(gameObject);
         Instantiate(explosionFx, transform.position, transform.rotation);
         camera.GetComponent<CameraShaker>().HugeShake();
-        gm.DeathText();
+        gm.playerLives--;
+        gm.DeathText(isPlayer2);
         gm.score -= dieCost;
         if (gm.score < 0)
         {
