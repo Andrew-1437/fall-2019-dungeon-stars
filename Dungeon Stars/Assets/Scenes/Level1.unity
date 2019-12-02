@@ -4042,6 +4042,11 @@ PrefabInstance:
       propertyPath: m_textInfo.characterCount
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 677459759525292743, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2408103556732191100, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
     - {fileID: 2740152991574646411, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
@@ -6799,7 +6804,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1038022775
 Transform:
   m_ObjectHideFlags: 0
@@ -9482,7 +9487,7 @@ MonoBehaviour:
     height: 40
   tint: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
   useCustomTint: 1
-  itemId: 26
+  itemId: 118
   blockName: Death P2
   description: 
   eventHandler: {fileID: 1270022601}
