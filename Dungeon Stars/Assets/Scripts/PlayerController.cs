@@ -182,8 +182,19 @@ public class PlayerController : MonoBehaviour {
     //Movement***********
     void FixedUpdate()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal;
+        float vertical;
+
+        if (!isPlayer2)
+        {
+            horizontal = Input.GetAxis("Horizontal");
+            vertical = Input.GetAxis("Vertical");
+        }
+        else
+        {
+            horizontal = Input.GetAxis("Horizontal2");
+            vertical = Input.GetAxis("Vertical2");
+        }
 
         //rotation -= horizontal;
         Vector2 move = new Vector2(horizontal, vertical);
@@ -215,7 +226,7 @@ public class PlayerController : MonoBehaviour {
     void Update()
     {
         // Primary Fire
-        if(Input.GetButton("Fire1") && Time.time > nextFire)
+        if(((!isPlayer2 && Input.GetButton("Fire1")) || (isPlayer2 && Input.GetButton("Fire12"))) && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate * fireRateMod * heatMod;
             Instantiate(primary[level], spawner.position, spawner.rotation);
@@ -231,7 +242,7 @@ public class PlayerController : MonoBehaviour {
         }
 
         // Secondary Fire
-        if(Input.GetButton("Fire2") && Time.time > nextSecondary)
+        if(((!isPlayer2 && Input.GetButton("Fire2")) || (isPlayer2 && Input.GetButton("Fire22"))) && Time.time > nextSecondary)
         {
             nextSecondary = Time.time + secondaryFireRate * fireRateMod * heatMod;
             Instantiate(secondary[level], spawner.position, spawner.rotation);
@@ -247,7 +258,7 @@ public class PlayerController : MonoBehaviour {
         }
 
         // Tertiary Fire
-        if(Input.GetButtonDown("Fire3"))
+        if((!isPlayer2 && Input.GetButtonDown("Fire3")) || (isPlayer2 && Input.GetButtonDown("Fire32")))
         {
             if (currentMissileCount>0)
             {
