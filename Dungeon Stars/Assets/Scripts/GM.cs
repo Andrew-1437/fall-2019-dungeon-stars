@@ -109,6 +109,13 @@ public class GM : MonoBehaviour {
 
         soloUIElements.SetActive(!twoPlayerMode);
         duoUIElements.SetActive(twoPlayerMode);
+
+        // If Playing with two players, double the score for hull and ammo
+        if(twoPlayerMode)
+        {
+            baseAmmoScore *= 2;
+            baseHpScore *= 2;
+        }
     }
 
     private void Update()
@@ -471,21 +478,45 @@ public class GM : MonoBehaviour {
 
     public int CalcAmmoScore()
     {
-        if(!twoPlayerMode)
-            return (int)(((float)playerController.currentMissileCount / (float)playerController.maxMissile) * baseAmmoScore);
+        // Prevent possible error if a player is dead when score is calculated
+        float player1PercentAmmo;
+        float player2PercentAmmo;
+
+        if (player != null)
+            player1PercentAmmo = (float)playerController.currentMissileCount / (float)playerController.maxMissile;
         else
-            return (int)(
-                ((float)(playerController.currentMissileCount + playerController2.currentMissileCount) /
-                (float)(playerController.maxMissile + playerController.maxMissile)) * baseAmmoScore);
+            player1PercentAmmo = 0f;
+
+        if (player2 != null)
+            player2PercentAmmo = (float)playerController2.currentMissileCount / (float)playerController2.maxMissile;
+        else
+            player2PercentAmmo = 0f;
+
+        if (!twoPlayerMode)
+            return (int)(player1PercentAmmo * baseAmmoScore);
+        else
+            return (int)((player1PercentAmmo + player2PercentAmmo / 2f) * baseAmmoScore);
     }
 
     public int CalcHpScore()
     {
-        if (!twoPlayerMode)
-            return (int)((playerController.hp / playerController.maxHp) * baseHpScore);
+        // Prevent possible error if a player is dead when score is calculated
+        float player1PercentHp;
+        float player2PercentHp;
+
+        if (player != null)
+            player1PercentHp = playerController.hp / playerController.maxHp;
         else
-            return (int)(
-                ((playerController.hp + playerController2.hp) / 
-                (playerController.maxHp + playerController2.maxHp)) * baseHpScore);
+            player1PercentHp = 0f;
+
+        if (player2 != null)
+            player2PercentHp = playerController2.hp / playerController2.maxHp;
+        else
+            player2PercentHp = 0f;
+
+        if (!twoPlayerMode)
+            return (int)(player1PercentHp * baseHpScore);
+        else
+            return (int)(((player1PercentHp + player2PercentHp) / 2f) * baseHpScore);
     }
 }
