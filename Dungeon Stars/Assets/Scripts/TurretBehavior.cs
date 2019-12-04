@@ -35,18 +35,17 @@ public class TurretBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        
-        if (target != null)
+        if (awake)
         {
-            Vector3 targetDir = target.GetComponent<Transform>().position - transform.position;
+            target = FindClosestByTag("Player");
+            if (target != null)
+            {
+                Vector3 targetDir = target.transform.position - transform.position;
 
-            float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg - 90;
-            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, q, turn * Time.deltaTime);
-        }
-        else
-        {
-            target = GameObject.FindWithTag("Player");
+                float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg - 90;
+                Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, q, turn * Time.deltaTime);
+            }
         }
 
         if (awake && (Time.time > nextBurst || Time.time < burstEnd))
@@ -70,6 +69,43 @@ public class TurretBehavior : MonoBehaviour {
         }
         
         
+    }
+
+    GameObject FindClosestByTag(string tag)
+    {
+        GameObject[] gos;
+        gos = GameObject.FindGameObjectsWithTag(tag);
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
+        Vector3 position = transform.position;
+        //print(gos.Length);
+        foreach (GameObject go in gos)
+        {
+            if (tag == "Player")
+            {
+                Vector3 diff = go.transform.position - position;
+                float curDistance = diff.sqrMagnitude;
+                if (curDistance < distance)
+                {
+                    closest = go;
+                    distance = curDistance;
+                }
+            }
+            else
+            {
+                if (go.GetComponent<ObstacleBehavior>().awake)
+                {
+                    Vector3 diff = go.transform.position - position;
+                    float curDistance = diff.sqrMagnitude;
+                    if (curDistance < distance)
+                    {
+                        closest = go;
+                        distance = curDistance;
+                    }
+                }
+            }
+        }
+        return closest;
     }
 
 

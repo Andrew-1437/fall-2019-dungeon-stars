@@ -30,6 +30,7 @@ public class ShipSelect : MonoBehaviour
     public TextMeshProUGUI description;
 
     private AudioSource sound;
+    private bool p2Picking = false;
 
     // Start is called before the first frame update
     void Start()
@@ -66,14 +67,34 @@ public class ShipSelect : MonoBehaviour
             sound.Play();
         }
 
-        if(Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) && OmniController.omniController.twoPlayerMode && p2Picking)
         {
-            selection.selectedShip = ships[index];
+            selection.selectedShip2 = ships[index];
             SceneLoader.DontDestroyOnLoad(selection.gameObject);
             //SceneManager.LoadScene(nextSceneName);
             canvas.SetActive(false);
             sceneLoader.LoadScene(nextSceneName);
         }
+
+        if (Input.GetKeyDown(KeyCode.Return) && !p2Picking)
+        {
+            selection.selectedShip = ships[index];
+            if (OmniController.omniController.twoPlayerMode)
+            {
+                p2Picking = true;
+                print("Player 1 ship selected");
+            }
+            else
+            {
+                selection.selectedShip2 = null;
+                SceneLoader.DontDestroyOnLoad(selection.gameObject);
+                //SceneManager.LoadScene(nextSceneName);
+                canvas.SetActive(false);
+                sceneLoader.LoadScene(nextSceneName);
+            }
+        }
+
+        
 
     }
 

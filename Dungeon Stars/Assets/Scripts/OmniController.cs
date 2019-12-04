@@ -43,5 +43,9 @@ public class OmniController : MonoBehaviour
         powerUpsCollected = 0;
     }
 
+    public void SetTwoPlayers(bool setCoop)
+    {
+        twoPlayerMode = setCoop;
+    }
     
 }

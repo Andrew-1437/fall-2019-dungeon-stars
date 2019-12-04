@@ -9,14 +9,14 @@ public class GameStarter : MonoBehaviour {
     private float startTime;
     private bool triggered;
 
-    private GameObject gm;
+    private GM gm;
     //public GameObject player;
     //public GameObject fx;
     public GameObject textDisplay;
 
     private void Start()
     {
-        gm = GameObject.FindWithTag("GameController");
+        gm = GM.gameController;
         if (gm == null)
         {
             print("Ohshit! Game Controller not found by BackgroundMove!");
@@ -39,9 +39,11 @@ public class GameStarter : MonoBehaviour {
         }
         if (Time.time >= startTime)
         {
-            gm.GetComponent<GM>().gameStart = true;
-            gm.GetComponent<GM>().SpawnPlayer();
-            gm.GetComponent<GM>().FindPlayer();
+            gm.gameStart = true;
+            gm.SpawnPlayer();
+            if (gm.twoPlayerMode)
+                gm.SpawnPlayer2();
+            //gm.FindPlayer();
             
 
             gameObject.SetActive(false);

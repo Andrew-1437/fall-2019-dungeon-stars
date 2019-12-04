@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MaintainSelection : MonoBehaviour
 {
     public GameObject selectedShip;
+    public GameObject selectedShip2;  // Two players
 
     private void Update()
     {
