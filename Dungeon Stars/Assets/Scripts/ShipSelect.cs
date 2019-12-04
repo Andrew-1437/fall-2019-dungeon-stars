@@ -19,6 +19,7 @@ public class ShipSelect : MonoBehaviour
 
     [Header("UI Elements")]
     public GameObject canvas;
+    public TextMeshProUGUI title;
     public TextMeshProUGUI shipName;
     public TextMeshProUGUI health;
     public TextMeshProUGUI shield;
@@ -29,6 +30,7 @@ public class ShipSelect : MonoBehaviour
     public TextMeshProUGUI tertiary;
     public TextMeshProUGUI description;
 
+    public AudioSource selectSound;
     private AudioSource sound;
     private bool p2Picking = false;
 
@@ -69,6 +71,7 @@ public class ShipSelect : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Return) && OmniController.omniController.twoPlayerMode && p2Picking)
         {
+            selectSound.Play();
             selection.selectedShip2 = ships[index];
             SceneLoader.DontDestroyOnLoad(selection.gameObject);
             //SceneManager.LoadScene(nextSceneName);
@@ -78,11 +81,13 @@ public class ShipSelect : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Return) && !p2Picking)
         {
+            selectSound.Play();
             selection.selectedShip = ships[index];
             if (OmniController.omniController.twoPlayerMode)
             {
                 p2Picking = true;
-                print("Player 1 ship selected");
+                //print("Player 1 ship selected");
+                SelectShipIndex(0);
             }
             else
             {
@@ -94,6 +99,21 @@ public class ShipSelect : MonoBehaviour
             }
         }
 
+        if(!OmniController.omniController.twoPlayerMode)
+        {
+            title.text = "Select your ship";
+        }
+        else
+        {
+            if(!p2Picking)
+            {
+                title.text = "Player 1, select your ship";
+            }
+            else
+            {
+                title.text = "Player 2, select your ship";
+            }
+        }
         
 
     }
@@ -101,6 +121,17 @@ public class ShipSelect : MonoBehaviour
     public void SelectNextShip(int select = 1)
     {
         index = (index + select);
+        if (index < 0) index = ships.Length - 1;
+        index = index % ships.Length;
+        if (currentShip) { Destroy(currentShip); }
+
+        currentShip = Instantiate(ships[index], spawn) as GameObject;
+        ship = currentShip.GetComponent<PlayerController>();
+    }
+
+    public void SelectShipIndex(int ind)
+    {
+        index = ind;
         if (index < 0) index = ships.Length - 1;
         index = index % ships.Length;
         if (currentShip) { Destroy(currentShip); }
