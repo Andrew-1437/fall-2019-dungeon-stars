@@ -297,7 +297,7 @@ public class GM : MonoBehaviour {
             {
                 health1.text = "Health: =NULL=";
                 shields1.text = "Shields: =NULL=";
-                level.text = "Power: 0";
+                level1.text = "Power: 0";
             }
             if (player2 != null)
             {
