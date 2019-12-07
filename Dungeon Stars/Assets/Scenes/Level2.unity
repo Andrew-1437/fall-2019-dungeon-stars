@@ -14427,6 +14427,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Basic Level Kit
       objectReference: {fileID: 0}
+    - target: {fileID: 677459759489935520, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_Name
+      value: Capital Ship Warning
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459759988343928, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: _duration.floatVal
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459759403040860, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: commandList.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459759403040860, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: commandList.Array.data[2]
+      value: 
+      objectReference: {fileID: 1915930488}
+    - target: {fileID: 677459759403040860, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: commandList.Array.data[1]
+      value: 
+      objectReference: {fileID: 1915930490}
+    - target: {fileID: 677459759403040860, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: commandList.Array.data[3]
+      value: 
+      objectReference: {fileID: 1915930487}
+    - target: {fileID: 677459759403040860, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: commandList.Array.data[4]
+      value: 
+      objectReference: {fileID: 1915930486}
+    - target: {fileID: 677459759403040860, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: commandList.Array.data[5]
+      value: 
+      objectReference: {fileID: 2021848596}
     - target: {fileID: 677459759403048358, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: selectedBlocks.Array.size
@@ -14602,46 +14642,11 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 2147006793}
-    - target: {fileID: 677459759489935520, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: m_Name
-      value: Capital Ship Warning
-      objectReference: {fileID: 0}
     - target: {fileID: 4007827850887246468, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 732.8
       objectReference: {fileID: 0}
-    - target: {fileID: 677459759403040860, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: commandList.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 677459759403040860, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: commandList.Array.data[2]
-      value: 
-      objectReference: {fileID: 1915930488}
-    - target: {fileID: 677459759403040860, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: commandList.Array.data[1]
-      value: 
-      objectReference: {fileID: 1915930490}
-    - target: {fileID: 677459759403040860, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: commandList.Array.data[3]
-      value: 
-      objectReference: {fileID: 1915930487}
-    - target: {fileID: 677459759403040860, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: commandList.Array.data[4]
-      value: 
-      objectReference: {fileID: 1915930486}
-    - target: {fileID: 677459759403040860, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: commandList.Array.data[5]
-      value: 
-      objectReference: {fileID: 2021848596}
     - target: {fileID: 677459759988343911, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: storyText
@@ -14657,11 +14662,6 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 2147006793}
-    - target: {fileID: 677459759988343928, guid: 0ea578368fa70084d8a1e8638cf45cca,
-        type: 3}
-      propertyPath: _duration.floatVal
-      value: 0.6
-      objectReference: {fileID: 0}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.size
@@ -14850,7 +14850,7 @@ PrefabInstance:
     - target: {fileID: 6440787393661421421, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_text
-      value: =CAPTIAL SHIP APPROACHING=
+      value: =CAPITAL SHIP APPROACHING=
       objectReference: {fileID: 0}
     - target: {fileID: 6440787393661421421, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
@@ -14870,17 +14870,42 @@ PrefabInstance:
     - target: {fileID: 6440787393661421421, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_firstOverflowCharacterIndex
-      value: 14
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6440787393661421421, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 644499616897639200, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_Text
       value: =CAPITAL SHIP APPROACHING=
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459759988343915, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: storyText
+      value: I never liked that one.
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459759988343915, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 2147006793}
+    - target: {fileID: 1700646558408179706, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: storyText
+      value: I never liked that one.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700646558408179706, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 2147006793}
+    - target: {fileID: 1700646558408179706, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: portrait
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 677459759456096127, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
