@@ -31,6 +31,7 @@ public class MainMenu : MonoBehaviour
         //SceneManager.LoadScene("Tutorial");
         sceneLoader.LoadScene("Tutorial");
         OmniController.omniController.ResetGameplayVariables();
+        OmniController.omniController.SetTwoPlayers(false);
         gameObject.SetActive(false);
     }
 
