@@ -44,7 +44,7 @@ public class Summary : MonoBehaviour
             PlayerPrefs.SetInt("MostDeaths", OmniController.omniController.timesDied);
         }
         else
-            bestDeathsStr = "   Best: " + bestDeaths.ToString();
+            bestDeathsStr = "   Worst: " + bestDeaths.ToString();
 
         if (OmniController.omniController.totalScore > highScore)
         {

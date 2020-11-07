@@ -18,9 +18,9 @@ public class BackgroundMove : MonoBehaviour {
     private void Update()
     {
         if (gm.gameStart)
-        {
-            rb.velocity = new Vector2(0.0f, -speed);
-        }
+            rb.velocity = Vector2.down * speed;
+        else
+            rb.velocity = Vector2.zero;
     }
 
 }

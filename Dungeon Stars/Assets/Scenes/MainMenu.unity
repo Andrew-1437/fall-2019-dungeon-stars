@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -154,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1.4474945}
+  m_AnchoredPosition: {x: 0, y: -1.4475098}
   m_SizeDelta: {x: 351.5, y: 192.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &86414586
@@ -964,6 +965,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5717,6 +5719,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -10863,13 +10866,15 @@ MonoBehaviour:
 
     Left Mouse: Primary Fire
 
-    Right Mouse: Secondary Fire
+    Right
+    Mouse: Secondary Fire
 
     Middle Mouse: Tertiary Fire
 
     T: Skip Dialogue
 
-    Esc: Return to Menu'
+    Esc:
+    Return to Menu'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11032,7 +11037,8 @@ MonoBehaviour:
 
     Square: Primary Fire
 
-    X: Secondary Fire
+    X: Secondary
+    Fire
 
     Circle: Tertiary Fire
 
@@ -11669,6 +11675,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8547074216409671795, guid: b974a1d5aa75cb5429252082d98c0e08,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8547074216409671795, guid: b974a1d5aa75cb5429252082d98c0e08,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8547074216908387241, guid: b974a1d5aa75cb5429252082d98c0e08,
         type: 3}
       propertyPath: m_Name
@@ -11763,16 +11779,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8547074216409671795, guid: b974a1d5aa75cb5429252082d98c0e08,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8547074216409671795, guid: b974a1d5aa75cb5429252082d98c0e08,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b974a1d5aa75cb5429252082d98c0e08, type: 3}
@@ -11979,6 +11985,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -17209,6 +17216,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -20089,6 +20097,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -20638,6 +20647,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -21019,6 +21029,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -21257,6 +21268,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -26141,11 +26153,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3361675541499409135, guid: 70e32cd3b0533b445959a03aacf49338,
-        type: 3}
-      propertyPath: m_Name
-      value: OmniController
-      objectReference: {fileID: 0}
     - target: {fileID: 3361675541499409133, guid: 70e32cd3b0533b445959a03aacf49338,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26203,8 +26210,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3361675541499409134, guid: 70e32cd3b0533b445959a03aacf49338,
         type: 3}
+      propertyPath: allShips.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361675541499409134, guid: 70e32cd3b0533b445959a03aacf49338,
+        type: 3}
       propertyPath: enableDebug
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361675541499409134, guid: 70e32cd3b0533b445959a03aacf49338,
+        type: 3}
+      propertyPath: allShips.Array.data[7]
+      value: 
+      objectReference: {fileID: 1328236367363624, guid: 63dff43356469684fad2e4fdd6f633f2,
+        type: 3}
+    - target: {fileID: 3361675541499409135, guid: 70e32cd3b0533b445959a03aacf49338,
+        type: 3}
+      propertyPath: m_Name
+      value: OmniController
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70e32cd3b0533b445959a03aacf49338, type: 3}

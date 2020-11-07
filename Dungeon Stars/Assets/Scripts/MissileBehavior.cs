@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MissileBehavior : MonoBehaviour {
-
-    public float speed; //Speed of projectile
+public class MissileBehavior : ProjectileBehavior {
+    
     public float turn; //Turning speed of projectile
     public string targetTag;
     private GameObject target;
 
     public GameObject explosion;
     
-    public float lifeTime;
-    private float deathTime;
 
     private void Start()
     {
-        deathTime = Time.time + lifeTime;
+        base.Start();
         target = FindClosestByTag(targetTag);
+    }
+
+    private void FixedUpdate()
+    {
+        
     }
 
     void Update()
@@ -37,7 +39,7 @@ public class MissileBehavior : MonoBehaviour {
 
         if (Time.time >= deathTime)
         {
-            Destroy(gameObject);
+            DestroyProjectile();
             Instantiate(explosion, transform.position, transform.rotation);
         }
     }
@@ -46,12 +48,12 @@ public class MissileBehavior : MonoBehaviour {
     {
         if (other.tag == targetTag)
         {
-            Destroy(gameObject);
+            DestroyProjectile();
             Instantiate(explosion, transform.position, transform.rotation);
         }
         if (gameObject.tag == "EnemyMissile" && other.tag == "AntiProjectile")
         {
-            Destroy(gameObject);
+            DestroyProjectile();
         }
     }
 

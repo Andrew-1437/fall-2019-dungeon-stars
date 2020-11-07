@@ -14,8 +14,8 @@ public class GM : MonoBehaviour {
     public GameObject playerObject;
     public GameObject playerObject2;
     public GameObject fx;
-    private GameObject player;
-    private GameObject player2;
+    public GameObject player;
+    public GameObject player2;
     private PlayerController playerController;
     private PlayerController playerController2;
     public GameObject enemies;
@@ -518,5 +518,10 @@ public class GM : MonoBehaviour {
             return (int)(player1PercentHp * baseHpScore);
         else
             return (int)(((player1PercentHp + player2PercentHp) / 2f) * baseHpScore);
+    }
+
+    public void SetGameState(bool start)
+    {
+        gameStart = start;
     }
 }

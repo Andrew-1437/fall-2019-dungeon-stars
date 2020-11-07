@@ -52,21 +52,23 @@ public class StdEnemyBehavior : MonoBehaviour {
             {
                 if (awake)
                 {
-                    rb.velocity = (transform.up * speed) + new Vector3(0.0f, -1.0f, 0.0f);
+                    rb.velocity = (transform.up * speed) + Vector3.down;
                 }
                 else
                 {
-                    rb.velocity = new Vector2(0.0f, -1.0f);
+                    rb.velocity = Vector2.down;
                 }
             }
             else
             {
-                if(Time.time >= stunTimer)
+                if (Time.time >= stunTimer)
                 {
                     stunned = false;
                 }
             }
         }
+        else
+            rb.velocity = Vector2.zero;
     }
 
     // Update is called once per frame

@@ -37,7 +37,7 @@ public class BossBehavior : LargeEnemyBehavior {
 
     private void Update()
     {
-        if (hp <= 0 && !dying)
+        if ((hp <= 0 || turrets <= 0) && !dying)
         {
             dieTime = Time.time + 1.6f;
             dying = true;
@@ -68,7 +68,7 @@ public class BossBehavior : LargeEnemyBehavior {
     private void Die()
     {
         Destroy(gameObject);
-        Instantiate(explosion, gameObject.GetComponent<Transform>().position, gameObject.GetComponent<Transform>().rotation);
+        Instantiate(explosion, transform.position, transform.rotation);
         gameCamera.GetComponent<CameraShaker>().HugeShake();
         mainFlowchart.SendFungusMessage("LevelComplete");
     }

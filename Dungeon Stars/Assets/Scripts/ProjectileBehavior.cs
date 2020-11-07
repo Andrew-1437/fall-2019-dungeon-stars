@@ -7,7 +7,7 @@ public class ProjectileBehavior : MonoBehaviour {
     public float speed; //Speed of projectile
     public float dmgValue; //Damage projectile will do
     public float lifeTime;
-    private float deathTime;
+    protected float deathTime;
     public bool perist;
     public GameObject particleFX;
 
