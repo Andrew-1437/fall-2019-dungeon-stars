@@ -269,13 +269,13 @@ public class PlayerController : MonoBehaviour {
         // Heat updates
         if(enableHeat)
         {
-            heat -= heatDisperse * (1f/heatGenMod);
+            heat -= heatDisperse * (1f/heatGenMod) * Time.deltaTime;
             heat = Mathf.Clamp(heat, 0f, 100f);
 
             if(heat >= 80f)
             {
                 //print("OVERHEAT");
-                HullDamage(maxHp * .001f);
+                HullDamage(maxHp * .03f * Time.deltaTime);
 
                 if (!overheating)
                 {
@@ -350,7 +350,7 @@ public class PlayerController : MonoBehaviour {
         // Passively regenerate shield
         if(shield < maxShield && !shieldDown && Time.time >= shieldRegenTime)
         {
-            shield += shieldRecharge * maxShield;
+            shield += shieldRecharge * maxShield * Time.deltaTime;
         }
         // Upper bound shield
         if(shield > maxShield && Time.time > shieldBoostEnd)

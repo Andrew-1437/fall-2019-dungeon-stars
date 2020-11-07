@@ -70,6 +70,7 @@ MonoBehaviour:
   fireRate: 0.15
   burstTime: 0.8
   turn: 100
+  hardpoint: {fileID: 0}
 --- !u!58 &5779629169193350332
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -99,7 +100,7 @@ GameObject:
   - component: {fileID: 5779629169395106108}
   - component: {fileID: 5779629169395106111}
   m_Layer: 0
-  m_Name: Turret (3)
+  m_Name: CannonTurret
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,6 +157,7 @@ MonoBehaviour:
   fireRate: 2
   burstTime: 0.1
   turn: 80
+  hardpoint: {fileID: 0}
 --- !u!58 &5779629169395106111
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -217,6 +219,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -306,6 +310,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -330,6 +336,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &5779629171143253896
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,6 +391,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -408,6 +417,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6335183461265512946
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +472,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -486,6 +498,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6654098438693776918
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,6 +569,7 @@ MonoBehaviour:
   fireRate: 0.15
   burstTime: 0.8
   turn: 100
+  hardpoint: {fileID: 0}
 --- !u!58 &1858651653074079046
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -609,6 +623,7 @@ Transform:
   - {fileID: 9060863051126699203}
   - {fileID: 5779629169193350335}
   - {fileID: 5779629169395106110}
+  - {fileID: 3860066880729415584}
   - {fileID: 5779629171050703931}
   - {fileID: 5779629169558959214}
   m_Father: {fileID: 0}
@@ -665,7 +680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bd9fb3b596b2c4ba5c59442450b150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turrets: 4
+  turrets: 5
   explosion: {fileID: 100010, guid: 30c4c673696f6254ebe0e3a26d31092f, type: 3}
   score: 4000
 --- !u!70 &5149470589190883248
@@ -698,6 +713,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -787,6 +804,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -811,6 +830,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8976495446117877618
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,7 +844,7 @@ GameObject:
   - component: {fileID: 2064870882153477534}
   - component: {fileID: 3896500495696830481}
   m_Layer: 0
-  m_Name: Turret
+  m_Name: MissileTurret
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -880,6 +900,7 @@ MonoBehaviour:
   fireRate: 0.4
   burstTime: 1
   turn: 120
+  hardpoint: {fileID: 0}
 --- !u!58 &3896500495696830481
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -896,6 +917,85 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!1001 &3863535784156853394
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7132029718562290642}
+    m_Modifications:
+    - target: {fileID: 1550406188365340, guid: 2fdf6b2d8729ecb4189b935012a72486, type: 3}
+      propertyPath: m_Name
+      value: FlakTurret
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432350491282226, guid: 2fdf6b2d8729ecb4189b935012a72486, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432350491282226, guid: 2fdf6b2d8729ecb4189b935012a72486, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432350491282226, guid: 2fdf6b2d8729ecb4189b935012a72486, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432350491282226, guid: 2fdf6b2d8729ecb4189b935012a72486, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432350491282226, guid: 2fdf6b2d8729ecb4189b935012a72486, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432350491282226, guid: 2fdf6b2d8729ecb4189b935012a72486, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432350491282226, guid: 2fdf6b2d8729ecb4189b935012a72486, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432350491282226, guid: 2fdf6b2d8729ecb4189b935012a72486, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432350491282226, guid: 2fdf6b2d8729ecb4189b935012a72486, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432350491282226, guid: 2fdf6b2d8729ecb4189b935012a72486, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432350491282226, guid: 2fdf6b2d8729ecb4189b935012a72486, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114675303052786826, guid: 2fdf6b2d8729ecb4189b935012a72486,
+        type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 3193157053393116799, guid: 272f6011f4306994e8a6c74a42280e60,
+        type: 3}
+    - target: {fileID: 114675303052786826, guid: 2fdf6b2d8729ecb4189b935012a72486,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114675303052786826, guid: 2fdf6b2d8729ecb4189b935012a72486,
+        type: 3}
+      propertyPath: burstTime
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2fdf6b2d8729ecb4189b935012a72486, type: 3}
+--- !u!4 &3860066880729415584 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4432350491282226, guid: 2fdf6b2d8729ecb4189b935012a72486,
+    type: 3}
+  m_PrefabInstance: {fileID: 3863535784156853394}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5779629169558826730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -903,6 +1003,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7132029718562290642}
     m_Modifications:
+    - target: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+      propertyPath: m_Name
+      value: Afterburner (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.41
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.6
@@ -933,7 +1041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -946,14 +1054,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
-      propertyPath: m_Name
-      value: Afterburner (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.41
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.size
@@ -1042,6 +1142,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7132029718562290642}
     m_Modifications:
+    - target: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+      propertyPath: m_Name
+      value: Afterburner
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.41
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.66
@@ -1072,7 +1180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1085,14 +1193,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
-      propertyPath: m_Name
-      value: Afterburner
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.41
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.size

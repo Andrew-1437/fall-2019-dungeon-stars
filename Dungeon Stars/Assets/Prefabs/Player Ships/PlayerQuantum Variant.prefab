@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerQuantum Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4309681714942388, guid: 6331c0ba4b0041f47a566491348f0430, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.9700003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4309681714942388, guid: 6331c0ba4b0041f47a566491348f0430, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.484
+      objectReference: {fileID: 0}
     - target: {fileID: 4504378209215118, guid: 6331c0ba4b0041f47a566491348f0430, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -55,6 +63,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4807829447889170, guid: 6331c0ba4b0041f47a566491348f0430, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.61164314
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807829447889170, guid: 6331c0ba4b0041f47a566491348f0430, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3783187
+      objectReference: {fileID: 0}
     - target: {fileID: 70685405264876654, guid: 6331c0ba4b0041f47a566491348f0430,
         type: 3}
       propertyPath: m_Size.y
@@ -78,8 +94,8 @@ PrefabInstance:
     - target: {fileID: 114058955246685346, guid: 6331c0ba4b0041f47a566491348f0430,
         type: 3}
       propertyPath: desc
-      value: A hard to fly and extremely fragile ship, but uses alien technology to
-        make it much smaller than it appears...
+      value: A hard to fly and extremely fragile ship, but uses alien technology
+        to make it much smaller than it appears...
       objectReference: {fileID: 0}
     - target: {fileID: 114058955246685346, guid: 6331c0ba4b0041f47a566491348f0430,
         type: 3}
@@ -104,7 +120,7 @@ PrefabInstance:
     - target: {fileID: 114058955246685346, guid: 6331c0ba4b0041f47a566491348f0430,
         type: 3}
       propertyPath: shieldRecharge
-      value: 0.01
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 114058955246685346, guid: 6331c0ba4b0041f47a566491348f0430,
         type: 3}
@@ -177,22 +193,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 455191990633966392, guid: d7f2efdff57ca08419403c66fa742efb,
         type: 3}
-    - target: {fileID: 4807829447889170, guid: 6331c0ba4b0041f47a566491348f0430, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.61164314
-      objectReference: {fileID: 0}
-    - target: {fileID: 4807829447889170, guid: 6331c0ba4b0041f47a566491348f0430, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.3783187
-      objectReference: {fileID: 0}
-    - target: {fileID: 4309681714942388, guid: 6331c0ba4b0041f47a566491348f0430, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3.9700003
-      objectReference: {fileID: 0}
-    - target: {fileID: 4309681714942388, guid: 6331c0ba4b0041f47a566491348f0430, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3.484
-      objectReference: {fileID: 0}
     - target: {fileID: 212725835101409808, guid: 6331c0ba4b0041f47a566491348f0430,
         type: 3}
       propertyPath: m_Sprite
