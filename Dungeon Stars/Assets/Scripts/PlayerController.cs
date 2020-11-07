@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour {
     public float hp;   //Represents current hp
     public float shield;   //Represents current shields
 
-    public GameObject shieldRef;
+    public Animator shieldSprite;
     public float shieldRecharge;    //Represents rate at which shield recharges/frame
     public float shieldRegenDelay; //Represents time in seconds since last damage before shield will regen IF SHIELD IS ACTIVE
     public float shieldDelay;   //Represents time in seconds the shield will take to reboot after being disabled
@@ -148,8 +148,6 @@ public class PlayerController : MonoBehaviour {
         hp = maxHp;
         shield = maxShield;
         shieldDown = false;
-        shieldOpacity = 0.0f;
-        shieldRef.GetComponent<MeshRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, shieldOpacity);
 
         audio = gameObject.GetComponents<AudioSource>();
 
@@ -277,7 +275,7 @@ public class PlayerController : MonoBehaviour {
             if(heat >= 80f)
             {
                 //print("OVERHEAT");
-                hullDamage(maxHp * .001f);
+                HullDamage(maxHp * .001f);
 
                 if (!overheating)
                 {
@@ -303,7 +301,7 @@ public class PlayerController : MonoBehaviour {
         {
             //Quick Level Up
             if (Input.GetKeyDown(KeyCode.RightShift))
-                levelUp();
+                LevelUp();
             //Self Destruct
             if (hp <= 0 || Input.GetKeyDown("backspace"))
                 Die();
@@ -314,8 +312,7 @@ public class PlayerController : MonoBehaviour {
                 shieldDown = true;
                 shieldUpTime = Time.time + shieldDelay;
                 shield = 0;
-                shieldOpacity = 3.0f;
-                ShieldFlashRed(shieldRef, shieldOpacity);
+                shieldSprite.SetTrigger("Broken");
                 gameObject.GetComponent<AudioSource>().Play();
             }
             
@@ -341,39 +338,24 @@ public class PlayerController : MonoBehaviour {
         // Shield mechanics************
         if (shieldDown)
         {
-            //After we have reached the time when shield is back up, shield returns with 50% hp
+            //After we have reached the time when shield is back up, shield returns with 25% hp
             if(Time.time >= shieldUpTime)
             {
                 shieldDown = false;
                 shield = maxShield / 4;
-                shieldOpacity = 4.0f;
-                ShieldFlash(shieldRef, shieldOpacity);
+                shieldSprite.SetTrigger("Restored");
                 audio[1].Play();
             }
         }
+        // Passively regenerate shield
         if(shield < maxShield && !shieldDown && Time.time >= shieldRegenTime)
         {
             shield += shieldRecharge * maxShield;
         }
+        // Upper bound shield
         if(shield > maxShield && Time.time > shieldBoostEnd)
         {
             shield = maxShield;
-        }
-        if(shield > maxShield && Time.time < shieldBoostEnd)
-        {
-            shieldOpacity = 2.0f;
-        }
-
-        // Shield Flashy stuff
-        if(shieldOpacity > 0 && !shieldDown)
-        {
-            shieldOpacity -= 0.1f;
-            ShieldFlash(shieldRef, shieldOpacity);
-        }
-        if (shieldOpacity > 0 && shieldDown)
-        {
-            shieldOpacity -= 0.1f;
-            ShieldFlashRed(shieldRef, shieldOpacity);
         }
 
         // PowerUps
@@ -418,7 +400,7 @@ public class PlayerController : MonoBehaviour {
         {
             float dmg = other.gameObject.GetComponent<ProjectileBehavior>().dmgValue;
 
-            damage(dmg);
+            Damage(dmg);
 
             camera.GetComponent<CameraShaker>().SmallShake();
             if (!other.gameObject.GetComponent<ProjectileBehavior>().perist)
@@ -443,7 +425,7 @@ public class PlayerController : MonoBehaviour {
                 //Total collision dmg = collision value of other * (player speed + other speed)
                 float collisionDmg = other.gameObject.GetComponent<ObstacleBehavior>().collisionVal
                     * (rb.velocity.magnitude + other.GetComponent<Rigidbody2D>().velocity.magnitude);
-                hullDamage(collisionDmg);
+                HullDamage(collisionDmg);
                 other.gameObject.GetComponent<ObstacleBehavior>().hp -= collisionDmg;
                 audio[2].Play();
                 camera.GetComponent<CameraShaker>().LargeShake();
@@ -453,30 +435,7 @@ public class PlayerController : MonoBehaviour {
         if (other.tag == "Laser")
         {
             float dmg = other.gameObject.GetComponent<ProjectileBehavior>().dmgValue * dmgMod;
-            shield -= dmg;  //All damage hits shield first
-            if (!shieldDown)
-            {
-                shieldOpacity = 1.0f;
-                ShieldFlash(shieldRef, shieldOpacity);
-                shieldRegenTime = Time.time + shieldRegenDelay;
-            }
-            if (shield < 0 && !shieldDown)
-            {
-                //Mark shield is down and set time when shield returns
-                shieldDown = true;
-                shieldUpTime = Time.time + shieldDelay;
-                hp += shield;   //Excess damage to shield carries over. If shield is already 0, this does full damage to hp
-                shield = 0;
-                shieldOpacity = 3.0f;
-                ShieldFlashRed(shieldRef, shieldOpacity);
-                gameObject.GetComponent<AudioSource>().Play();
-            }
-            else if (shield < 0)
-            {
-                hp += shield;   //Excess damage to shield carries over. If shield is already 0, this does full damage to hp
-                shield = 0;
-            }
-            camera.GetComponent<CameraShaker>().SmallShake();
+            Damage(dmg);
         }
 
         //PowerUps
@@ -488,8 +447,7 @@ public class PlayerController : MonoBehaviour {
             {
                 shield = Mathf.Min(maxShield,shield+maxShield*0.5f);
                 shieldDown = false;
-                shieldOpacity = 4.0f;
-                ShieldFlash(shieldRef, shieldOpacity);
+                shieldSprite.SetTrigger("Restored");
                 
             }
             if (pow.type == PowerUpBehavior.PowerUps.FireUp)
@@ -508,7 +466,7 @@ public class PlayerController : MonoBehaviour {
             }
             if (pow.type == PowerUpBehavior.PowerUps.LevelUp)
             {
-                levelUp();
+                LevelUp();
             }
             if (pow.type == PowerUpBehavior.PowerUps.Ammo)
             {
@@ -539,7 +497,7 @@ public class PlayerController : MonoBehaviour {
         // Continuous damage
         if(other.tag == "Dps")
         {
-            damage(other.gameObject.GetComponent<ProjectileBehavior>().dmgValue);
+            Damage(other.gameObject.GetComponent<ProjectileBehavior>().dmgValue);
         }
     }
     
@@ -572,7 +530,7 @@ public class PlayerController : MonoBehaviour {
         shieldRef.GetComponent<MeshRenderer>().material.color = new Color(120.0f, 0.0f, 0.0f, opacity);
     }
 
-    private void levelUp()
+    private void LevelUp()
     {
         level++;
         if (level >= primary.Length || level >= secondary.Length)
@@ -588,19 +546,13 @@ public class PlayerController : MonoBehaviour {
     }
 
     // Take damage normally. First absorbed by shield, then hull
-    public void damage(float baseDmg)
+    public void Damage(float baseDmg)
     {
         if (!invincible)
         {
             float dmg = baseDmg * dmgMod;
 
             shield -= dmg;  //All damage hits shield first
-            if (!shieldDown)
-            {
-                shieldOpacity = 1.0f;
-                ShieldFlash(shieldRef, shieldOpacity);
-                shieldRegenTime = Time.time + shieldRegenDelay;
-            }
             if (shield <= 0 && !shieldDown)
             {
                 //Mark shield is down and set time when shield returns
@@ -608,8 +560,7 @@ public class PlayerController : MonoBehaviour {
                 shieldUpTime = Time.time + shieldDelay;
                 hp += shield;   //Excess damage to shield carries over. If shield is already 0, this does full damage to hp
                 shield = 0;
-                shieldOpacity = 3.0f;
-                ShieldFlashRed(shieldRef, shieldOpacity);
+                shieldSprite.SetTrigger("Broken");
                 gameObject.GetComponent<AudioSource>().Play();
             }
             else if (shield <= 0)
@@ -617,11 +568,16 @@ public class PlayerController : MonoBehaviour {
                 hp += shield;   //Excess damage to shield carries over. If shield is already 0, this does full damage to hp
                 shield = 0;
             }
+            if (!shieldDown)
+            {
+                shieldSprite.SetTrigger("Hit");
+                shieldRegenTime = Time.time + shieldRegenDelay;
+            }
         }
     }
 
     // Damage IGNORES shields. Directly to hull
-    public void hullDamage(float baseDmg)
+    public void HullDamage(float baseDmg)
     {
         if (!invincible)
         {

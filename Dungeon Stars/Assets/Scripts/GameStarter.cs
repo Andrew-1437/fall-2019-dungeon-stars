@@ -32,7 +32,7 @@ public class GameStarter : MonoBehaviour {
         {
             if(textDisplay != null)
             {
-                textDisplay.GetComponent<FlashUI>().awake = true;
+                textDisplay.GetComponent<FlashUI>().Flash();
             }
             triggered = true;
             startTime = Time.time + delay;

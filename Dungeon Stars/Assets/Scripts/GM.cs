@@ -363,7 +363,7 @@ public class GM : MonoBehaviour {
     public void AwakenBoss()
     {
         boss.GetComponent<BossBehavior>().awake = true;
-        bossWarnUI.GetComponent<FlashUI>().awake = true;
+        bossWarnUI.GetComponent<FlashUI>().Flash();
     }
 
     //Scene specific events ***Obsolete
