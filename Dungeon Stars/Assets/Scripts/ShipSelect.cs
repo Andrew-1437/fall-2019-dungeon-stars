@@ -72,7 +72,7 @@ public class ShipSelect : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return) && OmniController.omniController.twoPlayerMode && p2Picking)
         {
             selectSound.Play();
-            selection.selectedShip2 = ships[index];
+            OmniController.omniController.selectedShip2 = ships[index];
             SceneLoader.DontDestroyOnLoad(selection.gameObject);
             //SceneManager.LoadScene(nextSceneName);
             canvas.SetActive(false);
@@ -82,7 +82,7 @@ public class ShipSelect : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return) && !p2Picking)
         {
             selectSound.Play();
-            selection.selectedShip = ships[index];
+            OmniController.omniController.selectedShip = ships[index];
             if (OmniController.omniController.twoPlayerMode)
             {
                 p2Picking = true;
@@ -91,7 +91,7 @@ public class ShipSelect : MonoBehaviour
             }
             else
             {
-                selection.selectedShip2 = null;
+                OmniController.omniController.selectedShip2 = null;
                 SceneLoader.DontDestroyOnLoad(selection.gameObject);
                 //SceneManager.LoadScene(nextSceneName);
                 canvas.SetActive(false);

@@ -98,6 +98,7 @@ MonoBehaviour:
   primaryWeap: Heavy Bolts
   secondaryWeap: Tri-Bolts
   tertiaryWeap: Cluster Bomb
+  id: 1
   isPlayer2: 0
   maxHp: 700
   maxShield: 150
@@ -141,7 +142,7 @@ MonoBehaviour:
   secondaryUsesHeat: 0
   secHeatGen: 0
   heatWarnAudio: {fileID: 0}
-  dieCost: 500000
+  dieCost: 50000
   weapon1Cost: 10
   weapon2Cost: 60
   explosionFx: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}

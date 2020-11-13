@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
     public string primaryWeap;
     public string secondaryWeap;
     public string tertiaryWeap;
+    public ShipsEnum.ShipID id;
 
     [HideInInspector]
     public bool isPlayer2 = false;
@@ -163,12 +164,6 @@ public class PlayerController : MonoBehaviour {
         {
             print("Ohshit! Camera not found by player!");
         }
-        /*
-        gm = GameObject.FindWithTag("GameController");
-        if (gm == null)
-        {
-            print("Ohshit! Game Controller not found by player!");
-        } */
 
         gm = GM.gameController;
         rb = GetComponent<Rigidbody2D>();
@@ -228,11 +223,7 @@ public class PlayerController : MonoBehaviour {
         {
             nextFire = Time.time + fireRate * fireRateMod * heatMod;
             Instantiate(primary[level], spawner.position, spawner.rotation);
-            gm.score -= Mathf.Max(weapon1Cost - Mathf.FloorToInt(weapon1Cost * attackSpeedBuff),0);
-            if (gm.score<0)
-            {
-                gm.score = 0;
-            }
+            gm.AddRawScore(-Mathf.Max(weapon1Cost - Mathf.FloorToInt(weapon1Cost * attackSpeedBuff),0));
             if(enableHeat && primaryUsesHeat)
             {
                 heat += primHeatGen * heatGenMod;
@@ -244,11 +235,7 @@ public class PlayerController : MonoBehaviour {
         {
             nextSecondary = Time.time + secondaryFireRate * fireRateMod * heatMod;
             Instantiate(secondary[level], spawner.position, spawner.rotation);
-            gm.score -= Mathf.Max(weapon2Cost - Mathf.FloorToInt(weapon2Cost * attackSpeedBuff), 0);
-            if (gm.score < 0)
-            {
-                gm.score = 0;
-            }
+            gm.AddRawScore(-Mathf.Max(weapon2Cost - Mathf.FloorToInt(weapon2Cost * attackSpeedBuff), 0));
             if (enableHeat && secondaryUsesHeat)
             {
                 heat += secHeatGen * heatGenMod;
@@ -272,9 +259,9 @@ public class PlayerController : MonoBehaviour {
             heat -= heatDisperse * (1f/heatGenMod) * Time.deltaTime;
             heat = Mathf.Clamp(heat, 0f, 100f);
 
+            // If heat is over 80, considered overheating and take damage
             if(heat >= 80f)
             {
-                //print("OVERHEAT");
                 HullDamage(maxHp * .03f * Time.deltaTime);
 
                 if (!overheating)
@@ -330,9 +317,9 @@ public class PlayerController : MonoBehaviour {
             } */
         }
         //Freeze Time
-        if (Input.GetKeyDown(KeyCode.Pause) && Time.timeScale == 1f)
+        if (Input.GetKeyDown(KeyCode.P) && Time.timeScale == 1f)
             Time.timeScale = 0f;
-        else if (Input.GetKeyDown(KeyCode.Pause) && Time.timeScale != 1f)
+        else if (Input.GetKeyDown(KeyCode.P) && Time.timeScale != 1f)
             Time.timeScale = 1f;
 
         // Shield mechanics************
@@ -443,6 +430,7 @@ public class PlayerController : MonoBehaviour {
         {
             OmniController.omniController.powerUpsCollected++;
             PowerUpBehavior pow = other.gameObject.GetComponent<PowerUpBehavior>();
+            // Immediately restore half the shield
             if (pow.type == PowerUpBehavior.PowerUps.Repair)
             {
                 shield = Mathf.Min(maxShield,shield+maxShield*0.5f);
@@ -450,6 +438,7 @@ public class PlayerController : MonoBehaviour {
                 shieldSprite.SetTrigger("Restored");
                 
             }
+            // Increases fire rate and reduces heat gen
             if (pow.type == PowerUpBehavior.PowerUps.FireUp)
             {
                 fireRateMod = 0.75f;
@@ -458,16 +447,19 @@ public class PlayerController : MonoBehaviour {
                 fireRateEnd = Time.time + pow.duration;
                 fireRateFX.Play();
             }
+            // Increases speed
             if (pow.type == PowerUpBehavior.PowerUps.SpeedUp)
             {
                 speedMod = 1.25f;
                 speedEnd = Time.time + pow.duration;
                 speedFX.Play();
             }
+            // Increases power level by 1
             if (pow.type == PowerUpBehavior.PowerUps.LevelUp)
             {
                 LevelUp();
             }
+            // Resets ammo to max
             if (pow.type == PowerUpBehavior.PowerUps.Ammo)
             {
                 currentMissileCount = maxMissile;
@@ -513,22 +505,10 @@ public class PlayerController : MonoBehaviour {
         if (gm.playerLives < 0)
             gm.playerLives = 0;
         gm.DeathText(isPlayer2);
-        gm.score -= dieCost;
-        if (gm.score < 0)
-        {
-            gm.score = 0;
-        }
+        gm.AddRawScore(-dieCost);
+        gm.ResetMultiplier();
     }
 
-    private void ShieldFlash(GameObject shieldRef, float opacity)
-    {
-        shieldRef.GetComponent<MeshRenderer>().material.color = new Color(120.0f / 255.0f, 200.0f / 255.0f, 220.0f / 255.0f, opacity);
-    }
-
-    private void ShieldFlashRed(GameObject shieldRef, float opacity)
-    {
-        shieldRef.GetComponent<MeshRenderer>().material.color = new Color(120.0f, 0.0f, 0.0f, opacity);
-    }
 
     private void LevelUp()
     {

@@ -97,6 +97,7 @@ MonoBehaviour:
   primaryWeap: Rapid-Bolts
   secondaryWeap: Bolts
   tertiaryWeap: Light Missiles
+  id: 2
   isPlayer2: 0
   maxHp: 300
   maxShield: 100
@@ -140,7 +141,7 @@ MonoBehaviour:
   secondaryUsesHeat: 0
   secHeatGen: 0
   heatWarnAudio: {fileID: 0}
-  dieCost: 500000
+  dieCost: 50000
   weapon1Cost: 2
   weapon2Cost: 8
   explosionFx: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}

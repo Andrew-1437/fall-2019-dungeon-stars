@@ -99,6 +99,7 @@ MonoBehaviour:
   primaryWeap: Lectro Bolts
   secondaryWeap: Chain Lightning
   tertiaryWeap: Chain Bombs
+  id: 3
   isPlayer2: 0
   maxHp: 250
   maxShield: 400
@@ -142,7 +143,7 @@ MonoBehaviour:
   secondaryUsesHeat: 1
   secHeatGen: 0.9
   heatWarnAudio: {fileID: 5682743247166315512}
-  dieCost: 500000
+  dieCost: 50000
   weapon1Cost: 1
   weapon2Cost: 1
   explosionFx: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}

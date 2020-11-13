@@ -13,6 +13,11 @@ public class OmniController : MonoBehaviour
     public int timesDied;
     public int powerUpsCollected;
 
+    [HideInInspector]
+    public GameObject selectedShip;
+    [HideInInspector]
+    public GameObject selectedShip2;  // Two players
+
     [Header("Options")]
     public GameObject[] allShips;
     public bool enableAllShips;
@@ -41,6 +46,8 @@ public class OmniController : MonoBehaviour
         enemiesKilled = 0;
         timesDied = 0;
         powerUpsCollected = 0;
+        selectedShip = null;
+        selectedShip2 = null;
     }
 
     public void SetTwoPlayers(bool setCoop)

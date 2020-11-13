@@ -54,6 +54,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -78,6 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1540334651464490
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,7 +130,9 @@ MonoBehaviour:
   hp: 20
   collisionVal: 1
   explosion: {fileID: 100010, guid: 74f150540a0de664bac84f89b4c8c69a, type: 3}
-  score: 0
+  score: 50
+  floatingScoreText: {fileID: 5520782144581124303, guid: d1c3623ad77006e45be3f0a8c9a06bc4,
+    type: 3}
   awake: 0
   isATurret: 1
 --- !u!114 &114157725956181558
@@ -148,6 +153,7 @@ MonoBehaviour:
   fireRate: 0.4
   burstTime: 1.6
   turn: 100
+  hardpoint: {fileID: 0}
 --- !u!58 &58533479835034702
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -254,7 +260,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turrets: 2
   explosion: {fileID: 100010, guid: 30c4c673696f6254ebe0e3a26d31092f, type: 3}
+  subExplosion: {fileID: 100010, guid: 74f150540a0de664bac84f89b4c8c69a, type: 3}
   score: 2000
+  floatingScoreText: {fileID: 5520782144581124303, guid: d1c3623ad77006e45be3f0a8c9a06bc4,
+    type: 3}
 --- !u!70 &70620955188676160
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -325,6 +334,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -349,6 +360,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1822647703606304
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,6 +415,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -427,6 +441,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1840841196841718
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +491,9 @@ MonoBehaviour:
   hp: 20
   collisionVal: 1
   explosion: {fileID: 100010, guid: 74f150540a0de664bac84f89b4c8c69a, type: 3}
-  score: 0
+  score: 50
+  floatingScoreText: {fileID: 5520782144581124303, guid: d1c3623ad77006e45be3f0a8c9a06bc4,
+    type: 3}
   awake: 0
   isATurret: 1
 --- !u!114 &114463123013724038
@@ -497,6 +514,7 @@ MonoBehaviour:
   fireRate: 0.4
   burstTime: 1.6
   turn: 100
+  hardpoint: {fileID: 0}
 --- !u!58 &58844151594352212
 CircleCollider2D:
   m_ObjectHideFlags: 0

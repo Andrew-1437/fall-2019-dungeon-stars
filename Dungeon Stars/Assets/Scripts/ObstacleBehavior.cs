@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ObstacleBehavior : MonoBehaviour {
     //GM
@@ -18,6 +19,7 @@ public class ObstacleBehavior : MonoBehaviour {
 
     //Score
     public int score;
+    public GameObject floatingScoreText;
 
     public bool awake;
     public bool isATurret;
@@ -51,10 +53,6 @@ public class ObstacleBehavior : MonoBehaviour {
             {
                 hit.DestroyProjectile();
             }
-            if(hp <= 0)
-            {
-                //DieByProjectile();
-            }
         }
         if (other.tag == "Bounds")
         {
@@ -67,24 +65,27 @@ public class ObstacleBehavior : MonoBehaviour {
         OmniController.omniController.enemiesKilled++;
         Destroy(gameObject);
         Instantiate(explosion, transform.position, transform.rotation);
+        DisplayScore();
         camera.GetComponent<CameraShaker>().CustomShake(collisionVal / 60.0f);
-        gm.score+=score;
+        gm.AddScore(score);
         if (isATurret)
         {
             GetComponentInParent<LargeEnemyBehavior>().turrets--;
         }
     }
 
-    private void DieByProjectile()
+    private void DisplayScore()
     {
-        Destroy(gameObject);
-        Instantiate(explosion, transform.position, transform.rotation);
-        camera.GetComponent<CameraShaker>().CustomShake(collisionVal / 60.0f);  //Camera shake is proportional to collisionVal (heavier objects should shake camera more)
-        if (isATurret)
+        if (score != 0 && floatingScoreText)
         {
-            GetComponentInParent<LargeEnemyBehavior>().turrets--;
+            GameObject scoreText = Instantiate(floatingScoreText, 
+                transform.position, 
+                Quaternion.Euler(0f, 0f, Random.Range(-30f,30f))
+                ) as GameObject;
+            scoreText.GetComponent<TextMeshPro>().text = (score * gm.scoreMultiplier).ToString();
+            scoreText.GetComponent<Rigidbody2D>().AddForce(Random.onUnitSphere, ForceMode2D.Impulse);
+            Destroy(scoreText, 1);
         }
     }
-
 
 }

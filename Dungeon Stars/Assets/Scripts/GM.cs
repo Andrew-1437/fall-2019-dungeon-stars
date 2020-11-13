@@ -29,6 +29,10 @@ public class GM : MonoBehaviour {
     public int score;
     public int baseAmmoScore;  // Highest score bonus if have max ammo 
     public int baseHpScore;  // Highest score bonus if have max hp
+    public int scoreMultiplier = 1;
+    public int chainedKills = 0;
+    public float multiplierTimer;   // If time between kills exceeds this, the multiplier is reset
+    float endMultiplierTime = 0f;
 
     [Header("Level Management")]
     public bool gameStart;
@@ -49,6 +53,8 @@ public class GM : MonoBehaviour {
     public GameObject heatBar;
     public SimpleHealthBar heat;
     public TextMeshProUGUI scores;
+    public TextMeshProUGUI scoreMultiplierDisp;
+    public Animator scoreMultiplierAnim;
     public TextMeshProUGUI baseScore;
     public TextMeshProUGUI ammoScore;
     public TextMeshProUGUI hullScore;
@@ -86,12 +92,12 @@ public class GM : MonoBehaviour {
     {
         twoPlayerMode = OmniController.omniController.twoPlayerMode;
 
-        GameObject selection = GameObject.FindWithTag("Selections");
-        if (selection)
+        // If a ship has been selected, spawn that one. Otherwise spawn the one in the GM inspector
+        if (OmniController.omniController.selectedShip)
         {
-            playerObject = selection.GetComponent<MaintainSelection>().selectedShip;
+            playerObject = OmniController.omniController.selectedShip;
             if (twoPlayerMode)
-                playerObject2 = selection.GetComponent<MaintainSelection>().selectedShip2;
+                playerObject2 = OmniController.omniController.selectedShip2;
         }
         if (boss)
         {
@@ -116,6 +122,8 @@ public class GM : MonoBehaviour {
             baseAmmoScore *= 2;
             baseHpScore *= 2;
         }
+
+        scoreMultiplier = 1;
     }
 
     private void Update()
@@ -189,16 +197,28 @@ public class GM : MonoBehaviour {
             }
         }
 
+        // SCORE MULTIPLIER UPDATES ==========
+        if (scoreMultiplier > 1 && Time.time > endMultiplierTime)
+        {
+            ResetMultiplier();
+        }
+
 
         //GUI Updates
         lives.text = "Lives: " + playerLives;
         scores.text = "Score: " + score.ToString();
+        scoreMultiplierDisp.text = "x" + scoreMultiplier.ToString();
+        if (scoreMultiplier <= 1)   // Only show multiplier if bonus is greater than 1
+            scoreMultiplierDisp.enabled = false;
+        else
+            scoreMultiplierDisp.enabled = true;
 
         // ONE PLAYER ===================
         if (!twoPlayerMode)
         {
             if (player != null)
             {
+                // Updates health bar's text
                 health.text = "Health: " + Mathf.FloorToInt(playerController.hp) + "/" + Mathf.FloorToInt(playerController.maxHp);
                 if (playerController.hp < .3f * playerController.maxHp)
                 {
@@ -211,6 +231,7 @@ public class GM : MonoBehaviour {
                     hp.UpdateColor(color);
                 }
 
+                // Updates shield bar's text
                 if (playerController.shield > 0.0f)
                 {
                     shields.text = "Shields: " + Mathf.FloorToInt(playerController.shield) + "/" + Mathf.FloorToInt(playerController.maxShield);
@@ -222,10 +243,15 @@ public class GM : MonoBehaviour {
                     shields.colorGradientPreset = shieldOffColor;
                 }
 
-                level.text = "Power: " + (playerController.level + 1);
+                // Updates power level text
+                if (playerController.id != ShipsEnum.ShipID.MEME)
+                    level.text = "Power: " + (playerController.level + 1);
+                else
+                    level.text = "Power: 69";
 
                 missileCount.text = "Ammo: " + playerController.currentMissileCount + "/" + playerController.maxMissile;
 
+                // Updates bars
                 hp.UpdateBar(playerController.hp, playerController.maxHp);
                 shield.UpdateBar(playerController.shield, playerController.maxShield);
                 heatBar.SetActive(playerController.enableHeat);
@@ -275,7 +301,10 @@ public class GM : MonoBehaviour {
                     shields1.colorGradientPreset = shieldOffColor;
                 }
 
-                level1.text = "Power: " + (playerController.level + 1);
+                if (playerController.id != ShipsEnum.ShipID.MEME)
+                    level.text = "Power: " + (playerController.level + 1);
+                else
+                    level.text = "Power: 69";
 
                 missileCount1.text = "Ammo: " + playerController.currentMissileCount + "/" + playerController.maxMissile;
 
@@ -324,7 +353,10 @@ public class GM : MonoBehaviour {
                     shields2.colorGradientPreset = shieldOffColor;
                 }
 
-                level2.text = "Power: " + (playerController2.level + 1);
+                if (playerController2.id != ShipsEnum.ShipID.MEME)
+                    level2.text = "Power: " + (playerController2.level + 1);
+                else
+                    level2.text = "Power: 69";
 
                 missileCount2.text = "Ammo: " + playerController2.currentMissileCount + "/" + playerController2.maxMissile;
 
@@ -393,6 +425,7 @@ public class GM : MonoBehaviour {
         playerController = player.GetComponent<PlayerController>();
     }
 
+    // Does what it says
     public void SpawnPlayer()
     {
         if (playerLives > 0)
@@ -433,6 +466,7 @@ public class GM : MonoBehaviour {
         }
     }
 
+    // Tells fungus flowchart to say a death flavor text when player dies
     public void DeathText(bool p2)
     {
         if (p2)
@@ -445,6 +479,7 @@ public class GM : MonoBehaviour {
         //deathTexts[index].SetActive(true);
     }
 
+    // Idk wtf this is
     public void SetPlayerShipTo(GameObject playerShip)
     {
         playerObject = playerShip;
@@ -457,6 +492,39 @@ public class GM : MonoBehaviour {
         playerObject2 = player2Ship;
     }
 
+    // Adds score accoutning for multiplier
+    public void AddScore(int sc)
+    {
+        chainedKills++;
+        score += sc * scoreMultiplier;
+        endMultiplierTime = Time.time + multiplierTimer;
+        if (chainedKills >= scoreMultiplier * 5 && scoreMultiplier < 10)
+        {
+            scoreMultiplier++;
+            if (scoreMultiplier == 10)
+                scoreMultiplierAnim.SetBool("MaxMultiplier", true);
+            else
+                scoreMultiplierAnim.SetBool("MaxMultiplier", false);
+            scoreMultiplierAnim.SetTrigger("NewMultiplier");
+        }
+        score = Mathf.Clamp(score, 0, int.MaxValue);
+    }
+
+    // Applies score with no regard to multiplier
+    public void AddRawScore(int sc)
+    {
+        score += sc;
+        score = Mathf.Clamp(score, 0, int.MaxValue);
+    }
+
+    public void ResetMultiplier()
+    {
+        scoreMultiplier = 1;
+        chainedKills = 0;
+        scoreMultiplierAnim.SetBool("MaxMultiplier", false);
+    }
+
+    // Calculates and displays score when the level ends
     public int FinalScore()
     {
         int finalScore = score;

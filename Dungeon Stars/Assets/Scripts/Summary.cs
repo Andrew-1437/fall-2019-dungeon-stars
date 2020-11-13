@@ -8,6 +8,7 @@ public class Summary : MonoBehaviour
     public TextMeshProUGUI enemies;
     public TextMeshProUGUI powerups;
     public TextMeshProUGUI deaths;
+    public TextMeshProUGUI scoreMod;
     public TextMeshProUGUI score;
 
     string bestEnemiesStr;
@@ -15,12 +16,18 @@ public class Summary : MonoBehaviour
     string bestDeathsStr;
     string highScoreStr;
 
+    int trueScore = 0;  // True high score, after applying all modifiers
+    float scoreModifier = 1f;
+
     private void Start()
     {
         int bestEnemies = PlayerPrefs.GetInt("MostEnemies", 0);
         int bestPowerUps = PlayerPrefs.GetInt("MostPowerUp", 0);
         int bestDeaths = PlayerPrefs.GetInt("MostDeaths", 0);
         int highScore = PlayerPrefs.GetInt("HighScore", 0);
+
+        ApplyModifiers();
+        trueScore = (int)((double)OmniController.omniController.totalScore * scoreModifier);
 
         if (OmniController.omniController.enemiesKilled > bestEnemies)
         {
@@ -46,14 +53,16 @@ public class Summary : MonoBehaviour
         else
             bestDeathsStr = "   Worst: " + bestDeaths.ToString();
 
-        if (OmniController.omniController.totalScore > highScore)
+        if (trueScore > highScore)
         {
-            highScoreStr = "   Best: " + OmniController.omniController.totalScore.ToString() + " **New Best**";
-            PlayerPrefs.SetInt("HighScore", OmniController.omniController.totalScore);
+            highScoreStr = "   Best: " + trueScore.ToString() + " **New Best**";
+            PlayerPrefs.SetInt("HighScore", trueScore);
         }
         else
             highScoreStr = "   Best: " + highScore.ToString();
 
+
+        
     }
 
     private void Update()
@@ -63,7 +72,31 @@ public class Summary : MonoBehaviour
             enemies.text = "Enemies Defeated: " + OmniController.omniController.enemiesKilled + bestEnemiesStr;
             powerups.text = "PowerUps Collected: " + OmniController.omniController.powerUpsCollected + bestPowerUpsStr;
             deaths.text = "Times Died: " + OmniController.omniController.timesDied + bestDeathsStr;
-            score.text = "Overall Score: " + OmniController.omniController.totalScore + highScoreStr;
+            scoreMod.text = "Score Modifier: x" + scoreModifier;
+            score.text = "Overall Score: " + trueScore + highScoreStr;
         }
+    }
+
+    private void ApplyModifiers()
+    {
+        // If infinite lives are enabled, apply x.5 mod to score
+        if (OmniController.omniController.infiniteLives)
+            scoreModifier *= .5f;
+
+        // If either player has the meme ship, apply x.05 to score
+        if (OmniController.omniController.selectedShip.GetComponent<PlayerController>().id == ShipsEnum.ShipID.MEME ||
+            (OmniController.omniController.twoPlayerMode && 
+            OmniController.omniController.selectedShip2.GetComponent<PlayerController>().id == ShipsEnum.ShipID.MEME))
+            scoreModifier *= .05f;
+
+        // If either player is using the quantum ship, apply x5 to score
+        if (OmniController.omniController.selectedShip.GetComponent<PlayerController>().id == ShipsEnum.ShipID.QUANTUM ||
+            (OmniController.omniController.twoPlayerMode && 
+            OmniController.omniController.selectedShip2.GetComponent<PlayerController>().id == ShipsEnum.ShipID.QUANTUM))
+            scoreModifier *= 5f;
+
+        // If playing multiplayer, apply x1.1 to score
+        if (OmniController.omniController.twoPlayerMode)
+            scoreModifier *= 1.1f;
     }
 }

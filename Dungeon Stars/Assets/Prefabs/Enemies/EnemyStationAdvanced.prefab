@@ -94,6 +94,8 @@ MonoBehaviour:
   collisionVal: 60
   explosion: {fileID: 100010, guid: 645413a00f7bd0242bbd6d0e5eb6f439, type: 3}
   score: 1800
+  floatingScoreText: {fileID: 5520782144581124303, guid: d1c3623ad77006e45be3f0a8c9a06bc4,
+    type: 3}
   awake: 0
   isATurret: 0
 --- !u!114 &114946101557318650
@@ -431,7 +433,7 @@ PrefabInstance:
     - target: {fileID: 114675303052786826, guid: 2fdf6b2d8729ecb4189b935012a72486,
         type: 3}
       propertyPath: turn
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 4021633060785246447, guid: 2fdf6b2d8729ecb4189b935012a72486,
         type: 3}
