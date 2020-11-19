@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BoundaryDelete : MonoBehaviour {
 
-    //Cleans up stray projectiles
+    //Cleans up stray projectiles & enemies that wander out of bounds
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == "Projectile" || other.tag == "EnemyProjectile")
@@ -14,6 +14,10 @@ public class BoundaryDelete : MonoBehaviour {
         else if (other.tag == "Dps")
         {
             return;
+        }
+        else if (other.tag == "Obstacle" && other.gameObject.GetComponent<ObstacleBehavior>().dontDieOnScreenExit)
+        {
+            other.gameObject.GetComponent<ObstacleBehavior>().SleepOnScreenExit();
         }
         else
         {

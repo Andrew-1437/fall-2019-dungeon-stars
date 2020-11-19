@@ -6,12 +6,13 @@ public class BackgroundMove : MonoBehaviour {
 
     public float speed;
 
-    public GM gm;
+    GM gm;
 
     private Rigidbody2D rb;
 
     private void Start()
     {
+        gm = GM.gameController;
         rb = GetComponent<Rigidbody2D>();
     }
 

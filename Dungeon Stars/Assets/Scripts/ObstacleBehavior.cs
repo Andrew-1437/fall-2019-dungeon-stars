@@ -23,6 +23,7 @@ public class ObstacleBehavior : MonoBehaviour {
 
     public bool awake;
     public bool isATurret;
+    public bool dontDieOnScreenExit;
 
     private void Start()
     {
@@ -86,6 +87,11 @@ public class ObstacleBehavior : MonoBehaviour {
             scoreText.GetComponent<Rigidbody2D>().AddForce(Random.onUnitSphere, ForceMode2D.Impulse);
             Destroy(scoreText, 1);
         }
+    }
+
+    public void SleepOnScreenExit()
+    {
+        awake = false;
     }
 
 }

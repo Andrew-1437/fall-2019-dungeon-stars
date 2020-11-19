@@ -15048,12 +15048,12 @@ PrefabInstance:
     - target: {fileID: 755423110745687536, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -293.34
+      value: -178.5617
       objectReference: {fileID: 0}
     - target: {fileID: 1442933791517670570, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 517.86
+      value: 621.43835
       objectReference: {fileID: 0}
     - target: {fileID: 1700646558408179706, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
@@ -15129,6 +15129,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.lineCount
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925860771580805969, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_fontColorGradient.topLeft.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925860771580805969, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_fontColorGradient.topRight.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925860771580805969, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_fontColorGradient.bottomLeft.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925860771580805969, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_fontColorGradient.bottomRight.a
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 677459759456096127, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
@@ -16759,4 +16779,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turrets: 19
   explosion: {fileID: 100010, guid: 30c4c673696f6254ebe0e3a26d31092f, type: 3}
+  subExplosion: {fileID: 0}
   score: 0
+  floatingScoreText: {fileID: 0}

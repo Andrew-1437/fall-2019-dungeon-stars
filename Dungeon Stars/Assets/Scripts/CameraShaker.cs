@@ -25,14 +25,14 @@ public class CameraShaker : MonoBehaviour {
         }
         else
         {
-            GetComponent<Rigidbody2D>().position = new Vector2(0.0f, 0.0f);
+            transform.position = new Vector2(0.0f, 0.0f);
             shakeIntensity = 0.0f;
         }
     }
 
     private void ShakeCamera(float intensity)
     {
-        GetComponent<Rigidbody2D>().position = Random.insideUnitCircle * intensity * shakeIntensity;
+        transform.position = Random.insideUnitCircle * intensity * shakeIntensity;
     }
 
     public void SmallShake()

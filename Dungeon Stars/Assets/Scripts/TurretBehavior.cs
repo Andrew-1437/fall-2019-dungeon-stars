@@ -20,13 +20,17 @@ public class TurretBehavior : MonoBehaviour {
 
     private bool awake;
 
+    ObstacleBehavior thisObstacle;  // Reference to this gameObject's ObstacleBehavior script
+
     // Use this for initialization
     void Start () {
         nextBurst = 0.0f;
         nextFire = 0.0f;
         awake = false;
 
-        if(hardpoint == null)
+        thisObstacle = GetComponent<ObstacleBehavior>();
+
+        if (hardpoint == null)
         {
             hardpoint = transform;
         }
@@ -35,6 +39,8 @@ public class TurretBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        awake = thisObstacle.awake;
+
         if (awake)
         {
             target = FindClosestByTag("Player");
@@ -61,11 +67,6 @@ public class TurretBehavior : MonoBehaviour {
                 nextFire = Time.time + fireRate;
             }
 
-        }
-        
-        if (GetComponentInParent<ObstacleBehavior>().awake)
-        {
-            awake = true;
         }
         
         
