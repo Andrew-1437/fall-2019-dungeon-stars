@@ -50,11 +50,12 @@ MonoBehaviour:
   hp: 100
   collisionVal: 1
   explosion: {fileID: 100010, guid: 74f150540a0de664bac84f89b4c8c69a, type: 3}
-  score: 1000
+  score: 500
   floatingScoreText: {fileID: 5520782144581124303, guid: d1c3623ad77006e45be3f0a8c9a06bc4,
     type: 3}
   awake: 0
   isATurret: 1
+  dontDieOnScreenExit: 0
 --- !u!114 &114675303052786826
 MonoBehaviour:
   m_ObjectHideFlags: 0
