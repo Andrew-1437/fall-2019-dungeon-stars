@@ -19,12 +19,11 @@ public class MissileBehavior : ProjectileBehavior {
 
     private void FixedUpdate()
     {
-        
+        base.FixedUpdate();
     }
 
-    void Update()
+    protected void Update()
     {
-        gameObject.GetComponent<Rigidbody2D>().velocity = gameObject.GetComponent<Transform>().up * speed;
 
         
         if (target != null)

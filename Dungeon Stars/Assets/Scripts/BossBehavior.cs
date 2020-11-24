@@ -35,7 +35,7 @@ public class BossBehavior : LargeEnemyBehavior {
         base.Start();
     }
 
-    private void Update()
+    protected void Update()
     {
         if ((hp <= 0 || turrets <= 0) && !dying)
         {
