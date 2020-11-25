@@ -5,7 +5,7 @@ using TMPro;
 
 public class LargeEnemyBehavior : MonoBehaviour {
     //GM
-    private GM gm;
+    protected GM gm;
 
     public short turrets;
     public GameObject explosion;
@@ -24,8 +24,7 @@ public class LargeEnemyBehavior : MonoBehaviour {
 
     protected void Start()
     {
-        
-        gameCamera = GameObject.FindWithTag("MainCamera");
+        gameCamera = Camera.main.gameObject;
         if (gameCamera == null)
         {
             print("Ohshit! Obstacle cannot find camera!");
@@ -64,7 +63,8 @@ public class LargeEnemyBehavior : MonoBehaviour {
         Destroy(gameObject);
         Instantiate(explosion, transform.position, transform.rotation);
         DisplayScore();
-        gameCamera.GetComponent<CameraShaker>().LargeShake(0.2f);
+        if(gameCamera)
+            gameCamera.GetComponent<CameraShaker>().LargeShake(0.2f);
         gm.AddScore(score);
     }
 

@@ -21,7 +21,7 @@ public class CameraShaker : MonoBehaviour {
         if (shakeIntensity > 0)
         {
             ShakeCamera(shakeIntensity);
-            shakeIntensity -= 0.05f;
+            shakeIntensity -= 1.4f * Time.deltaTime;
         }
         else
         {

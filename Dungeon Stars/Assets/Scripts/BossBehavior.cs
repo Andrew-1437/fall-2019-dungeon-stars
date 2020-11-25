@@ -63,13 +63,19 @@ public class BossBehavior : LargeEnemyBehavior {
             if(!other.gameObject.GetComponent<ProjectileBehavior>().perist)
                 other.gameObject.GetComponent<ProjectileBehavior>().DestroyProjectile();
         }
+        if (other.tag == "Missile")
+        {
+            other.gameObject.GetComponent<MissileBehavior>().Detonate();
+        }
     }
 
     private void Die()
     {
+        
         Destroy(gameObject);
         Instantiate(explosion, transform.position, transform.rotation);
-        gameCamera.GetComponent<CameraShaker>().HugeShake();
+        if(gameCamera)
+            gameCamera.GetComponent<CameraShaker>().HugeShake();
         mainFlowchart.SendFungusMessage("LevelComplete");
     }
 

@@ -63,13 +63,18 @@ public class TurretBehavior : MonoBehaviour {
             }
             if (Time.time > nextFire && Time.time < burstEnd)
             {
-                Instantiate(projectile, hardpoint.position, hardpoint.rotation);
-                nextFire = Time.time + fireRate;
+                Fire();
             }
 
         }
         
         
+    }
+
+    public void Fire()
+    {
+        Instantiate(projectile, hardpoint.position, hardpoint.rotation);
+        nextFire = Time.time + fireRate;
     }
 
     GameObject FindClosestByTag(string tag)

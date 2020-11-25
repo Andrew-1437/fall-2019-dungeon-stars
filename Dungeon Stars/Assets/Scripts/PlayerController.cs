@@ -392,7 +392,7 @@ public class PlayerController : MonoBehaviour {
             camera.GetComponent<CameraShaker>().SmallShake();
             if (!other.gameObject.GetComponent<ProjectileBehavior>().perist)
             {
-                Destroy(other.gameObject);
+                other.gameObject.GetComponent<ProjectileBehavior>().DestroyProjectile();
             }
             
         }
@@ -400,20 +400,23 @@ public class PlayerController : MonoBehaviour {
         if(other.tag == "EnemyMissile") //Damage from missiles will be done by the MissileExplosion object
         {
             camera.GetComponent<CameraShaker>().SmallShake(); ;
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<MissileBehavior>().DestroyProjectile();
         }
 
         // Collision damage
         if(other.tag == "Obstacle")
         {
+            ObstacleBehavior obstacle = other.gameObject.GetComponent<ObstacleBehavior>();
+
             // Can't collide with a turret
-            if (!other.gameObject.GetComponent<ObstacleBehavior>().isATurret)
+            if (!obstacle.isATurret &&
+                !obstacle.ignorePlayerCollisions)
             {
                 //Total collision dmg = collision value of other * (player speed + other speed)
-                float collisionDmg = other.gameObject.GetComponent<ObstacleBehavior>().collisionVal
+                float collisionDmg = obstacle.collisionVal
                     * (rb.velocity.magnitude + other.GetComponent<Rigidbody2D>().velocity.magnitude);
                 HullDamage(collisionDmg);
-                other.gameObject.GetComponent<ObstacleBehavior>().hp -= collisionDmg;
+                obstacle.hp -= collisionDmg;
                 audio[2].Play();
                 camera.GetComponent<CameraShaker>().LargeShake();
             }

@@ -24,6 +24,7 @@ public class ObstacleBehavior : MonoBehaviour {
     public bool awake;
     public bool isATurret;
     public bool dontDieOnScreenExit;
+    public bool ignorePlayerCollisions;
 
     private void Start()
     {

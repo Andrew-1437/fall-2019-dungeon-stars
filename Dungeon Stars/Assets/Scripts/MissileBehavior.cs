@@ -47,13 +47,18 @@ public class MissileBehavior : ProjectileBehavior {
     {
         if (other.tag == targetTag)
         {
-            DestroyProjectile();
-            Instantiate(explosion, transform.position, transform.rotation);
+            Detonate();
         }
         if (gameObject.tag == "EnemyMissile" && other.tag == "AntiProjectile")
         {
             DestroyProjectile();
         }
+    }
+
+    public void Detonate()
+    {
+        DestroyProjectile();
+        Instantiate(explosion, transform.position, transform.rotation);
     }
 
     GameObject FindClosestByTag(string tag)
