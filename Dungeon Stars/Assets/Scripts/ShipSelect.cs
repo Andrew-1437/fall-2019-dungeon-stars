@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 public class ShipSelect : MonoBehaviour
 {
     public GameObject[] ships;
+    public GameObject[] previewingShips;
     private GameObject currentShip;
-    private PlayerController ship;
+    private ShipPreview ship;
     private int index = 0;
 
     public Transform spawn;
@@ -25,6 +26,8 @@ public class ShipSelect : MonoBehaviour
     public TextMeshProUGUI shield;
     public TextMeshProUGUI shieldRecharge;
     public TextMeshProUGUI speed;
+    public TextMeshProUGUI primaryFR;
+    public TextMeshProUGUI secondaryFR;
     public TextMeshProUGUI primary;
     public TextMeshProUGUI secondary;
     public TextMeshProUGUI tertiary;
@@ -49,16 +52,22 @@ public class ShipSelect : MonoBehaviour
     void Update()
     {
         shipName.text = ship.shipName;
-        health.text = "Hull: " + ship.maxHp;
+        health.text = "Hull: " + ship.maxHP;
         shield.text = "Shield: " + ship.maxShield;
-        shieldRecharge.text = "Shield Recharge: " + (ship.shieldRecharge*30f) + "(" + ship.shieldRegenDelay + "s)";
+        shieldRecharge.text = "Shield Recharge: " + (ship.shieldRecharge*30f);
         speed.text = "Speed: " + ship.speed;
         primary.text = "Primary Weapons: " + ship.primaryWeap;
         secondary.text = "Secondary Weapons: " + ship.secondaryWeap;
+        primaryFR.text = "Primary Fire Rate: " + (1f / ship.primaryFireRate) + " / sec ";
+        secondaryFR.text = "Secondary Fire Rate: " + (1f / ship.secondaryFireRate) + " / sec ";
         tertiary.text = "Tertiary Weapons: " + ship.tertiaryWeap;
-        description.text = ship.desc;
+        description.text = ship.shipDesc;
 
-        if(Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+        if (Input.GetKeyDown(KeyCode.E))
         {
             SelectNextShip();
             sound.Play();
@@ -71,6 +80,7 @@ public class ShipSelect : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Return) && OmniController.omniController.twoPlayerMode && p2Picking)
         {
+            ship.LeaveScreen();
             selectSound.Play();
             OmniController.omniController.selectedShip2 = ships[index];
             SceneLoader.DontDestroyOnLoad(selection.gameObject);
@@ -91,6 +101,7 @@ public class ShipSelect : MonoBehaviour
             }
             else
             {
+                ship.LeaveScreen();
                 OmniController.omniController.selectedShip2 = null;
                 SceneLoader.DontDestroyOnLoad(selection.gameObject);
                 //SceneManager.LoadScene(nextSceneName);
@@ -123,10 +134,10 @@ public class ShipSelect : MonoBehaviour
         index = (index + select);
         if (index < 0) index = ships.Length - 1;
         index = index % ships.Length;
-        if (currentShip) { Destroy(currentShip); }
+        if (currentShip) { ship.LeaveScreen(); }
 
-        currentShip = Instantiate(ships[index], spawn) as GameObject;
-        ship = currentShip.GetComponent<PlayerController>();
+        currentShip = Instantiate(previewingShips[index], spawn) as GameObject;
+        ship = currentShip.GetComponent<ShipPreview>();
     }
 
     public void SelectShipIndex(int ind)
@@ -134,9 +145,9 @@ public class ShipSelect : MonoBehaviour
         index = ind;
         if (index < 0) index = ships.Length - 1;
         index = index % ships.Length;
-        if (currentShip) { Destroy(currentShip); }
+        if (currentShip) { ship.LeaveScreen(); }
 
-        currentShip = Instantiate(ships[index], spawn) as GameObject;
-        ship = currentShip.GetComponent<PlayerController>();
+        currentShip = Instantiate(previewingShips[index], spawn) as GameObject;
+        ship = currentShip.GetComponent<ShipPreview>();
     }
 }

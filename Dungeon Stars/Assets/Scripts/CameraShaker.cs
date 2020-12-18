@@ -18,15 +18,18 @@ public class CameraShaker : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //Camera Shake
-        if (shakeIntensity > 0)
+        if (OmniController.omniController.enableCameraShake)
         {
-            ShakeCamera(shakeIntensity);
-            shakeIntensity -= 1.4f * Time.deltaTime;
-        }
-        else
-        {
-            transform.position = new Vector2(0.0f, 0.0f);
-            shakeIntensity = 0.0f;
+            if (shakeIntensity > 0)
+            {
+                ShakeCamera(shakeIntensity);
+                shakeIntensity -= 1.4f * Time.deltaTime;
+            }
+            else
+            {
+                transform.position = new Vector2(0.0f, 0.0f);
+                shakeIntensity = 0.0f;
+            }
         }
     }
 

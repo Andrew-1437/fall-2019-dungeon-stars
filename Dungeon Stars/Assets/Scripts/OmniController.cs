@@ -23,6 +23,7 @@ public class OmniController : MonoBehaviour
     public bool enableAllShips;
     public bool enableDebug;
     public bool infiniteLives;
+    public bool enableCameraShake;
 
     [Header("Two Player Co-op")]
     public bool twoPlayerMode;

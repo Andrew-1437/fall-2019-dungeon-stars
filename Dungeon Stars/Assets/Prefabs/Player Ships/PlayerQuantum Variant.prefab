@@ -209,6 +209,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: e3a00b7051d13d949a68e3758eb638ba,
         type: 3}
+    - target: {fileID: 1068944734082636705, guid: 6331c0ba4b0041f47a566491348f0430,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.04401779
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068944734082636705, guid: 6331c0ba4b0041f47a566491348f0430,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068944734082636705, guid: 6331c0ba4b0041f47a566491348f0430,
+        type: 3}
+      propertyPath: InheritVelocityModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329982794861273903, guid: 6331c0ba4b0041f47a566491348f0430,
+        type: 3}
+      propertyPath: InheritVelocityModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2374638732097270426, guid: 6331c0ba4b0041f47a566491348f0430,
         type: 3}
       propertyPath: m_SortingOrder
@@ -218,6 +238,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636338318192919563, guid: 6331c0ba4b0041f47a566491348f0430,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836457140605960333, guid: 6331c0ba4b0041f47a566491348f0430,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.047058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836457140605960333, guid: 6331c0ba4b0041f47a566491348f0430,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836457140605960333, guid: 6331c0ba4b0041f47a566491348f0430,
+        type: 3}
+      propertyPath: InheritVelocityModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836457140605960333, guid: 6331c0ba4b0041f47a566491348f0430,
+        type: 3}
+      propertyPath: InheritVelocityModule.m_Curve.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836457140605960333, guid: 6331c0ba4b0041f47a566491348f0430,
+        type: 3}
+      propertyPath: InheritVelocityModule.m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083224256815271867, guid: 6331c0ba4b0041f47a566491348f0430,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6562063625685031189, guid: 6331c0ba4b0041f47a566491348f0430,
+        type: 3}
+      propertyPath: InheritVelocityModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930037122507277948, guid: 6331c0ba4b0041f47a566491348f0430,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6331c0ba4b0041f47a566491348f0430, type: 3}

@@ -1,0 +1,199 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5899282415597312453
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: shipName
+      value: Quantum Fighter
+      objectReference: {fileID: 0}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: shipDesc
+      value: A hard to fly and extremely fragile ship, but uses alien technology
+        to make it much smaller than it appears...
+      objectReference: {fileID: 0}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: secondaryWeap
+      value: Heavy Bolts
+      objectReference: {fileID: 0}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: tertiaryWeap
+      value: Nuclear Bomb
+      objectReference: {fileID: 0}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: id
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: maxHP
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: maxShield
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: shieldRecharge
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: speed
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: primaryFireRate
+      value: 0.084
+      objectReference: {fileID: 0}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: secondaryFireRate
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: secondary
+      value: 
+      objectReference: {fileID: 4764460429754885460, guid: 1e1c4f0fc0957e34fb367ce0a9d5cd03,
+        type: 3}
+    - target: {fileID: 3028757843046329145, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.047058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028757843046329145, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028757843046329145, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: InheritVelocityModule.m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028757843046329145, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: InheritVelocityModule.m_Curve.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3691252349684909617, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3745608297802740374, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.047058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 3745608297802740374, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3745608297802740374, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: InheritVelocityModule.m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3745608297802740374, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: InheritVelocityModule.m_Curve.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789111787470283185, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692933192411149786, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e3a00b7051d13d949a68e3758eb638ba,
+        type: 3}
+    - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809415913863067352, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3783187
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809415913863067352, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.61164314
+      objectReference: {fileID: 0}
+    - target: {fileID: 8814944893551008226, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: m_Name
+      value: PreviewQuantum
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2, type: 3}
