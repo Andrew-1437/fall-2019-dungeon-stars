@@ -7,25 +7,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3512552593326579218, guid: 4aa5f039e09717846a5e3e8fd2982e24,
-        type: 3}
-      propertyPath: m_Name
-      value: LectroShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 7019578273677251158, guid: 4aa5f039e09717846a5e3e8fd2982e24,
+    - target: {fileID: 1204981259704286109, guid: 4aa5f039e09717846a5e3e8fd2982e24,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.504717
+      value: 0.5647059
       objectReference: {fileID: 0}
-    - target: {fileID: 7019578273677251158, guid: 4aa5f039e09717846a5e3e8fd2982e24,
+    - target: {fileID: 1204981259704286109, guid: 4aa5f039e09717846a5e3e8fd2982e24,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.6945107
-      objectReference: {fileID: 0}
-    - target: {fileID: 7019578273677251158, guid: 4aa5f039e09717846a5e3e8fd2982e24,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
+      value: 0.9450981
       objectReference: {fileID: 0}
     - target: {fileID: 3510147380880913064, guid: 4aa5f039e09717846a5e3e8fd2982e24,
         type: 3}
@@ -92,6 +82,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 3512552593326579218, guid: 4aa5f039e09717846a5e3e8fd2982e24,
+        type: 3}
+      propertyPath: m_Name
+      value: LectroShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3540193702589059166, guid: 4aa5f039e09717846a5e3e8fd2982e24,
+        type: 3}
+      propertyPath: speed
+      value: 0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 3540193702589059166, guid: 4aa5f039e09717846a5e3e8fd2982e24,
+        type: 3}
+      propertyPath: dmgValue
+      value: 1.8
+      objectReference: {fileID: 0}
     - target: {fileID: 3575227281390031350, guid: 4aa5f039e09717846a5e3e8fd2982e24,
         type: 3}
       propertyPath: m_audioClip
@@ -107,15 +112,20 @@ PrefabInstance:
       propertyPath: m_Pitch
       value: 2.1
       objectReference: {fileID: 0}
-    - target: {fileID: 3540193702589059166, guid: 4aa5f039e09717846a5e3e8fd2982e24,
+    - target: {fileID: 7019578273677251158, guid: 4aa5f039e09717846a5e3e8fd2982e24,
         type: 3}
-      propertyPath: speed
-      value: 0.58
+      propertyPath: m_Color.r
+      value: 0.504717
       objectReference: {fileID: 0}
-    - target: {fileID: 3540193702589059166, guid: 4aa5f039e09717846a5e3e8fd2982e24,
+    - target: {fileID: 7019578273677251158, guid: 4aa5f039e09717846a5e3e8fd2982e24,
         type: 3}
-      propertyPath: dmgValue
-      value: 1.8
+      propertyPath: m_Color.g
+      value: 0.6945107
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019578273677251158, guid: 4aa5f039e09717846a5e3e8fd2982e24,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aa5f039e09717846a5e3e8fd2982e24, type: 3}

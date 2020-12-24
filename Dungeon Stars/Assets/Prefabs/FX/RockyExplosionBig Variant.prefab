@@ -7,10 +7,55 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 514217320566258485, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 514217320566258485, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017162130108231852, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017162130108231852, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017162130108231852, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017162130108231852, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2060626098244697186, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
         type: 3}
       propertyPath: m_Name
       value: RockyExplosionBig Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964550582123108768, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964550582123108768, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964550582123108768, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 6405650618899788501, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
         type: 3}
@@ -66,51 +111,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1017162130108231852, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
-        type: 3}
-      propertyPath: InitialModule.startSize.minScalar
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1017162130108231852, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1017162130108231852, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
-        type: 3}
-      propertyPath: InitialModule.startSpeed.minScalar
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1017162130108231852, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
-        type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 4964550582123108768, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
-        type: 3}
-      propertyPath: InitialModule.startSize.minScalar
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4964550582123108768, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4964550582123108768, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
-        type: 3}
-      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 514217320566258485, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
-        type: 3}
-      propertyPath: InitialModule.startSize.minScalar
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 514217320566258485, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7186267730206331537, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
         type: 3}

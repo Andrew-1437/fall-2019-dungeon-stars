@@ -7,6 +7,76 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3378370004731732552, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378370004731732552, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.74282026
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378370004731732552, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859009391071759235, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.9960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859009391071759235, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.227451
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859009391071759235, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.32941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859009391071759235, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: m_PointLightInnerRadius
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859009391071759235, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085219380928864744, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085219380928864744, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085219380928864744, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0fa10ee5b269443d89d963b31afb33b7, type: 3}
+    - target: {fileID: 9127010612288610368, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: dmgValue
+      value: 13.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127010612288610368, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: perist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127010612288610368, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: speed
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 9167071922923515404, guid: db93be6bf0435c9469d007fc634b3462,
         type: 3}
       propertyPath: m_Name
@@ -70,51 +140,6 @@ PrefabInstance:
     - target: {fileID: 9168872351044403894, guid: db93be6bf0435c9469d007fc634b3462,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9127010612288610368, guid: db93be6bf0435c9469d007fc634b3462,
-        type: 3}
-      propertyPath: dmgValue
-      value: 13.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9127010612288610368, guid: db93be6bf0435c9469d007fc634b3462,
-        type: 3}
-      propertyPath: perist
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9127010612288610368, guid: db93be6bf0435c9469d007fc634b3462,
-        type: 3}
-      propertyPath: speed
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9085219380928864744, guid: db93be6bf0435c9469d007fc634b3462,
-        type: 3}
-      propertyPath: m_Pitch
-      value: 1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 9085219380928864744, guid: db93be6bf0435c9469d007fc634b3462,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 9085219380928864744, guid: db93be6bf0435c9469d007fc634b3462,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 0fa10ee5b269443d89d963b31afb33b7, type: 3}
-    - target: {fileID: 3378370004731732552, guid: db93be6bf0435c9469d007fc634b3462,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378370004731732552, guid: db93be6bf0435c9469d007fc634b3462,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.74282026
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378370004731732552, guid: db93be6bf0435c9469d007fc634b3462,
-        type: 3}
-      propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

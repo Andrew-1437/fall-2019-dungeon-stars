@@ -4920,6 +4920,31 @@ PrefabInstance:
       propertyPath: particleFX
       value: 
       objectReference: {fileID: 7305320217216806314}
+    - target: {fileID: 2306265376334392985, guid: 80ab67ac8ee09d24ea0226f938eaa479,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.9960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 2306265376334392985, guid: 80ab67ac8ee09d24ea0226f938eaa479,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.9960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 2306265376334392985, guid: 80ab67ac8ee09d24ea0226f938eaa479,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.7372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 2306265376334392985, guid: 80ab67ac8ee09d24ea0226f938eaa479,
+        type: 3}
+      propertyPath: m_PointLightInnerRadius
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2306265376334392985, guid: 80ab67ac8ee09d24ea0226f938eaa479,
+        type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 1.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5896330158101071698, guid: 80ab67ac8ee09d24ea0226f938eaa479,
         type: 3}
       propertyPath: m_Sprite
@@ -4940,6 +4965,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.062745094
+      objectReference: {fileID: 0}
+    - target: {fileID: 7231145274167450168, guid: 80ab67ac8ee09d24ea0226f938eaa479,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80ab67ac8ee09d24ea0226f938eaa479, type: 3}

@@ -45,6 +45,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -159,6 +161,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -242,7 +246,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turrets: 0
   explosion: {fileID: 100010, guid: 30c4c673696f6254ebe0e3a26d31092f, type: 3}
+  subExplosion: {fileID: 0}
   score: 1000
+  floatingScoreText: {fileID: 0}
   hp: 999999
   dmgMod: 0
   miniExplosion: {fileID: 100010, guid: 645413a00f7bd0242bbd6d0e5eb6f439, type: 3}
@@ -434,11 +440,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8004807132088461184}
     m_Modifications:
-    - target: {fileID: 4883029868612213227, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
-        type: 3}
-      propertyPath: m_Name
-      value: PeriodicBeam
-      objectReference: {fileID: 0}
     - target: {fileID: 4883029868612213226, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -494,6 +495,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4883029868612213227, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
+        type: 3}
+      propertyPath: m_Name
+      value: PeriodicBeam
+      objectReference: {fileID: 0}
     - target: {fileID: 4883029868612213231, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
         type: 3}
       propertyPath: m_Size.x
@@ -541,6 +547,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8004807131461434767}
     m_Modifications:
+    - target: {fileID: 519178488363583973, guid: 8319a268160e8d2409aab511587e641c,
+        type: 3}
+      propertyPath: awake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 519178488363583993, guid: 8319a268160e8d2409aab511587e641c,
         type: 3}
       propertyPath: m_Name
@@ -601,11 +612,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 519178488363583973, guid: 8319a268160e8d2409aab511587e641c,
-        type: 3}
-      propertyPath: awake
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8319a268160e8d2409aab511587e641c, type: 3}
 --- !u!1 &8004807131678859392 stripped
@@ -627,11 +633,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8004807132088461184}
     m_Modifications:
-    - target: {fileID: 4883029868612213227, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
-        type: 3}
-      propertyPath: m_Name
-      value: PeriodicBeam
-      objectReference: {fileID: 0}
     - target: {fileID: 4883029868612213226, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -687,6 +688,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4883029868612213227, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
+        type: 3}
+      propertyPath: m_Name
+      value: PeriodicBeam
+      objectReference: {fileID: 0}
     - target: {fileID: 4883029868612213231, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
         type: 3}
       propertyPath: m_Size.x
@@ -734,6 +740,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8004807131461434767}
     m_Modifications:
+    - target: {fileID: 519178488363583973, guid: 8319a268160e8d2409aab511587e641c,
+        type: 3}
+      propertyPath: awake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 519178488363583993, guid: 8319a268160e8d2409aab511587e641c,
         type: 3}
       propertyPath: m_Name
@@ -794,11 +805,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 519178488363583973, guid: 8319a268160e8d2409aab511587e641c,
-        type: 3}
-      propertyPath: awake
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8319a268160e8d2409aab511587e641c, type: 3}
 --- !u!1 &7503761935241100975 stripped
@@ -820,11 +826,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8004807132088461184}
     m_Modifications:
-    - target: {fileID: 4883029868612213227, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
-        type: 3}
-      propertyPath: m_Name
-      value: PeriodicBeam
-      objectReference: {fileID: 0}
     - target: {fileID: 4883029868612213226, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -880,6 +881,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4883029868612213227, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
+        type: 3}
+      propertyPath: m_Name
+      value: PeriodicBeam
+      objectReference: {fileID: 0}
     - target: {fileID: 4883029868612213231, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
         type: 3}
       propertyPath: m_Size.x
@@ -927,11 +933,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8004807132088461184}
     m_Modifications:
-    - target: {fileID: 4883029868612213227, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
-        type: 3}
-      propertyPath: m_Name
-      value: PeriodicBeam
-      objectReference: {fileID: 0}
     - target: {fileID: 4883029868612213226, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -987,6 +988,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4883029868612213227, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
+        type: 3}
+      propertyPath: m_Name
+      value: PeriodicBeam
+      objectReference: {fileID: 0}
     - target: {fileID: 4883029868612213231, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
         type: 3}
       propertyPath: m_Size.x
@@ -1034,11 +1040,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8004807132088461184}
     m_Modifications:
-    - target: {fileID: 4883029868612213227, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
-        type: 3}
-      propertyPath: m_Name
-      value: PeriodicBeam
-      objectReference: {fileID: 0}
     - target: {fileID: 4883029868612213226, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1094,6 +1095,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4883029868612213227, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
+        type: 3}
+      propertyPath: m_Name
+      value: PeriodicBeam
+      objectReference: {fileID: 0}
     - target: {fileID: 4883029868612213231, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
         type: 3}
       propertyPath: m_Size.x
@@ -1141,11 +1147,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8004807132088461184}
     m_Modifications:
-    - target: {fileID: 4883029868612213227, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
-        type: 3}
-      propertyPath: m_Name
-      value: PeriodicBeam
-      objectReference: {fileID: 0}
     - target: {fileID: 4883029868612213226, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1201,6 +1202,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4883029868612213227, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
+        type: 3}
+      propertyPath: m_Name
+      value: PeriodicBeam
+      objectReference: {fileID: 0}
     - target: {fileID: 4883029868612213231, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
         type: 3}
       propertyPath: m_Size.x
@@ -1248,11 +1254,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8004807132088461184}
     m_Modifications:
-    - target: {fileID: 4883029868612213227, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
-        type: 3}
-      propertyPath: m_Name
-      value: PeriodicBeam
-      objectReference: {fileID: 0}
     - target: {fileID: 4883029868612213226, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1307,6 +1308,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883029868612213227, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
+        type: 3}
+      propertyPath: m_Name
+      value: PeriodicBeam
       objectReference: {fileID: 0}
     - target: {fileID: 4883029868612213231, guid: 8e4fb3dc3ed813748a283c85ef40ba4a,
         type: 3}

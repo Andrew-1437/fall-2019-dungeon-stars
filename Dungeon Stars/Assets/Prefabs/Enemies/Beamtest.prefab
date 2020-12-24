@@ -54,10 +54,12 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 17175d15cb90ad64f9e7e695722c173a, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78,6 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1540334651464490
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,8 +131,11 @@ MonoBehaviour:
   collisionVal: 1
   explosion: {fileID: 100010, guid: 74f150540a0de664bac84f89b4c8c69a, type: 3}
   score: 0
+  floatingScoreText: {fileID: 0}
   awake: 0
   isATurret: 1
+  dontDieOnScreenExit: 0
+  ignorePlayerCollisions: 0
 --- !u!114 &114157725956181558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +153,7 @@ MonoBehaviour:
   fireRate: 0.4
   burstTime: 1.6
   turn: 100
+  hardpoint: {fileID: 0}
 --- !u!58 &58533479835034702
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -253,7 +260,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turrets: 2
   explosion: {fileID: 100010, guid: 30c4c673696f6254ebe0e3a26d31092f, type: 3}
+  subExplosion: {fileID: 0}
   score: 5000
+  floatingScoreText: {fileID: 0}
 --- !u!70 &70620955188676160
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -324,10 +333,12 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 17175d15cb90ad64f9e7e695722c173a, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -348,6 +359,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1822647703606304
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,10 +414,12 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 19fb69ab4258006439b69839bd3903be, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -426,6 +440,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1840841196841718
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,8 +491,11 @@ MonoBehaviour:
   collisionVal: 1
   explosion: {fileID: 100010, guid: 74f150540a0de664bac84f89b4c8c69a, type: 3}
   score: 0
+  floatingScoreText: {fileID: 0}
   awake: 0
   isATurret: 1
+  dontDieOnScreenExit: 0
+  ignorePlayerCollisions: 0
 --- !u!114 &114463123013724038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,6 +513,7 @@ MonoBehaviour:
   fireRate: 0.033333335
   burstTime: 0.033333335
   turn: 0
+  hardpoint: {fileID: 0}
 --- !u!58 &58844151594352212
 CircleCollider2D:
   m_ObjectHideFlags: 0

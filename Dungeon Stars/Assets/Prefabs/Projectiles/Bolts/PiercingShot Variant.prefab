@@ -2125,6 +2125,62 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+  LifetimeByEmitterSpeedModule:
+    enabled: 0
+    m_Curve:
+      serializedVersion: 2
+      minMaxState: 1
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: -0.8
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 0.2
+          inSlope: -0.8
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    m_Range: {x: 0, y: 1}
   ForceModule:
     enabled: 0
     x:
@@ -4706,6 +4762,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4748,6 +4805,8 @@ ParticleSystemRenderer:
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
+  m_FreeformStretching: 0
+  m_RotateWithStretchDirection: 1
   m_VertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
@@ -4775,6 +4834,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.4669811
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756924369346770042, guid: 1e1c4f0fc0957e34fb367ce0a9d5cd03,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4762371955288885742, guid: 1e1c4f0fc0957e34fb367ce0a9d5cd03,
         type: 3}
@@ -4891,6 +4955,36 @@ PrefabInstance:
       propertyPath: particleFX
       value: 
       objectReference: {fileID: 4963513751053461892}
+    - target: {fileID: 7068716755010928859, guid: 1e1c4f0fc0957e34fb367ce0a9d5cd03,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.9450981
+      objectReference: {fileID: 0}
+    - target: {fileID: 7068716755010928859, guid: 1e1c4f0fc0957e34fb367ce0a9d5cd03,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.9333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 7068716755010928859, guid: 1e1c4f0fc0957e34fb367ce0a9d5cd03,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.654902
+      objectReference: {fileID: 0}
+    - target: {fileID: 7068716755010928859, guid: 1e1c4f0fc0957e34fb367ce0a9d5cd03,
+        type: 3}
+      propertyPath: m_PointLightInnerRadius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7068716755010928859, guid: 1e1c4f0fc0957e34fb367ce0a9d5cd03,
+        type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856861816662798416, guid: 1e1c4f0fc0957e34fb367ce0a9d5cd03,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e1c4f0fc0957e34fb367ce0a9d5cd03, type: 3}
 --- !u!4 &448444396039328966 stripped

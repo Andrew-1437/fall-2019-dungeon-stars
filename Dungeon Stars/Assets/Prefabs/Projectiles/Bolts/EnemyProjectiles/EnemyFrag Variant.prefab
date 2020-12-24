@@ -4819,12 +4819,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1975858437710020386, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3378370004731732552, guid: db93be6bf0435c9469d007fc634b3462,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 1bc93c58ff1e51b46afad0e1452fa545,
         type: 3}
+    - target: {fileID: 6859009391071759235, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.9176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859009391071759235, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.7960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859009391071759235, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.8941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859009391071759235, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: m_PointLightInnerRadius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859009391071759235, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 1.8
+      objectReference: {fileID: 0}
     - target: {fileID: 9085219380928864744, guid: db93be6bf0435c9469d007fc634b3462,
         type: 3}
       propertyPath: m_audioClip

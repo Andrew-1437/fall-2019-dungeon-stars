@@ -30294,7 +30294,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &341261350
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -107643,7 +107643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1916922770}
+  selectedFlowchart: {fileID: 1604459103}
 --- !u!4 &1596599740
 Transform:
   m_ObjectHideFlags: 1
@@ -112544,6 +112544,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bc610636cd59b24e941d05f3955782c, type: 3}
+--- !u!114 &1604459103 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
+    type: 3}
+  m_PrefabInstance: {fileID: 677459758986888677}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1612480058
 GameObject:
   m_ObjectHideFlags: 0
@@ -162398,6 +162410,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 16.6
       objectReference: {fileID: 0}
+    - target: {fileID: 677459759489935520, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 677459759500668550, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: selectedBlocks.Array.size
@@ -162723,7 +162740,7 @@ PrefabInstance:
     - target: {fileID: 5319116537577994458, guid: 3e93467045972ec45b518d5d4efb530e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.6
+      value: 1.99
       objectReference: {fileID: 0}
     - target: {fileID: 5319116537577994458, guid: 3e93467045972ec45b518d5d4efb530e,
         type: 3}

@@ -4920,6 +4920,31 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.14
       objectReference: {fileID: 0}
+    - target: {fileID: 2306265376334392985, guid: 80ab67ac8ee09d24ea0226f938eaa479,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.28627452
+      objectReference: {fileID: 0}
+    - target: {fileID: 2306265376334392985, guid: 80ab67ac8ee09d24ea0226f938eaa479,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.2509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 2306265376334392985, guid: 80ab67ac8ee09d24ea0226f938eaa479,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.9803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 2306265376334392985, guid: 80ab67ac8ee09d24ea0226f938eaa479,
+        type: 3}
+      propertyPath: m_PointLightInnerRadius
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2306265376334392985, guid: 80ab67ac8ee09d24ea0226f938eaa479,
+        type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5896330158101071698, guid: 80ab67ac8ee09d24ea0226f938eaa479,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4960,6 +4985,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.6886792
+      objectReference: {fileID: 0}
+    - target: {fileID: 7231145274167450168, guid: 80ab67ac8ee09d24ea0226f938eaa479,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114911455496226138, guid: 80ab67ac8ee09d24ea0226f938eaa479, type: 3}
