@@ -4918,12 +4918,12 @@ PrefabInstance:
     - target: {fileID: 2306265376334392985, guid: 80ab67ac8ee09d24ea0226f938eaa479,
         type: 3}
       propertyPath: m_PointLightInnerRadius
-      value: 1.5
+      value: 0.7753372
       objectReference: {fileID: 0}
     - target: {fileID: 2306265376334392985, guid: 80ab67ac8ee09d24ea0226f938eaa479,
         type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 3
+      value: 4.18054
       objectReference: {fileID: 0}
     - target: {fileID: 5896330158101071698, guid: 80ab67ac8ee09d24ea0226f938eaa479,
         type: 3}
@@ -4935,6 +4935,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7231145274167450168, guid: 80ab67ac8ee09d24ea0226f938eaa479,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.011688005
+      objectReference: {fileID: 0}
+    - target: {fileID: 7231145274167450168, guid: 80ab67ac8ee09d24ea0226f938eaa479,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9999317
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80ab67ac8ee09d24ea0226f938eaa479, type: 3}

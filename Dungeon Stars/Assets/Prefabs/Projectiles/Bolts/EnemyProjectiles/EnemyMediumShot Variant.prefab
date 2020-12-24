@@ -92,6 +92,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 4608498572818392915, guid: 92e325379f74c094fbe18ae555e53d38,
+        type: 3}
+      propertyPath: m_PointLightInnerRadius
+      value: 0.597182
+      objectReference: {fileID: 0}
     - target: {fileID: 5631421639830015640, guid: 92e325379f74c094fbe18ae555e53d38,
         type: 3}
       propertyPath: m_Color.r
@@ -126,6 +131,26 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0.5803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 8912374608006697970, guid: 92e325379f74c094fbe18ae555e53d38,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8912374608006697970, guid: 92e325379f74c094fbe18ae555e53d38,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8912374608006697970, guid: 92e325379f74c094fbe18ae555e53d38,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8912374608006697970, guid: 92e325379f74c094fbe18ae555e53d38,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92e325379f74c094fbe18ae555e53d38, type: 3}
