@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour {
     public float hp;   //Represents current hp
     public float shield;   //Represents current shields
 
+    bool alive = true;
+
     public Animator shieldSprite;
     public float shieldRecharge;    //Represents rate at which shield recharges/frame
     public float shieldRegenDelay; //Represents time in seconds since last damage before shield will regen IF SHIELD IS ACTIVE
@@ -481,8 +483,9 @@ public class PlayerController : MonoBehaviour {
 
 
         //Ripperoni
-        if (hp < 0)
+        if (hp < 0 && alive)
         {
+            alive = false;
             Die();
         }
     }
@@ -557,6 +560,11 @@ public class PlayerController : MonoBehaviour {
                 shieldRegenTime = Time.time + shieldRegenDelay;
             }
         }
+        if (hp < 0 && alive)
+        {
+            alive = false;
+            Die();
+        }
     }
 
     // Damage IGNORES shields. Directly to hull
@@ -567,6 +575,11 @@ public class PlayerController : MonoBehaviour {
             float dmg = baseDmg * dmgMod;
 
             hp -= dmg;
+        }
+        if (hp < 0 && alive)
+        {
+            alive = false;
+            Die();
         }
     }
 

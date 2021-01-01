@@ -592,4 +592,9 @@ public class GM : MonoBehaviour {
     {
         gameStart = start;
     }
+
+    public void SetTimeScale(float x)
+    {
+        Time.timeScale = x;
+    }
 }
