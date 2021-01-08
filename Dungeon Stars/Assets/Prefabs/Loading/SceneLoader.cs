@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 [RequireComponent(typeof(Animator))]
 public class SceneLoader : MonoBehaviour
@@ -10,6 +11,10 @@ public class SceneLoader : MonoBehaviour
     Animator anim;
 
     bool loading;
+
+    public TextMeshProUGUI tip;
+
+    public string[] loadScreenTips;
 
     private void Awake()
     {
@@ -29,6 +34,8 @@ public class SceneLoader : MonoBehaviour
         if (loading)
             return;
         StartCoroutine(LoadSceneAsync(scene_name));
+
+        tip.text = loadScreenTips[Random.Range(0, loadScreenTips.Length)];
     }
 
     public IEnumerator LoadSceneAsync(string scene_name)

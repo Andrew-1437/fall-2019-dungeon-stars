@@ -16,14 +16,14 @@ public class CameraShaker : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         //Camera Shake
         if (OmniController.omniController.enableCameraShake)
         {
             if (shakeIntensity > 0)
             {
                 ShakeCamera(shakeIntensity);
-                shakeIntensity -= 1.4f * Time.deltaTime;
+                shakeIntensity -= Mathf.Max(1.9f, 3f * shakeIntensity) * Time.deltaTime;
             }
             else
             {
@@ -35,31 +35,31 @@ public class CameraShaker : MonoBehaviour {
 
     private void ShakeCamera(float intensity)
     {
-        transform.position = Random.insideUnitCircle * intensity * shakeIntensity;
+        transform.position = Random.insideUnitCircle * Mathf.Min(intensity, .4f);
     }
 
     public void SmallShake()
     {
-        shakeIntensity = smallShake;
+        shakeIntensity += smallShake;
     }
 
     public void LargeShake()
     {
-        shakeIntensity = largeShake;
+        shakeIntensity += largeShake;
     }
 
     public void LargeShake(float mod)
     {
-        shakeIntensity = largeShake + mod;
+        shakeIntensity += largeShake + mod;
     }
 
     public void HugeShake()
     {
-        shakeIntensity = largeShake + 1;
+        shakeIntensity += largeShake + 1;
     }
 
     public void CustomShake(float shake)
     {
-        shakeIntensity = shake;
+        shakeIntensity += shake;
     }
 }

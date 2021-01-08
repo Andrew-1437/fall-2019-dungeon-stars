@@ -16,8 +16,8 @@ public class GM : MonoBehaviour {
     public GameObject fx;
     public GameObject player;
     public GameObject player2;
-    private PlayerController playerController;
-    private PlayerController playerController2;
+    public PlayerController playerController;
+    public PlayerController playerController2;
     public GameObject enemies;
     public GameObject ui;
     public GameObject boss;

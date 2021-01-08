@@ -15,6 +15,7 @@ public class TurretBehavior : MonoBehaviour {
     private float nextFire;
 
     public float turn;
+    float turnSpeedMod = 1f;
 
     public Transform hardpoint;
 
@@ -44,13 +45,18 @@ public class TurretBehavior : MonoBehaviour {
         if (awake)
         {
             target = FindClosestByTag("Player");
+            // If the target is the player and they are playing the "Vector Hunter" stealth ship, the turret's turn speed is reduced
+            if (target.GetComponent<PlayerController>().id.Equals(ShipsEnum.ShipID.VECTOR))
+                turnSpeedMod = .35f;
+            else
+                turnSpeedMod = 1f;
             if (target != null)
             {
                 Vector3 targetDir = target.transform.position - transform.position;
 
                 float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg - 90;
                 Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, q, turn * Time.deltaTime);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, q, turn * Time.deltaTime * turnSpeedMod);
             }
         }
 

@@ -9,12 +9,21 @@ public class MissileBehavior : ProjectileBehavior {
     private GameObject target;
 
     public GameObject explosion;
+
+    float turnSpeedMod = 1f;
     
 
     private void Start()
     {
+        // Acquire target when instantiated
         base.Start();
         target = FindClosestByTag(targetTag);
+
+        // If the target is the player and they are playing the "Vector Hunter" stealth ship, the missile's turn speed is halved
+        if (targetTag == "Player" && target.GetComponent<PlayerController>().id.Equals(ShipsEnum.ShipID.VECTOR))
+            turnSpeedMod = .5f;
+        else
+            turnSpeedMod = 1f;
     }
 
     private void FixedUpdate()
@@ -28,13 +37,22 @@ public class MissileBehavior : ProjectileBehavior {
         
         if (target != null)
         {
+            // If we have a target, turn towards it
             Vector3 targetDir = target.GetComponent<Transform>().position - transform.position;
 
             float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg - 90;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, q, turn * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, q, turn * Time.deltaTime * turnSpeedMod);
         }
-        else { target = FindClosestByTag(targetTag); }
+        else 
+        { 
+            // Acquire new target
+            target = FindClosestByTag(targetTag);
+            if (targetTag == "Player" && target.GetComponent<PlayerController>().id.Equals(ShipsEnum.ShipID.VECTOR))
+                turnSpeedMod = .5f;
+            else
+                turnSpeedMod = 1f;
+        }
 
         if (Time.time >= deathTime)
         {
