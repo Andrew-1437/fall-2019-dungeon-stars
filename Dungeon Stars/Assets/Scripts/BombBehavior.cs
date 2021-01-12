@@ -6,6 +6,7 @@ public class BombBehavior : ProjectileBehavior
 {
     [Header("Bomb Mechanics")]
     public GameObject payload;
+    public bool enemyBomb;
 
     [Header("Triggers")]
     //public bool impact;
@@ -37,7 +38,11 @@ public class BombBehavior : ProjectileBehavior
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(proxy && other.tag == "Obstacle")
+        if (proxy && !enemyBomb && other.tag == "Obstacle")
+        {
+            Detonate();
+        }
+        if (proxy && enemyBomb && other.tag == "Target")
         {
             Detonate();
         }
