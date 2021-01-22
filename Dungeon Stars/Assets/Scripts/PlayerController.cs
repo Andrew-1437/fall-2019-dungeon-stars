@@ -469,6 +469,11 @@ public class PlayerController : MonoBehaviour {
             {
                 currentMissileCount = maxMissile;
             }
+            // Summons a bolt-shooting drone to assist
+            if (pow.type == PowerUpBehavior.PowerUps.BoltDrone)
+            {
+                pow.Summon(isPlayer2);
+            }
             audio[3].Play();
             Destroy(other.gameObject);
         }

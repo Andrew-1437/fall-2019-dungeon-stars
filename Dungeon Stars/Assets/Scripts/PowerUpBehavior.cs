@@ -4,43 +4,40 @@ using UnityEngine;
 
 public class PowerUpBehavior : MonoBehaviour {
 
-    public enum PowerUps { None, LevelUp, Repair, SpeedUp, FireUp, Ammo };
+    public enum PowerUps { None, LevelUp, Repair, SpeedUp, FireUp, Ammo, BoltDrone };
 
     public PowerUps type;
 
     public float speed;
     public float duration;
 
+    public GameObject summon;
+
     private bool awake;
 
     public GameObject marker;  // Used to identify in scene in edit mode
-
-    private GameObject gm;
+    Rigidbody2D rb;
 
     private void Start()
     {
         awake = false;
 
-        gm = GameObject.FindWithTag("GameController");
-        if (gm == null)
-        {
-            print("Ohshit! Game Controller not found by PowerUp!");
-        }
+        rb = GetComponent<Rigidbody2D>();
 
         marker.SetActive(false);
     }
 
     private void FixedUpdate()
     {
-        if (gm.GetComponent<GM>().gameStart)
+        if (GM.gameController.gameStart)
         {
             if (awake)
             {
-                gameObject.GetComponent<Rigidbody2D>().velocity = (gameObject.GetComponent<Transform>().up * speed) + new Vector3(0.0f, -1.0f, 0.0f);
+               rb.velocity = (Vector3.down * speed) + Vector3.down;
             }
             else
             {
-                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, -1.0f);
+                rb.velocity = Vector3.down;
             }
         }
     }
@@ -51,5 +48,13 @@ public class PowerUpBehavior : MonoBehaviour {
         {
             awake = true;
         }
+    }
+
+    public void Summon(bool byPlayerTwo)
+    {
+        GameObject summonedObject = Instantiate(summon, transform.position, transform.rotation);
+        DroneBehavior summonedDrone = summonedObject.GetComponent<DroneBehavior>();
+        summonedDrone.lifetime = duration;
+        summonedDrone.followPlayer2 = byPlayerTwo;
     }
 }
