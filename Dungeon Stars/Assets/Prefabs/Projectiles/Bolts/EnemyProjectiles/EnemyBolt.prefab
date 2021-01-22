@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1798592306547478, guid: 80ab67ac8ee09d24ea0226f938eaa479, type: 3}
+      propertyPath: m_Name
+      value: EnemyBolt
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798592306547478, guid: 80ab67ac8ee09d24ea0226f938eaa479, type: 3}
+      propertyPath: m_TagString
+      value: EnemyProjectile
+      objectReference: {fileID: 0}
     - target: {fileID: 4495096820017068, guid: 80ab67ac8ee09d24ea0226f938eaa479, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -51,25 +59,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1798592306547478, guid: 80ab67ac8ee09d24ea0226f938eaa479, type: 3}
-      propertyPath: m_Name
-      value: EnemyBolt
-      objectReference: {fileID: 0}
-    - target: {fileID: 1798592306547478, guid: 80ab67ac8ee09d24ea0226f938eaa479, type: 3}
-      propertyPath: m_TagString
-      value: EnemyProjectile
-      objectReference: {fileID: 0}
-    - target: {fileID: 114911455496226138, guid: 80ab67ac8ee09d24ea0226f938eaa479,
-        type: 3}
-      propertyPath: dmgValue
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 82391300000007410, guid: 80ab67ac8ee09d24ea0226f938eaa479,
         type: 3}
       propertyPath: m_Volume
       value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 82391300000007410, guid: 80ab67ac8ee09d24ea0226f938eaa479,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114911455496226138, guid: 80ab67ac8ee09d24ea0226f938eaa479,
+        type: 3}
+      propertyPath: dmgValue
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 993940718970444120, guid: 80ab67ac8ee09d24ea0226f938eaa479,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 993940718970444120, guid: 80ab67ac8ee09d24ea0226f938eaa479,
         type: 3}
       propertyPath: m_Pitch
       value: 1.8

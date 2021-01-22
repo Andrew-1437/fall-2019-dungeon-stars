@@ -29,7 +29,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3116175437408583218}
+  m_Father: {fileID: 6245327524990904420}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &334636305417505583
@@ -4767,7 +4767,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: aebc2fcd4311946738874768112cd326, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4820,6 +4819,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 192350302540879072, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1975858437710020386, guid: db93be6bf0435c9469d007fc634b3462,
         type: 3}
       propertyPath: m_RootOrder
@@ -4876,6 +4880,21 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.45882356
       objectReference: {fileID: 0}
+    - target: {fileID: 8285135975807499330, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285135975807499330, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285135975807499330, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 476c9e909434541d9a0e665e934cd626, type: 3}
     - target: {fileID: 9085219380928864744, guid: db93be6bf0435c9469d007fc634b3462,
         type: 3}
       propertyPath: m_audioClip
@@ -4900,7 +4919,7 @@ PrefabInstance:
         type: 3}
       propertyPath: particleFX
       value: 
-      objectReference: {fileID: 6231660442821938066}
+      objectReference: {fileID: 1677686116342693027}
     - target: {fileID: 9127010612288610368, guid: db93be6bf0435c9469d007fc634b3462,
         type: 3}
       propertyPath: perist
@@ -4993,9 +5012,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db93be6bf0435c9469d007fc634b3462, type: 3}
---- !u!4 &3116175437408583218 stripped
+--- !u!1 &1677686116342693027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4848361933274595367, guid: db93be6bf0435c9469d007fc634b3462,
+    type: 3}
+  m_PrefabInstance: {fileID: 6052980697292749956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6245327524990904420 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 9168872351044403894, guid: db93be6bf0435c9469d007fc634b3462,
+  m_CorrespondingSourceObject: {fileID: 192350302540879072, guid: db93be6bf0435c9469d007fc634b3462,
     type: 3}
   m_PrefabInstance: {fileID: 6052980697292749956}
   m_PrefabAsset: {fileID: 0}

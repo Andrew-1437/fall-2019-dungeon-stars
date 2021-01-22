@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TurretBehavior : MonoBehaviour {
 
+    [Tooltip("Leave empty or specify \"Player\" to target player")]
+    public string targetTag;    // Default target is player
     public GameObject projectile;
     private GameObject target;
 
@@ -19,17 +21,21 @@ public class TurretBehavior : MonoBehaviour {
 
     public Transform hardpoint;
 
-    private bool awake;
+    public bool awake;
 
+    public bool ignoreObstacle;     // If true, the turret will not care about an attached ObstacleBehavior script
+                                    // Mainly used for player's turrets or invulnerable turrets that should not be targeted
     ObstacleBehavior thisObstacle;  // Reference to this gameObject's ObstacleBehavior script
 
     // Use this for initialization
     void Start () {
         nextBurst = 0.0f;
         nextFire = 0.0f;
-        awake = false;
 
-        thisObstacle = GetComponent<ObstacleBehavior>();
+        if (targetTag == "") targetTag = "Player";  // If targetTag is empty, target player
+
+        if (!ignoreObstacle)
+            thisObstacle = GetComponent<ObstacleBehavior>();
 
         if (hardpoint == null)
         {
@@ -40,13 +46,14 @@ public class TurretBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        awake = thisObstacle.awake;
+        if (!ignoreObstacle)
+            awake = thisObstacle.awake;
 
         if (awake)
         {
-            target = FindClosestByTag("Player");
+            target = FindClosestByTag(targetTag);
             // If the target is the player and they are playing the "Vector Hunter" stealth ship, the turret's turn speed is reduced
-            if (target.GetComponent<PlayerController>().id.Equals(ShipsEnum.ShipID.VECTOR))
+            if (targetTag == "Player" && target.GetComponent<PlayerController>().id.Equals(ShipsEnum.ShipID.VECTOR))
                 turnSpeedMod = .35f;
             else
                 turnSpeedMod = 1f;
@@ -60,7 +67,7 @@ public class TurretBehavior : MonoBehaviour {
             }
         }
 
-        if (awake && (Time.time > nextBurst || Time.time < burstEnd))
+        if (awake && target != null && (Time.time > nextBurst || Time.time < burstEnd))
         {
             if (Time.time >= burstEnd)
             {

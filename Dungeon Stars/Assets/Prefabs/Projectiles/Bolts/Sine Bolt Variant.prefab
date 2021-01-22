@@ -25,11 +25,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717671669}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6061254999008230864}
+  m_Father: {fileID: 2992881686346623878}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &717671672
@@ -4767,7 +4767,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: aebc2fcd4311946738874768112cd326, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4920,6 +4919,16 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.14
       objectReference: {fileID: 0}
+    - target: {fileID: 993940718970444120, guid: 80ab67ac8ee09d24ea0226f938eaa479,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 993940718970444120, guid: 80ab67ac8ee09d24ea0226f938eaa479,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4045d1bbe7a62493a8d095ee8f2d4b4d, type: 3}
     - target: {fileID: 2306265376334392985, guid: 80ab67ac8ee09d24ea0226f938eaa479,
         type: 3}
       propertyPath: m_Color.r
@@ -4991,6 +5000,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9050763021667037690, guid: 80ab67ac8ee09d24ea0226f938eaa479,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114911455496226138, guid: 80ab67ac8ee09d24ea0226f938eaa479, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 80ab67ac8ee09d24ea0226f938eaa479, type: 3}
@@ -5000,9 +5014,9 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6057938578955180668}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &6061254999008230864 stripped
+--- !u!4 &2992881686346623878 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4495096820017068, guid: 80ab67ac8ee09d24ea0226f938eaa479,
+  m_CorrespondingSourceObject: {fileID: 9050763021667037690, guid: 80ab67ac8ee09d24ea0226f938eaa479,
     type: 3}
   m_PrefabInstance: {fileID: 6057938578955180668}
   m_PrefabAsset: {fileID: 0}

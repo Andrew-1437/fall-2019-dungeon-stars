@@ -16,7 +16,7 @@ MonoBehaviour:
   dmgValue: 8
   lifeTime: 3
   perist: 0
-  particleFX: {fileID: 8900405102205500259}
+  particleFX: {fileID: 1436586334037756119}
   initForce: 7
   convergeStrength: 3
 --- !u!1001 &8900405101513848726
@@ -152,6 +152,16 @@ PrefabInstance:
       propertyPath: m_Pitch
       value: 1.2
       objectReference: {fileID: 0}
+    - target: {fileID: 6474259660097815332, guid: e787dd1d8576ce84385ca7b5f2612d3a,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474259660097815332, guid: e787dd1d8576ce84385ca7b5f2612d3a,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f4bdf60bf829a4983b2caf3c84e2309a, type: 3}
     - target: {fileID: 8364203955289568485, guid: e787dd1d8576ce84385ca7b5f2612d3a,
         type: 3}
       propertyPath: m_Color.r
@@ -186,9 +196,9 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8900405101513848726}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8900405102205500259 stripped
+--- !u!1 &1436586334037756119 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 717671669, guid: e787dd1d8576ce84385ca7b5f2612d3a,
+  m_CorrespondingSourceObject: {fileID: 7524196526551138113, guid: e787dd1d8576ce84385ca7b5f2612d3a,
     type: 3}
   m_PrefabInstance: {fileID: 8900405101513848726}
   m_PrefabAsset: {fileID: 0}
