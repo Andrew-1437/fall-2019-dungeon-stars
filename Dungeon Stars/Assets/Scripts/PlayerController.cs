@@ -530,9 +530,10 @@ public class PlayerController : MonoBehaviour {
         }
         else
         {
-            maxHp += 125f;
-            hp += 125f;
-            maxShield += 25f;
+            float levelUpHp = Mathf.Floor(maxHp * .2f);
+            maxHp += levelUpHp;
+            hp += levelUpHp;
+            maxShield += Mathf.Floor(maxShield * .2f);
         }
     }
 

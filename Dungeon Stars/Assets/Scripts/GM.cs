@@ -24,6 +24,7 @@ public class GM : MonoBehaviour {
     public GameObject bossWarnUI;
     private BossBehavior bossStats;
     private float bossMaxHp;
+    public AudioSource soundtrack;
 
     [Header("Score")]
     public int score;
@@ -390,6 +391,9 @@ public class GM : MonoBehaviour {
         {
             score = 0;
         }
+
+        // Extra
+        soundtrack.pitch = OmniController.omniController.globalTimeScale;
     }
 
     public void AwakenBoss()
