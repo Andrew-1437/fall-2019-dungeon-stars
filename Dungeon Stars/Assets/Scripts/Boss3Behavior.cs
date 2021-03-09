@@ -10,7 +10,7 @@ public class Boss3Behavior : MonoBehaviour
 
     [Header("Stage 1")]
     public GameObject stage1;
-    public PeriodicBeam[] beams;
+    public BeamWeapon[] beams;
     private float shootTime = 10f;
     
 
@@ -39,7 +39,7 @@ public class Boss3Behavior : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = Random.insideUnitCircle;
+        //rb.velocity = Random.insideUnitCircle;
     }
 
     // Update is called once per frame
@@ -54,8 +54,8 @@ public class Boss3Behavior : MonoBehaviour
             }
             if (stage1.activeSelf && Time.time >= shootTime)
             {
-                shootTime = Time.time + 10f;
-                RandomBeams(5);
+                shootTime = Time.time + 8.5f;
+                RandomBeams(4);
             }
         }
         float cann1hp = 0f;
@@ -69,7 +69,7 @@ public class Boss3Behavior : MonoBehaviour
     {
         for (int i = 0; i < numBeams; i++)
         {
-            beams[Random.Range(0, beams.Length - 1)].StartNow();
+            beams[Random.Range(0, beams.Length - 1)].FireCycleOnce();
         }
     }
 

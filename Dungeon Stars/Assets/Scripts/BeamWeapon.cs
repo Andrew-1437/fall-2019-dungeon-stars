@@ -8,11 +8,11 @@ public class BeamWeapon : MonoBehaviour
 
     public float aimTime;       // Time before beam "charges up" where it can aim
     public float targetTime;    // Time beam "charges up" before it shoots where it stops aiming
-    public float sleepTime;     // Time while beam is doing firing animation where it doesnt aim or do anything
+    public float shootTime;     // Time while beam is doing firing animation where it doesnt aim or do anything
 
     float aimEndTime;
     float targetEndTime;
-    float sleepEndTime;
+    float shootEndTime;
 
     public float turn;
     float turnSpeedMod = 1f;
@@ -28,6 +28,11 @@ public class BeamWeapon : MonoBehaviour
 
     bool aim = true;
 
+    // Auto mode is when the turret fires on its own on a set interval. Use Automatic(bool) to set this during runtime
+    bool auto = false;
+    public bool autoOnAwake;    // Start in automatic mode
+    
+
     Animator anim;
 
     // Start is called before the first frame update
@@ -35,9 +40,7 @@ public class BeamWeapon : MonoBehaviour
     {
         anim = GetComponent<Animator>();
 
-        aimEndTime = Time.time + aimTime + sync;
-        targetEndTime = aimEndTime + targetTime;
-        sleepEndTime = targetEndTime + sleepTime;
+        Automatic(autoOnAwake);
     }
 
     // Update is called once per frame
@@ -47,21 +50,31 @@ public class BeamWeapon : MonoBehaviour
         {
             anim.SetTrigger("LockTarget");
             chargeSFX.Play();
-            aimEndTime = sleepEndTime + aimTime;
             aim = false;
+
+            // If in auto mode, set the next aimEndTime to what it should be. Otherwise, don't so that we don't shoot again
+            if (auto) aimEndTime = shootEndTime + aimTime;
+            else aimEndTime = Mathf.Infinity;
+
         }
         else if (Time.time > targetEndTime)
         {
             anim.SetTrigger("Fire");
             fireSFX.Play();
-            targetEndTime = aimEndTime + targetTime;
             damageEndTime = Time.time + damageTime;
             firing = true;
+
+            // Same logic as with aimEndTime
+            if (auto) targetEndTime = aimEndTime + targetTime;
+            else targetEndTime = Mathf.Infinity;
         }
-        else if (Time.time > sleepEndTime)
+        else if (Time.time > shootEndTime)
         {
-            sleepEndTime = targetEndTime + sleepTime;
             aim = true;
+
+            // Same logic as with aimEndTime
+            if (auto) shootEndTime = targetEndTime + shootTime;
+            else shootEndTime = Mathf.Infinity;
         }
 
         if (aim) RotateTowards("Player");
@@ -69,6 +82,7 @@ public class BeamWeapon : MonoBehaviour
         if (firing && Time.time > damageEndTime) firing = false;
 
         damager.SetActive(firing);
+
     }
 
     void RotateTowards(string tag)
@@ -87,6 +101,32 @@ public class BeamWeapon : MonoBehaviour
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, q, turn * Time.deltaTime * turnSpeedMod);
         }
+    }
+
+    // Fire the weapon by cycling through its fire states once (charge, shoot)
+    public void FireCycleOnce()
+    {
+        aimEndTime = Time.time;
+        targetEndTime = aimEndTime + targetTime;
+        shootEndTime = targetEndTime + shootTime;
+    }
+
+    // Set automatic firing of the weapon
+    public void Automatic(bool state)
+    {
+        if(state)
+        {
+            aimEndTime = Time.time + aimTime + sync;
+            targetEndTime = aimEndTime + targetTime;
+            shootEndTime = targetEndTime + shootTime;
+        }
+        else
+        {
+            aimEndTime = Mathf.Infinity;
+            targetEndTime = Mathf.Infinity;
+            shootEndTime = Mathf.Infinity;
+        }
+        auto = state;
     }
 
     GameObject FindClosestByTag(string tag)
