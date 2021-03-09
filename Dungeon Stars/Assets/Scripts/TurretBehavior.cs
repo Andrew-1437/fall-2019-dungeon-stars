@@ -12,9 +12,9 @@ public class TurretBehavior : MonoBehaviour {
     public float shootDelay;
     public float fireRate;
     public float burstTime;
-    private float burstEnd;
-    private float nextBurst;
-    private float nextFire;
+    float burstEnd = 0f;
+    float nextBurst = Mathf.Infinity;
+    float nextFire = Mathf.Infinity;
 
     public float turn;
     float turnSpeedMod = 1f;
@@ -22,6 +22,7 @@ public class TurretBehavior : MonoBehaviour {
     public Transform hardpoint;
 
     public bool awake;
+    bool wasSleeping;
 
     public bool ignoreObstacle;     // If true, the turret will not care about an attached ObstacleBehavior script
                                     // Mainly used for player's turrets or invulnerable turrets that should not be targeted
@@ -29,8 +30,9 @@ public class TurretBehavior : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        nextBurst = 0.0f;
-        nextFire = 0.0f;
+        nextBurst = Time.time + shootDelay;
+        nextFire = 0f;
+        bool wasSleeping = !awake;
 
         if (targetTag == "") targetTag = "Player";  // If targetTag is empty, target player
 
@@ -48,6 +50,16 @@ public class TurretBehavior : MonoBehaviour {
     {
         if (!ignoreObstacle)
             awake = thisObstacle.awake;
+
+        if(awake && wasSleeping)
+        {
+            wasSleeping = false;
+            Awaken();
+        }
+        else if (!awake && !wasSleeping)
+        {
+            wasSleeping = true;
+        }
 
         if (awake)
         {
@@ -88,6 +100,13 @@ public class TurretBehavior : MonoBehaviour {
     {
         Instantiate(projectile, hardpoint.position, hardpoint.rotation);
         nextFire = Time.time + fireRate;
+    }
+
+    public void Awaken()
+    {
+        awake = true;
+        nextBurst = Time.time + burstTime;
+        nextFire = 0.0f;
     }
 
     GameObject FindClosestByTag(string tag)
