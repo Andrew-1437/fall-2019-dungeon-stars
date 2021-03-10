@@ -16,6 +16,7 @@ public class ObstacleBehavior : MonoBehaviour {
 
     //Visual FX
     public GameObject explosion;
+    public GameObject hitFX;
 
     //Score
     public int score;
@@ -55,6 +56,8 @@ public class ObstacleBehavior : MonoBehaviour {
             {
                 hit.DestroyProjectile();
             }
+            if (hitFX)
+                Destroy(Instantiate(hitFX, transform.position, transform.rotation), 1f);
         }
         if (other.tag == "Bounds")
         {

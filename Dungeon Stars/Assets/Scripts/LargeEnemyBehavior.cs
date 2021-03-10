@@ -10,6 +10,7 @@ public class LargeEnemyBehavior : MonoBehaviour {
     public short turrets;
     public GameObject explosion;
     public GameObject subExplosion;
+    public float subExplodeRadius = 5f;
 
     //Camera Shake
     protected GameObject gameCamera;
@@ -34,7 +35,7 @@ public class LargeEnemyBehavior : MonoBehaviour {
         gm = GM.gameController;
     }
 
-    private void Update()
+    protected void Update()
     {
         if (turrets <= 0 && !dieing)
         {
@@ -48,7 +49,8 @@ public class LargeEnemyBehavior : MonoBehaviour {
             float x = Random.Range(0f, 1f);
             if (Time.time > subexplodeTime)
             {
-                Instantiate(subExplosion, transform.position + Random.insideUnitSphere * 5, transform.rotation);
+                Destroy(
+                    Instantiate(subExplosion, transform.position + Random.insideUnitSphere * subExplodeRadius, transform.rotation), 3f);
                 subexplodeTime = Time.time + Random.Range(.05f, .35f);
             }
             if (Time.time > dietime)
@@ -61,7 +63,8 @@ public class LargeEnemyBehavior : MonoBehaviour {
     {
         OmniController.omniController.enemiesKilled++;
         Destroy(gameObject);
-        Instantiate(explosion, transform.position, transform.rotation);
+        Destroy(
+            Instantiate(explosion, transform.position, transform.rotation), 5f);
         DisplayScore();
         if(gameCamera)
             gameCamera.GetComponent<CameraShaker>().LargeShake(0.2f);
