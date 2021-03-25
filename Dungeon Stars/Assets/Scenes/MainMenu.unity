@@ -447,6 +447,7 @@ MonoBehaviour:
   m_StopNaN: 0
   m_Dithering: 0
   m_ClearDepth: 1
+  m_AllowXRRendering: 1
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
@@ -684,6 +685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -1126,7 +1128,7 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 421014802}
-  serializedVersion: 6
+  serializedVersion: 7
   lengthInSec: 5
   simulationSpeed: 0.1
   stopAction: 0
@@ -4698,19 +4700,20 @@ ParticleSystem:
     range: {x: 0, y: 1}
   CollisionModule:
     enabled: 0
-    serializedVersion: 3
+    serializedVersion: 4
     type: 0
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 1
-    plane0: {fileID: 0}
-    plane1: {fileID: 0}
-    plane2: {fileID: 0}
-    plane3: {fileID: 0}
-    plane4: {fileID: 0}
-    plane5: {fileID: 0}
+    m_Planes:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
@@ -4884,17 +4887,20 @@ ParticleSystem:
     interiorCollisions: 0
   TriggerModule:
     enabled: 0
-    collisionShape0: {fileID: 0}
-    collisionShape1: {fileID: 0}
-    collisionShape2: {fileID: 0}
-    collisionShape3: {fileID: 0}
-    collisionShape4: {fileID: 0}
-    collisionShape5: {fileID: 0}
+    serializedVersion: 2
     inside: 1
     outside: 0
     enter: 0
     exit: 0
+    colliderQueryMode: 0
     radiusScale: 1
+    primitives:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   SubModule:
     serializedVersion: 2
     enabled: 0
@@ -5938,7 +5944,7 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506618784}
-  serializedVersion: 6
+  serializedVersion: 7
   lengthInSec: 5
   simulationSpeed: 1
   stopAction: 0
@@ -9510,19 +9516,20 @@ ParticleSystem:
     range: {x: 0, y: 1}
   CollisionModule:
     enabled: 0
-    serializedVersion: 3
+    serializedVersion: 4
     type: 0
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 1
-    plane0: {fileID: 0}
-    plane1: {fileID: 0}
-    plane2: {fileID: 0}
-    plane3: {fileID: 0}
-    plane4: {fileID: 0}
-    plane5: {fileID: 0}
+    m_Planes:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
@@ -9696,17 +9703,20 @@ ParticleSystem:
     interiorCollisions: 0
   TriggerModule:
     enabled: 0
-    collisionShape0: {fileID: 0}
-    collisionShape1: {fileID: 0}
-    collisionShape2: {fileID: 0}
-    collisionShape3: {fileID: 0}
-    collisionShape4: {fileID: 0}
-    collisionShape5: {fileID: 0}
+    serializedVersion: 2
     inside: 1
     outside: 0
     enter: 0
     exit: 0
+    colliderQueryMode: 0
     radiusScale: 1
+    primitives:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   SubModule:
     serializedVersion: 2
     enabled: 0
@@ -10784,6 +10794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -10928,6 +10939,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -11390,6 +11402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -11674,6 +11687,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &709713598
 Canvas:
   m_ObjectHideFlags: 0
@@ -11980,6 +11994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -12433,6 +12448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -12649,6 +12665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -12764,18 +12781,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8547074216908387245, guid: b974a1d5aa75cb5429252082d98c0e08,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8547074216908387245, guid: b974a1d5aa75cb5429252082d98c0e08,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2525
+      objectReference: {fileID: 0}
+    - target: {fileID: 8547074216908387245, guid: b974a1d5aa75cb5429252082d98c0e08,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2525
+      objectReference: {fileID: 0}
+    - target: {fileID: 8547074216908387245, guid: b974a1d5aa75cb5429252082d98c0e08,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2525
+      objectReference: {fileID: 0}
+    - target: {fileID: 8547074216908387245, guid: b974a1d5aa75cb5429252082d98c0e08,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 501
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8547074216908387245, guid: b974a1d5aa75cb5429252082d98c0e08,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 210
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8547074216908387245, guid: b974a1d5aa75cb5429252082d98c0e08,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8547074216908387245, guid: b974a1d5aa75cb5429252082d98c0e08,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8547074216908387245, guid: b974a1d5aa75cb5429252082d98c0e08,
         type: 3}
@@ -12794,16 +12836,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8547074216908387245, guid: b974a1d5aa75cb5429252082d98c0e08,
         type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8547074216908387245, guid: b974a1d5aa75cb5429252082d98c0e08,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8547074216908387245, guid: b974a1d5aa75cb5429252082d98c0e08,
-        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -12817,24 +12849,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8547074216908387245, guid: b974a1d5aa75cb5429252082d98c0e08,
+    - target: {fileID: 8547074217317953565, guid: b974a1d5aa75cb5429252082d98c0e08,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2525
-      objectReference: {fileID: 0}
-    - target: {fileID: 8547074216908387245, guid: b974a1d5aa75cb5429252082d98c0e08,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.2525
-      objectReference: {fileID: 0}
-    - target: {fileID: 8547074216908387245, guid: b974a1d5aa75cb5429252082d98c0e08,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.2525
+      propertyPath: m_textInfo.lineCount
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8547074217317953565, guid: b974a1d5aa75cb5429252082d98c0e08,
         type: 3}
-      propertyPath: m_textInfo.characterCount
+      propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8547074217317953565, guid: b974a1d5aa75cb5429252082d98c0e08,
@@ -12844,12 +12866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8547074217317953565, guid: b974a1d5aa75cb5429252082d98c0e08,
         type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8547074217317953565, guid: b974a1d5aa75cb5429252082d98c0e08,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
+      propertyPath: m_textInfo.characterCount
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -13094,7 +13111,7 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 952324987}
-  serializedVersion: 6
+  serializedVersion: 7
   lengthInSec: 90
   simulationSpeed: 0.1
   stopAction: 0
@@ -16666,19 +16683,20 @@ ParticleSystem:
     range: {x: 0, y: 1}
   CollisionModule:
     enabled: 0
-    serializedVersion: 3
+    serializedVersion: 4
     type: 0
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 1
-    plane0: {fileID: 0}
-    plane1: {fileID: 0}
-    plane2: {fileID: 0}
-    plane3: {fileID: 0}
-    plane4: {fileID: 0}
-    plane5: {fileID: 0}
+    m_Planes:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
@@ -16852,17 +16870,20 @@ ParticleSystem:
     interiorCollisions: 0
   TriggerModule:
     enabled: 0
-    collisionShape0: {fileID: 0}
-    collisionShape1: {fileID: 0}
-    collisionShape2: {fileID: 0}
-    collisionShape3: {fileID: 0}
-    collisionShape4: {fileID: 0}
-    collisionShape5: {fileID: 0}
+    serializedVersion: 2
     inside: 1
     outside: 0
     enter: 0
     exit: 0
+    colliderQueryMode: 0
     radiusScale: 1
+    primitives:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   SubModule:
     serializedVersion: 2
     enabled: 0
@@ -18417,6 +18438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -18561,6 +18583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -18853,6 +18876,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -19021,6 +19045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -19597,6 +19622,10 @@ PrefabInstance:
       value: Star_05
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: eca8b956ee803a84d8be3e786c30adab, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: eca8b956ee803a84d8be3e786c30adab, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.56
       objectReference: {fileID: 0}
@@ -19607,6 +19636,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: eca8b956ee803a84d8be3e786c30adab, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: eca8b956ee803a84d8be3e786c30adab, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: eca8b956ee803a84d8be3e786c30adab, type: 3}
       propertyPath: m_LocalRotation.x
@@ -19621,14 +19654,6 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: eca8b956ee803a84d8be3e786c30adab, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: eca8b956ee803a84d8be3e786c30adab, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: eca8b956ee803a84d8be3e786c30adab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -19641,15 +19666,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: eca8b956ee803a84d8be3e786c30adab, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: eca8b956ee803a84d8be3e786c30adab, type: 3}
       propertyPath: simulationSpeed
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: eca8b956ee803a84d8be3e786c30adab, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
+      propertyPath: InitialModule.startSize.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: eca8b956ee803a84d8be3e786c30adab, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: eca8b956ee803a84d8be3e786c30adab, type: 3}
@@ -19657,16 +19682,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: eca8b956ee803a84d8be3e786c30adab, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19900000, guid: eca8b956ee803a84d8be3e786c30adab, type: 3}
-      propertyPath: m_Materials.Array.size
+      propertyPath: InitialModule.startColor.maxColor.r
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19900000, guid: eca8b956ee803a84d8be3e786c30adab, type: 3}
       propertyPath: m_SortingOrder
       value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: eca8b956ee803a84d8be3e786c30adab, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eca8b956ee803a84d8be3e786c30adab, type: 3}
@@ -20338,7 +20363,7 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417243783}
-  serializedVersion: 6
+  serializedVersion: 7
   lengthInSec: 5
   simulationSpeed: 1
   stopAction: 0
@@ -23910,19 +23935,20 @@ ParticleSystem:
     range: {x: 0, y: 1}
   CollisionModule:
     enabled: 0
-    serializedVersion: 3
+    serializedVersion: 4
     type: 0
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 1
-    plane0: {fileID: 0}
-    plane1: {fileID: 0}
-    plane2: {fileID: 0}
-    plane3: {fileID: 0}
-    plane4: {fileID: 0}
-    plane5: {fileID: 0}
+    m_Planes:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
@@ -24096,17 +24122,20 @@ ParticleSystem:
     interiorCollisions: 0
   TriggerModule:
     enabled: 0
-    collisionShape0: {fileID: 0}
-    collisionShape1: {fileID: 0}
-    collisionShape2: {fileID: 0}
-    collisionShape3: {fileID: 0}
-    collisionShape4: {fileID: 0}
-    collisionShape5: {fileID: 0}
+    serializedVersion: 2
     inside: 1
     outside: 0
     enter: 0
     exit: 0
+    colliderQueryMode: 0
     radiusScale: 1
+    primitives:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   SubModule:
     serializedVersion: 2
     enabled: 0
@@ -25841,6 +25870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -25985,6 +26015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -26276,6 +26307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -26577,6 +26609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -26733,6 +26766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -26877,6 +26911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -27890,7 +27925,7 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2123104756}
-  serializedVersion: 6
+  serializedVersion: 7
   lengthInSec: 5
   simulationSpeed: 1
   stopAction: 0
@@ -31462,19 +31497,20 @@ ParticleSystem:
     range: {x: 0, y: 1}
   CollisionModule:
     enabled: 0
-    serializedVersion: 3
+    serializedVersion: 4
     type: 0
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 1
-    plane0: {fileID: 0}
-    plane1: {fileID: 0}
-    plane2: {fileID: 0}
-    plane3: {fileID: 0}
-    plane4: {fileID: 0}
-    plane5: {fileID: 0}
+    m_Planes:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
@@ -31648,17 +31684,20 @@ ParticleSystem:
     interiorCollisions: 0
   TriggerModule:
     enabled: 0
-    collisionShape0: {fileID: 0}
-    collisionShape1: {fileID: 0}
-    collisionShape2: {fileID: 0}
-    collisionShape3: {fileID: 0}
-    collisionShape4: {fileID: 0}
-    collisionShape5: {fileID: 0}
+    serializedVersion: 2
     inside: 1
     outside: 0
     enter: 0
     exit: 0
+    colliderQueryMode: 0
     radiusScale: 1
+    primitives:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   SubModule:
     serializedVersion: 2
     enabled: 0
@@ -32670,6 +32709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -32782,6 +32822,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3361675541499409133, guid: 70e32cd3b0533b445959a03aacf49338,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361675541499409133, guid: 70e32cd3b0533b445959a03aacf49338,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -32794,6 +32839,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361675541499409133, guid: 70e32cd3b0533b445959a03aacf49338,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3361675541499409133, guid: 70e32cd3b0533b445959a03aacf49338,
         type: 3}
@@ -32812,16 +32862,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3361675541499409133, guid: 70e32cd3b0533b445959a03aacf49338,
         type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3361675541499409133, guid: 70e32cd3b0533b445959a03aacf49338,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3361675541499409133, guid: 70e32cd3b0533b445959a03aacf49338,
-        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -32837,26 +32877,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3361675541499409134, guid: 70e32cd3b0533b445959a03aacf49338,
         type: 3}
-      propertyPath: allShips.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3361675541499409134, guid: 70e32cd3b0533b445959a03aacf49338,
-        type: 3}
       propertyPath: enableDebug
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3361675541499409134, guid: 70e32cd3b0533b445959a03aacf49338,
         type: 3}
-      propertyPath: allShips.Array.data[7]
-      value: 
-      objectReference: {fileID: 1475961031473195667, guid: 1fb838370e2229f4c993462fa9191814,
-        type: 3}
-    - target: {fileID: 3361675541499409134, guid: 70e32cd3b0533b445959a03aacf49338,
-        type: 3}
-      propertyPath: allShips.Array.data[8]
-      value: 
-      objectReference: {fileID: 1328236367363624, guid: 63dff43356469684fad2e4fdd6f633f2,
-        type: 3}
+      propertyPath: allShips.Array.size
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3361675541499409134, guid: 70e32cd3b0533b445959a03aacf49338,
         type: 3}
       propertyPath: allShips.Array.data[1]
@@ -32880,6 +32908,18 @@ PrefabInstance:
       propertyPath: allShips.Array.data[4]
       value: 
       objectReference: {fileID: 1328236367363624, guid: 5e5a1b6c46480bb4885a364d3eb717d5,
+        type: 3}
+    - target: {fileID: 3361675541499409134, guid: 70e32cd3b0533b445959a03aacf49338,
+        type: 3}
+      propertyPath: allShips.Array.data[7]
+      value: 
+      objectReference: {fileID: 1475961031473195667, guid: 1fb838370e2229f4c993462fa9191814,
+        type: 3}
+    - target: {fileID: 3361675541499409134, guid: 70e32cd3b0533b445959a03aacf49338,
+        type: 3}
+      propertyPath: allShips.Array.data[8]
+      value: 
+      objectReference: {fileID: 1328236367363624, guid: 63dff43356469684fad2e4fdd6f633f2,
         type: 3}
     - target: {fileID: 3361675541499409135, guid: 70e32cd3b0533b445959a03aacf49338,
         type: 3}
