@@ -34,12 +34,6 @@ public class StdEnemyBehavior : MonoBehaviour {
         nextFire = 0.0f;
         awake = false;
 
-        /*
-        gm = GameObject.FindWithTag("GameController");
-        if (gm == null)
-        {
-            print("Ohshit! Game Controller not found by stdEnemy!");
-        } */
         gm = GM.gameController;
         rb = GetComponent<Rigidbody2D>();
     }

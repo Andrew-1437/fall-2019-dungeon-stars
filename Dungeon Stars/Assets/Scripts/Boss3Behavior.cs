@@ -67,9 +67,9 @@ public class Boss3Behavior : MonoBehaviour
 
     public void RandomBeams(int numBeams)
     {
-        for (int i = 0; i < numBeams; i++)
+        for (int i = 0; i < numBeams - 1; i++)
         {
-            beams[Random.Range(0, beams.Length - 1)].FireCycleOnce();
+            beams[Random.Range(0, beams.Length)].FireCycleOnce();
         }
     }
 

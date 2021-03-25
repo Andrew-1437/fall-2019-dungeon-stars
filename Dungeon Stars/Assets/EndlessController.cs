@@ -1,0 +1,104 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EndlessController : MonoBehaviour
+{
+    float startTime = -1f;
+
+    public GameObject[] spawnList;  // List of normal enemies to spawn. Sorted from Easy -> Hard
+    public GameObject[] powerUpList;    // List of power ups to spawn. Index 0 should be LevelUp
+
+    public bool spawnEnemies;
+
+    public float minTimeBetweenGroups;  // Time intervals to spawn an enemy group
+    public float maxTimeBetweenGroups;  // TODO: Increase difficulty with time
+    float timeForNextGroup;
+
+    public float minTimeBetweenPowerUps;    // Time interval to spawn a random power up
+    public float maxTimeBetweenPowerUps;
+    float timeForNextPowerUp;
+
+    public float timeBetweenLevelUp;    // Time interval to spawn a level up power up
+    float timeForLevelUp;
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(startTime == -1f && GM.gameController.gameStart)
+        {
+            StartEndlessTimer();
+        }
+
+        if(GM.gameController.gameStart && spawnEnemies)
+        {
+            if(Time.time >= timeForNextGroup)
+            {
+                SpawnGroup();
+                timeForNextGroup = Time.time + Random.Range(minTimeBetweenGroups, maxTimeBetweenGroups);
+            }
+
+            if (Time.time >= timeForNextPowerUp)
+            {
+                SpawnPowerUp();
+                timeForNextPowerUp = Time.time + Random.Range(minTimeBetweenPowerUps, maxTimeBetweenPowerUps);
+            }
+
+            if (Time.time >= timeForLevelUp)
+            {
+                SpawnLevelUp();
+                timeForLevelUp = Time.time + timeBetweenLevelUp;
+            }
+
+
+        }
+    }
+
+    public void StartEndlessTimer()
+    {
+        startTime = Time.time;
+        timeForNextGroup = minTimeBetweenGroups;
+        timeForNextPowerUp = minTimeBetweenPowerUps;
+        timeForLevelUp = timeBetweenLevelUp;
+    }
+
+    public float TimeSurvived()
+    {
+        return Time.time - startTime;
+    }
+
+    // Spawns a random enemy group from the list
+    public void SpawnGroup()
+    {
+        Destroy(
+            Instantiate(
+                spawnList[Random.Range(0, spawnList.Length)],
+                transform.position + Vector3.up * 20f + Vector3.right * Random.Range(-15f, 15f),
+                transform.rotation), 15f);
+    }
+
+    // Spawns a random power up (not including the LevelUp power up)
+    public void SpawnPowerUp()
+    {
+        Instantiate(
+                powerUpList[Random.Range(1, powerUpList.Length)],
+                transform.position + Vector3.up * 20f + Vector3.right * Random.Range(-20f, 20f),
+                transform.rotation);
+    }
+
+    // Spawns a LevelUp power up
+    public void SpawnLevelUp()
+    {
+        Instantiate(
+                powerUpList[0],
+                transform.position + Vector3.up * 20f + Vector3.right * Random.Range(-20f, 20f),
+                transform.rotation);
+    }
+}
