@@ -42,6 +42,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -158,6 +159,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -246,11 +248,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turrets: 2
   explosion: {fileID: 100010, guid: 30c4c673696f6254ebe0e3a26d31092f, type: 3}
-  subExplosion: {fileID: 0}
+  subExplosion: {fileID: 100010, guid: 645413a00f7bd0242bbd6d0e5eb6f439, type: 3}
   subExplodeRadius: 9
-  score: 1000
-  floatingScoreText: {fileID: 0}
-  hp: 4000
+  score: 10000
+  floatingScoreText: {fileID: 5520782144581124303, guid: d1c3623ad77006e45be3f0a8c9a06bc4,
+    type: 3}
+  hp: 5000
   dmgMod: 0
   miniExplosion: {fileID: 100010, guid: 645413a00f7bd0242bbd6d0e5eb6f439, type: 3}
   awake: 0
@@ -439,8 +442,38 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 519178488363583973, guid: 8319a268160e8d2409aab511587e641c,
         type: 3}
+      propertyPath: hp
+      value: 2500
+      objectReference: {fileID: 0}
+    - target: {fileID: 519178488363583973, guid: 8319a268160e8d2409aab511587e641c,
+        type: 3}
       propertyPath: awake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 519178488363583973, guid: 8319a268160e8d2409aab511587e641c,
+        type: 3}
+      propertyPath: score
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 519178488363583974, guid: 8319a268160e8d2409aab511587e641c,
+        type: 3}
+      propertyPath: speed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 519178488363583974, guid: 8319a268160e8d2409aab511587e641c,
+        type: 3}
+      propertyPath: orbitSpeed
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 519178488363583974, guid: 8319a268160e8d2409aab511587e641c,
+        type: 3}
+      propertyPath: orbitRadius
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 519178488363583974, guid: 8319a268160e8d2409aab511587e641c,
+        type: 3}
+      propertyPath: orbitDuration
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 519178488363583993, guid: 8319a268160e8d2409aab511587e641c,
         type: 3}
@@ -525,8 +558,43 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 519178488363583973, guid: 8319a268160e8d2409aab511587e641c,
         type: 3}
+      propertyPath: hp
+      value: 2500
+      objectReference: {fileID: 0}
+    - target: {fileID: 519178488363583973, guid: 8319a268160e8d2409aab511587e641c,
+        type: 3}
       propertyPath: awake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 519178488363583973, guid: 8319a268160e8d2409aab511587e641c,
+        type: 3}
+      propertyPath: score
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 519178488363583974, guid: 8319a268160e8d2409aab511587e641c,
+        type: 3}
+      propertyPath: speed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 519178488363583974, guid: 8319a268160e8d2409aab511587e641c,
+        type: 3}
+      propertyPath: altTurret
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 519178488363583974, guid: 8319a268160e8d2409aab511587e641c,
+        type: 3}
+      propertyPath: orbitSpeed
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 519178488363583974, guid: 8319a268160e8d2409aab511587e641c,
+        type: 3}
+      propertyPath: orbitRadius
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 519178488363583974, guid: 8319a268160e8d2409aab511587e641c,
+        type: 3}
+      propertyPath: orbitDuration
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 519178488363583993, guid: 8319a268160e8d2409aab511587e641c,
         type: 3}

@@ -15543,7 +15543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 991868810}
+  selectedFlowchart: {fileID: 1938533633}
 --- !u!4 &1596599740
 Transform:
   m_ObjectHideFlags: 1
@@ -22448,7 +22448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 467082, guid: 5e7fbc8d4eb714b279eeeef2262c1e1a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 129.4
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 467082, guid: 5e7fbc8d4eb714b279eeeef2262c1e1a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22495,6 +22495,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 677459759500669820, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
+    - target: {fileID: 11433304, guid: 5e7fbc8d4eb714b279eeeef2262c1e1a, type: 3}
+      propertyPath: nodeRect.y
+      value: 72.5
+      objectReference: {fileID: 0}
     - target: {fileID: 11433304, guid: 5e7fbc8d4eb714b279eeeef2262c1e1a, type: 3}
       propertyPath: eventHandler
       value: 
@@ -22614,6 +22618,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 231.16, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1938533633 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 11430050, guid: 5e7fbc8d4eb714b279eeeef2262c1e1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1938533625}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938533626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1947365739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23742,6 +23758,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: =UNIDENTIFIED SHIP DETECTED=
       objectReference: {fileID: 0}
+    - target: {fileID: 677459758127863060, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 677459758987481313, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: boss
@@ -23842,6 +23863,11 @@ PrefabInstance:
         type: 3}
       propertyPath: selectedBlocks.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 677459759525292743, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 677459759677413803, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
