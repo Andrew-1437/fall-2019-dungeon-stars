@@ -7,6 +7,7 @@ public class EndlessController : MonoBehaviour
     float startTime = -1f;
 
     public GameObject[] spawnList;  // List of normal enemies to spawn. Sorted from Easy -> Hard
+    public GameObject[] dangerSpawnList;   // List of more dangerous/complex enemies to spawn. Sorted from Easy -> Hard
     public GameObject[] powerUpList;    // List of power ups to spawn. Index 0 should be LevelUp
 
     public bool spawnEnemies;
@@ -14,6 +15,10 @@ public class EndlessController : MonoBehaviour
     public float minTimeBetweenGroups;  // Time intervals to spawn an enemy group
     public float maxTimeBetweenGroups;  // TODO: Increase difficulty with time
     float timeForNextGroup;
+
+    public float minTimeBetweenDangerGroups;    // Time interval to spawn a dangerous group
+    public float maxTimeBetweenDangerGroups;    // TODO: Increase difficulty with time
+    float timeForNextDangerGroup;
 
     public float minTimeBetweenPowerUps;    // Time interval to spawn a random power up
     public float maxTimeBetweenPowerUps;
@@ -37,12 +42,17 @@ public class EndlessController : MonoBehaviour
             StartEndlessTimer();
         }
 
-        if(GM.gameController.gameStart && spawnEnemies)
+        if(GM.gameController.gameStart)
         {
-            if(Time.time >= timeForNextGroup)
+            if(spawnEnemies && Time.time >= timeForNextGroup)
             {
                 SpawnGroup();
                 timeForNextGroup = Time.time + Random.Range(minTimeBetweenGroups, maxTimeBetweenGroups);
+            }
+            if (spawnEnemies && Time.time >= timeForNextDangerGroup)
+            {
+                SpawnDangerGroup();
+                timeForNextDangerGroup = Time.time + Random.Range(minTimeBetweenDangerGroups, maxTimeBetweenDangerGroups);
             }
 
             if (Time.time >= timeForNextPowerUp)
@@ -65,6 +75,7 @@ public class EndlessController : MonoBehaviour
     {
         startTime = Time.time;
         timeForNextGroup = minTimeBetweenGroups;
+        timeForNextDangerGroup = minTimeBetweenDangerGroups * 1.5f;
         timeForNextPowerUp = minTimeBetweenPowerUps;
         timeForLevelUp = timeBetweenLevelUp;
     }
@@ -81,7 +92,15 @@ public class EndlessController : MonoBehaviour
             Instantiate(
                 spawnList[Random.Range(0, spawnList.Length)],
                 transform.position + Vector3.up * 20f + Vector3.right * Random.Range(-15f, 15f),
-                transform.rotation), 15f);
+                transform.rotation), 60f);
+    }
+    public void SpawnDangerGroup()
+    {
+        Destroy(
+            Instantiate(
+                dangerSpawnList[Random.Range(0, dangerSpawnList.Length)],
+                transform.position + Vector3.up * 20f + Vector3.right * Random.Range(-10f, 10f),
+                transform.rotation), 60f);
     }
 
     // Spawns a random power up (not including the LevelUp power up)
