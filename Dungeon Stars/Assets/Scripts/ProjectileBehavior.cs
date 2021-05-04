@@ -14,10 +14,11 @@ public class ProjectileBehavior : MonoBehaviour {
     protected void Start()
     {
         deathTime = Time.time + lifeTime;
+        dmgValue = dmgValue * OmniController.omniController.projectileDamageScale;
     }
 
     protected void FixedUpdate () {
-        transform.position = transform.position + transform.up * speed;
+        transform.position = transform.position + transform.up * speed * OmniController.omniController.projectileSpeedScale;
 	}
 
     protected void Update()

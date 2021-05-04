@@ -244,7 +244,7 @@ public class GM : MonoBehaviour {
                     shields.colorGradientPreset = shieldOffColor;
                 }
 
-                // Updates power level text
+                // Updates power level text (with a special case for the Meme ship)
                 if (playerController.id != ShipsEnum.ShipID.MEME)
                     level.text = "Power: " + (playerController.level + 1);
                 else
@@ -500,7 +500,7 @@ public class GM : MonoBehaviour {
     public void AddScore(int sc)
     {
         chainedKills++;
-        score += sc * scoreMultiplier;
+        score += (int)(sc * scoreMultiplier * OmniController.omniController.additionalScoreMultiplier);
         endMultiplierTime = Time.time + multiplierTimer;
         if (chainedKills >= scoreMultiplier * 5 && scoreMultiplier < 10)
         {
@@ -517,7 +517,7 @@ public class GM : MonoBehaviour {
     // Applies score with no regard to multiplier
     public void AddRawScore(int sc)
     {
-        score += sc;
+        score += (int)(sc * OmniController.omniController.additionalScoreMultiplier);
         score = Mathf.Clamp(score, 0, int.MaxValue);
     }
 

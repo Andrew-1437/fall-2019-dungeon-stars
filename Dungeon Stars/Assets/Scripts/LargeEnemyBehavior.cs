@@ -19,9 +19,9 @@ public class LargeEnemyBehavior : MonoBehaviour {
     public int score;
     public GameObject floatingScoreText;
 
-    bool dieing = false;
-    float dietime = Mathf.Infinity;
-    float subexplodeTime = Mathf.Infinity;
+    protected bool dying = false;
+    protected float dieTime = Mathf.Infinity;
+    protected float subexplodeTime = Mathf.Infinity;
 
     protected void Start()
     {
@@ -37,29 +37,28 @@ public class LargeEnemyBehavior : MonoBehaviour {
 
     protected void Update()
     {
-        if (turrets <= 0 && !dieing)
+        if (turrets <= 0 && !dying)
         {
-            dieing = true;
-            dietime = Time.time + 1f;
-            subexplodeTime = Time.time;
+            BeginDeathSequence();
         }
-        if(dieing)
+        if(dying)
         {
             // Randomly explode when dieing
-            float x = Random.Range(0f, 1f);
+            // TODO: This can be made into a coroutine
+            float x = Random.Range(0f, .5f);
             if (Time.time > subexplodeTime)
             {
                 Destroy(
                     Instantiate(subExplosion, transform.position + Random.insideUnitSphere * subExplodeRadius, transform.rotation), 3f);
                 subexplodeTime = Time.time + Random.Range(.05f, .35f);
             }
-            if (Time.time > dietime)
+            if (Time.time > dieTime)
                 Die();
         }
         
     }
 
-    private void Die()
+    public virtual void Die()
     {
         OmniController.omniController.enemiesKilled++;
         Destroy(gameObject);
@@ -83,5 +82,12 @@ public class LargeEnemyBehavior : MonoBehaviour {
             scoreText.GetComponent<Rigidbody2D>().AddForce(Random.onUnitSphere, ForceMode2D.Impulse);
             Destroy(scoreText, 1);
         }
+    }
+
+    public void BeginDeathSequence()
+    {
+        dying = true;
+        dieTime = Time.time + 1.3f;
+        subexplodeTime = Time.time;
     }
 }

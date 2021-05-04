@@ -42,6 +42,7 @@ public class BossAce : BossBehavior
     // Start is called before the first frame update
     void Start()
     {
+        base.Start();
         animator = GetComponent<Animator>();
         halfHp = hp / 2f;
     }
@@ -53,25 +54,25 @@ public class BossAce : BossBehavior
         if(fireMissiles && Time.time > nextMissileTime)
         {
             Instantiate(delayedMissiles, transform.position, transform.rotation);
-            nextMissileTime = Time.time + missileFireRate;
+            nextMissileTime = Time.time + missileFireRate * OmniController.omniController.enemyFireRateScale;
         }
 
         if (fireBasicAttack && Time.time > nextAttackTime)
         {
             Instantiate(basicAttack, transform.position, transform.rotation);
-            nextAttackTime = Time.time + basicFireRate;
+            nextAttackTime = Time.time + basicFireRate * OmniController.omniController.enemyFireRateScale;
         }
 
         if(fireFrontTurret && Time.time > nextFTurretAttackTime)
         {
             frontTurret.Fire();
-            nextFTurretAttackTime = Time.time + frontTurretFireRate;
+            nextFTurretAttackTime = Time.time + frontTurretFireRate * OmniController.omniController.enemyFireRateScale;
         }
         if (fireSideTurrets && Time.time > nextSTurretsAttackTime)
         {
             leftTurret.Fire();
             rightTurret.Fire();
-            nextSTurretsAttackTime = Time.time + sideTurretsFireRate;
+            nextSTurretsAttackTime = Time.time + sideTurretsFireRate * OmniController.omniController.enemyFireRateScale;
         }
 
         base.Update();

@@ -99,7 +99,7 @@ public class TurretBehavior : MonoBehaviour {
     public void Fire()
     {
         Instantiate(projectile, hardpoint.position, hardpoint.rotation);
-        nextFire = Time.time + fireRate;
+        nextFire = Time.time + fireRate * OmniController.omniController.obstacleSpeedScale;
     }
 
     public void Awaken()

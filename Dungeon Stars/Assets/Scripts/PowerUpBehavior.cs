@@ -54,7 +54,7 @@ public class PowerUpBehavior : MonoBehaviour {
     {
         GameObject summonedObject = Instantiate(summon, transform.position, transform.rotation);
         DroneBehavior summonedDrone = summonedObject.GetComponent<DroneBehavior>();
-        summonedDrone.lifetime = duration;
+        summonedDrone.lifetime = duration * OmniController.omniController.powerUpDurationScale;
         summonedDrone.followPlayer2 = byPlayerTwo;
     }
 }

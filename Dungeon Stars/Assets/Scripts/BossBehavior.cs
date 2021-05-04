@@ -13,17 +13,17 @@ public class BossBehavior : LargeEnemyBehavior {
 
     //Visual FX
     //public GameObject explosion;
-    public GameObject miniExplosion;
+    //public GameObject miniExplosion;
 
     public bool awake;
 
     private GameObject[] triggers;
 
-    private bool dying;
-    private float dieTime;
+    //private bool dying;
+    //private float dieTime;
 
-    float explosionDelay = .12f;
-    float nextExplosion = 0f;
+    //float explosionDelay = .12f;
+    //float nextExplosion = 0f;
 
     //Fungus Flowchart
     public Fungus.Flowchart mainFlowchart;
@@ -31,35 +31,15 @@ public class BossBehavior : LargeEnemyBehavior {
 
     private void Start()
     {
-        dieTime = Mathf.Infinity;
+        hp = hp * OmniController.omniController.obstacleHpScale;
         base.Start();
-    }
-
-    protected void Update()
-    {
-        if ((hp <= 0 || turrets <= 0) && !dying)
-        {
-            dieTime = Time.time + 1.6f;
-            dying = true;
-            
-        }
-        if(dying && Time.time > dieTime)
-        {
-            Die();
-        }
-        else if(dying && Time.time > nextExplosion)
-        {
-            Vector3 pos = (Random.insideUnitSphere * 10) + transform.position;
-            Instantiate(miniExplosion, pos, transform.rotation);
-            nextExplosion = Time.time + explosionDelay;
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Projectile")
         {
-            hp -= other.gameObject.GetComponent<ProjectileBehavior>().dmgValue * dmgMod;
+            Damage(other.gameObject.GetComponent<ProjectileBehavior>().dmgValue);
             if(!other.gameObject.GetComponent<ProjectileBehavior>().perist)
                 other.gameObject.GetComponent<ProjectileBehavior>().DestroyProjectile();
         }
@@ -69,11 +49,9 @@ public class BossBehavior : LargeEnemyBehavior {
         }
     }
 
-    private void Die()
+    public override void Die()
     {
-        
-        Destroy(gameObject);
-        Instantiate(explosion, transform.position, transform.rotation);
+        base.Die();
         if(gameCamera)
             gameCamera.GetComponent<CameraShaker>().HugeShake();
         mainFlowchart.SendFungusMessage("LevelComplete");
@@ -82,17 +60,17 @@ public class BossBehavior : LargeEnemyBehavior {
     public void activeAllTriggers(bool x)
     {
         gameObject.SetActive(x);
-        /*
-        foreach (GameObject trigger in triggers)
-        {
-            trigger.SetActive(x);
-        } */
     }
     
     //Takes damage from another source (another script)
-    public void TakeDmg(float dmg)
+    public void Damage(float dmg)
     {
-        hp -= dmg * dmgMod;
+        hp -= dmg * dmgMod * OmniController.omniController.obstacleIncommingDamageScale;
+        if ((hp <= 0 || turrets <= 0) && !dying)
+        {
+            dieTime = Time.time + 1.6f;
+            dying = true;
+        }
     }
 
     //Wakes boss from another script
