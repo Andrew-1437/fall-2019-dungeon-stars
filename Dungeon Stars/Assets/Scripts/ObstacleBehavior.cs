@@ -76,7 +76,9 @@ public class ObstacleBehavior : MonoBehaviour {
     {
         OmniController.omniController.enemiesKilled++;
         Destroy(gameObject);
-        Instantiate(explosion, transform.position, transform.rotation);
+        Destroy(
+            Instantiate(explosion, transform.position, transform.rotation), 
+            5f);
         DisplayScore();
         camera.GetComponent<CameraShaker>().CustomShake(collisionVal / 60.0f);
         gm.AddScore(score);

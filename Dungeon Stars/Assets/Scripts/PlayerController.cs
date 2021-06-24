@@ -208,27 +208,13 @@ public class PlayerController : MonoBehaviour {
         // Primary Fire
         if(((!isPlayer2 && Input.GetButton("Fire1")) || (isPlayer2 && Input.GetButton("Fire12"))) && Time.time > nextFire)
         {
-            nextFire = Time.time + fireRate * 
-                fireRateMod * heatMod * OmniController.omniController.playerFireRateScale;
-            Instantiate(primary[level], spawner.position, spawner.rotation);
-            gm.AddRawScore(-Mathf.Max(weapon1Cost - Mathf.FloorToInt(weapon1Cost * attackSpeedBuff),0));
-            if(enableHeat && primaryUsesHeat)
-            {
-                heat += primHeatGen * heatGenMod;
-            }
+            FirePrimaryWeapon();
         }
 
         // Secondary Fire
         if(((!isPlayer2 && Input.GetButton("Fire2")) || (isPlayer2 && Input.GetButton("Fire22"))) && Time.time > nextSecondary)
         {
-            nextSecondary = Time.time + secondaryFireRate * 
-                fireRateMod * heatMod * OmniController.omniController.playerFireRateScale;
-            Instantiate(secondary[level], spawner.position, spawner.rotation);
-            gm.AddRawScore(-Mathf.Max(weapon2Cost - Mathf.FloorToInt(weapon2Cost * attackSpeedBuff), 0));
-            if (enableHeat && secondaryUsesHeat)
-            {
-                heat += secHeatGen * heatGenMod;
-            }
+            FireSecondaryWeapon();
         }
 
         // Tertiary Fire
@@ -563,6 +549,43 @@ public class PlayerController : MonoBehaviour {
         {
             alive = false;
             Die();
+        }
+    }
+
+    // Shoots the primary weapon and manages what else happens when it does so
+    public void FirePrimaryWeapon()
+    {
+        nextFire = Time.time + fireRate *
+                fireRateMod * heatMod * OmniController.omniController.playerFireRateScale;
+        // Spawn projectile and delete it 5 seconds later if it is not already deleted
+        Destroy(
+            Instantiate(primary[level], spawner.position, spawner.rotation), 
+            5);
+        // Subtract score for every shot fired
+        gm.AddRawScore(-Mathf.Max(weapon1Cost - Mathf.FloorToInt(weapon1Cost * attackSpeedBuff), 0));
+        // Add heat if the ship and weapon use heat
+        if (enableHeat && primaryUsesHeat)
+        {
+            heat += primHeatGen * heatGenMod;
+        }
+    }
+
+    // Shoots the secondary weapon and manages what else happens when it does so
+    public void FireSecondaryWeapon()
+    {
+        nextSecondary = Time.time + secondaryFireRate *
+                fireRateMod * heatMod * OmniController.omniController.playerFireRateScale;
+        // Spawn projectile and delete it 5 seconds later if it is not already deleted
+        Destroy(
+            Instantiate(secondary[level], spawner.position, spawner.rotation), 
+            5);
+        // Subtract score for every shot fired
+        gm.AddRawScore(-Mathf.Max(weapon2Cost - Mathf.FloorToInt(weapon2Cost * attackSpeedBuff), 0));
+
+        // Add heat if the ship and weapon use heat
+        if (enableHeat && secondaryUsesHeat)
+        {
+            heat += secHeatGen * heatGenMod;
         }
     }
 

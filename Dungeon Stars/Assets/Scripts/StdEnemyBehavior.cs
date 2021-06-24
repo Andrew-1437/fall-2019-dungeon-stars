@@ -74,7 +74,8 @@ public class StdEnemyBehavior : MonoBehaviour {
             }
             if (Time.time > nextFire && Time.time < burstEnd)
             {
-                Instantiate(projectile, hardpoint.position, hardpoint.rotation);
+                Destroy(
+                    Instantiate(projectile, hardpoint.position, hardpoint.rotation), 5f);
                 nextFire = Time.time + fireRate * OmniController.omniController.enemyFireRateScale;
             }
             
