@@ -19,6 +19,8 @@ public class TargetedMissileSpawner : MonoBehaviour
     public float maxY;
 
     public bool awake;
+    [Tooltip("If true, only fire a burst when the FireBurst() method is called")]
+    public bool onlyTrigger;    
     public bool targetPlayer = false;
 
     // Start is called before the first frame update
@@ -32,7 +34,7 @@ public class TargetedMissileSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!awake && Time.time > burstBegin)
+        if (!onlyTrigger && !awake && Time.time > burstBegin)
             awake = true;
         if(awake && Time.time > burstEnd)
         {
@@ -51,6 +53,7 @@ public class TargetedMissileSpawner : MonoBehaviour
         }
     }
 
+    // Fires a single missile at a randomized location
     public void FireMissile()
     {
         if (GM.gameController.player && targetPlayer)
@@ -69,6 +72,23 @@ public class TargetedMissileSpawner : MonoBehaviour
 
             Destroy(
                 Instantiate(missiles, pos, transform.rotation), 1.5f);
+        }
+    }
+
+    // Immediately fires a single burst
+    public void FireBurst()
+    {
+        awake = true;
+        burstBegin = Time.time;
+        burstEnd = burstBegin + burstTime;
+    }
+
+    // Simultaniously fires x missiles at random positions
+    public void FireSimultanious(int x)
+    {
+        for(int i = 0; i < x; i++)
+        {
+            FireMissile();
         }
     }
 }
