@@ -103,7 +103,7 @@ public class Summary : MonoBehaviour
             scoreModifier *= 1.1f;
     }
 
-    // Calculate the rank from 0-6 (F, D, C, B, A, S Tier)
+    // Calculate the rank from 0-5 (F, D, C, B, A, S Tier)
     public void GetRanking()
     {
         /* ***********************
