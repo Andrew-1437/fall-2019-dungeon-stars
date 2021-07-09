@@ -14,9 +14,9 @@ public class OmniController : MonoBehaviour
     public int powerUpsCollected;
 
     [HideInInspector]
-    public GameObject selectedShip;
+    public GameObject selectedShip = null;
     [HideInInspector]
-    public GameObject selectedShip2;  // Two players
+    public GameObject selectedShip2 = null;  // Two players
 
     [Header("Options")]
     public GameObject[] allShips;
