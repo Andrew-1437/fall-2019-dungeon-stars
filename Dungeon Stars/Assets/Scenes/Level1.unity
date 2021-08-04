@@ -3316,13 +3316,13 @@ PrefabInstance:
     - target: {fileID: 677459759913781844, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_Volume
-      value: 0.4
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 677459759913781844, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 61f20a9faae9c21478d645c4400579ce, type: 3}
+      objectReference: {fileID: 8300000, guid: 309c182446d465f47a5670f0d85b1258, type: 3}
     - target: {fileID: 677459759913781845, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_IsActive
@@ -3383,6 +3383,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 575.69
       objectReference: {fileID: 0}
+    - target: {fileID: 1606219130526722783, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268647646479294768, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: enableDebug
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2318940764687007112, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3442,11 +3452,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2825543329005515189, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -130.99988
+      objectReference: {fileID: 0}
+    - target: {fileID: 2825543329005515189, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 69.61499
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203539786828546474, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 79.21997
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203539786828546474, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 92.10004
+      objectReference: {fileID: 0}
+    - target: {fileID: 3672931476469656402, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -370.35992
+      objectReference: {fileID: 0}
+    - target: {fileID: 3714608534395630364, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 38.399994
       objectReference: {fileID: 0}
     - target: {fileID: 3815891625947465024, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -61
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888654149578635703, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 61.80005
       objectReference: {fileID: 0}
     - target: {fileID: 4217975300095750849, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
@@ -3487,6 +3532,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.characterCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6069041392258261273, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 129.40002
       objectReference: {fileID: 0}
     - target: {fileID: 6121296012084782691, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
@@ -3547,6 +3597,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_firstOverflowCharacterIndex
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6999373342270144076, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6999373342270144076, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
@@ -10764,7 +10819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1752199394}
+  selectedFlowchart: {fileID: 0}
 --- !u!4 &1596599740
 Transform:
   m_ObjectHideFlags: 1

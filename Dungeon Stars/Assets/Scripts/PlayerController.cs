@@ -306,17 +306,16 @@ public class PlayerController : MonoBehaviour {
             }
             
             //Godmode 
-            /*
-            if (Input.GetKeyDown(KeyCode.Alpha1) && dmgMod != 0f)
+            if (Input.GetKeyDown(KeyCode.F1) && !invincible)
             {
-                dmgMod = 0f;
+                invincible = true;
                 print("Godmode on");
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha1) && dmgMod == 0f)
+            else if (Input.GetKeyDown(KeyCode.F1) && invincible)
             {
-                dmgMod = 1f;
+                invincible = false;
                 print("Godmode off");
-            } */
+            } 
         }
         //Freeze Time
         if (Input.GetKeyDown(KeyCode.P) && Time.timeScale == 1f)

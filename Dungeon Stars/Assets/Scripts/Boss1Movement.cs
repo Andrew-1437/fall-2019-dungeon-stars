@@ -9,6 +9,9 @@ public class Boss1Movement : MonoBehaviour {
     public float moveSpeed;
     public float rotateSpeed;
 
+    public GameObject bossFlowchart;
+
+    // Wow who wrote this. Oh wait it was me
     private void Update()
     {
         if (GetComponent<BossBehavior>().awake)
@@ -20,7 +23,8 @@ public class Boss1Movement : MonoBehaviour {
             else
             {
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-
+                bossFlowchart.SetActive(true);
+                //GetComponent<Collider2D>().enabled = true;
             }
             if (transform.position.y >= 0 && GetComponent<Transform>().rotation.eulerAngles.z < 180.0f)
             {

@@ -26,6 +26,7 @@ public class ObstacleBehavior : MonoBehaviour {
     public bool isATurret;
     public bool dontDieOnScreenExit;
     public bool ignorePlayerCollisions;
+    public bool ignoreAwakeOnEnterBounds;
 
     private void Start()
     {
@@ -61,7 +62,8 @@ public class ObstacleBehavior : MonoBehaviour {
         }
         if (other.tag == "Bounds")
         {
-            awake = true;
+            if(!ignoreAwakeOnEnterBounds)
+                awake = true;
         }
     }
 
@@ -96,6 +98,11 @@ public class ObstacleBehavior : MonoBehaviour {
     public void SleepOnScreenExit()
     {
         awake = false;
+    }
+
+    public void SetAwake(bool setAwake)
+    {
+        awake = setAwake;
     }
 
 }
