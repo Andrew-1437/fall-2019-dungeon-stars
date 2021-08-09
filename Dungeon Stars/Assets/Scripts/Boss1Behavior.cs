@@ -12,6 +12,7 @@ public class Boss1Behavior : MonoBehaviour {
     public float rotateSpeed;
 
     [Header("References")]
+    public ObstacleBehavior[] targetables;
     public GameObject bossFlowchart;
     public GameObject weakSpot;
 
@@ -49,6 +50,8 @@ public class Boss1Behavior : MonoBehaviour {
                 GetComponent<Rigidbody2D>().angularVelocity = 0;
                 GetComponent<BossBehavior>().activeAllTriggers(true);
             }
+
+            CalculateBossHpFromTargetables();
         }
 
         // If all four turrets are destroyed, go to stage 2 (reveal fifth weak point and change moveset)
@@ -57,6 +60,17 @@ public class Boss1Behavior : MonoBehaviour {
             stage2 = true;
             bossFlowchart.GetComponent<Fungus.Flowchart>().SendFungusMessage("stage2");
         }
+    }
+
+    public void CalculateBossHpFromTargetables()
+    {
+        float currentHp = 0;
+        foreach (ObstacleBehavior targetable in targetables)
+        {
+            if(targetable)
+                currentHp += targetable.hp;
+        }
+        boss.hp = currentHp;
     }
 
     public void RevealWeakSpot(bool active)
