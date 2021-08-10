@@ -33,11 +33,18 @@ public class Spawner : MonoBehaviour {
             }
             if (Time.time > nextFire && Time.time < burstEnd)
             {
-                Instantiate(projectile, transform.position, transform.rotation);
+                Destroy(
+                    Instantiate(projectile, transform.position, transform.rotation), 10f);
                 nextFire = Time.time + fireRate;
             }
 
         }
+    }
+
+    public void SpawnSingle()
+    {
+        Destroy(
+            Instantiate(projectile, transform.position, transform.rotation), 10f);
     }
     
     private void OnTriggerEnter2D(Collider2D other)
