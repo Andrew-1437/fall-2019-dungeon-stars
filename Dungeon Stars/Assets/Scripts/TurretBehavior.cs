@@ -24,6 +24,8 @@ public class TurretBehavior : MonoBehaviour {
     public bool awake;
     bool wasSleeping;
 
+    public bool holdFire;   // If true, will not shoot, even if awake
+
     public bool ignoreObstacle;     // If true, the turret will not care about an attached ObstacleBehavior script
                                     // Mainly used for player's turrets or invulnerable turrets that should not be targeted
     ObstacleBehavior thisObstacle;  // Reference to this gameObject's ObstacleBehavior script
@@ -79,7 +81,7 @@ public class TurretBehavior : MonoBehaviour {
             }
         }
 
-        if (awake && target != null && (Time.time > nextBurst || Time.time < burstEnd))
+        if (awake && target != null && !holdFire && (Time.time > nextBurst || Time.time < burstEnd))
         {
             if (Time.time >= burstEnd)
             {
@@ -102,6 +104,11 @@ public class TurretBehavior : MonoBehaviour {
             Instantiate(projectile, hardpoint.position, hardpoint.rotation), 
             5f);
         nextFire = Time.time + fireRate * OmniController.omniController.obstacleSpeedScale;
+    }
+
+    public void HoldFire(bool state)
+    {
+        holdFire = state;
     }
 
     public void Awaken()

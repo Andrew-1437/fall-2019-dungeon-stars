@@ -16,6 +16,8 @@ public class BossBehavior : LargeEnemyBehavior {
     //public GameObject miniExplosion;
 
     public bool awake;
+    [Tooltip("If true, this boss does not take damage from the player's weapons directly.")]
+    public bool ignoreProjectileDamage; // If true, this boss does not take damage from the player's weapons directly
 
     private GameObject[] triggers;
 
@@ -37,7 +39,7 @@ public class BossBehavior : LargeEnemyBehavior {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Projectile")
+        if (!ignoreProjectileDamage && other.tag == "Projectile")
         {
             Damage(other.gameObject.GetComponent<ProjectileBehavior>().dmgValue);
             if(!other.gameObject.GetComponent<ProjectileBehavior>().perist)
