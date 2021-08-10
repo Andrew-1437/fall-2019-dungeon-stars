@@ -1,20 +1,20 @@
 # Dungeon: Stars
 A top-down sci-fi arcade style 2D action bullet hell shooter. Developed during the SGD Fall 2019 semester
 
-# New Features in v1.1:
--Updated to Unity's Universal Render Pipeline (includes 2D lighting effects)
+# New Features in v1.2:
+-Overhauled many level backgrounds
 
--Vastly improved particle effects and new effects where there used to be none
+-New music and sound effects
 
--Heavily refactored code & design
+-Improved game summary design
 
--New ships available in the extra ships option (A total of 9 ships)
+-Reworked the bosses for levels 1, 2, and 3
 
--Reworked score tracking + score multipliers (up to x10 points from enemies)
+-Some other UI and visual changes
 
--Improved UI
+-Under the hood refactoring
 
--Some more things that are in the works...
+-Preparations for Endless Mode (coming soon)
 
 # Game currently contains:
 -4 Levels, each with a unique boss
@@ -30,7 +30,7 @@ A top-down sci-fi arcade style 2D action bullet hell shooter. Developed during t
 -Two Player Co-Op Mode
 
 # To play 
--Download the v1.1 zip file
+-Download the v1.2 zip file
 
 -Extract the zip file to a location of your choice
 
