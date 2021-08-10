@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61006ac2fd5344446905591a80814718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1300305888479880, guid: 838af0ffa43ebe44f922dc96ed68e024, type: 3}
+  projectile: {fileID: 6700001763101854890, guid: 0e6a1dba6d702b2448a3c61127a243e7,
+    type: 3}
   shootDelay: 8.5
   fireRate: 0.3
   burstTime: 0
@@ -160,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e2c714e9e1d2cc4bb3bcdd578170c5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveYToHere: 6.5
+  moveYToHere: 5.5
   rotateTo: 180
   moveSpeed: 2
   rotateSpeed: 50
@@ -241,7 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61006ac2fd5344446905591a80814718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1300305888479880, guid: 838af0ffa43ebe44f922dc96ed68e024, type: 3}
+  projectile: {fileID: 6700001763101854890, guid: 0e6a1dba6d702b2448a3c61127a243e7,
+    type: 3}
   shootDelay: 8.5
   fireRate: 0.3
   burstTime: 0
@@ -524,19 +526,19 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 7119563172025154426}
-  targetComponentAssemblyName: ObstacleBehavior, Assembly-CSharp, Version=0.0.0.0,
+  targetComponentAssemblyName: TurretBehavior, Assembly-CSharp, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: ObstacleBehavior
-  targetMethod: SetAwake
-  targetMethodText: 'SetAwake (Boolean): Void'
+  targetComponentText: TurretBehavior
+  targetMethod: HoldFire
+  targetMethodText: 'HoldFire (Boolean): Void'
   methodParameters:
   - objValue:
       typeAssemblyname: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       typeFullname: System.Boolean
       intValue: 0
-      boolValue: 0
+      boolValue: 1
       floatValue: 0
       stringValue: 
       colorValue: {r: 0, g: 0, b: 0, a: 0}
@@ -929,19 +931,19 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 7119563172025154426}
-  targetComponentAssemblyName: ObstacleBehavior, Assembly-CSharp, Version=0.0.0.0,
+  targetComponentAssemblyName: TurretBehavior, Assembly-CSharp, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: ObstacleBehavior
-  targetMethod: SetAwake
-  targetMethodText: 'SetAwake (Boolean): Void'
+  targetComponentText: TurretBehavior
+  targetMethod: HoldFire
+  targetMethodText: 'HoldFire (Boolean): Void'
   methodParameters:
   - objValue:
       typeAssemblyname: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       typeFullname: System.Boolean
       intValue: 0
-      boolValue: 1
+      boolValue: 0
       floatValue: 0
       stringValue: 
       colorValue: {r: 0, g: 0, b: 0, a: 0}
@@ -1222,19 +1224,19 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 3240358317326466347}
-  targetComponentAssemblyName: ObstacleBehavior, Assembly-CSharp, Version=0.0.0.0,
+  targetComponentAssemblyName: TurretBehavior, Assembly-CSharp, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: ObstacleBehavior
-  targetMethod: SetAwake
-  targetMethodText: 'SetAwake (Boolean): Void'
+  targetComponentText: TurretBehavior
+  targetMethod: HoldFire
+  targetMethodText: 'HoldFire (Boolean): Void'
   methodParameters:
   - objValue:
       typeAssemblyname: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       typeFullname: System.Boolean
       intValue: 0
-      boolValue: 1
+      boolValue: 0
       floatValue: 0
       stringValue: 
       colorValue: {r: 0, g: 0, b: 0, a: 0}
@@ -1299,19 +1301,19 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 8041559030202632910}
-  targetComponentAssemblyName: ObstacleBehavior, Assembly-CSharp, Version=0.0.0.0,
+  targetComponentAssemblyName: TurretBehavior, Assembly-CSharp, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: ObstacleBehavior
-  targetMethod: SetAwake
-  targetMethodText: 'SetAwake (Boolean): Void'
+  targetComponentText: TurretBehavior
+  targetMethod: HoldFire
+  targetMethodText: 'HoldFire (Boolean): Void'
   methodParameters:
   - objValue:
       typeAssemblyname: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       typeFullname: System.Boolean
       intValue: 0
-      boolValue: 1
+      boolValue: 0
       floatValue: 0
       stringValue: 
       colorValue: {r: 0, g: 0, b: 0, a: 0}
@@ -1362,19 +1364,19 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 3240358317326466347}
-  targetComponentAssemblyName: ObstacleBehavior, Assembly-CSharp, Version=0.0.0.0,
+  targetComponentAssemblyName: TurretBehavior, Assembly-CSharp, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: ObstacleBehavior
-  targetMethod: SetAwake
-  targetMethodText: 'SetAwake (Boolean): Void'
+  targetComponentText: TurretBehavior
+  targetMethod: HoldFire
+  targetMethodText: 'HoldFire (Boolean): Void'
   methodParameters:
   - objValue:
       typeAssemblyname: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       typeFullname: System.Boolean
       intValue: 0
-      boolValue: 0
+      boolValue: 1
       floatValue: 0
       stringValue: 
       colorValue: {r: 0, g: 0, b: 0, a: 0}
@@ -1503,19 +1505,19 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 3205923657250925401}
-  targetComponentAssemblyName: ObstacleBehavior, Assembly-CSharp, Version=0.0.0.0,
+  targetComponentAssemblyName: TurretBehavior, Assembly-CSharp, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: ObstacleBehavior
-  targetMethod: SetAwake
-  targetMethodText: 'SetAwake (Boolean): Void'
+  targetComponentText: TurretBehavior
+  targetMethod: HoldFire
+  targetMethodText: 'HoldFire (Boolean): Void'
   methodParameters:
   - objValue:
       typeAssemblyname: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       typeFullname: System.Boolean
       intValue: 0
-      boolValue: 1
+      boolValue: 0
       floatValue: 0
       stringValue: 
       colorValue: {r: 0, g: 0, b: 0, a: 0}
@@ -1863,19 +1865,19 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 8041559030202632910}
-  targetComponentAssemblyName: ObstacleBehavior, Assembly-CSharp, Version=0.0.0.0,
+  targetComponentAssemblyName: TurretBehavior, Assembly-CSharp, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: ObstacleBehavior
-  targetMethod: SetAwake
-  targetMethodText: 'SetAwake (Boolean): Void'
+  targetComponentText: TurretBehavior
+  targetMethod: HoldFire
+  targetMethodText: 'HoldFire (Boolean): Void'
   methodParameters:
   - objValue:
       typeAssemblyname: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       typeFullname: System.Boolean
       intValue: 0
-      boolValue: 0
+      boolValue: 1
       floatValue: 0
       stringValue: 
       colorValue: {r: 0, g: 0, b: 0, a: 0}
@@ -2127,19 +2129,19 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 3205923657250925401}
-  targetComponentAssemblyName: ObstacleBehavior, Assembly-CSharp, Version=0.0.0.0,
+  targetComponentAssemblyName: TurretBehavior, Assembly-CSharp, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: ObstacleBehavior
-  targetMethod: SetAwake
-  targetMethodText: 'SetAwake (Boolean): Void'
+  targetComponentText: TurretBehavior
+  targetMethod: HoldFire
+  targetMethodText: 'HoldFire (Boolean): Void'
   methodParameters:
   - objValue:
       typeAssemblyname: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       typeFullname: System.Boolean
       intValue: 0
-      boolValue: 0
+      boolValue: 1
       floatValue: 0
       stringValue: 
       colorValue: {r: 0, g: 0, b: 0, a: 0}
@@ -3464,7 +3466,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61006ac2fd5344446905591a80814718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1300305888479880, guid: 838af0ffa43ebe44f922dc96ed68e024, type: 3}
+  projectile: {fileID: 6700001763101854890, guid: 0e6a1dba6d702b2448a3c61127a243e7,
+    type: 3}
   shootDelay: 8.5
   fireRate: 0.3
   burstTime: 0
@@ -8335,7 +8338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61006ac2fd5344446905591a80814718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1300305888479880, guid: 838af0ffa43ebe44f922dc96ed68e024, type: 3}
+  projectile: {fileID: 6700001763101854890, guid: 0e6a1dba6d702b2448a3c61127a243e7,
+    type: 3}
   shootDelay: 8.5
   fireRate: 0.3
   burstTime: 0
@@ -8371,12 +8375,17 @@ PrefabInstance:
     - target: {fileID: 4904605302827446963, guid: 6fa48e98d097a7e4a8fe97065f3f9046,
         type: 3}
       propertyPath: ignoreAwakeOnEnterBounds
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4905035770500590715, guid: 6fa48e98d097a7e4a8fe97065f3f9046,
         type: 3}
       propertyPath: fireRate
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4905035770500590715, guid: 6fa48e98d097a7e4a8fe97065f3f9046,
+        type: 3}
+      propertyPath: holdFire
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4905035770500590715, guid: 6fa48e98d097a7e4a8fe97065f3f9046,
         type: 3}
@@ -8566,12 +8575,17 @@ PrefabInstance:
     - target: {fileID: 114261345250828866, guid: 2fdf6b2d8729ecb4189b935012a72486,
         type: 3}
       propertyPath: ignoreAwakeOnEnterBounds
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114675303052786826, guid: 2fdf6b2d8729ecb4189b935012a72486,
         type: 3}
       propertyPath: fireRate
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114675303052786826, guid: 2fdf6b2d8729ecb4189b935012a72486,
+        type: 3}
+      propertyPath: holdFire
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114675303052786826, guid: 2fdf6b2d8729ecb4189b935012a72486,
         type: 3}
@@ -8587,7 +8601,7 @@ PrefabInstance:
         type: 3}
       propertyPath: projectile
       value: 
-      objectReference: {fileID: 3193157053393116799, guid: 272f6011f4306994e8a6c74a42280e60,
+      objectReference: {fileID: 4874809734237705233, guid: 3d8b2211aac084a4e87b1cd57151eb25,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fdf6b2d8729ecb4189b935012a72486, type: 3}
@@ -8710,16 +8724,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11430050, guid: 5e7fbc8d4eb714b279eeeef2262c1e1a, type: 3}
       propertyPath: selectedCommands.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11430050, guid: 5e7fbc8d4eb714b279eeeef2262c1e1a, type: 3}
       propertyPath: selectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 6666463403889566253}
+      objectReference: {fileID: 8041466741042584742}
     - target: {fileID: 11430050, guid: 5e7fbc8d4eb714b279eeeef2262c1e1a, type: 3}
       propertyPath: selectedCommands.Array.data[0]
       value: 
-      objectReference: {fileID: 4790037741575197616}
+      objectReference: {fileID: 2820314689470456511}
     m_RemovedComponents:
     - {fileID: 11462346, guid: 5e7fbc8d4eb714b279eeeef2262c1e1a, type: 3}
     - {fileID: 11433304, guid: 5e7fbc8d4eb714b279eeeef2262c1e1a, type: 3}
@@ -9519,12 +9533,17 @@ PrefabInstance:
     - target: {fileID: 4904605302827446963, guid: 6fa48e98d097a7e4a8fe97065f3f9046,
         type: 3}
       propertyPath: ignoreAwakeOnEnterBounds
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4905035770500590715, guid: 6fa48e98d097a7e4a8fe97065f3f9046,
         type: 3}
       propertyPath: fireRate
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4905035770500590715, guid: 6fa48e98d097a7e4a8fe97065f3f9046,
+        type: 3}
+      propertyPath: holdFire
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4905035770500590715, guid: 6fa48e98d097a7e4a8fe97065f3f9046,
         type: 3}
@@ -9714,12 +9733,17 @@ PrefabInstance:
     - target: {fileID: 114261345250828866, guid: 2fdf6b2d8729ecb4189b935012a72486,
         type: 3}
       propertyPath: ignoreAwakeOnEnterBounds
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114675303052786826, guid: 2fdf6b2d8729ecb4189b935012a72486,
         type: 3}
       propertyPath: fireRate
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114675303052786826, guid: 2fdf6b2d8729ecb4189b935012a72486,
+        type: 3}
+      propertyPath: holdFire
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114675303052786826, guid: 2fdf6b2d8729ecb4189b935012a72486,
         type: 3}
@@ -9735,7 +9759,7 @@ PrefabInstance:
         type: 3}
       propertyPath: projectile
       value: 
-      objectReference: {fileID: 3193157053393116799, guid: 272f6011f4306994e8a6c74a42280e60,
+      objectReference: {fileID: 4874809734237705233, guid: 3d8b2211aac084a4e87b1cd57151eb25,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fdf6b2d8729ecb4189b935012a72486, type: 3}
