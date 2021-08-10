@@ -2812,11 +2812,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114180835935257764, guid: c9d0e55196736654a98ff15db3e5d2fd,
         type: 3}
-      propertyPath: hp
-      value: 5000
-      objectReference: {fileID: 0}
-    - target: {fileID: 114180835935257764, guid: c9d0e55196736654a98ff15db3e5d2fd,
-        type: 3}
       propertyPath: turrets
       value: 5
       objectReference: {fileID: 0}
@@ -3461,6 +3456,11 @@ PrefabInstance:
         type: 3}
       propertyPath: enableDebug
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268647646479294769, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2318940764687007112, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
