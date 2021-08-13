@@ -5576,12 +5576,14 @@ MonoBehaviour:
   commandList:
   - {fileID: 991868825}
   - {fileID: 991868824}
+  - {fileID: 991868843}
   - {fileID: 991868823}
   - {fileID: 991868822}
   - {fileID: 991868821}
   - {fileID: 991868820}
   - {fileID: 991868819}
   - {fileID: 991868818}
+  - {fileID: 991868844}
   - {fileID: 991868864}
   - {fileID: 991868811}
 --- !u!114 &991868818
@@ -5701,7 +5703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 87
+  itemId: 115
   indentLevel: 0
   description: 
   targetObject: {fileID: 640495703}
@@ -5729,7 +5731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 88
+  itemId: 116
   indentLevel: 0
   description: 
   targetObject: {fileID: 1950157149}
@@ -6069,6 +6071,124 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &991868843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991868809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 117
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 677459758986888681}
+  targetComponentAssemblyName: SoundtrackManager, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: SoundtrackManager
+  targetMethod: StartFadeOut
+  targetMethodText: 'StartFadeOut (Single): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Single
+      intValue: 0
+      boolValue: 0
+      floatValue: 3
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &991868844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991868809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 118
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 677459758986888681}
+  targetComponentAssemblyName: SoundtrackManager, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: SoundtrackManager
+  targetMethod: PlayBossMusic
+  targetMethodText: 'PlayBossMusic (): Void'
+  methodParameters: []
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &991868845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991868809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 119
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 677459758986888681}
+  targetComponentAssemblyName: SoundtrackManager, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: SoundtrackManager
+  targetMethod: StartFadeOut
+  targetMethodText: 'StartFadeOut (Single): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Single
+      intValue: 0
+      boolValue: 0
+      floatValue: 2
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
 --- !u!114 &991868852 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 677459759988343917, guid: 0ea578368fa70084d8a1e8638cf45cca,
@@ -15543,7 +15663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1938533633}
+  selectedFlowchart: {fileID: 991868810}
 --- !u!4 &1596599740
 Transform:
   m_ObjectHideFlags: 1
@@ -22618,18 +22738,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 231.16, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1938533633 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 11430050, guid: 5e7fbc8d4eb714b279eeeef2262c1e1a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1938533625}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1938533626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1947365739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23994,7 +24102,7 @@ PrefabInstance:
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.size
-      value: 21
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
@@ -24005,100 +24113,105 @@ PrefabInstance:
         type: 3}
       propertyPath: commandList.Array.data[1]
       value: 
-      objectReference: {fileID: 991868831}
+      objectReference: {fileID: 991868845}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[2]
       value: 
-      objectReference: {fileID: 991868876}
+      objectReference: {fileID: 991868831}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[3]
       value: 
-      objectReference: {fileID: 991868838}
+      objectReference: {fileID: 991868876}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[4]
       value: 
-      objectReference: {fileID: 991868837}
+      objectReference: {fileID: 991868838}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[5]
       value: 
-      objectReference: {fileID: 991868836}
+      objectReference: {fileID: 991868837}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[6]
       value: 
-      objectReference: {fileID: 991868835}
+      objectReference: {fileID: 991868836}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[7]
       value: 
-      objectReference: {fileID: 991868834}
+      objectReference: {fileID: 991868835}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[8]
       value: 
-      objectReference: {fileID: 991868830}
+      objectReference: {fileID: 991868834}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[9]
       value: 
-      objectReference: {fileID: 991868829}
+      objectReference: {fileID: 991868830}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[10]
       value: 
-      objectReference: {fileID: 991868828}
+      objectReference: {fileID: 991868829}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[11]
       value: 
-      objectReference: {fileID: 991868827}
+      objectReference: {fileID: 991868828}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[12]
       value: 
-      objectReference: {fileID: 991868870}
+      objectReference: {fileID: 991868827}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[13]
       value: 
-      objectReference: {fileID: 991868872}
+      objectReference: {fileID: 991868870}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[14]
       value: 
-      objectReference: {fileID: 991868873}
+      objectReference: {fileID: 991868872}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[15]
       value: 
-      objectReference: {fileID: 991868867}
+      objectReference: {fileID: 991868873}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[16]
       value: 
-      objectReference: {fileID: 991868871}
+      objectReference: {fileID: 991868867}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[17]
       value: 
-      objectReference: {fileID: 991868866}
+      objectReference: {fileID: 991868871}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[18]
       value: 
-      objectReference: {fileID: 991868868}
+      objectReference: {fileID: 991868866}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[19]
       value: 
-      objectReference: {fileID: 991868869}
+      objectReference: {fileID: 991868868}
     - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[20]
+      value: 
+      objectReference: {fileID: 991868869}
+    - target: {fileID: 677459759988343930, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: commandList.Array.data[21]
       value: 
       objectReference: {fileID: 991868865}
     - target: {fileID: 677459759988343932, guid: 0ea578368fa70084d8a1e8638cf45cca,
@@ -24146,6 +24259,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 601.69
       objectReference: {fileID: 0}
+    - target: {fileID: 1606219130526722783, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 1700646558408179706, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: character
@@ -24161,6 +24279,41 @@ PrefabInstance:
       propertyPath: methodParameters.Array.data[0].objValue.stringValue
       value: Level4
       objectReference: {fileID: 0}
+    - target: {fileID: 2825543329005515189, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -130.99988
+      objectReference: {fileID: 0}
+    - target: {fileID: 2825543329005515189, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 69.61499
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203539786828546474, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 79.21997
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203539786828546474, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 92.10004
+      objectReference: {fileID: 0}
+    - target: {fileID: 3714608534395630364, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 38.399994
+      objectReference: {fileID: 0}
+    - target: {fileID: 3815891625947465024, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -60.999878
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888654149578635703, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 61.80005
+      objectReference: {fileID: 0}
     - target: {fileID: 4007827850887246468, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -24171,6 +24324,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4455423249031711051, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -78.99988
+      objectReference: {fileID: 0}
+    - target: {fileID: 4455423249031711051, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 92.715
+      objectReference: {fileID: 0}
     - target: {fileID: 4717368147257287094, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: nodeRect.x
@@ -24180,6 +24343,11 @@ PrefabInstance:
         type: 3}
       propertyPath: nodeRect.y
       value: 99.93814
+      objectReference: {fileID: 0}
+    - target: {fileID: 6069041392258261273, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 129.40002
       objectReference: {fileID: 0}
     - target: {fileID: 6440787393661421421, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
@@ -24261,6 +24429,11 @@ PrefabInstance:
       propertyPath: m_firstOverflowCharacterIndex
       value: 22
       objectReference: {fileID: 0}
+    - target: {fileID: 6999373342270144076, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 7367343496290604316, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_RootOrder
@@ -24328,6 +24501,8 @@ PrefabInstance:
     - {fileID: 677459759988343915, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
     - {fileID: 677459759988343912, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
     - {fileID: 677459759988343904, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
+    - {fileID: 4186263165475464831, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
+    - {fileID: 8892367764187317947, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
 --- !u!4 &677459758986888678 stripped
 Transform:
@@ -24353,6 +24528,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &677459758986888681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3910992585503809529, guid: 0ea578368fa70084d8a1e8638cf45cca,
+    type: 3}
+  m_PrefabInstance: {fileID: 677459758986888677}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8004807131747857197
 PrefabInstance:
   m_ObjectHideFlags: 0
