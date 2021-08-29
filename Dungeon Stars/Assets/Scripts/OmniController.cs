@@ -12,6 +12,7 @@ public class OmniController : MonoBehaviour
     public int enemiesKilled;
     public int timesDied;
     public int powerUpsCollected;
+    public bool completedGame;
 
     [HideInInspector]
     public GameObject selectedShip = null;
@@ -66,6 +67,7 @@ public class OmniController : MonoBehaviour
         powerUpsCollected = 0;
         selectedShip = null;
         selectedShip2 = null;
+        completedGame = false;
         globalTimeScale = 1f;
     }
 

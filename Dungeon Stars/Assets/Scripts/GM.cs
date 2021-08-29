@@ -608,6 +608,7 @@ public class GM : MonoBehaviour {
         Time.timeScale = x;
     }
 
+    // Pauses and unpauses game and displays or hides pause menu
     public void PauseGame(bool paused)
     {
         gamePaused = paused;
@@ -616,5 +617,11 @@ public class GM : MonoBehaviour {
             Time.timeScale = 0f;
         else
             Time.timeScale = OmniController.omniController.globalTimeScale;
+    }
+
+    // Method to tell Omnicontroller that we have won the game. Used by fungus on the last level.
+    public void CompleteGame()
+    {
+        OmniController.omniController.completedGame = true;
     }
 }
