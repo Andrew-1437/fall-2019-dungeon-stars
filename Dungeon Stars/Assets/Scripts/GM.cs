@@ -40,6 +40,8 @@ public class GM : MonoBehaviour {
     public bool allowBoss;
     public int playerLives;
     public bool twoPlayerMode;
+    [HideInInspector]
+    public bool gamePaused = false;
 
     [Header("UI")]
     public GameObject soloUIElements;
@@ -62,6 +64,7 @@ public class GM : MonoBehaviour {
     public TextMeshProUGUI totalScore;
     public TMP_ColorGradient shieldOnColor;
     public TMP_ColorGradient shieldOffColor;
+    public GameObject pauseMenu;
 
     [Header("Two Player UI")]
     public GameObject duoUIElements;
@@ -129,15 +132,18 @@ public class GM : MonoBehaviour {
 
     private void Update()
     {
-        //Quick exit to menu
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            SceneManager.LoadScene("MainMenu");
-        }
+        if(Input.GetButtonDown("Pause"))
+            PauseGame(!gamePaused);
 
         //Debug*************
         if (OmniController.omniController.enableDebug)
         {
+            //Quick exit to menu
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
+
             //Toggle Enemies
             if (Input.GetKeyDown("1"))
             {
@@ -589,7 +595,7 @@ public class GM : MonoBehaviour {
         if (!twoPlayerMode)
             return (int)(player1PercentHp * baseHpScore);
         else
-            return (int)(((player1PercentHp + player2PercentHp) / 2f) * baseHpScore);
+            return (int)((player1PercentHp + player2PercentHp) / 2f * baseHpScore);
     }
 
     public void SetGameState(bool start)
@@ -600,5 +606,15 @@ public class GM : MonoBehaviour {
     public void SetTimeScale(float x)
     {
         Time.timeScale = x;
+    }
+
+    public void PauseGame(bool paused)
+    {
+        gamePaused = paused;
+        pauseMenu.SetActive(paused);
+        if(paused)
+            Time.timeScale = 0f;
+        else
+            Time.timeScale = OmniController.omniController.globalTimeScale;
     }
 }

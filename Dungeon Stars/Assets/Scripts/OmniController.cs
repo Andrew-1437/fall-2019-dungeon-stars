@@ -55,7 +55,7 @@ public class OmniController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.U)) globalTimeScale = .5f;
         }
 
-        Time.timeScale = globalTimeScale;
+        //Time.timeScale = globalTimeScale;
     }
 
     public void ResetGameplayVariables()

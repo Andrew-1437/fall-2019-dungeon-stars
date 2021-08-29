@@ -220,39 +220,42 @@ public class PlayerController : MonoBehaviour {
 
     void Update()
     {
-        // Primary Fire
-        if(((!isPlayer2 && Input.GetButton("Fire1")) || (isPlayer2 && Input.GetButton("Fire12"))) && Time.time > nextFire)
+        // If the game is paused, do not allow firing of weapons
+        if (!GM.gameController.gamePaused)
         {
-            nextFire = Time.time + fireRate * fireRateMod * heatMod;
-            Instantiate(primary[level], spawner.position, spawner.rotation);
-            gm.AddRawScore(-Mathf.Max(weapon1Cost - Mathf.FloorToInt(weapon1Cost * attackSpeedBuff),0));
-            if(enableHeat && primaryUsesHeat)
+            // Primary Fire
+            if (((!isPlayer2 && Input.GetButton("Fire1")) || (isPlayer2 && Input.GetButton("Fire12"))) && Time.time > nextFire)
             {
-                heat += primHeatGen * heatGenMod;
+                nextFire = Time.time + fireRate * fireRateMod * heatMod;
+                Instantiate(primary[level], spawner.position, spawner.rotation);
+                gm.AddRawScore(-Mathf.Max(weapon1Cost - Mathf.FloorToInt(weapon1Cost * attackSpeedBuff), 0));
+                if (enableHeat && primaryUsesHeat)
+                {
+                    heat += primHeatGen * heatGenMod;
+                }
             }
-        }
 
-        // Secondary Fire
-        if(((!isPlayer2 && Input.GetButton("Fire2")) || (isPlayer2 && Input.GetButton("Fire22"))) && Time.time > nextSecondary)
-        {
-            nextSecondary = Time.time + secondaryFireRate * fireRateMod * heatMod;
-            Instantiate(secondary[level], spawner.position, spawner.rotation);
-            gm.AddRawScore(-Mathf.Max(weapon2Cost - Mathf.FloorToInt(weapon2Cost * attackSpeedBuff), 0));
-            if (enableHeat && secondaryUsesHeat)
+            // Secondary Fire
+            if (((!isPlayer2 && Input.GetButton("Fire2")) || (isPlayer2 && Input.GetButton("Fire22"))) && Time.time > nextSecondary)
             {
-                heat += secHeatGen * heatGenMod;
+                nextSecondary = Time.time + secondaryFireRate * fireRateMod * heatMod;
+                Instantiate(secondary[level], spawner.position, spawner.rotation);
+                gm.AddRawScore(-Mathf.Max(weapon2Cost - Mathf.FloorToInt(weapon2Cost * attackSpeedBuff), 0));
+                if (enableHeat && secondaryUsesHeat)
+                {
+                    heat += secHeatGen * heatGenMod;
+                }
             }
-        }
 
-        // Tertiary Fire
-        if((!isPlayer2 && Input.GetButtonDown("Fire3")) || (isPlayer2 && Input.GetButtonDown("Fire32")))
-        {
-            if (currentMissileCount>0)
+            // Tertiary Fire
+            if ((!isPlayer2 && Input.GetButtonDown("Fire3")) || (isPlayer2 && Input.GetButtonDown("Fire32")))
             {
-                Instantiate(explosive, spawner.position, spawner.rotation);
-                currentMissileCount--;
+                if (currentMissileCount > 0)
+                {
+                    Instantiate(explosive, spawner.position, spawner.rotation);
+                    currentMissileCount--;
+                }
             }
-            
         }
 
         // Heat updates
@@ -283,7 +286,6 @@ public class PlayerController : MonoBehaviour {
                 }
             }
         }
-
 
         //Debug Tools
         if (OmniController.omniController.enableDebug)
@@ -317,11 +319,6 @@ public class PlayerController : MonoBehaviour {
                 print("Godmode off");
             } 
         }
-        //Freeze Time
-        if (Input.GetKeyDown(KeyCode.P) && Time.timeScale == 1f)
-            Time.timeScale = 0f;
-        else if (Input.GetKeyDown(KeyCode.P) && Time.timeScale != 1f)
-            Time.timeScale = 1f;
 
         // Shield mechanics************
         if (shieldDown)
@@ -369,9 +366,6 @@ public class PlayerController : MonoBehaviour {
         {
             smokeFX.Stop();
         }
-
-        //Debug
-        //print(shield);
 
         // End spawn invulnerability after enought time has passed
         if(Time.time > endSpawnInvincible)
