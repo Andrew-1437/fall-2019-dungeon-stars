@@ -12,6 +12,7 @@ public class OmniController : MonoBehaviour
     public int enemiesKilled;
     public int timesDied;
     public int powerUpsCollected;
+    public bool completedGame;
 
     [HideInInspector]
     public GameObject selectedShip = null;
@@ -72,7 +73,7 @@ public class OmniController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.U)) globalTimeScale = .5f;
         }
 
-        Time.timeScale = globalTimeScale;
+        //Time.timeScale = globalTimeScale;
     }
 
     public void ResetGameplayVariables()
@@ -83,6 +84,7 @@ public class OmniController : MonoBehaviour
         powerUpsCollected = 0;
         selectedShip = null;
         selectedShip2 = null;
+        completedGame = false;
         globalTimeScale = 1f;
     }
 

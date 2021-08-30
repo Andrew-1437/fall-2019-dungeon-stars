@@ -6,11 +6,14 @@ using Fungus;
 
 public class Summary : MonoBehaviour
 {
+    public TextMeshProUGUI title;
+    public TextMeshProUGUI subtitle;
     public TextMeshProUGUI enemies;
     public TextMeshProUGUI powerups;
     public TextMeshProUGUI deaths;
     public TextMeshProUGUI scoreMod;
     public TextMeshProUGUI score;
+    public TextMeshProUGUI returnToMenu;
 
     string bestEnemiesStr;
     string bestPowerUpsStr;
@@ -22,6 +25,8 @@ public class Summary : MonoBehaviour
     int displayedDeaths = 0;
     int displayedScore = 0;
 
+    public TMP_ColorGradient defeatGradient;
+
     public AudioSource accumulateScoreFx;
     public AudioSource accumulateDeathsFx;
 
@@ -31,12 +36,27 @@ public class Summary : MonoBehaviour
     int trueScore = 0;  // True high score, after applying all modifiers
     float scoreModifier = 1f;
 
-    private void Start()
+    private void Awake()
     {
         int bestEnemies = PlayerPrefs.GetInt("MostEnemies", 0);
         int bestPowerUps = PlayerPrefs.GetInt("MostPowerUp", 0);
         int bestDeaths = PlayerPrefs.GetInt("MostDeaths", 0);
         int highScore = PlayerPrefs.GetInt("HighScore", 0);
+
+        rankFlowchart.SetBooleanVariable("CompletedGame", OmniController.omniController.completedGame);
+        if (!OmniController.omniController.completedGame)
+        {
+            title.text = "Game Over";
+            subtitle.text = "Try again?";
+            title.colorGradientPreset = defeatGradient;
+            subtitle.colorGradientPreset = defeatGradient;
+            enemies.colorGradientPreset = defeatGradient;
+            powerups.colorGradientPreset = defeatGradient;
+            deaths.colorGradientPreset = defeatGradient;
+            score.colorGradientPreset = defeatGradient;
+            scoreMod.colorGradientPreset = defeatGradient;
+            returnToMenu.colorGradientPreset = defeatGradient;
+        }
 
         ApplyModifiers();
         trueScore = (int)((double)OmniController.omniController.totalScore * scoreModifier);

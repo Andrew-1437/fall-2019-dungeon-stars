@@ -205,27 +205,30 @@ public class PlayerController : MonoBehaviour {
 
     void Update()
     {
-        // Primary Fire
-        if(((!isPlayer2 && Input.GetButton("Fire1")) || (isPlayer2 && Input.GetButton("Fire12"))) && Time.time > nextFire)
+        // If the game is paused, do not allow firing of weapons
+        if (!GM.gameController.gamePaused)
         {
-            FirePrimaryWeapon();
-        }
-
-        // Secondary Fire
-        if(((!isPlayer2 && Input.GetButton("Fire2")) || (isPlayer2 && Input.GetButton("Fire22"))) && Time.time > nextSecondary)
-        {
-            FireSecondaryWeapon();
-        }
-
-        // Tertiary Fire
-        if((!isPlayer2 && Input.GetButtonDown("Fire3")) || (isPlayer2 && Input.GetButtonDown("Fire32")))
-        {
-            if (currentMissileCount>0)
+            // Primary Fire
+            if (((!isPlayer2 && Input.GetButton("Fire1")) || (isPlayer2 && Input.GetButton("Fire12"))) && Time.time > nextFire)
             {
-                Instantiate(explosive, spawner.position, spawner.rotation);
-                currentMissileCount--;
+                FirePrimaryWeapon();
             }
-            
+
+            // Secondary Fire
+            if (((!isPlayer2 && Input.GetButton("Fire2")) || (isPlayer2 && Input.GetButton("Fire22"))) && Time.time > nextSecondary)
+            {
+                FireSecondaryWeapon();
+            }
+
+            // Tertiary Fire
+            if ((!isPlayer2 && Input.GetButtonDown("Fire3")) || (isPlayer2 && Input.GetButtonDown("Fire32")))
+            {
+                if (currentMissileCount > 0)
+                {
+                    Instantiate(explosive, spawner.position, spawner.rotation);
+                    currentMissileCount--;
+                }
+            }
         }
 
         // Heat updates
@@ -256,7 +259,6 @@ public class PlayerController : MonoBehaviour {
                 }
             }
         }
-
 
         //Debug Tools
         if (OmniController.omniController.enableDebug)
@@ -290,11 +292,6 @@ public class PlayerController : MonoBehaviour {
                 print("Godmode off");
             } 
         }
-        //Freeze Time
-        if (Input.GetKeyDown(KeyCode.P) && Time.timeScale == 1f)
-            Time.timeScale = 0f;
-        else if (Input.GetKeyDown(KeyCode.P) && Time.timeScale != 1f)
-            Time.timeScale = 1f;
 
         // Shield mechanics************
         if (shieldDown)
