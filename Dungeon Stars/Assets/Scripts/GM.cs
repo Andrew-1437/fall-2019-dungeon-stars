@@ -404,7 +404,7 @@ public class GM : MonoBehaviour {
 
     public void AwakenBoss()
     {
-        boss.GetComponent<BossBehavior>().awake = true;
+        boss.GetComponent<BossBehavior>().Wake();
         bossWarnUI.GetComponent<FlashUI>().Flash();
     }
 

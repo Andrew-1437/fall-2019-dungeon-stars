@@ -5,18 +5,22 @@ using UnityEngine;
 public class EndlessController : MonoBehaviour
 {
     float startTime = -1f;
-    public int difficultyLevel = 0;
 
+    [Header("Endless Mode variables")]
+    public int difficultyLevel = 0;
     public float timeBetweenDifficultyIncrease; // Time interval at the end of which the difficulty will increase
                                                 // Set this to something high, preferably >30 sec
 
-
+    [Header("Spawn lists")]
     public GameObject[] spawnList;  // List of normal enemies to spawn. Sorted from Easy -> Hard
     public GameObject[] dangerSpawnList;   // List of more dangerous/complex enemies to spawn. Sorted from Easy -> Hard
     public GameObject[] powerUpList;    // List of power ups to spawn. Index 0 should be LevelUp
+    public GameObject[] bossesList; // List of bosses to spawn in order of appearance (or random maybe?)
 
     public bool spawnEnemies;
+    public bool activeBoss;
 
+    [Header("Spawn timing variables")]
     public float minTimeBetweenGroups;  // Time intervals to spawn an enemy group
     public float maxTimeBetweenGroups;  // TODO: Increase difficulty with time
     float timeForNextGroup;
@@ -31,6 +35,9 @@ public class EndlessController : MonoBehaviour
 
     public float timeBetweenLevelUp;    // Time interval to spawn a level up power up
     float timeForLevelUp;
+
+    [Header("References")]
+    public Fungus.Flowchart flowchart;
 
     private IEnumerator endlessMode;
 
@@ -129,10 +136,25 @@ public class EndlessController : MonoBehaviour
                 transform.rotation);
     }
 
+    // Spawns the next boss from the list and links it to the GM
+    public void SpawnBoss()
+    {
+        GM.gameController.boss =
+            Instantiate(
+                bossesList[(difficultyLevel / 6 - 1) % bossesList.Length]);
+        GM.gameController.AwakenBoss();
+    }
+
     IEnumerator EndlessDifficultyIncrease()
     {
         for(; ; )
         {
+            if(activeBoss)
+            {
+                yield return new WaitForSeconds(0.1f);
+                continue;
+            }
+
             yield return new WaitForSeconds(timeBetweenDifficultyIncrease); // Every interval, increase the difficulty slightly
 
             difficultyLevel++;
@@ -144,16 +166,22 @@ public class EndlessController : MonoBehaviour
                 minTimeBetweenDangerGroups = minTimeBetweenDangerGroups * .95f;
                 maxTimeBetweenDangerGroups = maxTimeBetweenDangerGroups * .95f;
             }
-
+            
             // TODO: Every 10 levels or so, spawn a boss and stop difficulty from increasing until the boss is defeated
 
-            // Every 10 levels of difficulty, increase the total score gain and the max hp of enemies
-            if(difficultyLevel % 10 == 0)
+            // Every 6 levels of difficulty, spawn a boss, stop enemies from spawning, and stop difficulty from increasing
+            if(difficultyLevel % 6 == 0)
             {
+                activeBoss = true;
+                spawnEnemies = false;
+                flowchart.SendFungusMessage("boss");
+            }
+
+            /*  Increase difficulty after boss is defeated
                 OmniController.omniController.additionalScoreMultiplier += .2f;
                 OmniController.omniController.obstacleHpScale += .2f;
                 OmniController.omniController.obstacleSpeedScale += .2f;
-            }
+                */
         }
     }
 }
