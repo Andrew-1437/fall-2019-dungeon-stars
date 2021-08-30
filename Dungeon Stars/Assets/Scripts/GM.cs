@@ -128,6 +128,8 @@ public class GM : MonoBehaviour {
         }
 
         scoreMultiplier = 1;
+
+        PlayerController.OnPlayerDeath += PlayerController_OnPlayerDeath;
     }
 
     private void Update()
@@ -474,6 +476,16 @@ public class GM : MonoBehaviour {
                 mainFlowchart.SendFungusMessage("GameOver");
             //print("no lives");
         }
+    }
+
+    private void PlayerController_OnPlayerDeath(PlayerController pc)
+    {
+        playerLives--;
+        if (playerLives < 0)
+            playerLives = 0;
+        DeathText(pc.isPlayer2);
+        AddRawScore(-OmniController.omniController.deathPenalty);
+        ResetMultiplier();
     }
 
     // Tells fungus flowchart to say a death flavor text when player dies
