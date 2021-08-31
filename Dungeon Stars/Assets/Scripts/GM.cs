@@ -51,6 +51,7 @@ public class GM : MonoBehaviour {
     public TextMeshProUGUI lives;
     public SimpleHealthBar hp;
     public SimpleHealthBar shield;
+    public TextMeshProUGUI bossTitle;
     public SimpleHealthBar bossHp;
     public TextMeshProUGUI missileCount;
     public GameObject heatBar;
@@ -90,7 +91,10 @@ public class GM : MonoBehaviour {
     [Header("Flowchart")]
     public Fungus.Flowchart mainFlowchart;
 
-
+    // Events
+    public delegate void GmDelegate();
+    public static event GmDelegate OnBossActivate;
+    public static event GmDelegate OnLevelComplete;
 
     private void Awake()
     {
@@ -128,6 +132,20 @@ public class GM : MonoBehaviour {
         }
 
         scoreMultiplier = 1;
+
+        // Subscribe to events
+        PlayerController.OnPlayerDeath += PlayerController_OnPlayerDeath;
+        GameStarter.OnGameStart += GameStarter_OnGameStart;
+        BossBehavior.OnBossDeath += BossBehavior_OnBossDeath;
+    }
+
+    private void GameStarter_OnGameStart()
+    {
+        gameStart = true;
+        SpawnPlayer();
+        if (twoPlayerMode)
+            SpawnPlayer2();
+        GameStarter.OnGameStart -= GameStarter_OnGameStart;
     }
 
     private void Update()
@@ -309,9 +327,9 @@ public class GM : MonoBehaviour {
                 }
 
                 if (playerController.id != ShipsEnum.ShipID.MEME)
-                    level.text = "Power: " + (playerController.level + 1);
+                    level1.text = "Power: " + (playerController.level + 1);
                 else
-                    level.text = "Power: 69";
+                    level1.text = "Power: 69";
 
                 missileCount1.text = "Ammo: " + playerController.currentMissileCount + "/" + playerController.maxMissile;
 
@@ -404,8 +422,19 @@ public class GM : MonoBehaviour {
 
     public void AwakenBoss()
     {
-        boss.GetComponent<BossBehavior>().Wake();
+        OnBossActivate?.Invoke();
         bossWarnUI.GetComponent<FlashUI>().Flash();
+    }
+
+    public void SetBossHpBar(string title, float bossStartingHp)
+    {
+        bossTitle.text = title;
+        bossMaxHp = bossStartingHp;
+    }
+
+    private void BossBehavior_OnBossDeath()
+    {
+        EndLevel();
     }
 
     //Scene specific events ***Obsolete
@@ -420,7 +449,12 @@ public class GM : MonoBehaviour {
 
     public void EndLevel()
     {
+        OnLevelComplete?.Invoke();
         mainFlowchart.SendFungusMessage("LevelComplete");
+
+        // Unsubscribe to events at the end of the level
+        PlayerController.OnPlayerDeath -= PlayerController_OnPlayerDeath;
+        BossBehavior.OnBossDeath -= BossBehavior_OnBossDeath;
     }
 
     // Depreciating
@@ -443,16 +477,13 @@ public class GM : MonoBehaviour {
             player = Instantiate(playerObject, transform.position, transform.rotation) as GameObject;
             Instantiate(fx, transform.position, transform.rotation);
             GetComponent<AudioSource>().Play();
-            //FindPlayer();
             playerController = player.GetComponent<PlayerController>();
-            //playerLives--;
         }
         else
         {
             // If both player 1 and player 2 are dead with no lives, end the game
             if( player == null && player2 == null)
                 mainFlowchart.SendFungusMessage("GameOver");
-            //print("no lives");
         }
     }
     public void SpawnPlayer2()
@@ -462,18 +493,25 @@ public class GM : MonoBehaviour {
             player2 = Instantiate(playerObject2, transform.position - (Vector3.up * 3f), transform.rotation) as GameObject;
             Instantiate(fx, transform.position, transform.rotation);
             GetComponent<AudioSource>().Play();
-            //FindPlayer();
             playerController2 = player2.GetComponent<PlayerController>();
             playerController2.isPlayer2 = true;
-            //playerLives--;
         }
         else
         {
             // If both player 1 and player 2 are dead with no lives, end the game
             if (player == null && player2 == null)
                 mainFlowchart.SendFungusMessage("GameOver");
-            //print("no lives");
         }
+    }
+
+    private void PlayerController_OnPlayerDeath(PlayerController pc)
+    {
+        playerLives--;
+        if (playerLives < 0)
+            playerLives = 0;
+        DeathText(pc.isPlayer2);
+        AddRawScore(-OmniController.omniController.deathPenalty);
+        ResetMultiplier();
     }
 
     // Tells fungus flowchart to say a death flavor text when player dies
@@ -485,8 +523,6 @@ public class GM : MonoBehaviour {
             return;
         }
         mainFlowchart.SendFungusMessage("death");
-        //int index = Random.Range(0, deathTexts.Length);
-        //deathTexts[index].SetActive(true);
     }
 
     // Idk wtf this is
@@ -550,7 +586,6 @@ public class GM : MonoBehaviour {
 
         if(OmniController.omniController != null)
             OmniController.omniController.totalScore += total;
-        //print(OmniController.omniController.totalScore);
         return total;
     }
 

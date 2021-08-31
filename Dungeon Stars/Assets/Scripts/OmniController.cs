@@ -28,6 +28,7 @@ public class OmniController : MonoBehaviour
     
     [Header("Modifiers")]
     public float globalTimeScale = 1f;  // Time for Unity's Time.timeScale
+    public int deathPenalty = 50000;    // Score penalty upon dying
     public float playerHpScale = 1f;    // Multiply player's starting max hp by this amount
     public float playerShieldScale = 1f;    // Multiply player's starting max shield by this amount
     public float hpPerLevelScale = 1f;  // Multiply the increase of max hp by this amount each level
@@ -44,7 +45,6 @@ public class OmniController : MonoBehaviour
     public float obstacleHpScale = 1f;  // Multiply obstacle/enemy max hp by this amount
     public float additionalScoreMultiplier = 1f;    // Multiply all point gains by this amount
     public float powerUpDurationScale = 1f;  // Multiply the duration of all power ups by this amount
-
 
     [Header("Two Player Co-op")]
     public bool twoPlayerMode;
