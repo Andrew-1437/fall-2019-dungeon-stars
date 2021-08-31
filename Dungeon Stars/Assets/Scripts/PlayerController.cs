@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    //Name and Description
+    // Name and Description
     [Header("Name and Descriptions")]
     public string shipName;
     public string desc;
@@ -16,37 +17,35 @@ public class PlayerController : MonoBehaviour {
     [HideInInspector]
     public bool isPlayer2 = false;
 
-    //HP & Shields***********
+    // HP & Shields***********
     [Header("HP & Shields")]
-    public float maxHp; //Represents max hp
-    public float maxShield; //Represents max shields
+    public float maxHp; // Represents max hp
+    public float maxShield; // Represents max shields
 
-    public float hp;   //Represents current hp
-    public float shield;   //Represents current shields
+    public float hp;   // Represents current hp
+    public float shield;   // Represents current shields
 
     bool alive = true;
 
     public Animator shieldSprite;
-    public float shieldRecharge;    //Represents rate at which shield recharges/frame
-    public float shieldRegenDelay; //Represents time in seconds since last damage before shield will regen IF SHIELD IS ACTIVE
-    public float shieldDelay;   //Represents time in seconds the shield will take to reboot after being disabled
+    public float shieldRecharge;    // Represents rate at which shield recharges/frame
+    public float shieldRegenDelay; // Represents time in seconds since last damage before shield will regen IF SHIELD IS ACTIVE
+    public float shieldDelay;   // Represents time in seconds the shield will take to reboot after being disabled
     [HideInInspector]
-    public bool shieldDown;    //True if shields are disabled -"Shields offline!"
-    private float shieldRegenTime;  //Time relative to game time when shield will regen IF SHIELD IS ACTIVE
-    private float shieldUpTime; //Time relative to game time when shield will reactivate
+    public bool shieldDown;    // True if shields are disabled -"Shields offline!"
+    private float shieldRegenTime;  // Time relative to game time when shield will regen IF SHIELD IS ACTIVE
+    private float shieldUpTime; // Time relative to game time when shield will reactivate
     private float shieldOpacity;
 
     public int level;
 
 
-    //Movement***********
+    // Movement***********
     [Header("Movement")]
     public float speed;
     public float rotate;
 
-    //private float rotation = 0.0f;
-
-    //Weapons**********
+    // Weapons**********
     [Header("Weapons")]
     public GameObject[] primary; //Primary Fire Projectiles
     public Transform spawner;   //"Hardpoint" Location (Where to spawn projectiles)
@@ -58,13 +57,13 @@ public class PlayerController : MonoBehaviour {
     private float nextFire;
     private float nextSecondary;
 
-    //Missile count
+    // Missile count
     public int maxMissile;
     public int currentMissileCount;
 
     
-    //PowerUp Mods
-    public float dmgMod;    //Value to modify damage taken, for things like armor (1 = full damage, 0 = no damage, >1 = Extra damage, <0 = Healing??)
+    // PowerUp Mods
+    public float dmgMod;    // Value to modify damage taken, for things like armor (1 = full damage, 0 = no damage, >1 = Extra damage, <0 = Healing??)
     private float fireRateMod;
     private float heatGenMod;  // Fire rate boost also reduces heat generated if using heat
     private float fireRateEnd;
@@ -100,52 +99,37 @@ public class PlayerController : MonoBehaviour {
     public float secHeatGen;
     [HideInInspector]
     public AudioSource heatWarnAudio;
-    //public ParticleSystem heatFX;
 
     //score
     [Header("Score")]
-    public int dieCost;
     public int weapon1Cost;
     public int weapon2Cost;
 
-
-
-    //Ship Components & Hardmode (WIP)
-    // TODO: Make this work
-    //[Header("Hard Mode")]
-    //public bool hardmode;
-
-    /*
-    // Placeholder for eventual ship components
-    [System.Serializable]
-    public struct ShipComponents
-    {
-        public bool hull;
-        public bool engines;
-        public bool weapons;
-        public bool shieldpow;
-    } */
-
-    //Rigidbody
+    // Rigidbody
     private Rigidbody2D rb;
 
-    //Camera Shake
+    // Camera Shake
     private new GameObject camera;
 
-    //GM
+    // GM
     private GM gm;
 
-    //Visual FX************
+    // Visual FX************
     [Header("Referenced Game Objects")]
     public GameObject explosionFx;
     public ParticleSystem speedFX;
     public ParticleSystem fireRateFX;
     public ParticleSystem smokeFX;
 
-    //Sound FX**************
+    // Sound FX**************
     private new AudioSource[] audio;
 
-    //Initialize**********
+    // Events
+    public delegate void PlayerDelegate(PlayerController pc);
+    public static event PlayerDelegate OnPlayerSpawn;
+    public static event PlayerDelegate OnPlayerDeath;
+
+    // Initialize**********
     void Start()
     {
         hp = maxHp;
@@ -172,6 +156,8 @@ public class PlayerController : MonoBehaviour {
 
         invincible = true;
         endSpawnInvincible = Time.time + 1.5f;
+
+        OnPlayerSpawn?.Invoke(this);
     }
 
     //Movement***********
@@ -505,12 +491,8 @@ public class PlayerController : MonoBehaviour {
         Destroy(gameObject);
         Instantiate(explosionFx, transform.position, transform.rotation);
         camera.GetComponent<CameraShaker>().HugeShake();
-        gm.playerLives--;
-        if (gm.playerLives < 0)
-            gm.playerLives = 0;
-        gm.DeathText(isPlayer2);
-        gm.AddRawScore(-dieCost);
-        gm.ResetMultiplier();
+        
+        OnPlayerDeath?.Invoke(this);
     }
 
 

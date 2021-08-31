@@ -27,6 +27,7 @@ public class OmniController : MonoBehaviour
     public bool enableCameraShake;
 
     [Header("Modifiers")]
+    public int deathPenalty = 50000;
     public float globalTimeScale = 1;
 
     [Header("Two Player Co-op")]

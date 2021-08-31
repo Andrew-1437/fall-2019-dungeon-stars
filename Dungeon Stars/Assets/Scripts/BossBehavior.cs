@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class BossBehavior : LargeEnemyBehavior {
 
+    public string bossTitle;
+
     //Health
     public float hp;
     public float dmgMod;
 
-    //Camera Shake
-    //private GameObject camera;
-
     //Visual FX
-    //public GameObject explosion;
     public GameObject miniExplosion;
 
     public bool awake;
@@ -27,14 +25,20 @@ public class BossBehavior : LargeEnemyBehavior {
     float explosionDelay = .12f;
     float nextExplosion = 0f;
 
-    //Fungus Flowchart
-    public Fungus.Flowchart mainFlowchart;
+    // Events
+    public delegate void BossDelegate();
+    public static event BossDelegate OnBossDeath;
 
-
-    private void Start()
+    private void Awake()
     {
         dieTime = Mathf.Infinity;
-        base.Start();
+        GM.OnBossActivate += GM_OnBossActivate;
+    }
+
+    private void GM_OnBossActivate()
+    {
+        Wake();
+        GM.OnBossActivate -= GM_OnBossActivate;
     }
 
     protected void Update()
@@ -73,22 +77,15 @@ public class BossBehavior : LargeEnemyBehavior {
 
     private void Die()
     {
-        
+        OnBossDeath?.Invoke();
         Destroy(gameObject);
         Instantiate(explosion, transform.position, transform.rotation);
-        if(gameCamera)
-            gameCamera.GetComponent<CameraShaker>().HugeShake();
-        mainFlowchart.SendFungusMessage("LevelComplete");
+        gameCamera?.GetComponent<CameraShaker>().HugeShake();
     }
 
     public void activeAllTriggers(bool x)
     {
         gameObject.SetActive(x);
-        /*
-        foreach (GameObject trigger in triggers)
-        {
-            trigger.SetActive(x);
-        } */
     }
     
     //Takes damage from another source (another script)
@@ -101,6 +98,7 @@ public class BossBehavior : LargeEnemyBehavior {
     public void Wake()
     {
         awake = true;
+        GM.gameController.SetBossHpBar(bossTitle, hp);
     }
 
 
