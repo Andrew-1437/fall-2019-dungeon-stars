@@ -26,15 +26,8 @@ public class MissileBehavior : ProjectileBehavior {
             turnSpeedMod = 1f;
     }
 
-    private void FixedUpdate()
-    {
-        base.FixedUpdate();
-    }
-
     protected void Update()
     {
-
-        
         if (target != null)
         {
             // If we have a target, turn towards it

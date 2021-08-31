@@ -443,6 +443,10 @@ public class GM : MonoBehaviour {
     {
         OnLevelComplete?.Invoke();
         mainFlowchart.SendFungusMessage("LevelComplete");
+
+        // Unsubscribe to events at the end of the level
+        PlayerController.OnPlayerDeath -= PlayerController_OnPlayerDeath;
+        BossBehavior.OnBossDeath -= BossBehavior_OnBossDeath;
     }
 
     // Depreciating
