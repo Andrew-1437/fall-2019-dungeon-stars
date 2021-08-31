@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameStarter : MonoBehaviour {
 
+    public delegate void GameStart();
+    public static event GameStart OnGameStart;
+
     public float delay;
 
     private float startTime;
@@ -39,13 +42,7 @@ public class GameStarter : MonoBehaviour {
         }
         if (Time.time >= startTime)
         {
-            gm.gameStart = true;
-            gm.SpawnPlayer();
-            if (gm.twoPlayerMode)
-                gm.SpawnPlayer2();
-            //gm.FindPlayer();
-            
-
+            OnGameStart?.Invoke();
             gameObject.SetActive(false);
         }
 	}

@@ -90,7 +90,10 @@ public class GM : MonoBehaviour {
     [Header("Flowchart")]
     public Fungus.Flowchart mainFlowchart;
 
-
+    // Events
+    public delegate void GmDelegate();
+    public static event GmDelegate OnBossActivate;
+    public static event GmDelegate OnLevelComplete;
 
     private void Awake()
     {
@@ -130,6 +133,17 @@ public class GM : MonoBehaviour {
         scoreMultiplier = 1;
 
         PlayerController.OnPlayerDeath += PlayerController_OnPlayerDeath;
+        GameStarter.OnGameStart += GameStarter_OnGameStart;
+        BossBehavior.OnBossDeath += BossBehavior_OnBossDeath;
+    }
+
+    private void GameStarter_OnGameStart()
+    {
+        gameStart = true;
+        SpawnPlayer();
+        if (twoPlayerMode)
+            SpawnPlayer2();
+        GameStarter.OnGameStart -= GameStarter_OnGameStart;
     }
 
     private void Update()
@@ -406,8 +420,13 @@ public class GM : MonoBehaviour {
 
     public void AwakenBoss()
     {
-        boss.GetComponent<BossBehavior>().awake = true;
+        OnBossActivate?.Invoke();
         bossWarnUI.GetComponent<FlashUI>().Flash();
+    }
+
+    private void BossBehavior_OnBossDeath()
+    {
+        EndLevel();
     }
 
     //Scene specific events ***Obsolete
@@ -422,6 +441,7 @@ public class GM : MonoBehaviour {
 
     public void EndLevel()
     {
+        OnLevelComplete?.Invoke();
         mainFlowchart.SendFungusMessage("LevelComplete");
     }
 
@@ -445,16 +465,13 @@ public class GM : MonoBehaviour {
             player = Instantiate(playerObject, transform.position, transform.rotation) as GameObject;
             Instantiate(fx, transform.position, transform.rotation);
             GetComponent<AudioSource>().Play();
-            //FindPlayer();
             playerController = player.GetComponent<PlayerController>();
-            //playerLives--;
         }
         else
         {
             // If both player 1 and player 2 are dead with no lives, end the game
             if( player == null && player2 == null)
                 mainFlowchart.SendFungusMessage("GameOver");
-            //print("no lives");
         }
     }
     public void SpawnPlayer2()
@@ -464,17 +481,14 @@ public class GM : MonoBehaviour {
             player2 = Instantiate(playerObject2, transform.position - (Vector3.up * 3f), transform.rotation) as GameObject;
             Instantiate(fx, transform.position, transform.rotation);
             GetComponent<AudioSource>().Play();
-            //FindPlayer();
             playerController2 = player2.GetComponent<PlayerController>();
             playerController2.isPlayer2 = true;
-            //playerLives--;
         }
         else
         {
             // If both player 1 and player 2 are dead with no lives, end the game
             if (player == null && player2 == null)
                 mainFlowchart.SendFungusMessage("GameOver");
-            //print("no lives");
         }
     }
 
@@ -497,8 +511,6 @@ public class GM : MonoBehaviour {
             return;
         }
         mainFlowchart.SendFungusMessage("death");
-        //int index = Random.Range(0, deathTexts.Length);
-        //deathTexts[index].SetActive(true);
     }
 
     // Idk wtf this is
@@ -562,7 +574,6 @@ public class GM : MonoBehaviour {
 
         if(OmniController.omniController != null)
             OmniController.omniController.totalScore += total;
-        //print(OmniController.omniController.totalScore);
         return total;
     }
 
