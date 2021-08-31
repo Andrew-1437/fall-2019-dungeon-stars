@@ -51,6 +51,7 @@ public class GM : MonoBehaviour {
     public TextMeshProUGUI lives;
     public SimpleHealthBar hp;
     public SimpleHealthBar shield;
+    public TextMeshProUGUI bossTitle;
     public SimpleHealthBar bossHp;
     public TextMeshProUGUI missileCount;
     public GameObject heatBar;
@@ -132,6 +133,7 @@ public class GM : MonoBehaviour {
 
         scoreMultiplier = 1;
 
+        // Subscribe to events
         PlayerController.OnPlayerDeath += PlayerController_OnPlayerDeath;
         GameStarter.OnGameStart += GameStarter_OnGameStart;
         BossBehavior.OnBossDeath += BossBehavior_OnBossDeath;
@@ -325,9 +327,9 @@ public class GM : MonoBehaviour {
                 }
 
                 if (playerController.id != ShipsEnum.ShipID.MEME)
-                    level.text = "Power: " + (playerController.level + 1);
+                    level1.text = "Power: " + (playerController.level + 1);
                 else
-                    level.text = "Power: 69";
+                    level1.text = "Power: 69";
 
                 missileCount1.text = "Ammo: " + playerController.currentMissileCount + "/" + playerController.maxMissile;
 
@@ -422,6 +424,12 @@ public class GM : MonoBehaviour {
     {
         OnBossActivate?.Invoke();
         bossWarnUI.GetComponent<FlashUI>().Flash();
+    }
+
+    public void SetBossHpBar(string title, float bossStartingHp)
+    {
+        bossTitle.text = title;
+        bossMaxHp = bossStartingHp;
     }
 
     private void BossBehavior_OnBossDeath()

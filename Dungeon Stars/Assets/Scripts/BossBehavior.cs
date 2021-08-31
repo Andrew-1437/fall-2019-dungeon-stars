@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BossBehavior : LargeEnemyBehavior {
 
+    public string bossTitle;
+
     //Health
     public float hp;
     public float dmgMod;
@@ -96,6 +98,7 @@ public class BossBehavior : LargeEnemyBehavior {
     public void Wake()
     {
         awake = true;
+        GM.gameController.SetBossHpBar(bossTitle, hp);
     }
 
 
