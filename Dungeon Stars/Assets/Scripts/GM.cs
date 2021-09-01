@@ -38,6 +38,7 @@ public class GM : MonoBehaviour {
     [Header("Level Management")]
     public bool gameStart;
     public bool allowBoss;
+    public bool endLevelOnBossDeath;
     public int playerLives;
     public bool twoPlayerMode;
     [HideInInspector]
@@ -406,10 +407,6 @@ public class GM : MonoBehaviour {
                 level2.text = "Power: 0";
             }
         }
-        if (boss)
-        {
-            bossHp.UpdateBar(bossStats.hp, bossMaxHp);
-        }
 
         if (score<0)
         {
@@ -432,9 +429,17 @@ public class GM : MonoBehaviour {
         bossMaxHp = bossStartingHp;
     }
 
+    public void UpdateBossHpBar(float currHp)
+    {
+        bossHp.UpdateBar(currHp, bossMaxHp);
+    }
+
     private void BossBehavior_OnBossDeath()
     {
-        EndLevel();
+        if(endLevelOnBossDeath)
+            EndLevel();
+        else
+            mainFlowchart.SendFungusMessage("boss dead");
     }
 
     //Scene specific events ***Obsolete

@@ -30,8 +30,6 @@ public class LargeEnemyBehavior : MonoBehaviour {
         {
             print("Ohshit! Obstacle cannot find camera!");
         }
-        //GameObject gmobject = GameObject.FindWithTag("GameController");
-        //gm = gmobject.GetComponent<GM>(); 
         gm = GM.gameController;
     }
 
@@ -86,8 +84,11 @@ public class LargeEnemyBehavior : MonoBehaviour {
 
     public void BeginDeathSequence()
     {
-        dying = true;
-        dieTime = Time.time + 1.3f;
-        subexplodeTime = Time.time;
+        if (!dying)
+        {
+            dying = true;
+            dieTime = Time.time + 1.3f;
+            subexplodeTime = Time.time;
+        }
     }
 }

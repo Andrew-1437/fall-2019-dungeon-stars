@@ -1333,6 +1333,7 @@ MonoBehaviour:
   multiplierTimer: 4
   gameStart: 0
   allowBoss: 0
+  endLevelOnBossDeath: 1
   playerLives: 5
   twoPlayerMode: 0
   gamePaused: 0
@@ -7826,7 +7827,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 14}
-  m_SizeDelta: {x: 200, y: 42.7}
+  m_SizeDelta: {x: 428.743, y: 42.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4638298360078416521
 CanvasRenderer:
@@ -11151,7 +11152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 119886, guid: 34017cf12560c804bb2f669f00c7af91, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11448154, guid: 34017cf12560c804bb2f669f00c7af91, type: 3}
       propertyPath: m_Color.b

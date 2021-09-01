@@ -41,11 +41,33 @@ public class EndlessController : MonoBehaviour
 
     private IEnumerator endlessMode;
 
+    public delegate void EndlessDelegate(int difficulty);
+    public static event EndlessDelegate OnEndlessDifficultyIncrease;
 
     // Start is called before the first frame update
     void Start()
     {
         endlessMode = EndlessDifficultyIncrease();
+
+        BossBehavior.OnBossDeath += BossBehavior_OnBossDeath;
+        PlayerController.OnPlayerDeath += PlayerController_OnPlayerDeath;
+    }
+
+    private void PlayerController_OnPlayerDeath(PlayerController pc)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    private void BossBehavior_OnBossDeath()
+    {
+        activeBoss = false;
+        spawnEnemies = true;
+        IncreaseDifficulty();
+
+        // Increase difficulty modifiers after boss is defeated
+        OmniController.omniController.additionalScoreMultiplier += .2f;
+        OmniController.omniController.obstacleHpScale += .2f;
+        OmniController.omniController.obstacleSpeedScale += .2f;
     }
 
     // Update is called once per frame
@@ -145,6 +167,30 @@ public class EndlessController : MonoBehaviour
         GM.gameController.AwakenBoss();
     }
 
+    public void IncreaseDifficulty()
+    {
+        OnEndlessDifficultyIncrease?.Invoke(difficultyLevel);
+        difficultyLevel++;
+        minTimeBetweenGroups = minTimeBetweenGroups * .95f;
+        maxTimeBetweenGroups = maxTimeBetweenGroups * .95f;
+
+        if (difficultyLevel > 3)
+        {
+            minTimeBetweenDangerGroups = minTimeBetweenDangerGroups * .95f;
+            maxTimeBetweenDangerGroups = maxTimeBetweenDangerGroups * .95f;
+        }
+
+        // TODO: Every 10 levels or so, spawn a boss and stop difficulty from increasing until the boss is defeated
+
+        // Every 6 levels of difficulty, spawn a boss, stop enemies from spawning, and stop difficulty from increasing
+        if (difficultyLevel % 6 == 0)
+        {
+            activeBoss = true;
+            spawnEnemies = false;
+            flowchart.SendFungusMessage("boss");
+        }
+    }
+
     IEnumerator EndlessDifficultyIncrease()
     {
         for(; ; )
@@ -157,31 +203,9 @@ public class EndlessController : MonoBehaviour
 
             yield return new WaitForSeconds(timeBetweenDifficultyIncrease); // Every interval, increase the difficulty slightly
 
-            difficultyLevel++;
-            minTimeBetweenGroups = minTimeBetweenGroups * .95f;
-            maxTimeBetweenGroups = maxTimeBetweenGroups * .95f;
+            IncreaseDifficulty();
 
-            if(difficultyLevel > 3)
-            {
-                minTimeBetweenDangerGroups = minTimeBetweenDangerGroups * .95f;
-                maxTimeBetweenDangerGroups = maxTimeBetweenDangerGroups * .95f;
-            }
             
-            // TODO: Every 10 levels or so, spawn a boss and stop difficulty from increasing until the boss is defeated
-
-            // Every 6 levels of difficulty, spawn a boss, stop enemies from spawning, and stop difficulty from increasing
-            if(difficultyLevel % 6 == 0)
-            {
-                activeBoss = true;
-                spawnEnemies = false;
-                flowchart.SendFungusMessage("boss");
-            }
-
-            /*  Increase difficulty after boss is defeated
-                OmniController.omniController.additionalScoreMultiplier += .2f;
-                OmniController.omniController.obstacleHpScale += .2f;
-                OmniController.omniController.obstacleSpeedScale += .2f;
-                */
         }
     }
 }

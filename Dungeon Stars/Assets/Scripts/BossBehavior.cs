@@ -76,9 +76,10 @@ public class BossBehavior : LargeEnemyBehavior {
         hp -= dmg * dmgMod * OmniController.omniController.obstacleIncommingDamageScale;
         if ((hp <= 0 || turrets <= 0) && !dying)
         {
-            dieTime = Time.time + 1.6f;
-            dying = true;
+            hp = 0;
+            BeginDeathSequence();
         }
+        GM.gameController.UpdateBossHpBar(hp);
     }
 
     //Wakes boss from another script
