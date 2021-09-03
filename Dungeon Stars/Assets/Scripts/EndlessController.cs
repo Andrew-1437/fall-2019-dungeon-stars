@@ -194,6 +194,13 @@ public class EndlessController : MonoBehaviour
         }
     }
 
+    public void End()
+    {
+        StopCoroutine(EndlessDifficultyIncrease());
+        OmniController.omniController.finalDifficultyLevel = difficultyLevel;
+        OmniController.omniController.timeTaken = TimeSurvived();
+    }
+
     IEnumerator EndlessDifficultyIncrease()
     {
         for(; ; )

@@ -14,6 +14,7 @@ public class OmniController : MonoBehaviour
     public int powerUpsCollected;
     public bool completedGame;
 
+    public string loadIntoLevel = "";
     [HideInInspector]
     public GameObject selectedShip = null;
     [HideInInspector]
@@ -46,8 +47,13 @@ public class OmniController : MonoBehaviour
     public float additionalScoreMultiplier = 1f;    // Multiply all point gains by this amount
     public float powerUpDurationScale = 1f;  // Multiply the duration of all power ups by this amount
 
-    [Header("Two Player Co-op")]
+    [Header("Two Player Mode")]
     public bool twoPlayerMode;
+
+    [Header("Endless Mode")]
+    public bool endlessMode;
+    public int finalDifficultyLevel;
+    public float timeTaken;
 
     private void Awake()
     {

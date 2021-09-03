@@ -664,4 +664,14 @@ public class GM : MonoBehaviour {
     {
         OmniController.omniController.completedGame = true;
     }
+
+    public void ExitToMainMenu()
+    {
+        // Unsubscribe to events at the end of the level
+        GameStarter.OnGameStart -= GameStarter_OnGameStart;
+        PlayerController.OnPlayerDeath -= PlayerController_OnPlayerDeath;
+        BossBehavior.OnBossDeath -= BossBehavior_OnBossDeath;
+
+        SceneLoader.Instance.LoadScene("MainMenu");
+    }
 }

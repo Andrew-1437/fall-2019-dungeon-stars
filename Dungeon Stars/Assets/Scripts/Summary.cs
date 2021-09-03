@@ -38,10 +38,28 @@ public class Summary : MonoBehaviour
 
     private void Awake()
     {
-        int bestEnemies = PlayerPrefs.GetInt("MostEnemies", 0);
-        int bestPowerUps = PlayerPrefs.GetInt("MostPowerUp", 0);
-        int bestDeaths = PlayerPrefs.GetInt("MostDeaths", 0);
-        int highScore = PlayerPrefs.GetInt("HighScore", 0);
+        int bestEnemies;
+        int bestPowerUps;
+        int bestDeaths;
+        int bestDifficulty; // Endless mode only
+        int highScore;
+
+        if (!OmniController.omniController.endlessMode)
+        {
+            bestEnemies = PlayerPrefs.GetInt("MostEnemies", 0);
+            bestPowerUps = PlayerPrefs.GetInt("MostPowerUp", 0);
+            bestDeaths = PlayerPrefs.GetInt("MostDeaths", 0);
+            bestDifficulty = 0;
+            highScore = PlayerPrefs.GetInt("HighScore", 0);
+        }
+        else
+        {
+            bestEnemies = PlayerPrefs.GetInt("MostEnemiesEndless", 0);
+            bestPowerUps = PlayerPrefs.GetInt("MostPowerUpEndless", 0);
+            bestDeaths = 0;
+            bestDifficulty = PlayerPrefs.GetInt("BestDifficultyEndless", 0);
+            highScore = PlayerPrefs.GetInt("HighScoreEndless", 0);
+        }
 
         rankFlowchart.SetBooleanVariable("CompletedGame", OmniController.omniController.completedGame);
         if (!OmniController.omniController.completedGame)
@@ -58,13 +76,22 @@ public class Summary : MonoBehaviour
             returnToMenu.colorGradientPreset = defeatGradient;
         }
 
+        if (OmniController.omniController.endlessMode)
+        {
+            title.text = "Run Complete";
+            subtitle.text = "Time Survived: " + OmniController.omniController.timeTaken/60f + " min";
+        }
+
         ApplyModifiers();
         trueScore = (int)((double)OmniController.omniController.totalScore * scoreModifier);
 
         if (OmniController.omniController.enemiesKilled > bestEnemies)
         {
             bestEnemiesStr = "   Best: " + OmniController.omniController.enemiesKilled.ToString() + " **New Best**";
-            PlayerPrefs.SetInt("MostEnemies", OmniController.omniController.enemiesKilled);
+            if(!OmniController.omniController.endlessMode)
+                PlayerPrefs.SetInt("MostEnemies", OmniController.omniController.enemiesKilled);
+            else
+                PlayerPrefs.SetInt("MostEnemiesEndless", OmniController.omniController.enemiesKilled);
         }
         else
             bestEnemiesStr = "   Best: " + bestEnemies.ToString();
@@ -72,23 +99,43 @@ public class Summary : MonoBehaviour
         if (OmniController.omniController.powerUpsCollected > bestPowerUps)
         {
             bestPowerUpsStr = "   Best: " + OmniController.omniController.powerUpsCollected.ToString() + " **New Best**";
-            PlayerPrefs.SetInt("MostPowerUp", OmniController.omniController.powerUpsCollected);
+            if (!OmniController.omniController.endlessMode)
+                PlayerPrefs.SetInt("MostPowerUp", OmniController.omniController.powerUpsCollected);
+            else
+                PlayerPrefs.SetInt("MostPowerUpEndless", OmniController.omniController.powerUpsCollected);
         }
         else
             bestPowerUpsStr = "   Best: " + bestPowerUps.ToString();
 
-        if (OmniController.omniController.timesDied > bestDeaths)
+        if (!OmniController.omniController.endlessMode)
         {
-            bestDeathsStr = "   Worst: " + OmniController.omniController.timesDied.ToString() + " **New Worst**";
-            PlayerPrefs.SetInt("MostDeaths", OmniController.omniController.timesDied);
+            if (OmniController.omniController.timesDied > bestDeaths)
+            {
+                bestDeathsStr = "   Worst: " + OmniController.omniController.timesDied.ToString() + " **New Worst**";
+                PlayerPrefs.SetInt("MostDeaths", OmniController.omniController.timesDied);
+            }
+            else
+                bestDeathsStr = "   Worst: " + bestDeaths.ToString();
         }
+        // If in endless mode, we don't care about deaths, so replace it with Difficulty Level
         else
-            bestDeathsStr = "   Worst: " + bestDeaths.ToString();
+        {
+            if (OmniController.omniController.finalDifficultyLevel > bestDifficulty)
+            {
+                bestDeathsStr = "   Best: " + OmniController.omniController.finalDifficultyLevel.ToString() + " **New Best**";
+                PlayerPrefs.SetInt("BestDifficultyEndless", OmniController.omniController.finalDifficultyLevel);
+            }
+            else
+                bestDeathsStr = "   Best: " + bestDifficulty.ToString();
+        }
 
         if (trueScore > highScore)
         {
             highScoreStr = "   Best: " + trueScore.ToString() + " **New Best**";
-            PlayerPrefs.SetInt("HighScore", trueScore);
+            if (!OmniController.omniController.endlessMode)
+                PlayerPrefs.SetInt("HighScore", trueScore);
+            else
+                PlayerPrefs.SetInt("HighScoreEndless", trueScore);
         }
         else
             highScoreStr = "   Best: " + highScore.ToString();
@@ -103,7 +150,10 @@ public class Summary : MonoBehaviour
         {
             enemies.text = "Enemies Defeated: " + displayedEnemies + bestEnemiesStr;
             powerups.text = "PowerUps Collected: " + displayedPowerUps + bestPowerUpsStr;
-            deaths.text = "Times Died: " + displayedDeaths + bestDeathsStr;
+            if(!OmniController.omniController.endlessMode)
+                deaths.text = "Times Died: " + displayedDeaths + bestDeathsStr;
+            else
+                deaths.text = "Highest Difficulty Level: " + displayedDeaths + bestDeathsStr;
             scoreMod.text = "Score Modifier: x" + scoreModifier;
             score.text = "Overall Score: " + displayedScore + highScoreStr;
         }
@@ -210,6 +260,81 @@ public class Summary : MonoBehaviour
         rankFlowchart.SetIntegerVariable("Rank", rank);
     }
 
+    // Calculate the rank from 0-5 (F, D, C, B, A, S Tier)
+    public void GetRankingEndless()
+    {
+        /* ***********************
+         * Criteria for S rank
+         * Enemies Killed: >= 550
+         * Power Ups Collected >= 45
+         * Difficulty Reached >= 
+         * Final Score >= 1,500,000
+         * 
+         * ***********************
+         * Criteria for A Rank
+         * Enemies Killed: >= 500
+         * Power Ups Collected >= 40
+         * Deaths <= 1
+         * Final Score >= 1,300,000
+         * 
+         * ***********************
+         * Criteria for B rank
+         * Enemies Killed: >= 450
+         * Power Ups Collected >= 35
+         * Deaths <= 3
+         * Final Score >= 1,000,000
+         * 
+         * ***********************
+         * Criteria for C rank
+         * Enemies Killed: >= 370
+         * Power Ups Collected >= 30
+         * Deaths <= 4
+         * Final Score >= 800,000
+         * 
+         * ***********************
+         * Criteria for D rank
+         * Enemies Killed: >= 300
+         * Power Ups Collected >= 20
+         * Deaths <= 5
+         * Final Score >= 500,000
+         */
+
+        if (OmniController.omniController != null)
+        {
+            // D Rank
+            if (OmniController.omniController.enemiesKilled >= 300 &&
+                OmniController.omniController.powerUpsCollected >= 20 &&
+                OmniController.omniController.timesDied <= 5 &&
+                trueScore >= 500000)
+                rank++;
+            // C Rank
+            if (OmniController.omniController.enemiesKilled >= 370 &&
+                OmniController.omniController.powerUpsCollected >= 30 &&
+                OmniController.omniController.timesDied <= 4 &&
+                trueScore >= 800000)
+                rank++;
+            // B Rank
+            if (OmniController.omniController.enemiesKilled >= 450 &&
+                OmniController.omniController.powerUpsCollected >= 35 &&
+                OmniController.omniController.timesDied <= 3 &&
+                trueScore >= 1000000)
+                rank++;
+            // A Rank
+            if (OmniController.omniController.enemiesKilled >= 500 &&
+                OmniController.omniController.powerUpsCollected >= 40 &&
+                OmniController.omniController.timesDied <= 1 &&
+                trueScore >= 1300000)
+                rank++;
+            // S Rank
+            if (OmniController.omniController.enemiesKilled >= 550 &&
+                OmniController.omniController.powerUpsCollected >= 45 &&
+                OmniController.omniController.timesDied <= 0 &&
+                trueScore >= 1500000)
+                rank++;
+        }
+        rankFlowchart.SetIntegerVariable("Rank", rank);
+    }
+
     // Fungus helper method to 
     public void StartAccumulatingScore(int scoreType)
     {
@@ -239,13 +364,26 @@ public class Summary : MonoBehaviour
                 }
                 break;
             case 2:
-                while (displayedDeaths < OmniController.omniController.timesDied)
+                if (!OmniController.omniController.endlessMode)
                 {
-                    displayedDeaths++;
-                    accumulateDeathsFx.Play();
-                    yield return new WaitForSecondsRealtime(.5f);
+                    while (displayedDeaths < OmniController.omniController.timesDied)
+                    {
+                        displayedDeaths++;
+                        accumulateDeathsFx.Play();
+                        yield return new WaitForSecondsRealtime(.5f);
+                    }
+                    break;
                 }
-                break;
+                else
+                {
+                    while (displayedDeaths < OmniController.omniController.finalDifficultyLevel)
+                    {
+                        displayedDeaths++;
+                        accumulateScoreFx.Play();
+                        yield return new WaitForSecondsRealtime(.06f);
+                    }
+                    break;
+                }
             case 3:
                 while (displayedScore < trueScore)
                 {

@@ -16,7 +16,6 @@ public class ShipSelect : MonoBehaviour
 
     public SceneLoader sceneLoader;
     public MaintainSelection selection;
-    public string nextSceneName;
 
     [Header("UI Elements")]
     public GameObject canvas;
@@ -67,12 +66,12 @@ public class ShipSelect : MonoBehaviour
         {
             SceneManager.LoadScene("MainMenu");
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             SelectNextShip();
             sound.Play();
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             SelectNextShip(-1);
             sound.Play();
@@ -84,9 +83,8 @@ public class ShipSelect : MonoBehaviour
             selectSound.Play();
             OmniController.omniController.selectedShip2 = ships[index];
             SceneLoader.DontDestroyOnLoad(selection.gameObject);
-            //SceneManager.LoadScene(nextSceneName);
             canvas.SetActive(false);
-            sceneLoader.LoadScene(nextSceneName);
+            sceneLoader.LoadScene(OmniController.omniController.loadIntoLevel);
         }
 
         if (Input.GetKeyDown(KeyCode.Return) && !p2Picking)
@@ -106,7 +104,7 @@ public class ShipSelect : MonoBehaviour
                 SceneLoader.DontDestroyOnLoad(selection.gameObject);
                 //SceneManager.LoadScene(nextSceneName);
                 canvas.SetActive(false);
-                sceneLoader.LoadScene(nextSceneName);
+                sceneLoader.LoadScene(OmniController.omniController.loadIntoLevel);
             }
         }
 
