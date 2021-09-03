@@ -15,6 +15,7 @@ public class EndlessController : MonoBehaviour
     public GameObject[] spawnList;  // List of normal enemies to spawn. Sorted from Easy -> Hard
     public GameObject[] dangerSpawnList;   // List of more dangerous/complex enemies to spawn. Sorted from Easy -> Hard
     public GameObject[] powerUpList;    // List of power ups to spawn. Index 0 should be LevelUp
+    public GameObject hpRepairPowerUp;  // Hp repair power up to spawn after a boss
     public GameObject[] bossesList; // List of bosses to spawn in order of appearance (or random maybe?)
 
     public bool spawnEnemies;
@@ -64,10 +65,14 @@ public class EndlessController : MonoBehaviour
         spawnEnemies = true;
         IncreaseDifficulty();
 
+        Instantiate(hpRepairPowerUp, transform.position + Vector3.up * 20f, transform.rotation);
+
         // Increase difficulty modifiers after boss is defeated
         OmniController.omniController.additionalScoreMultiplier += .2f;
         OmniController.omniController.obstacleHpScale += .2f;
         OmniController.omniController.obstacleSpeedScale += .2f;
+        OmniController.omniController.playerIncommingDamageScale += .05f;
+        OmniController.omniController.enemyFireRateScale *= .9f;
     }
 
     // Update is called once per frame

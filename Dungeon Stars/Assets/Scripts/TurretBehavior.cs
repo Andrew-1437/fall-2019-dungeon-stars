@@ -103,7 +103,7 @@ public class TurretBehavior : MonoBehaviour {
         Destroy(
             Instantiate(projectile, hardpoint.position, hardpoint.rotation), 
             5f);
-        nextFire = Time.time + fireRate * OmniController.omniController.obstacleSpeedScale;
+        nextFire = Time.time + fireRate * OmniController.omniController.enemyFireRateScale;
     }
 
     public void HoldFire(bool state)

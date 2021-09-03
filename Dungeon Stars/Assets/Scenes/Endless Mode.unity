@@ -678,9 +678,11 @@ MonoBehaviour:
   - {fileID: 1103539023306570, guid: 555f06003e69145419aa248e878b4499, type: 3}
   - {fileID: 1871459003417432, guid: d8b50aca52d83cd4bb93745e38bea6b8, type: 3}
   - {fileID: 2233522078285120023, guid: fd29100c92595e04b870143f22cf481b, type: 3}
+  hpRepairPowerUp: {fileID: 2320071764884064974, guid: d3f42b68653b1d743a4b26069f11944a,
+    type: 3}
   bossesList:
-  - {fileID: 8667968472623555120, guid: ee5b7ae22a483d94187334d750961a82, type: 3}
   - {fileID: 1541866628144814, guid: c9d0e55196736654a98ff15db3e5d2fd, type: 3}
+  - {fileID: 8667968472623555120, guid: ee5b7ae22a483d94187334d750961a82, type: 3}
   - {fileID: 1563168796038907192, guid: 96bc6acfe648cb54385b32680a4d31c1, type: 3}
   spawnEnemies: 1
   activeBoss: 0
@@ -913,7 +915,7 @@ PrefabInstance:
     - target: {fileID: 3672931476469656402, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -370.35992
+      value: -370.35995
       objectReference: {fileID: 0}
     - target: {fileID: 3714608534395630364, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}

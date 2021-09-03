@@ -53,7 +53,7 @@ public class BeamWeapon : MonoBehaviour
             aim = false;
 
             // If in auto mode, set the next aimEndTime to what it should be. Otherwise, don't so that we don't shoot again
-            if (auto) aimEndTime = shootEndTime + aimTime;
+            if (auto) aimEndTime = shootEndTime + aimTime * OmniController.omniController.enemyFireRateScale;
             else aimEndTime = Mathf.Infinity;
 
         }
@@ -65,7 +65,7 @@ public class BeamWeapon : MonoBehaviour
             firing = true;
 
             // Same logic as with aimEndTime
-            if (auto) targetEndTime = aimEndTime + targetTime;
+            if (auto) targetEndTime = aimEndTime + targetTime * OmniController.omniController.enemyFireRateScale;
             else targetEndTime = Mathf.Infinity;
         }
         else if (Time.time > shootEndTime)
@@ -109,7 +109,7 @@ public class BeamWeapon : MonoBehaviour
     public void FireCycleOnce()
     {
         aimEndTime = Time.time;
-        targetEndTime = aimEndTime + targetTime;
+        targetEndTime = aimEndTime * OmniController.omniController.enemyFireRateScale + targetTime;
         shootEndTime = targetEndTime + shootTime;
     }
 
@@ -118,8 +118,8 @@ public class BeamWeapon : MonoBehaviour
     {
         if(state)
         {
-            aimEndTime = Time.time + aimTime + sync;
-            targetEndTime = aimEndTime + targetTime;
+            aimEndTime = Time.time + aimTime * OmniController.omniController.enemyFireRateScale + sync;
+            targetEndTime = aimEndTime + targetTime * OmniController.omniController.enemyFireRateScale;
             shootEndTime = targetEndTime + shootTime;
         }
         else

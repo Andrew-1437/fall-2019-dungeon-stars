@@ -406,6 +406,7 @@ public class PlayerController : MonoBehaviour {
         {
             OmniController.omniController.powerUpsCollected++;
             PowerUpBehavior pow = other.gameObject.GetComponent<PowerUpBehavior>();
+            
             // Immediately restore half the shield
             if (pow.type == PowerUpBehavior.PowerUps.Repair)
             {
@@ -413,6 +414,14 @@ public class PlayerController : MonoBehaviour {
                 shieldDown = false;
                 shieldSprite.SetTrigger("Restored");
                 
+            }
+            // Immediately restore 75% of missing hp and shield
+            if (pow.type == PowerUpBehavior.PowerUps.HpRepair)
+            {
+                hp = Mathf.Min(maxHp, hp + (maxHp - hp) * 0.75f);
+                shield = Mathf.Min(maxShield, shield + (maxShield - shield) * 0.75f);
+                shieldDown = false;
+                shieldSprite.SetTrigger("Restored");
             }
             // Increases fire rate and reduces heat gen
             if (pow.type == PowerUpBehavior.PowerUps.FireUp)
@@ -445,8 +454,7 @@ public class PlayerController : MonoBehaviour {
             {
                 pow.Summon(isPlayer2);
             }
-            audio[3].Play();
-            Destroy(other.gameObject);
+            pow.OnCollected();
         }
 
 
