@@ -174,18 +174,16 @@ public class EndlessController : MonoBehaviour
 
     public void IncreaseDifficulty()
     {
-        OnEndlessDifficultyIncrease?.Invoke(difficultyLevel);
         difficultyLevel++;
-        minTimeBetweenGroups = minTimeBetweenGroups * .95f;
-        maxTimeBetweenGroups = maxTimeBetweenGroups * .95f;
+        OnEndlessDifficultyIncrease?.Invoke(difficultyLevel);
+        minTimeBetweenGroups = minTimeBetweenGroups * .98f;
+        maxTimeBetweenGroups = maxTimeBetweenGroups * .98f;
 
         if (difficultyLevel > 3)
         {
-            minTimeBetweenDangerGroups = minTimeBetweenDangerGroups * .95f;
-            maxTimeBetweenDangerGroups = maxTimeBetweenDangerGroups * .95f;
+            minTimeBetweenDangerGroups = minTimeBetweenDangerGroups * .98f;
+            maxTimeBetweenDangerGroups = maxTimeBetweenDangerGroups * .98f;
         }
-
-        // TODO: Every 10 levels or so, spawn a boss and stop difficulty from increasing until the boss is defeated
 
         // Every 6 levels of difficulty, spawn a boss, stop enemies from spawning, and stop difficulty from increasing
         if (difficultyLevel % 6 == 0)
