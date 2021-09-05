@@ -215,6 +215,9 @@ public class GM : MonoBehaviour {
                 SpawnPlayer();
                 //player = GameObject.FindWithTag("Player");
             }
+            // Ends the level
+            if (Input.GetKeyDown(KeyCode.Equals))
+                EndLevel();
 
             //Summons Boss
             if (Input.GetKeyDown("b") && allowBoss)

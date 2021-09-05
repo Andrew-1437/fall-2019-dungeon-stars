@@ -116,7 +116,7 @@ MonoBehaviour:
   floatingScoreText: {fileID: 5520782144581124303, guid: d1c3623ad77006e45be3f0a8c9a06bc4,
     type: 3}
   bossTitle: Twin Turrets of Terminating
-  hp: 5000
+  hp: 6600
   dmgMod: 0
   miniExplosion: {fileID: 100010, guid: 645413a00f7bd0242bbd6d0e5eb6f439, type: 3}
   awake: 0
@@ -144,6 +144,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4302259841102167044}
     m_Modifications:
+    - target: {fileID: 519178488363583973, guid: 8319a268160e8d2409aab511587e641c,
+        type: 3}
+      propertyPath: hp
+      value: 3300
+      objectReference: {fileID: 0}
+    - target: {fileID: 519178488363583973, guid: 8319a268160e8d2409aab511587e641c,
+        type: 3}
+      propertyPath: score
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 519178488363583974, guid: 8319a268160e8d2409aab511587e641c,
         type: 3}
       propertyPath: speed
@@ -250,6 +260,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4302259841102167044}
     m_Modifications:
+    - target: {fileID: 519178488363583973, guid: 8319a268160e8d2409aab511587e641c,
+        type: 3}
+      propertyPath: hp
+      value: 3300
+      objectReference: {fileID: 0}
+    - target: {fileID: 519178488363583973, guid: 8319a268160e8d2409aab511587e641c,
+        type: 3}
+      propertyPath: score
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 519178488363583974, guid: 8319a268160e8d2409aab511587e641c,
         type: 3}
       propertyPath: speed
