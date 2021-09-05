@@ -390,8 +390,8 @@ public class Summary : MonoBehaviour
             case 3:
                 while (displayedScore < trueScore)
                 {
-                    //if (trueScore - displayedScore > 100000) displayedScore += 100000;
-                    if (trueScore - displayedScore > 10000) displayedScore += 10000;
+                    if (trueScore - displayedScore > 100000) displayedScore += 100000;
+                    else if (trueScore - displayedScore > 10000) displayedScore += 10000;
                     else if (trueScore - displayedScore > 1000) displayedScore += 1000;
                     else if (trueScore - displayedScore > 100) displayedScore += 100;
                     else displayedScore++;

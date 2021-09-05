@@ -40,9 +40,9 @@ public class BossAce : BossBehavior
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        base.Start();
+        base.Awake();
         animator = GetComponent<Animator>();
         halfHp = hp / 2f;
     }

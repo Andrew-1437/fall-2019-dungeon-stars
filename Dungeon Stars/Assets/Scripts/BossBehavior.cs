@@ -29,7 +29,7 @@ public class BossBehavior : LargeEnemyBehavior {
     public delegate void BossDelegate();
     public static event BossDelegate OnBossDeath;
 
-    private void Awake()
+    protected void Awake()
     {
         hp = hp * OmniController.omniController.obstacleHpScale;
         dieTime = Mathf.Infinity;

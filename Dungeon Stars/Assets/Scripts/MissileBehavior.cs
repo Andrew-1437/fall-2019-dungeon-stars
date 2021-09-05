@@ -30,6 +30,11 @@ public class MissileBehavior : ProjectileBehavior {
     {
         if (target != null)
         {
+            if (targetTag == "Player" && target.GetComponent<PlayerController>().id.Equals(ShipsEnum.ShipID.VECTOR))
+                turnSpeedMod = .5f;
+            else
+                turnSpeedMod = 1f;
+
             // If we have a target, turn towards it
             Vector3 targetDir = target.GetComponent<Transform>().position - transform.position;
 
@@ -41,10 +46,6 @@ public class MissileBehavior : ProjectileBehavior {
         { 
             // Acquire new target
             target = FindClosestByTag(targetTag);
-            if (targetTag == "Player" && target.GetComponent<PlayerController>().id.Equals(ShipsEnum.ShipID.VECTOR))
-                turnSpeedMod = .5f;
-            else
-                turnSpeedMod = 1f;
         }
 
         if (Time.time >= deathTime)
