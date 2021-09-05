@@ -140,7 +140,10 @@ public class Summary : MonoBehaviour
         else
             highScoreStr = "   Best: " + highScore.ToString();
 
-        GetRanking();
+        if (OmniController.omniController.endlessMode)
+            GetRankingEndless();
+        else
+            GetRanking();
         
     }
 
@@ -260,42 +263,42 @@ public class Summary : MonoBehaviour
         rankFlowchart.SetIntegerVariable("Rank", rank);
     }
 
-    // Calculate the rank from 0-5 (F, D, C, B, A, S Tier)
+    // Calculate the rank from 0-5 (F, D, C, B, A, S Tier) for Endless Mode
     public void GetRankingEndless()
     {
         /* ***********************
          * Criteria for S rank
-         * Enemies Killed: >= 550
-         * Power Ups Collected >= 45
-         * Difficulty Reached >= 
-         * Final Score >= 1,500,000
+         * Enemies Killed: >= 1000
+         * Power Ups Collected >= 90
+         * Difficulty Reached > 30
+         * Final Score >= 4,000,000
          * 
          * ***********************
          * Criteria for A Rank
-         * Enemies Killed: >= 500
-         * Power Ups Collected >= 40
-         * Deaths <= 1
-         * Final Score >= 1,300,000
+         * Enemies Killed: >= 800
+         * Power Ups Collected >= 70
+         * Difficulty Reached > 24
+         * Final Score >= 3,500,000
          * 
          * ***********************
          * Criteria for B rank
-         * Enemies Killed: >= 450
-         * Power Ups Collected >= 35
-         * Deaths <= 3
-         * Final Score >= 1,000,000
+         * Enemies Killed: >= 600
+         * Power Ups Collected >= 50
+         * Difficulty Reached > 18
+         * Final Score >= 2,000,000
          * 
          * ***********************
          * Criteria for C rank
-         * Enemies Killed: >= 370
+         * Enemies Killed: >= 400
          * Power Ups Collected >= 30
-         * Deaths <= 4
-         * Final Score >= 800,000
+         * Difficulty Reached > 12
+         * Final Score >= 1,000,000
          * 
          * ***********************
          * Criteria for D rank
          * Enemies Killed: >= 300
          * Power Ups Collected >= 20
-         * Deaths <= 5
+         * Difficulty Reached > 6
          * Final Score >= 500,000
          */
 
@@ -304,32 +307,32 @@ public class Summary : MonoBehaviour
             // D Rank
             if (OmniController.omniController.enemiesKilled >= 300 &&
                 OmniController.omniController.powerUpsCollected >= 20 &&
-                OmniController.omniController.timesDied <= 5 &&
+                OmniController.omniController.finalDifficultyLevel > 6 &&
                 trueScore >= 500000)
                 rank++;
             // C Rank
-            if (OmniController.omniController.enemiesKilled >= 370 &&
+            if (OmniController.omniController.enemiesKilled >= 400 &&
                 OmniController.omniController.powerUpsCollected >= 30 &&
-                OmniController.omniController.timesDied <= 4 &&
-                trueScore >= 800000)
-                rank++;
-            // B Rank
-            if (OmniController.omniController.enemiesKilled >= 450 &&
-                OmniController.omniController.powerUpsCollected >= 35 &&
-                OmniController.omniController.timesDied <= 3 &&
+                OmniController.omniController.finalDifficultyLevel > 12 &&
                 trueScore >= 1000000)
                 rank++;
+            // B Rank
+            if (OmniController.omniController.enemiesKilled >= 600 &&
+                OmniController.omniController.powerUpsCollected >= 50 &&
+                OmniController.omniController.finalDifficultyLevel > 18 &&
+                trueScore >= 2000000)
+                rank++;
             // A Rank
-            if (OmniController.omniController.enemiesKilled >= 500 &&
-                OmniController.omniController.powerUpsCollected >= 40 &&
-                OmniController.omniController.timesDied <= 1 &&
-                trueScore >= 1300000)
+            if (OmniController.omniController.enemiesKilled >= 800 &&
+                OmniController.omniController.powerUpsCollected >= 70 &&
+                OmniController.omniController.finalDifficultyLevel > 24 &&
+                trueScore >= 3000000)
                 rank++;
             // S Rank
-            if (OmniController.omniController.enemiesKilled >= 550 &&
-                OmniController.omniController.powerUpsCollected >= 45 &&
-                OmniController.omniController.timesDied <= 0 &&
-                trueScore >= 1500000)
+            if (OmniController.omniController.enemiesKilled >= 1000 &&
+                OmniController.omniController.powerUpsCollected >= 90 &&
+                OmniController.omniController.finalDifficultyLevel > 30 &&
+                trueScore >= 4000000)
                 rank++;
         }
         rankFlowchart.SetIntegerVariable("Rank", rank);

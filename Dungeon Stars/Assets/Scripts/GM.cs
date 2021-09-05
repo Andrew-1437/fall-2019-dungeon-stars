@@ -458,8 +458,7 @@ public class GM : MonoBehaviour {
         mainFlowchart.SendFungusMessage("LevelComplete");
 
         // Unsubscribe to events at the end of the level
-        PlayerController.OnPlayerDeath -= PlayerController_OnPlayerDeath;
-        BossBehavior.OnBossDeath -= BossBehavior_OnBossDeath;
+        UnsubAllEvents();
     }
 
     // Depreciating
@@ -665,12 +664,18 @@ public class GM : MonoBehaviour {
         OmniController.omniController.completedGame = true;
     }
 
-    public void ExitToMainMenu()
+    // Unsubscribes all listeners in this class. Must call this before every level transition or wierd things happen
+    private void UnsubAllEvents()
     {
-        // Unsubscribe to events at the end of the level
         GameStarter.OnGameStart -= GameStarter_OnGameStart;
         PlayerController.OnPlayerDeath -= PlayerController_OnPlayerDeath;
         BossBehavior.OnBossDeath -= BossBehavior_OnBossDeath;
+    }
+
+    public void ExitToMainMenu()
+    {
+        // Unsubscribe to events at the end of the level
+        UnsubAllEvents();
 
         SceneLoader.Instance.LoadScene("MainMenu");
     }

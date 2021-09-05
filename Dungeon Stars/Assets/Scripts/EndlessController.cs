@@ -52,6 +52,7 @@ public class EndlessController : MonoBehaviour
 
         BossBehavior.OnBossDeath += BossBehavior_OnBossDeath;
         PlayerController.OnPlayerDeath += PlayerController_OnPlayerDeath;
+        GM.OnLevelComplete += GM_OnLevelComplete;
     }
 
     private void PlayerController_OnPlayerDeath(PlayerController pc)
@@ -73,6 +74,17 @@ public class EndlessController : MonoBehaviour
         OmniController.omniController.obstacleSpeedScale += .2f;
         OmniController.omniController.playerIncommingDamageScale += .05f;
         OmniController.omniController.enemyFireRateScale *= .9f;
+    }
+
+    private void GM_OnLevelComplete()
+    {
+        StopCoroutine(EndlessDifficultyIncrease());
+        OmniController.omniController.finalDifficultyLevel = difficultyLevel;
+        OmniController.omniController.timeTaken = TimeSurvived();
+
+        BossBehavior.OnBossDeath -= BossBehavior_OnBossDeath;
+        PlayerController.OnPlayerDeath -= PlayerController_OnPlayerDeath;
+        GM.OnLevelComplete -= GM_OnLevelComplete;
     }
 
     // Update is called once per frame
@@ -192,13 +204,6 @@ public class EndlessController : MonoBehaviour
             spawnEnemies = false;
             flowchart.SendFungusMessage("boss");
         }
-    }
-
-    public void End()
-    {
-        StopCoroutine(EndlessDifficultyIncrease());
-        OmniController.omniController.finalDifficultyLevel = difficultyLevel;
-        OmniController.omniController.timeTaken = TimeSurvived();
     }
 
     IEnumerator EndlessDifficultyIncrease()
