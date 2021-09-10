@@ -48,8 +48,8 @@ public class EndlessController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartEndlessTimer();
         endlessMode = EndlessDifficultyIncrease();
+        StartEndlessTimer();
 
         BossBehavior.OnBossDeath += BossBehavior_OnBossDeath;
         PlayerController.OnPlayerDeath += PlayerController_OnPlayerDeath;
