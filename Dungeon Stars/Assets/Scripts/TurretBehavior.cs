@@ -66,13 +66,15 @@ public class TurretBehavior : MonoBehaviour {
         if (awake)
         {
             target = FindClosestByTag(targetTag);
-            // If the target is the player and they are playing the "Vector Hunter" stealth ship, the turret's turn speed is reduced
-            if (targetTag == "Player" && target.GetComponent<PlayerController>().id.Equals(ShipsEnum.ShipID.VECTOR))
-                turnSpeedMod = .35f;
-            else
-                turnSpeedMod = 1f;
+            
             if (target != null)
             {
+                // If the target is the player and they are playing the "Vector Hunter" stealth ship, the turret's turn speed is reduced
+                if (targetTag == "Player" && target.GetComponent<PlayerController>().id.Equals(ShipsEnum.ShipID.VECTOR))
+                    turnSpeedMod = .35f;
+                else
+                    turnSpeedMod = 1f;
+
                 Vector3 targetDir = target.transform.position - transform.position;
 
                 float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg - 90;
@@ -100,8 +102,10 @@ public class TurretBehavior : MonoBehaviour {
 
     public void Fire()
     {
-        Instantiate(projectile, hardpoint.position, hardpoint.rotation);
-        nextFire = Time.time + fireRate;
+        Destroy(
+            Instantiate(projectile, hardpoint.position, hardpoint.rotation), 
+            5f);
+        nextFire = Time.time + fireRate * OmniController.omniController.enemyFireRateScale;
     }
 
     public void HoldFire(bool state)

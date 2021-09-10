@@ -37,6 +37,8 @@ public class ObstacleBehavior : MonoBehaviour {
             print("Ohshit! Obstacle cannot find camera!");
         }
         gm = GM.gameController;
+
+        hp = hp * OmniController.omniController.obstacleHpScale;
     }
 
     private void Update()
@@ -52,7 +54,7 @@ public class ObstacleBehavior : MonoBehaviour {
         if (other.tag == "Projectile")
         {
             ProjectileBehavior hit = other.gameObject.GetComponent<ProjectileBehavior>();
-            hp -= hit.dmgValue;
+            Damage(hit.dmgValue);
             if (!hit.perist)
             {
                 hit.DestroyProjectile();
@@ -67,11 +69,18 @@ public class ObstacleBehavior : MonoBehaviour {
         }
     }
 
+    public void Damage(float dmg)
+    {
+        hp -= dmg * OmniController.omniController.obstacleIncommingDamageScale;
+    }
+
     private void Die()
     {
         OmniController.omniController.enemiesKilled++;
         Destroy(gameObject);
-        Instantiate(explosion, transform.position, transform.rotation);
+        Destroy(
+            Instantiate(explosion, transform.position, transform.rotation), 
+            5f);
         DisplayScore();
         camera.GetComponent<CameraShaker>().CustomShake(collisionVal / 60.0f);
         gm.AddScore(score);

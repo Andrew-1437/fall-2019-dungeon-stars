@@ -38,6 +38,7 @@ public class GM : MonoBehaviour {
     [Header("Level Management")]
     public bool gameStart;
     public bool allowBoss;
+    public bool endLevelOnBossDeath;
     public int playerLives;
     public bool twoPlayerMode;
     [HideInInspector]
@@ -95,6 +96,7 @@ public class GM : MonoBehaviour {
     public delegate void GmDelegate();
     public static event GmDelegate OnBossActivate;
     public static event GmDelegate OnLevelComplete;
+    public static event GmDelegate OnExitToMainMenu;
 
     private void Awake()
     {
@@ -214,6 +216,9 @@ public class GM : MonoBehaviour {
                 SpawnPlayer();
                 //player = GameObject.FindWithTag("Player");
             }
+            // Ends the level
+            if (Input.GetKeyDown(KeyCode.Equals))
+                EndLevel();
 
             //Summons Boss
             if (Input.GetKeyDown("b") && allowBoss)
@@ -268,7 +273,7 @@ public class GM : MonoBehaviour {
                     shields.colorGradientPreset = shieldOffColor;
                 }
 
-                // Updates power level text
+                // Updates power level text (with a special case for the Meme ship)
                 if (playerController.id != ShipsEnum.ShipID.MEME)
                     level.text = "Power: " + (playerController.level + 1);
                 else
@@ -406,10 +411,6 @@ public class GM : MonoBehaviour {
                 level2.text = "Power: 0";
             }
         }
-        if (boss)
-        {
-            bossHp.UpdateBar(bossStats.hp, bossMaxHp);
-        }
 
         if (score<0)
         {
@@ -432,9 +433,17 @@ public class GM : MonoBehaviour {
         bossMaxHp = bossStartingHp;
     }
 
+    public void UpdateBossHpBar(float currHp)
+    {
+        bossHp.UpdateBar(currHp, bossMaxHp);
+    }
+
     private void BossBehavior_OnBossDeath()
     {
-        EndLevel();
+        if(endLevelOnBossDeath)
+            EndLevel();
+        else
+            mainFlowchart.SendFungusMessage("boss dead");
     }
 
     //Scene specific events ***Obsolete
@@ -453,8 +462,7 @@ public class GM : MonoBehaviour {
         mainFlowchart.SendFungusMessage("LevelComplete");
 
         // Unsubscribe to events at the end of the level
-        PlayerController.OnPlayerDeath -= PlayerController_OnPlayerDeath;
-        BossBehavior.OnBossDeath -= BossBehavior_OnBossDeath;
+        UnsubAllEvents();
     }
 
     // Depreciating
@@ -542,7 +550,7 @@ public class GM : MonoBehaviour {
     public void AddScore(int sc)
     {
         chainedKills++;
-        score += sc * scoreMultiplier;
+        score += (int)(sc * scoreMultiplier * OmniController.omniController.additionalScoreMultiplier);
         endMultiplierTime = Time.time + multiplierTimer;
         if (chainedKills >= scoreMultiplier * 5 && scoreMultiplier < 10)
         {
@@ -559,7 +567,7 @@ public class GM : MonoBehaviour {
     // Applies score with no regard to multiplier
     public void AddRawScore(int sc)
     {
-        score += sc;
+        score += (int)(sc * OmniController.omniController.additionalScoreMultiplier);
         score = Mathf.Clamp(score, 0, int.MaxValue);
     }
 
@@ -658,5 +666,23 @@ public class GM : MonoBehaviour {
     public void CompleteGame()
     {
         OmniController.omniController.completedGame = true;
+    }
+
+    // Unsubscribes all listeners in this class. Must call this before every level transition or wierd things happen
+    private void UnsubAllEvents()
+    {
+        GameStarter.OnGameStart -= GameStarter_OnGameStart;
+        PlayerController.OnPlayerDeath -= PlayerController_OnPlayerDeath;
+        BossBehavior.OnBossDeath -= BossBehavior_OnBossDeath;
+    }
+
+    public void ExitToMainMenu()
+    {
+        OnExitToMainMenu?.Invoke();
+
+        // Unsubscribe to events at the end of the level
+        UnsubAllEvents();
+
+        SceneLoader.Instance.LoadScene("MainMenu");
     }
 }

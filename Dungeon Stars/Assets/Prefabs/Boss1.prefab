@@ -94,7 +94,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541866628144814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3884136226885331578}
@@ -189,13 +189,13 @@ MonoBehaviour:
   explosion: {fileID: 100010, guid: 30c4c673696f6254ebe0e3a26d31092f, type: 3}
   subExplosion: {fileID: 100010, guid: 645413a00f7bd0242bbd6d0e5eb6f439, type: 3}
   subExplodeRadius: 8
-  score: 10000
+  score: 20000
   floatingScoreText: {fileID: 5520782144581124303, guid: d1c3623ad77006e45be3f0a8c9a06bc4,
     type: 3}
   bossTitle: Evil Pirate Ship of Doom
   hp: 7100
   dmgMod: 1
-  miniExplosion: {fileID: 100010, guid: 645413a00f7bd0242bbd6d0e5eb6f439, type: 3}
+  miniExplosion: {fileID: 0}
   awake: 0
   ignoreProjectileDamage: 1
 --- !u!1 &1836029262252616
@@ -9808,7 +9808,7 @@ PrefabInstance:
     - target: {fileID: 3324974150240288767, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
         type: 3}
       propertyPath: aimTime
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3324974150240288767, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
         type: 3}
@@ -9818,12 +9818,27 @@ PrefabInstance:
     - target: {fileID: 3324974150240288767, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
         type: 3}
       propertyPath: targetTime
-      value: 0.7
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 3324974150240288767, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
         type: 3}
       propertyPath: autoOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324974150923339991, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: bb83d4316e4a643c59edeba50f33cb8b, type: 3}
+    - target: {fileID: 3324974151288999299, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.11764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324974151288999299, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.7372549
       objectReference: {fileID: 0}
     - target: {fileID: 3324974151288999299, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
         type: 3}
@@ -16449,6 +16464,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324974151987295472, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0.113872394
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324974151987295472, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 0.7372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324974151987295472, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 0.11764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324974151987295472, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.r
+      value: 0.7372549
       objectReference: {fileID: 0}
     - target: {fileID: 6324165708405407849, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
         type: 3}

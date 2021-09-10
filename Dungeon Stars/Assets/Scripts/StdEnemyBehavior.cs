@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class StdEnemyBehavior : MonoBehaviour {
 
-    
-
     //Movement**************
     public float speed;
 
@@ -34,12 +32,6 @@ public class StdEnemyBehavior : MonoBehaviour {
         nextFire = 0.0f;
         awake = false;
 
-        /*
-        gm = GameObject.FindWithTag("GameController");
-        if (gm == null)
-        {
-            print("Ohshit! Game Controller not found by stdEnemy!");
-        } */
         gm = GM.gameController;
         rb = GetComponent<Rigidbody2D>();
     }
@@ -52,7 +44,7 @@ public class StdEnemyBehavior : MonoBehaviour {
             {
                 if (awake)
                 {
-                    rb.velocity = (transform.up * speed) + Vector3.down;
+                    rb.velocity = (transform.up * speed * OmniController.omniController.obstacleSpeedScale) + Vector3.down;
                 }
                 else
                 {
@@ -82,8 +74,9 @@ public class StdEnemyBehavior : MonoBehaviour {
             }
             if (Time.time > nextFire && Time.time < burstEnd)
             {
-                Instantiate(projectile, hardpoint.position, hardpoint.rotation);
-                nextFire = Time.time + fireRate;
+                Destroy(
+                    Instantiate(projectile, hardpoint.position, hardpoint.rotation), 5f);
+                nextFire = Time.time + fireRate * OmniController.omniController.enemyFireRateScale;
             }
             
         }

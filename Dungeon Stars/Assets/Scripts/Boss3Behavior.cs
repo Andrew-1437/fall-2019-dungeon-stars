@@ -35,6 +35,12 @@ public class Boss3Behavior : MonoBehaviour
 
         cannon1 = multiCannon1.GetComponent<ObstacleBehavior>();
         cannon2 = multiCannon2.GetComponent<ObstacleBehavior>();
+
+        float cann1hp = 0f;
+        float cann2hp = 0f;
+        if (multiCannon1 != null) cann1hp = cannon1.hp;
+        if (multiCannon2 != null) cann2hp = cannon2.hp;
+        boss.hp = cann1hp + cann2hp;
     }
 
     private void FixedUpdate()
@@ -63,11 +69,14 @@ public class Boss3Behavior : MonoBehaviour
         if (multiCannon1 != null) cann1hp = cannon1.hp;
         if (multiCannon2 != null) cann2hp = cannon2.hp;
         boss.hp = cann1hp + cann2hp;
+        GM.gameController.UpdateBossHpBar(boss.hp);
+        if (boss.hp <= 0) boss.BeginDeathSequence();
+        
     }
 
     public void RandomBeams(int numBeams)
     {
-        for (int i = 0; i < numBeams; i++)
+        for (int i = 0; i < numBeams - 1; i++)
         {
             beams[Random.Range(0, beams.Length)].FireCycleOnce();
         }

@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PowerUpBehavior : MonoBehaviour {
 
-    public enum PowerUps { None, LevelUp, Repair, SpeedUp, FireUp, Ammo, BoltDrone };
+    public enum PowerUps { None, LevelUp, Repair, HpRepair, SpeedUp, FireUp, Ammo, BoltDrone };
 
     public PowerUps type;
 
     public float speed;
     public float duration;
+    public int score;
 
     public GameObject summon;
 
@@ -17,6 +18,7 @@ public class PowerUpBehavior : MonoBehaviour {
 
     public GameObject marker;  // Used to identify in scene in edit mode
     Rigidbody2D rb;
+    public AudioSource collectAudio;
 
     private void Start()
     {
@@ -54,7 +56,16 @@ public class PowerUpBehavior : MonoBehaviour {
     {
         GameObject summonedObject = Instantiate(summon, transform.position, transform.rotation);
         DroneBehavior summonedDrone = summonedObject.GetComponent<DroneBehavior>();
-        summonedDrone.lifetime = duration;
+        summonedDrone.lifetime = duration * OmniController.omniController.powerUpDurationScale;
         summonedDrone.followPlayer2 = byPlayerTwo;
+    }
+
+    public void OnCollected()
+    {
+        collectAudio.Play();
+        GM.gameController.AddScore(score);
+        collectAudio.gameObject.transform.parent = null;
+        Destroy(gameObject);
+        Destroy(collectAudio.gameObject, 2f);
     }
 }

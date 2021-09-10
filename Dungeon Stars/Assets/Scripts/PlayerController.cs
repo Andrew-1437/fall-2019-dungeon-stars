@@ -132,6 +132,9 @@ public class PlayerController : MonoBehaviour {
     // Initialize**********
     void Start()
     {
+        maxHp = maxHp * OmniController.omniController.playerHpScale;
+        maxShield = maxShield * OmniController.omniController.playerShieldScale;
+
         hp = maxHp;
         shield = maxShield;
         shieldDown = false;
@@ -183,7 +186,7 @@ public class PlayerController : MonoBehaviour {
         {
             move.Normalize();
         }
-        rb.velocity = move * speed * speedMod;
+        rb.velocity = move * speed * speedMod * OmniController.omniController.playerSpeedScale;
         transform.rotation = Quaternion.Euler(0.0f,horizontal * rotate, 0.0f);
 
         Vector2 position = transform.position;
@@ -212,25 +215,13 @@ public class PlayerController : MonoBehaviour {
             // Primary Fire
             if (((!isPlayer2 && Input.GetButton("Fire1")) || (isPlayer2 && Input.GetButton("Fire12"))) && Time.time > nextFire)
             {
-                nextFire = Time.time + fireRate * fireRateMod * heatMod;
-                Instantiate(primary[level], spawner.position, spawner.rotation);
-                gm.AddRawScore(-Mathf.Max(weapon1Cost - Mathf.FloorToInt(weapon1Cost * attackSpeedBuff), 0));
-                if (enableHeat && primaryUsesHeat)
-                {
-                    heat += primHeatGen * heatGenMod;
-                }
+                FirePrimaryWeapon();
             }
 
             // Secondary Fire
             if (((!isPlayer2 && Input.GetButton("Fire2")) || (isPlayer2 && Input.GetButton("Fire22"))) && Time.time > nextSecondary)
             {
-                nextSecondary = Time.time + secondaryFireRate * fireRateMod * heatMod;
-                Instantiate(secondary[level], spawner.position, spawner.rotation);
-                gm.AddRawScore(-Mathf.Max(weapon2Cost - Mathf.FloorToInt(weapon2Cost * attackSpeedBuff), 0));
-                if (enableHeat && secondaryUsesHeat)
-                {
-                    heat += secHeatGen * heatGenMod;
-                }
+                FireSecondaryWeapon();
             }
 
             // Tertiary Fire
@@ -395,9 +386,10 @@ public class PlayerController : MonoBehaviour {
             {
                 //Total collision dmg = collision value of other * (player speed + other speed)
                 float collisionDmg = obstacle.collisionVal
-                    * (rb.velocity.magnitude + other.GetComponent<Rigidbody2D>().velocity.magnitude);
+                    * (rb.velocity.magnitude + other.GetComponent<Rigidbody2D>().velocity.magnitude)
+                    * OmniController.omniController.collisionDamageScale;
                 HullDamage(collisionDmg);
-                obstacle.hp -= collisionDmg;
+                obstacle.Damage(collisionDmg);
                 audio[2].Play();
                 camera.GetComponent<CameraShaker>().LargeShake();
             }
@@ -414,6 +406,7 @@ public class PlayerController : MonoBehaviour {
         {
             OmniController.omniController.powerUpsCollected++;
             PowerUpBehavior pow = other.gameObject.GetComponent<PowerUpBehavior>();
+            
             // Immediately restore half the shield
             if (pow.type == PowerUpBehavior.PowerUps.Repair)
             {
@@ -422,20 +415,28 @@ public class PlayerController : MonoBehaviour {
                 shieldSprite.SetTrigger("Restored");
                 
             }
+            // Immediately restore 75% of missing hp and shield
+            if (pow.type == PowerUpBehavior.PowerUps.HpRepair)
+            {
+                hp = Mathf.Min(maxHp, hp + (maxHp - hp) * 0.75f);
+                shield = Mathf.Min(maxShield, shield + (maxShield - shield) * 0.75f);
+                shieldDown = false;
+                shieldSprite.SetTrigger("Restored");
+            }
             // Increases fire rate and reduces heat gen
             if (pow.type == PowerUpBehavior.PowerUps.FireUp)
             {
                 fireRateMod = 0.75f;
                 heatGenMod = 0.2f;
                 attackSpeedBuff = 0.25f;
-                fireRateEnd = Time.time + pow.duration;
+                fireRateEnd = Time.time + pow.duration * OmniController.omniController.powerUpDurationScale;
                 fireRateFX.Play();
             }
             // Increases speed
             if (pow.type == PowerUpBehavior.PowerUps.SpeedUp)
             {
                 speedMod = 1.25f;
-                speedEnd = Time.time + pow.duration;
+                speedEnd = Time.time + pow.duration * OmniController.omniController.powerUpDurationScale;
                 speedFX.Play();
             }
             // Increases power level by 1
@@ -453,17 +454,8 @@ public class PlayerController : MonoBehaviour {
             {
                 pow.Summon(isPlayer2);
             }
-            audio[3].Play();
-            Destroy(other.gameObject);
+            pow.OnCollected();
         }
-        /*
-        //Events
-        if(other.tag == "Event")
-        {
-            print("Calling event: " + other.GetComponent<EventCaller>().eventName);
-            gm.GetComponent<GM>().CallEvent(other.GetComponent<EventCaller>().eventName);
-        }
-        */
 
 
         //Ripperoni
@@ -505,10 +497,10 @@ public class PlayerController : MonoBehaviour {
         }
         else
         {
-            float levelUpHp = Mathf.Floor(maxHp * .2f);
+            float levelUpHp = Mathf.Floor(maxHp * .2f * OmniController.omniController.hpPerLevelScale);
             maxHp += levelUpHp;
             hp += levelUpHp;
-            maxShield += Mathf.Floor(maxShield * .2f);
+            maxShield += Mathf.Floor(maxShield * .2f * OmniController.omniController.shieldPerLevelScale);
         }
     }
 
@@ -517,7 +509,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (!invincible)
         {
-            float dmg = baseDmg * dmgMod;
+            float dmg = baseDmg * dmgMod * OmniController.omniController.playerIncommingDamageScale;
 
             shield -= dmg;  //All damage hits shield first
             if (shield <= 0 && !shieldDown)
@@ -553,7 +545,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (!invincible)
         {
-            float dmg = baseDmg * dmgMod;
+            float dmg = baseDmg * dmgMod * OmniController.omniController.playerIncommingDamageScale;
 
             hp -= dmg;
         }
@@ -561,6 +553,43 @@ public class PlayerController : MonoBehaviour {
         {
             alive = false;
             Die();
+        }
+    }
+
+    // Shoots the primary weapon and manages what else happens when it does so
+    public void FirePrimaryWeapon()
+    {
+        nextFire = Time.time + fireRate *
+                fireRateMod * heatMod * OmniController.omniController.playerFireRateScale;
+        // Spawn projectile and delete it 5 seconds later if it is not already deleted
+        Destroy(
+            Instantiate(primary[level], spawner.position, spawner.rotation), 
+            5);
+        // Subtract score for every shot fired
+        gm.AddRawScore(-Mathf.Max(weapon1Cost - Mathf.FloorToInt(weapon1Cost * attackSpeedBuff), 0));
+        // Add heat if the ship and weapon use heat
+        if (enableHeat && primaryUsesHeat)
+        {
+            heat += primHeatGen * heatGenMod;
+        }
+    }
+
+    // Shoots the secondary weapon and manages what else happens when it does so
+    public void FireSecondaryWeapon()
+    {
+        nextSecondary = Time.time + secondaryFireRate *
+                fireRateMod * heatMod * OmniController.omniController.playerFireRateScale;
+        // Spawn projectile and delete it 5 seconds later if it is not already deleted
+        Destroy(
+            Instantiate(secondary[level], spawner.position, spawner.rotation), 
+            5);
+        // Subtract score for every shot fired
+        gm.AddRawScore(-Mathf.Max(weapon2Cost - Mathf.FloorToInt(weapon2Cost * attackSpeedBuff), 0));
+
+        // Add heat if the ship and weapon use heat
+        if (enableHeat && secondaryUsesHeat)
+        {
+            heat += secHeatGen * heatGenMod;
         }
     }
 

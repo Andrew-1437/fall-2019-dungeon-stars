@@ -71,6 +71,7 @@ public class Boss1Behavior : MonoBehaviour {
                 currentHp += targetable.hp;
         }
         boss.hp = currentHp;
+        GM.gameController.UpdateBossHpBar(boss.hp);
     }
 
     public void RevealWeakSpot(bool active)

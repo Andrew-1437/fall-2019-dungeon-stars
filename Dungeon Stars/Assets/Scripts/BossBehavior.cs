@@ -19,18 +19,19 @@ public class BossBehavior : LargeEnemyBehavior {
 
     private GameObject[] triggers;
 
-    private bool dying;
-    private float dieTime;
+    //private bool dying;
+    //private float dieTime;
 
-    float explosionDelay = .12f;
-    float nextExplosion = 0f;
+    //float explosionDelay = .12f;
+    //float nextExplosion = 0f;
 
     // Events
     public delegate void BossDelegate();
     public static event BossDelegate OnBossDeath;
 
-    private void Awake()
+    protected void Awake()
     {
+        hp = hp * OmniController.omniController.obstacleHpScale;
         dieTime = Mathf.Infinity;
         GM.OnBossActivate += GM_OnBossActivate;
     }
@@ -41,31 +42,11 @@ public class BossBehavior : LargeEnemyBehavior {
         GM.OnBossActivate -= GM_OnBossActivate;
     }
 
-    protected void Update()
-    {
-        if ((hp <= 0 || turrets <= 0) && !dying)
-        {
-            dieTime = Time.time + 1.6f;
-            dying = true;
-            
-        }
-        if(dying && Time.time > dieTime)
-        {
-            Die();
-        }
-        else if(dying && Time.time > nextExplosion)
-        {
-            Vector3 pos = (Random.insideUnitSphere * 10) + transform.position;
-            Instantiate(miniExplosion, pos, transform.rotation);
-            nextExplosion = Time.time + explosionDelay;
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!ignoreProjectileDamage && other.tag == "Projectile")
         {
-            hp -= other.gameObject.GetComponent<ProjectileBehavior>().dmgValue * dmgMod;
+            Damage(other.gameObject.GetComponent<ProjectileBehavior>().dmgValue);
             if(!other.gameObject.GetComponent<ProjectileBehavior>().perist)
                 other.gameObject.GetComponent<ProjectileBehavior>().DestroyProjectile();
         }
@@ -75,8 +56,9 @@ public class BossBehavior : LargeEnemyBehavior {
         }
     }
 
-    private void Die()
+    public override void Die()
     {
+        base.Die();
         OnBossDeath?.Invoke();
         Destroy(gameObject);
         Instantiate(explosion, transform.position, transform.rotation);
@@ -89,9 +71,15 @@ public class BossBehavior : LargeEnemyBehavior {
     }
     
     //Takes damage from another source (another script)
-    public void TakeDmg(float dmg)
+    public void Damage(float dmg)
     {
-        hp -= dmg * dmgMod;
+        hp -= dmg * dmgMod * OmniController.omniController.obstacleIncommingDamageScale;
+        if ((hp <= 0 || turrets <= 0) && !dying)
+        {
+            hp = 0;
+            BeginDeathSequence();
+        }
+        GM.gameController.UpdateBossHpBar(hp);
     }
 
     //Wakes boss from another script

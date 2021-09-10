@@ -14,6 +14,7 @@ public class OmniController : MonoBehaviour
     public int powerUpsCollected;
     public bool completedGame;
 
+    public string loadIntoLevel = "";
     [HideInInspector]
     public GameObject selectedShip = null;
     [HideInInspector]
@@ -25,13 +26,34 @@ public class OmniController : MonoBehaviour
     public bool enableDebug;
     public bool infiniteLives;
     public bool enableCameraShake;
-
+    
     [Header("Modifiers")]
-    public int deathPenalty = 50000;
-    public float globalTimeScale = 1;
+    public float globalTimeScale = 1f;  // Time for Unity's Time.timeScale
+    public int deathPenalty = 50000;    // Score penalty upon dying
+    public float playerHpScale = 1f;    // Multiply player's starting max hp by this amount
+    public float playerShieldScale = 1f;    // Multiply player's starting max shield by this amount
+    public float hpPerLevelScale = 1f;  // Multiply the increase of max hp by this amount each level
+    public float shieldPerLevelScale = 1f;  // Same as above but for shields
+    public float playerIncommingDamageScale = 1f;   // Multiply player incomming damage by this amount
+    public float obstacleIncommingDamageScale = 1f; // Multiply obstacle incomming damage by this amount
+    public float collisionDamageScale = 1f; // Multiply collision damage by this amount (stacks with incomming damage scale)
+    public float projectileDamageScale = 1f;    // Multiply damage by all projectiles by this amount
+    public float projectileSpeedScale = 1f;     // Multiply all projectiles' speed by this amount
+    public float playerSpeedScale = 1f; // Multiply player's move speed by this amount
+    public float obstacleSpeedScale = 1f;   // Multiply obstacle/enemy move speed by this amount
+    public float playerFireRateScale = 1f;  // Multiply player's fire rate (primary and secondary) by this amount
+    public float enemyFireRateScale = 1f;   // Multiply enemy fire rate by this amount
+    public float obstacleHpScale = 1f;  // Multiply obstacle/enemy max hp by this amount
+    public float additionalScoreMultiplier = 1f;    // Multiply all point gains by this amount
+    public float powerUpDurationScale = 1f;  // Multiply the duration of all power ups by this amount
 
-    [Header("Two Player Co-op")]
+    [Header("Two Player Mode")]
     public bool twoPlayerMode;
+
+    [Header("Endless Mode")]
+    public bool endlessMode;
+    public int finalDifficultyLevel;
+    public float timeTaken;
 
     private void Awake()
     {
@@ -70,6 +92,24 @@ public class OmniController : MonoBehaviour
         selectedShip2 = null;
         completedGame = false;
         globalTimeScale = 1f;
+    }
+
+    public void ResetModifiers()
+    {
+        playerHpScale = 1f;
+        playerShieldScale = 1f; 
+        hpPerLevelScale = 1f; 
+        shieldPerLevelScale = 1f; 
+        playerIncommingDamageScale = 1f;  
+        obstacleIncommingDamageScale = 1f; 
+        projectileDamageScale = 1f;  
+        playerSpeedScale = 1f; 
+        obstacleSpeedScale = 1f;  
+        playerFireRateScale = 1f;  
+        enemyFireRateScale = 1f;   
+        obstacleHpScale = 1f;  
+        additionalScoreMultiplier = 1f;
+        powerUpDurationScale = 1f;
     }
 
     public void SetTwoPlayers(bool setCoop)
