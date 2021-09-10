@@ -48,6 +48,7 @@ public class EndlessController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartEndlessTimer();
         endlessMode = EndlessDifficultyIncrease();
 
         BossBehavior.OnBossDeath += BossBehavior_OnBossDeath;
@@ -55,8 +56,6 @@ public class EndlessController : MonoBehaviour
         GM.OnLevelComplete += GM_OnLevelComplete;
         GM.OnExitToMainMenu += GM_OnExitToMainMenu;
     }
-
-    
 
     // When player dies
     private void PlayerController_OnPlayerDeath(PlayerController pc)
@@ -107,11 +106,6 @@ public class EndlessController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(startTime == -1f && GM.gameController.gameStart)
-        {
-            StartEndlessTimer();
-        }
-
         if(GM.gameController.gameStart)
         {
             if(spawnEnemies && Time.time >= timeForNextGroup)
