@@ -96,6 +96,7 @@ public class GM : MonoBehaviour {
     public delegate void GmDelegate();
     public static event GmDelegate OnBossActivate;
     public static event GmDelegate OnLevelComplete;
+    public static event GmDelegate OnExitToMainMenu;
 
     private void Awake()
     {
@@ -677,6 +678,8 @@ public class GM : MonoBehaviour {
 
     public void ExitToMainMenu()
     {
+        OnExitToMainMenu?.Invoke();
+
         // Unsubscribe to events at the end of the level
         UnsubAllEvents();
 

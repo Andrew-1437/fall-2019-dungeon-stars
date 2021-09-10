@@ -53,19 +53,25 @@ public class EndlessController : MonoBehaviour
         BossBehavior.OnBossDeath += BossBehavior_OnBossDeath;
         PlayerController.OnPlayerDeath += PlayerController_OnPlayerDeath;
         GM.OnLevelComplete += GM_OnLevelComplete;
+        GM.OnExitToMainMenu += GM_OnExitToMainMenu;
     }
 
+    
+
+    // When player dies
     private void PlayerController_OnPlayerDeath(PlayerController pc)
     {
         throw new System.NotImplementedException();
     }
 
+    // When boss is killed
     private void BossBehavior_OnBossDeath()
     {
         activeBoss = false;
         spawnEnemies = true;
         IncreaseDifficulty();
 
+        // Spawn a repair power up that restores 75% of missing hp and shield
         Instantiate(hpRepairPowerUp, transform.position + Vector3.up * 20f, transform.rotation);
 
         // Increase difficulty modifiers after boss is defeated
@@ -79,15 +85,23 @@ public class EndlessController : MonoBehaviour
         timeBetweenDifficultyIncrease += 1;
     }
 
+    // When the level is completed
     private void GM_OnLevelComplete()
     {
         StopCoroutine(EndlessDifficultyIncrease());
         OmniController.omniController.finalDifficultyLevel = difficultyLevel;
         OmniController.omniController.timeTaken = TimeSurvived();
 
-        BossBehavior.OnBossDeath -= BossBehavior_OnBossDeath;
-        PlayerController.OnPlayerDeath -= PlayerController_OnPlayerDeath;
-        GM.OnLevelComplete -= GM_OnLevelComplete;
+        // Unsubscribe all subscribers
+        UnsubAllEvents();
+    }
+
+    private void GM_OnExitToMainMenu()
+    {
+        StopCoroutine(EndlessDifficultyIncrease());
+
+        // Unsubscribe all subscribers
+        UnsubAllEvents();
     }
 
     // Update is called once per frame
@@ -207,6 +221,14 @@ public class EndlessController : MonoBehaviour
             spawnEnemies = false;
             flowchart.SendFungusMessage("boss");
         }
+    }
+
+    private void UnsubAllEvents()
+    {
+        BossBehavior.OnBossDeath -= BossBehavior_OnBossDeath;
+        PlayerController.OnPlayerDeath -= PlayerController_OnPlayerDeath;
+        GM.OnLevelComplete -= GM_OnLevelComplete;
+        GM.OnExitToMainMenu -= GM_OnExitToMainMenu;
     }
 
     IEnumerator EndlessDifficultyIncrease()
