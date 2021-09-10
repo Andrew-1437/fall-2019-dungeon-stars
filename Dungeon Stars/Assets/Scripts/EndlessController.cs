@@ -69,11 +69,14 @@ public class EndlessController : MonoBehaviour
         Instantiate(hpRepairPowerUp, transform.position + Vector3.up * 20f, transform.rotation);
 
         // Increase difficulty modifiers after boss is defeated
-        OmniController.omniController.additionalScoreMultiplier += .2f;
-        OmniController.omniController.obstacleHpScale += .2f;
-        OmniController.omniController.obstacleSpeedScale += .2f;
+        OmniController.omniController.additionalScoreMultiplier += .15f;
+        OmniController.omniController.obstacleHpScale += .15f;
+        OmniController.omniController.obstacleSpeedScale += .15f;
         OmniController.omniController.playerIncommingDamageScale += .05f;
         OmniController.omniController.enemyFireRateScale *= .9f;
+
+        // Increase Time Between Diffiiculty Increase
+        timeBetweenDifficultyIncrease += 1;
     }
 
     private void GM_OnLevelComplete()
