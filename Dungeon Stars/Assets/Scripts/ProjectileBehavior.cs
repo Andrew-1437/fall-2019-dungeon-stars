@@ -25,7 +25,7 @@ public class ProjectileBehavior : MonoBehaviour {
     {
         if(Time.time >= deathTime)
         {
-            this.DestroyProjectile();
+            DestroyProjectile();
         }
     }
 

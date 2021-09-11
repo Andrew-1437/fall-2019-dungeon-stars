@@ -9,6 +9,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 254320926974695356, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 254320926974695356, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 254320926974695356, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
@@ -22,20 +32,15 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 254320926974695356, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 254320926974695356, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2147809428197147652, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
       propertyPath: m_Name
       value: PreviewGunship
+      objectReference: {fileID: 0}
+    - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
@@ -54,6 +59,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -65,16 +75,6 @@ PrefabInstance:
     - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
@@ -94,6 +94,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2151350629226146622, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7034845
+      objectReference: {fileID: 0}
+    - target: {fileID: 2151350629226146622, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.69279647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2151350629226146622, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
@@ -106,26 +116,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2151350629226146622, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.7034845
-      objectReference: {fileID: 0}
-    - target: {fileID: 2151350629226146622, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.69279647
-      objectReference: {fileID: 0}
-    - target: {fileID: 2250098081740826684, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: m_RenderingLayerMask
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2250098081740826684, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: m_StitchLightmapSeams
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2250098081740826684, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
@@ -143,15 +133,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 3b147cea720caab49a274943d0e6a018,
         type: 3}
+    - target: {fileID: 2250098081740826684, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250098081740826684, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: m_StitchLightmapSeams
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3974098395076787947, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
       propertyPath: m_SortingOrder
       value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5508328787395552103, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5508328787395552103, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
@@ -160,18 +155,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5508328787395552103, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508328787395552103, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
       propertyPath: InheritVelocityModule.m_Curve.scalar
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6080253122387963760, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.4
+      propertyPath: InitialModule.startSize.scalar
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 6080253122387963760, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6080253122387963760, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6080253122387963760, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
@@ -183,41 +188,10 @@ PrefabInstance:
       propertyPath: InitialModule.startColor.maxColor.g
       value: 0.14344116
       objectReference: {fileID: 0}
-    - target: {fileID: 6080253122387963760, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 1.4
-      objectReference: {fileID: 0}
     - target: {fileID: 6098861887144254423, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -2.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: shipDesc
-      value: Heavy and slow, the Gunship is designed to take damage while also dealing
-        it.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: shipName
-      value: Gunship
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: primaryWeap
-      value: Heavy Bolts
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: secondaryWeap
-      value: Tri-Bolts
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: tertiaryWeap
-      value: Cluster Bombs
       objectReference: {fileID: 0}
     - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
@@ -231,28 +205,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
-      propertyPath: maxShield
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: shieldRecharge
-      value: 0.008
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
       propertyPath: speed
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: primaryFireRate
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: secondaryFireRate
-      value: 1.8
+      value: 13.5
       objectReference: {fileID: 0}
     - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
@@ -262,9 +216,55 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
+      propertyPath: shipDesc
+      value: Heavy and slow, the Gunship is designed to take damage while also dealing
+        it.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: shipName
+      value: Gunship
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: maxShield
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
       propertyPath: secondary
       value: 
       objectReference: {fileID: 9141100371243653115, guid: 3abf365fb13828c4481511a358030f6f,
         type: 3}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: primaryWeap
+      value: Heavy Bolts
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: tertiaryWeap
+      value: Anti-Missile Drone
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: secondaryWeap
+      value: Tri-Bolts
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: shieldRecharge
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: primaryFireRate
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: secondaryFireRate
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c8ae49a1187dd74c94d745e321ade7d, type: 3}
