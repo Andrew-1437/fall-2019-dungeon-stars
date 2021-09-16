@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class OptionsMenu : MonoBehaviour
@@ -9,11 +10,18 @@ public class OptionsMenu : MonoBehaviour
     public TextMeshProUGUI debug;
     public TextMeshProUGUI lives;
     public TextMeshProUGUI camShake;
+    public Slider volumeSlider;
+    public TextMeshProUGUI volumeDisplay;
 
     string shipText = "Unlock all Ships:  ";
     string debugText = "Enable Debug Tools:  ";
     string livesText = "Enable Infinite Lives:  ";
     string camShakeText = "Enable Camera Shake:  ";
+
+    private void Start()
+    {
+        volumeSlider.value = AudioListener.volume;
+    }
 
     // Update is called once per frame
     void Update()
@@ -22,6 +30,7 @@ public class OptionsMenu : MonoBehaviour
         debug.text = debugText + OmniController.omniController.enableDebug.ToString();
         lives.text = livesText + OmniController.omniController.infiniteLives.ToString();
         camShake.text = camShakeText + OmniController.omniController.enableCameraShake.ToString();
+        volumeDisplay.text = ((int)(AudioListener.volume * 100)).ToString();
     }
 
     public void ToggleShips()
@@ -42,5 +51,10 @@ public class OptionsMenu : MonoBehaviour
     public void ToggleCameraShake()
     {
         OmniController.omniController.enableCameraShake = !OmniController.omniController.enableCameraShake;
+    }
+
+    public void OnVolumeChange(float newVolume)
+    {
+        AudioListener.volume = newVolume;
     }
 }
