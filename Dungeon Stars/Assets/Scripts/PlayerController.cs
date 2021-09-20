@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -364,16 +363,6 @@ public class PlayerController : MonoBehaviour {
         if (disabled && Time.time >= disableEndTime)
             disabled = false;
 
-        // FX
-        if ((hp <= maxHp * .3f || overheating) && !smokeFX.isPlaying)
-        {
-            smokeFX.Play();
-        }
-        if ((hp > maxHp * .3f || !overheating) && smokeFX.isPlaying)
-        {
-            smokeFX.Stop();
-        }
-
         // End spawn invulnerability after enought time has passed
         if(Time.time > endSpawnInvincible)
         {
@@ -511,7 +500,16 @@ public class PlayerController : MonoBehaviour {
         Stun(100);
         Disable(100);
 
-        yield return new WaitForSeconds(1);
+        smokeFX.Play();
+
+        rb.freezeRotation = false;
+        rb.angularVelocity = Random.Range(-420f, 420f);
+        rb.angularDrag = 0f;
+        rb.velocity = rb.velocity + Random.insideUnitCircle * Random.Range(3f, 10f);
+        
+        yield return new WaitForSeconds(Random.Range(1.5f, 4f));
+
+        Die();
     }
 
     //Kills player "Ripperoni"
@@ -574,7 +572,7 @@ public class PlayerController : MonoBehaviour {
         if (hp < 0 && alive)
         {
             alive = false;
-            Die();
+            StartCoroutine(DieSequence());
         }
     }
 
@@ -587,7 +585,7 @@ public class PlayerController : MonoBehaviour {
 
             hp -= dmg;
         }
-        if (hp < 0 && alive)
+        if (hp < 0)
         {
             alive = false;
             Die();

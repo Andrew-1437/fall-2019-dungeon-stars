@@ -250,6 +250,8 @@ public class GM : MonoBehaviour {
             {
                 // Updates health bar's text
                 health.text = "Health: " + Mathf.FloorToInt(playerController.hp) + "/" + Mathf.FloorToInt(playerController.maxHp);
+                if(playerController.hp <= 0)
+                    health.text = "Health: ==CRITICAL FAILURE==";
                 if (playerController.hp < .3f * playerController.maxHp)
                 {
                     Color color = new Color(0.9f, 0f, 0f);
@@ -309,6 +311,8 @@ public class GM : MonoBehaviour {
             if (player != null)
             {
                 health1.text = "Health: " + Mathf.FloorToInt(playerController.hp) + "/" + Mathf.FloorToInt(playerController.maxHp);
+                if (playerController.hp <= 0)
+                    health1.text = "Health: ==CRITICAL FAILURE==";
                 if (playerController.hp < .3f * playerController.maxHp)
                 {
                     Color color = new Color(0.9f, 0f, 0f);
@@ -361,6 +365,8 @@ public class GM : MonoBehaviour {
             if (player2 != null)
             {
                 health2.text = "Health: " + Mathf.FloorToInt(playerController2.hp) + "/" + Mathf.FloorToInt(playerController2.maxHp);
+                if (playerController2.hp <= 0)
+                    health2.text = "Health: ==CRITICAL FAILURE==";
                 if (playerController2.hp < .3f * playerController2.maxHp)
                 {
                     Color color = new Color(0.9f, 0f, 0f);
@@ -516,9 +522,14 @@ public class GM : MonoBehaviour {
     {
         playerLives--;
         if (playerLives < 0)
+        {
             playerLives = 0;
+            if (player == null && player2 == null)
+                mainFlowchart.SendFungusMessage("GameOver");
+        }
         DeathText(pc.isPlayer2);
         AddRawScore(-OmniController.omniController.deathPenalty);
+        StartCoroutine(CoolTimeSlowFX());
         ResetMultiplier();
     }
 
@@ -674,6 +685,27 @@ public class GM : MonoBehaviour {
         GameStarter.OnGameStart -= GameStarter_OnGameStart;
         PlayerController.OnPlayerDeath -= PlayerController_OnPlayerDeath;
         BossBehavior.OnBossDeath -= BossBehavior_OnBossDeath;
+    }
+
+    private IEnumerator CoolTimeSlowFX()
+    {
+        float currTimeScale = .3f;
+
+        SetTimeScale(currTimeScale);
+
+        yield return new WaitForSecondsRealtime(.8f);
+
+        while (currTimeScale < OmniController.omniController.globalTimeScale)
+        {
+            if (!gamePaused)
+            {
+                currTimeScale += .1f;
+                SetTimeScale(currTimeScale);
+            }
+            yield return new WaitForSecondsRealtime(.2f);
+        }
+
+        SetTimeScale(OmniController.omniController.globalTimeScale);
     }
 
     public void ExitToMainMenu()
