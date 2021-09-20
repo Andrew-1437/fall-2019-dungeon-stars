@@ -45,6 +45,12 @@ public class PlayerController : MonoBehaviour {
     public float speed;
     public float rotate;
 
+    bool stunned = false;   // Prevents movement when true
+    bool disabled = false;  // Prevents shooting when true;
+    float stunEndTime = 0;
+    float disableEndTime = 0;
+
+
     // Weapons**********
     [Header("Weapons")]
     public GameObject[] primary; //Primary Fire Projectiles
@@ -186,31 +192,42 @@ public class PlayerController : MonoBehaviour {
         {
             move.Normalize();
         }
-        rb.velocity = move * speed * speedMod * OmniController.omniController.playerSpeedScale;
-        transform.rotation = Quaternion.Euler(0.0f,horizontal * rotate, 0.0f);
+        // If not stunned, allow movement
+        if (!stunned)
+        {
+            rb.velocity = move * speed * speedMod * OmniController.omniController.playerSpeedScale;
+            transform.rotation = Quaternion.Euler(0.0f, horizontal * rotate, 0.0f);
 
-        Vector2 position = transform.position;
-        if (position.x>26.97f)
-        {
-            position.x = 26.97f;
-        } else if(position.x<-26.97f)
-        {
-            position.x = -26.97f;
+            if (move.magnitude != 0)
+            {
+                // Only voluntary movement can be restricted to the screen bounds
+                Vector2 position = transform.position;
+                if (position.x > 27f)
+                {
+                    position.x = 27f;
+                }
+                else if (position.x < -27f)
+                {
+                    position.x = -27f;
+                }
+                if (position.y > 12.6f)
+                {
+                    position.y = 12.6f;
+                }
+                else if (position.y < -12.6f)
+                {
+                    position.y = -12.6f;
+                }
+                transform.position = position;
+            }
         }
-        if (position.y>12.6f)
-        {
-            position.y = 12.6f;
-        } else if (position.y<-12.6f)
-        {
-            position.y = -12.6f; 
-        }
-        transform.position = position;
     }
 
     void Update()
     {
         // If the game is paused, do not allow firing of weapons
-        if (!GM.gameController.gamePaused)
+        // If disabled, do not allow firing of weapons
+        if (!GM.gameController.gamePaused && !disabled)
         {
             // Primary Fire
             if (((!isPlayer2 && Input.GetButton("Fire1")) || (isPlayer2 && Input.GetButton("Fire12"))) && Time.time > nextFire)
@@ -263,6 +280,12 @@ public class PlayerController : MonoBehaviour {
                 }
             }
         }
+
+        // Out of bounds death
+        // Involuntary movement (walls) could move the player beyond the screen bounds and thus kill them
+        if (transform.position.x > 28f || transform.position.x < -28f || 
+            transform.position.y > 13.6f || transform.position.y < -13.6f)
+            Die();
 
         //Debug Tools
         if (OmniController.omniController.enableDebug)
@@ -333,6 +356,13 @@ public class PlayerController : MonoBehaviour {
             attackSpeedBuff = 0;
             fireRateFX.Stop();
         }
+
+        // Stunned
+        if (stunned && Time.time >= stunEndTime)
+            stunned = false;
+        // Disabled
+        if (disabled && Time.time >= disableEndTime)
+            disabled = false;
 
         // FX
         if ((hp <= maxHp * .3f || overheating) && !smokeFX.isPlaying)
@@ -475,6 +505,14 @@ public class PlayerController : MonoBehaviour {
         }
     }
     
+    // Disables and stuns player while they fly around, on fire, until they explode and die.
+    public IEnumerator DieSequence()
+    {
+        Stun(100);
+        Disable(100);
+
+        yield return new WaitForSeconds(1);
+    }
 
     //Kills player "Ripperoni"
     public void Die()
@@ -593,6 +631,21 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    
+    // Halt Movement
+    public void Stun(float seconds)
+    {
+        stunned = true;
+        // Set stun end time to be seconds from now, or extend current stun end time if we are already stunned
+        stunEndTime = Mathf.Max(stunEndTime, Time.time) + seconds;
+    }
+
+    public void Disable(float seconds)
+    {
+        disabled = true;
+        // Set stun end time to be seconds from now, or extend current stun end time if we are already stunned
+        disableEndTime = Mathf.Max(disableEndTime, Time.time) + seconds;
+    }
+
+
 
 }

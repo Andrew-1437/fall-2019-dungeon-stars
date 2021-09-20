@@ -65,6 +65,10 @@ public class MissileBehavior : ProjectileBehavior {
         {
             DestroyProjectile();
         }
+        if (other.tag == "Wall")
+        {
+            Detonate();
+        }
     }
 
     public void Detonate()
