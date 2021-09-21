@@ -454,20 +454,18 @@ public class GM : MonoBehaviour {
             mainFlowchart.SendFungusMessage("boss dead");
     }
 
-    //Scene specific events ***Obsolete
-    public void CallEvent(string x)
-    {
-        SendMessage(x);
-        if (x == "Boss" && allowBoss)
-        {
-            AwakenBoss();
-        }
-    }
-
     public void EndLevel()
     {
         OnLevelComplete?.Invoke();
         mainFlowchart.SendFungusMessage("LevelComplete");
+
+        // Unsubscribe to events at the end of the level
+        UnsubAllEvents();
+    }
+
+    public void GameOver()
+    {
+        mainFlowchart.SendFungusMessage("GameOver");
 
         // Unsubscribe to events at the end of the level
         UnsubAllEvents();
@@ -505,7 +503,7 @@ public class GM : MonoBehaviour {
         {
             // If both player 1 and player 2 are dead with no lives, end the game
             if( player == null && player2 == null)
-                mainFlowchart.SendFungusMessage("GameOver");
+                GameOver();
         }
     }
     // Same as above but for player 2 (can probably combine these two)
@@ -529,7 +527,7 @@ public class GM : MonoBehaviour {
         {
             // If both player 1 and player 2 are dead with no lives, end the game
             if (player == null && player2 == null)
-                mainFlowchart.SendFungusMessage("GameOver");
+                GameOver();
         }
     }
 
@@ -542,7 +540,7 @@ public class GM : MonoBehaviour {
         {
             playerLives = 0;
             if ((pc.isPlayer2 && player == null) || player2 == null)
-                mainFlowchart.SendFungusMessage("GameOver");    // Call fungus flowchart to end game when out of lives
+                GameOver();    // Call fungus flowchart to end game when out of lives
         }
         else
             DeathText(pc.isPlayer2);    // Calls Fungus flowchart that will display a death flavor text then respawn player
