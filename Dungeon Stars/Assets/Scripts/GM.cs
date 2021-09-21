@@ -40,6 +40,8 @@ public class GM : MonoBehaviour {
     public bool allowBoss;
     public bool endLevelOnBossDeath;
     public int playerLives;
+    private bool initialSpawn1 = true;
+    private bool initialSpawn2 = true;
     public bool twoPlayerMode;
     [HideInInspector]
     public bool gamePaused = false;
@@ -486,12 +488,18 @@ public class GM : MonoBehaviour {
     // Does what it says
     public void SpawnPlayer()
     {
+        // If available lives, spawn the player
         if (playerLives > 0)
         {
             player = Instantiate(playerObject, transform.position, transform.rotation) as GameObject;
             Instantiate(fx, transform.position, transform.rotation);
             GetComponent<AudioSource>().Play();
             playerController = player.GetComponent<PlayerController>();
+            // If we are spawning in for the first time, do not subtract a life
+            if (!initialSpawn1)
+                playerLives--;
+            else
+                initialSpawn1 = false;
         }
         else
         {
@@ -500,8 +508,10 @@ public class GM : MonoBehaviour {
                 mainFlowchart.SendFungusMessage("GameOver");
         }
     }
+    // Same as above but for player 2 (can probably combine these two)
     public void SpawnPlayer2()
     {
+        // If available lives, spawn the player
         if (playerLives > 0)
         {
             player2 = Instantiate(playerObject2, transform.position - (Vector3.up * 3f), transform.rotation) as GameObject;
@@ -509,6 +519,11 @@ public class GM : MonoBehaviour {
             GetComponent<AudioSource>().Play();
             playerController2 = player2.GetComponent<PlayerController>();
             playerController2.isPlayer2 = true;
+            // If we are spawning in for the first time, do not subtract a life
+            if (!initialSpawn2)
+                playerLives--;
+            else
+                initialSpawn2 = false;
         }
         else
         {
@@ -518,19 +533,24 @@ public class GM : MonoBehaviour {
         }
     }
 
+    // Invoked on a player's death
     private void PlayerController_OnPlayerDeath(PlayerController pc)
     {
-        playerLives--;
-        if (playerLives < 0)
+        
+        // If no lives are left and no players are alive, it is game over.
+        if (playerLives <= 0)
         {
             playerLives = 0;
-            if (player == null && player2 == null)
-                mainFlowchart.SendFungusMessage("GameOver");
+            if ((pc.isPlayer2 && player == null) || player2 == null)
+                mainFlowchart.SendFungusMessage("GameOver");    // Call fungus flowchart to end game when out of lives
         }
-        DeathText(pc.isPlayer2);
-        AddRawScore(-OmniController.omniController.deathPenalty);
-        StartCoroutine(CoolTimeSlowFX());
-        ResetMultiplier();
+        else
+            DeathText(pc.isPlayer2);    // Calls Fungus flowchart that will display a death flavor text then respawn player
+
+        AddRawScore(-OmniController.omniController.deathPenalty);   // Lose score from dying
+        StartCoroutine(CoolTimeSlowFX());   // Briefly slow down time when player dies
+        ResetMultiplier();  // Set score multiplier to 0
+        
     }
 
     // Tells fungus flowchart to say a death flavor text when player dies
