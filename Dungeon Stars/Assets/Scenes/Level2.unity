@@ -10161,9 +10161,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 1653163438}
+  suppressBlockAutoSelect: 0
   tagFilter:
   - Bounds
   FireOn: 1
+  colliderVar: {fileID: 0}
 --- !u!61 &1653163441
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12483,7 +12485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 107
+  itemId: 121
   indentLevel: 0
   storyText: Go destroy it, and you will get another bonus!
   description: 
@@ -12510,7 +12512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 108
+  itemId: 122
   indentLevel: 0
   storyText: 'Don''t be so quick to assume. '
   description: 
@@ -12604,7 +12606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 103
+  itemId: 123
   indentLevel: 0
   storyText: 'Awful, as always. Wait. Why are my sensors picking up a Federal cruiser? '
   description: 
@@ -13515,6 +13517,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 69.61499
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936152164478488838, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: nodeRect.x
+      value: 200.5
       objectReference: {fileID: 0}
     - target: {fileID: 3203539786828546474, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}

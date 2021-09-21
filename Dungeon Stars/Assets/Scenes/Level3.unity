@@ -5987,7 +5987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd2f6be51b3d7490ba5633ee095d0391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 103
+  itemId: 122
   indentLevel: 0
   soundClip: {fileID: 8300000, guid: a950dd5a78f174cf49cc308afcd87744, type: 3}
   volume: 0.3
@@ -6057,7 +6057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd2f6be51b3d7490ba5633ee095d0391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 107
+  itemId: 123
   indentLevel: 0
   soundClip: {fileID: 8300000, guid: a950dd5a78f174cf49cc308afcd87744, type: 3}
   volume: 0.3
@@ -6074,7 +6074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 115
+  itemId: 124
   indentLevel: 0
   description: 
   targetObject: {fileID: 640495703}
@@ -6102,7 +6102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 116
+  itemId: 125
   indentLevel: 0
   description: 
   targetObject: {fileID: 1950157149}
@@ -6374,7 +6374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 113
+  itemId: 126
   indentLevel: 0
   description: Respawn Player
   targetObject: {fileID: 1349836698}
@@ -6414,7 +6414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93cb9773f2ca04e2bbf7a68ccfc23267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 112
+  itemId: 127
   indentLevel: 0
 --- !u!114 &991868842
 MonoBehaviour:
@@ -6428,7 +6428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 111
+  itemId: 128
   indentLevel: 1
   storyText: I never liked that one anyways.
   description: 
@@ -6439,7 +6439,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
@@ -6455,7 +6455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 117
+  itemId: 129
   indentLevel: 0
   description: 
   targetObject: {fileID: 677459758986888681}
@@ -6500,7 +6500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 118
+  itemId: 130
   indentLevel: 0
   description: 
   targetObject: {fileID: 677459758986888681}
@@ -6528,7 +6528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 119
+  itemId: 131
   indentLevel: 0
   description: 
   targetObject: {fileID: 677459758986888681}
@@ -6561,6 +6561,111 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
+--- !u!114 &991868846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991868809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 140
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1
+  durationOLD: 0
+--- !u!114 &991868847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991868809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2f6be51b3d7490ba5633ee095d0391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 139
+  indentLevel: 0
+  soundClip: {fileID: 8300000, guid: 375772a46d7e5b14f81b559b701ae31c, type: 3}
+  volume: 0.5
+  waitUntilFinished: 0
+--- !u!114 &991868848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991868809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 138
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1
+  durationOLD: 0
+--- !u!114 &991868849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991868809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2f6be51b3d7490ba5633ee095d0391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 137
+  indentLevel: 0
+  soundClip: {fileID: 8300000, guid: 375772a46d7e5b14f81b559b701ae31c, type: 3}
+  volume: 0.5
+  waitUntilFinished: 0
+--- !u!114 &991868850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991868809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 136
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1
+  durationOLD: 0
+--- !u!114 &991868851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991868809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2f6be51b3d7490ba5633ee095d0391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 135
+  indentLevel: 0
+  soundClip: {fileID: 8300000, guid: 375772a46d7e5b14f81b559b701ae31c, type: 3}
+  volume: 0.5
+  waitUntilFinished: 0
 --- !u!114 &991868852 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 677459759988343917, guid: 0ea578368fa70084d8a1e8638cf45cca,
@@ -6573,6 +6678,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &991868853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991868809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 134
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1.5
+  durationOLD: 0
 --- !u!114 &991868864
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -6714,7 +6837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 108
+  itemId: 132
   indentLevel: 0
   storyText: "Watchout! I cannot really believe this but the station just made a
     short-range hyperspace jump, it is \r\n-static- "
@@ -6742,7 +6865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 109
+  itemId: 133
   indentLevel: 0
   storyText: Finally! Those Federal operatives won't threaten this sector anymore!
   description: 
@@ -25005,7 +25128,7 @@ PrefabInstance:
     - target: {fileID: 677459759988343913, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.size
-      value: 14
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 677459759988343913, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
@@ -25031,6 +25154,41 @@ PrefabInstance:
     - target: {fileID: 677459759988343913, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: commandList.Array.data[13]
+      value: 
+      objectReference: {fileID: 991868853}
+    - target: {fileID: 677459759988343913, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: commandList.Array.data[14]
+      value: 
+      objectReference: {fileID: 991868851}
+    - target: {fileID: 677459759988343913, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: commandList.Array.data[15]
+      value: 
+      objectReference: {fileID: 991868850}
+    - target: {fileID: 677459759988343913, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: commandList.Array.data[16]
+      value: 
+      objectReference: {fileID: 991868849}
+    - target: {fileID: 677459759988343913, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: commandList.Array.data[17]
+      value: 
+      objectReference: {fileID: 991868848}
+    - target: {fileID: 677459759988343913, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: commandList.Array.data[18]
+      value: 
+      objectReference: {fileID: 991868847}
+    - target: {fileID: 677459759988343913, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: commandList.Array.data[19]
+      value: 
+      objectReference: {fileID: 991868846}
+    - target: {fileID: 677459759988343913, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: commandList.Array.data[20]
       value: 
       objectReference: {fileID: 991868839}
     - target: {fileID: 677459759988343921, guid: 0ea578368fa70084d8a1e8638cf45cca,
@@ -25482,6 +25640,13 @@ PrefabInstance:
     - {fileID: 677459759988343904, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
     - {fileID: 4186263165475464831, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
     - {fileID: 8892367764187317947, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
+    - {fileID: 1663402355544823730, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
+    - {fileID: 1900199395031002324, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
+    - {fileID: 2323645288316282100, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
+    - {fileID: 3582572891599678227, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
+    - {fileID: 4097183261753760963, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
+    - {fileID: 4742937058067410282, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
+    - {fileID: 7843710370628157125, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
 --- !u!4 &677459758986888678 stripped
 Transform:
