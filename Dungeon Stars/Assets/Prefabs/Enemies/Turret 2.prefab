@@ -58,6 +58,7 @@ MonoBehaviour:
   isATurret: 1
   dontDieOnScreenExit: 0
   ignorePlayerCollisions: 0
+  ignoreAwakeOnEnterBounds: 0
 --- !u!114 &114675303052786826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,6 +80,7 @@ MonoBehaviour:
   turn: 100
   hardpoint: {fileID: 4021633060785246447}
   awake: 0
+  holdFire: 0
   ignoreObstacle: 0
 --- !u!58 &58811550747756288
 CircleCollider2D:
@@ -138,6 +140,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -146,7 +149,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 27b922dcf38b4ad48ad62ff4ba848762, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
