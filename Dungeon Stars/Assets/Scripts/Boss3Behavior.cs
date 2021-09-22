@@ -43,11 +43,6 @@ public class Boss3Behavior : MonoBehaviour
         boss.hp = cann1hp + cann2hp;
     }
 
-    private void FixedUpdate()
-    {
-        //rb.velocity = Random.insideUnitCircle;
-    }
-
     // Update is called once per frame
     void Update()
     {

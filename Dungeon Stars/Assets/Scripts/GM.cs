@@ -40,6 +40,8 @@ public class GM : MonoBehaviour {
     public bool allowBoss;
     public bool endLevelOnBossDeath;
     public int playerLives;
+    private bool initialSpawn1 = true;
+    private bool initialSpawn2 = true;
     public bool twoPlayerMode;
     [HideInInspector]
     public bool gamePaused = false;
@@ -250,6 +252,8 @@ public class GM : MonoBehaviour {
             {
                 // Updates health bar's text
                 health.text = "Health: " + Mathf.FloorToInt(playerController.hp) + "/" + Mathf.FloorToInt(playerController.maxHp);
+                if(playerController.hp <= 0)
+                    health.text = "Health: ==CRITICAL FAILURE==";
                 if (playerController.hp < .3f * playerController.maxHp)
                 {
                     Color color = new Color(0.9f, 0f, 0f);
@@ -309,6 +313,8 @@ public class GM : MonoBehaviour {
             if (player != null)
             {
                 health1.text = "Health: " + Mathf.FloorToInt(playerController.hp) + "/" + Mathf.FloorToInt(playerController.maxHp);
+                if (playerController.hp <= 0)
+                    health1.text = "Health: ==CRITICAL FAILURE==";
                 if (playerController.hp < .3f * playerController.maxHp)
                 {
                     Color color = new Color(0.9f, 0f, 0f);
@@ -361,6 +367,8 @@ public class GM : MonoBehaviour {
             if (player2 != null)
             {
                 health2.text = "Health: " + Mathf.FloorToInt(playerController2.hp) + "/" + Mathf.FloorToInt(playerController2.maxHp);
+                if (playerController2.hp <= 0)
+                    health2.text = "Health: ==CRITICAL FAILURE==";
                 if (playerController2.hp < .3f * playerController2.maxHp)
                 {
                     Color color = new Color(0.9f, 0f, 0f);
@@ -446,20 +454,18 @@ public class GM : MonoBehaviour {
             mainFlowchart.SendFungusMessage("boss dead");
     }
 
-    //Scene specific events ***Obsolete
-    public void CallEvent(string x)
-    {
-        SendMessage(x);
-        if (x == "Boss" && allowBoss)
-        {
-            AwakenBoss();
-        }
-    }
-
     public void EndLevel()
     {
         OnLevelComplete?.Invoke();
         mainFlowchart.SendFungusMessage("LevelComplete");
+
+        // Unsubscribe to events at the end of the level
+        UnsubAllEvents();
+    }
+
+    public void GameOver()
+    {
+        mainFlowchart.SendFungusMessage("GameOver");
 
         // Unsubscribe to events at the end of the level
         UnsubAllEvents();
@@ -480,22 +486,30 @@ public class GM : MonoBehaviour {
     // Does what it says
     public void SpawnPlayer()
     {
+        // If available lives, spawn the player
         if (playerLives > 0)
         {
             player = Instantiate(playerObject, transform.position, transform.rotation) as GameObject;
             Instantiate(fx, transform.position, transform.rotation);
             GetComponent<AudioSource>().Play();
             playerController = player.GetComponent<PlayerController>();
+            // If we are spawning in for the first time, do not subtract a life
+            if (!initialSpawn1)
+                playerLives--;
+            else
+                initialSpawn1 = false;
         }
         else
         {
             // If both player 1 and player 2 are dead with no lives, end the game
             if( player == null && player2 == null)
-                mainFlowchart.SendFungusMessage("GameOver");
+                GameOver();
         }
     }
+    // Same as above but for player 2 (can probably combine these two)
     public void SpawnPlayer2()
     {
+        // If available lives, spawn the player
         if (playerLives > 0)
         {
             player2 = Instantiate(playerObject2, transform.position - (Vector3.up * 3f), transform.rotation) as GameObject;
@@ -503,23 +517,38 @@ public class GM : MonoBehaviour {
             GetComponent<AudioSource>().Play();
             playerController2 = player2.GetComponent<PlayerController>();
             playerController2.isPlayer2 = true;
+            // If we are spawning in for the first time, do not subtract a life
+            if (!initialSpawn2)
+                playerLives--;
+            else
+                initialSpawn2 = false;
         }
         else
         {
             // If both player 1 and player 2 are dead with no lives, end the game
             if (player == null && player2 == null)
-                mainFlowchart.SendFungusMessage("GameOver");
+                GameOver();
         }
     }
 
+    // Invoked on a player's death
     private void PlayerController_OnPlayerDeath(PlayerController pc)
     {
-        playerLives--;
-        if (playerLives < 0)
+        
+        // If no lives are left and no players are alive, it is game over.
+        if (playerLives <= 0)
+        {
             playerLives = 0;
-        DeathText(pc.isPlayer2);
-        AddRawScore(-OmniController.omniController.deathPenalty);
-        ResetMultiplier();
+            if ((pc.isPlayer2 && player == null) || player2 == null)
+                GameOver();    // Call fungus flowchart to end game when out of lives
+        }
+        else
+            DeathText(pc.isPlayer2);    // Calls Fungus flowchart that will display a death flavor text then respawn player
+
+        AddRawScore(-OmniController.omniController.deathPenalty);   // Lose score from dying
+        StartCoroutine(CoolTimeSlowFX());   // Briefly slow down time when player dies
+        ResetMultiplier();  // Set score multiplier to 0
+        
     }
 
     // Tells fungus flowchart to say a death flavor text when player dies
@@ -674,6 +703,27 @@ public class GM : MonoBehaviour {
         GameStarter.OnGameStart -= GameStarter_OnGameStart;
         PlayerController.OnPlayerDeath -= PlayerController_OnPlayerDeath;
         BossBehavior.OnBossDeath -= BossBehavior_OnBossDeath;
+    }
+
+    private IEnumerator CoolTimeSlowFX()
+    {
+        float currTimeScale = .3f;
+
+        SetTimeScale(currTimeScale);
+
+        yield return new WaitForSecondsRealtime(.8f);
+
+        while (currTimeScale < OmniController.omniController.globalTimeScale)
+        {
+            if (!gamePaused)
+            {
+                currTimeScale += .1f;
+                SetTimeScale(currTimeScale);
+            }
+            yield return new WaitForSecondsRealtime(.2f);
+        }
+
+        SetTimeScale(OmniController.omniController.globalTimeScale);
     }
 
     public void ExitToMainMenu()

@@ -44,8 +44,17 @@ public class ProjectileBehavior : MonoBehaviour {
     {
         if (gameObject.tag == "EnemyProjectile" && other.tag == "AntiProjectile")
         {
-            this.DestroyProjectile();
+            DestroyProjectile();
         }
+
+        if (other.tag == "Wall")
+        {
+            DestroyProjectile();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
         
     }
 }

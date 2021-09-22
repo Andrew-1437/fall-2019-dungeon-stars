@@ -18,12 +18,6 @@ public class MissileBehavior : ProjectileBehavior {
         // Acquire target when instantiated
         base.Start();
         target = FindClosestByTag(targetTag);
-
-        // If the target is the player and they are playing the "Vector Hunter" stealth ship, the missile's turn speed is halved
-        if (targetTag == "Player" && target.GetComponent<PlayerController>().id.Equals(ShipsEnum.ShipID.VECTOR))
-            turnSpeedMod = .5f;
-        else
-            turnSpeedMod = 1f;
     }
 
     protected void Update()
@@ -64,6 +58,10 @@ public class MissileBehavior : ProjectileBehavior {
         if (gameObject.tag == "EnemyMissile" && other.tag == "AntiProjectile")
         {
             DestroyProjectile();
+        }
+        if (other.tag == "Wall")
+        {
+            Detonate();
         }
     }
 

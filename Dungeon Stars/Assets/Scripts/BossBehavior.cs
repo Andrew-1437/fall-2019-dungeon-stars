@@ -40,6 +40,7 @@ public class BossBehavior : LargeEnemyBehavior {
     {
         Wake();
         GM.OnBossActivate -= GM_OnBossActivate;
+        gameObject.SetActive(true);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
