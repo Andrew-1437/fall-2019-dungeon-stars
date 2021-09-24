@@ -17,6 +17,7 @@ public class ObstacleBehavior : MonoBehaviour {
     //Visual FX
     public GameObject explosion;
     public GameObject hitFX;
+    private SpriteRenderer sprite;
 
     //Score
     public int score;
@@ -39,6 +40,8 @@ public class ObstacleBehavior : MonoBehaviour {
         gm = GM.gameController;
 
         hp = hp * OmniController.omniController.obstacleHpScale;
+        
+        sprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Update()
@@ -72,6 +75,7 @@ public class ObstacleBehavior : MonoBehaviour {
     public void Damage(float dmg)
     {
         hp -= dmg * OmniController.omniController.obstacleIncommingDamageScale;
+        StartCoroutine(OnHitFx());
     }
 
     private void Die()
@@ -114,4 +118,12 @@ public class ObstacleBehavior : MonoBehaviour {
         awake = setAwake;
     }
 
+    private IEnumerator OnHitFx()
+    {
+        sprite?.material?.SetFloat("Flash", 1);
+
+        yield return new WaitForSeconds(.05f);
+
+        sprite?.material?.SetFloat("Flash", 0);
+    }
 }

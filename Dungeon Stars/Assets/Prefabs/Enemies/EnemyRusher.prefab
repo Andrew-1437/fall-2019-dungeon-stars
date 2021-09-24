@@ -71,6 +71,7 @@ MonoBehaviour:
   hp: 15
   collisionVal: 10
   explosion: {fileID: 100010, guid: 74f150540a0de664bac84f89b4c8c69a, type: 3}
+  hitFX: {fileID: 0}
   score: 100
   floatingScoreText: {fileID: 5520782144581124303, guid: d1c3623ad77006e45be3f0a8c9a06bc4,
     type: 3}
@@ -78,6 +79,7 @@ MonoBehaviour:
   isATurret: 0
   dontDieOnScreenExit: 0
   ignorePlayerCollisions: 0
+  ignoreAwakeOnEnterBounds: 0
 --- !u!114 &114979533683665214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +109,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -115,7 +118,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 27b922dcf38b4ad48ad62ff4ba848762, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
