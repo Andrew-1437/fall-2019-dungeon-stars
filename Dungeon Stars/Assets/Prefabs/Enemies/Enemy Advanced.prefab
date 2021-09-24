@@ -42,11 +42,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e11af59e6a919649a38753bbae54716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  turn: 90
+  speed: 4.1
+  turn: 70
   additionalMovementVector: {x: 0, y: -10}
   lookAtPlayer: 1
-  projectile: {fileID: 2302270573948601052, guid: 92e325379f74c094fbe18ae555e53d38,
+  projectile: {fileID: 3929727460643241032, guid: 7c94ab1860f0639448b985fcd22ac614,
     type: 3}
   hardpoint: {fileID: 3974866647009265826}
   shootDelay: 2
@@ -56,7 +56,7 @@ MonoBehaviour:
     type: 3}
   extraHardpoint: {fileID: 601390031977641570}
   extraShootDelay: 2
-  extraFireRate: 0.75
+  extraFireRate: 0.7
   extraBurstTime: 1.5
 --- !u!1001 &3973940652985126228
 PrefabInstance:
@@ -75,11 +75,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4273209801555802, guid: c2796cdf0c775c248be4ef53d0a062df, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 4273209801555802, guid: c2796cdf0c775c248be4ef53d0a062df, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 4273209801555802, guid: c2796cdf0c775c248be4ef53d0a062df, type: 3}
       propertyPath: m_LocalPosition.x
@@ -124,6 +124,21 @@ PrefabInstance:
     - target: {fileID: 4457281880098294, guid: c2796cdf0c775c248be4ef53d0a062df, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241128091395112, guid: c2796cdf0c775c248be4ef53d0a062df,
+        type: 3}
+      propertyPath: hp
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241128091395112, guid: c2796cdf0c775c248be4ef53d0a062df,
+        type: 3}
+      propertyPath: score
+      value: 650
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241128091395112, guid: c2796cdf0c775c248be4ef53d0a062df,
+        type: 3}
+      propertyPath: collisionVal
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 494484444801009127, guid: c2796cdf0c775c248be4ef53d0a062df,
         type: 3}
