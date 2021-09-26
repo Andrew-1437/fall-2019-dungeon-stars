@@ -10,6 +10,7 @@ public class ObstacleBehavior : MonoBehaviour {
     //Hp********************
     public float hp;    //Hp of the enemy
     public float collisionVal;  //Base damage done on a collision with the player
+    public bool invincible;
 
     //Camera Shake
     private GameObject camera;
@@ -28,6 +29,10 @@ public class ObstacleBehavior : MonoBehaviour {
     public bool dontDieOnScreenExit;
     public bool ignorePlayerCollisions;
     public bool ignoreAwakeOnEnterBounds;
+
+    // Events
+    public delegate void ObstacleDelegate(ObstacleBehavior thisObstacle);
+    public event ObstacleDelegate OnObstacleDeath; 
 
     private void Start()
     {
@@ -74,17 +79,21 @@ public class ObstacleBehavior : MonoBehaviour {
 
     public void Damage(float dmg)
     {
-        hp -= dmg * OmniController.omniController.obstacleIncommingDamageScale;
-        StartCoroutine(OnHitFx());
+        if (!invincible)
+        {
+            hp -= dmg * OmniController.omniController.obstacleIncommingDamageScale;
+            StartCoroutine(OnHitFx());
+        }
     }
 
     private void Die()
     {
         OmniController.omniController.enemiesKilled++;
         Destroy(gameObject);
-        Destroy(
-            Instantiate(explosion, transform.position, transform.rotation), 
-            5f);
+        if(explosion)
+            Destroy(
+                Instantiate(explosion, transform.position, transform.rotation), 
+                5f);
         DisplayScore();
         camera.GetComponent<CameraShaker>().CustomShake(collisionVal / 60.0f);
         gm.AddScore(score);
@@ -92,6 +101,7 @@ public class ObstacleBehavior : MonoBehaviour {
         {
             GetComponentInParent<LargeEnemyBehavior>().turrets--;
         }
+        OnObstacleDeath?.Invoke(this);
     }
 
     private void DisplayScore()

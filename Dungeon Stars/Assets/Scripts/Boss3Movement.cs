@@ -11,17 +11,16 @@ public class Boss3Movement : MonoBehaviour
 
     [Tooltip("Designate this turret as the second turret for the purpose of movement")]
     public bool altTurret;  // Designate this turret as the second turret
+    public ObstacleBehavior otherTurret;   // Reference to other turret base's ObstacleBehavior
+    public TurretBehavior thisTurret;   // Reference to this turret's TurretBehavior
+    public ObstacleBehavior shield; // Reference to this turret's shield
 
     public float speed;
     public float timeBetweenMoves;
 
     float nextMoveTime;
-
     float journeyLength;
-
     float startTime;
-
-
 
     [Header("Bounds")]
     public float minX;
@@ -53,7 +52,14 @@ public class Boss3Movement : MonoBehaviour
         lr = GetComponent<LineRenderer>();
 
         if (altTurret) orbitMod = -1;
+
+        otherTurret.OnObstacleDeath += OtherTurret_OnObstacleDeath;
+        shield.OnObstacleDeath += Shield_OnObstacleDeath;
     }
+
+    
+
+
 
     // Update is called once per frame
     void Update()
@@ -148,5 +154,27 @@ public class Boss3Movement : MonoBehaviour
         nextMoveTime = Time.time + timeBetweenMoves * 2.5f;
         orbitStartTime = Time.time + orbitDuration * 2f;
         awake = true;
+    }
+
+    // When the other turret dies, activate our shield
+    private void OtherTurret_OnObstacleDeath(ObstacleBehavior thisObstacle)
+    {
+        shield.gameObject.SetActive(true);
+        GetComponent<ObstacleBehavior>().invincible = true;
+        speed *= 1.5f;
+        timeBetweenMoves /= 1.5f;
+        thisTurret.shootDelay /= 1.5f;
+        orbitSpeed *= 1.5f;
+        otherTurret.OnObstacleDeath -= OtherTurret_OnObstacleDeath;
+    }
+
+    private void Shield_OnObstacleDeath(ObstacleBehavior thisObstacle)
+    {
+        GetComponent<ObstacleBehavior>().invincible = false;
+        speed *= 1.5f;
+        timeBetweenMoves /= 1.5f;
+        thisTurret.shootDelay /= 1.5f;
+        orbitSpeed *= 1.5f;
+        shield.OnObstacleDeath -= Shield_OnObstacleDeath;
     }
 }
