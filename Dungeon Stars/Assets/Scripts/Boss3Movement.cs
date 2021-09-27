@@ -7,12 +7,13 @@ public class Boss3Movement : MonoBehaviour
     Vector3 startPos;
     Vector3 endPos;
 
-    public short moveStage;   // State machine design for movement mode: 0 = Original, 1 = Orbit
+    public short moveStage;     // State machine design for movement mode: 
+                                // 0 = Original, 1 = Orbit, 2 = Spin Attack
 
     [Tooltip("Designate this turret as the second turret for the purpose of movement")]
     public bool altTurret;  // Designate this turret as the second turret
     public ObstacleBehavior otherTurret;   // Reference to other turret base's ObstacleBehavior
-    public TurretBehavior thisTurret;   // Reference to this turret's TurretBehavior
+    public Boss3TurretBehavior thisTurret;   // Reference to this turret's TurretBehavior
     public ObstacleBehavior shield; // Reference to this turret's shield
 
     public float speed;
@@ -36,9 +37,15 @@ public class Boss3Movement : MonoBehaviour
     float orbitEndTime = Mathf.Infinity;
     public float orbitSpeed;
     int orbitMod = 1;
+
+    [Header("Spin Mode")]
+    public float spinAttackDuration;
+    float spinStartTime = Mathf.Infinity;
+    float spinEndTime = Mathf.Infinity;
     
     public bool awake;
     bool orbiting = false;
+    bool beginSpinAttack = false;
 
     LineRenderer lr;
 
@@ -57,10 +64,6 @@ public class Boss3Movement : MonoBehaviour
         shield.OnObstacleDeath += Shield_OnObstacleDeath;
     }
 
-    
-
-
-
     // Update is called once per frame
     void Update()
     {
@@ -69,8 +72,25 @@ public class Boss3Movement : MonoBehaviour
             // Randomly move across the screen in sync
             if (moveStage == 0)
             {
-                // Transition to the next movement type
-                if(Time.time >= orbitStartTime && Time.time >= nextMoveTime)
+                // Transition to Spin Attack
+                if (Time.time >= spinStartTime && Time.time >= nextMoveTime)
+                {
+                    if (beginSpinAttack)
+                    {
+                        thisTurret.doSpinAttack = true;
+                        moveStage = 2;
+                        spinStartTime = Time.time;
+                        spinEndTime = spinStartTime + spinAttackDuration;
+                        beginSpinAttack = false;
+                        return;
+                    }
+                    StartMove(0f, 0f);
+                    nextMoveTime = Time.time + timeBetweenMoves;
+                    spinStartTime = nextMoveTime;
+                    beginSpinAttack = true;
+                }
+                // Transition to Orbit Attack
+                else if(Time.time >= orbitStartTime && Time.time >= nextMoveTime)
                 {
                     if (orbiting)
                     {
@@ -117,6 +137,24 @@ public class Boss3Movement : MonoBehaviour
                     orbiting = false;
                     moveStage = 0;
                     nextMoveTime = Time.time + 1.5f;
+                    orbitStartTime = Mathf.Infinity;
+                    if (otherTurret != null)
+                        orbitStartTime = Time.time + orbitDuration * 2f;
+                    else
+                        spinStartTime = Time.time + orbitDuration * 2f;
+                    startPos = transform.position;
+                    endPos = transform.position;
+                }
+            }
+
+            if (moveStage == 2)
+            {
+                if (Time.time >= spinEndTime)
+                {
+                    thisTurret.doSpinAttack = false;
+                    moveStage = 0;
+                    nextMoveTime = Time.time + 1.5f;
+                    spinStartTime = Mathf.Infinity;
                     orbitStartTime = Time.time + orbitDuration * 2f;
                     startPos = transform.position;
                     endPos = transform.position;
@@ -165,7 +203,8 @@ public class Boss3Movement : MonoBehaviour
         timeBetweenMoves /= 1.5f;
         thisTurret.shootDelay /= 1.5f;
         orbitSpeed *= 1.5f;
-        otherTurret.OnObstacleDeath -= OtherTurret_OnObstacleDeath;
+        orbitEndTime = Time.time;
+        spinStartTime = Time.time + spinAttackDuration * 2;
     }
 
     private void Shield_OnObstacleDeath(ObstacleBehavior thisObstacle)
@@ -175,6 +214,5 @@ public class Boss3Movement : MonoBehaviour
         timeBetweenMoves /= 1.5f;
         thisTurret.shootDelay /= 1.5f;
         orbitSpeed *= 1.5f;
-        shield.OnObstacleDeath -= Shield_OnObstacleDeath;
     }
 }

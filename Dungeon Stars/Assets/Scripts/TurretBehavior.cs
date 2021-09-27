@@ -7,14 +7,14 @@ public class TurretBehavior : MonoBehaviour {
     [Tooltip("Leave empty or specify \"Player\" to target player")]
     public string targetTag;    // Default target is player
     public GameObject projectile;
-    private GameObject target;
+    protected GameObject target;
 
     public float shootDelay;
     public float fireRate;
     public float burstTime;
-    float burstEnd = 0f;
-    float nextBurst = Mathf.Infinity;
-    float nextFire = Mathf.Infinity;
+    protected float burstEnd = 0f;
+    protected float nextBurst = Mathf.Infinity;
+    protected float nextFire = Mathf.Infinity;
 
     public float turn;
     float turnSpeedMod = 1f;
@@ -30,8 +30,11 @@ public class TurretBehavior : MonoBehaviour {
                                     // Mainly used for player's turrets or invulnerable turrets that should not be targeted
     ObstacleBehavior thisObstacle;  // Reference to this gameObject's ObstacleBehavior script
 
+    public delegate void TurretDelegate();
+    public event TurretDelegate OnBurstEnd;
+
     // Use this for initialization
-    void Start () {
+    protected void Start () {
         nextBurst = Time.time + shootDelay;
         nextFire = 0f;
         bool wasSleeping = !awake;
@@ -48,7 +51,7 @@ public class TurretBehavior : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update ()
+	protected void Update ()
     {
         if (!ignoreObstacle)
             awake = thisObstacle.awake;
@@ -89,6 +92,7 @@ public class TurretBehavior : MonoBehaviour {
             {
                 nextBurst = Time.time + shootDelay;
                 burstEnd = Time.time + burstTime;
+                OnBurstEnd?.Invoke();
             }
             if (Time.time > nextFire && Time.time < burstEnd)
             {
