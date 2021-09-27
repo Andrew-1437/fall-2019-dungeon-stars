@@ -5,7 +5,7 @@ using TMPro;
 
 public class ObstacleBehavior : MonoBehaviour {
     //GM
-    private GM gm;
+    protected GM gm;
     
     //Hp********************
     public float hp;    //Hp of the enemy
@@ -34,7 +34,7 @@ public class ObstacleBehavior : MonoBehaviour {
     public delegate void ObstacleDelegate(ObstacleBehavior thisObstacle);
     public event ObstacleDelegate OnObstacleDeath; 
 
-    private void Start()
+    protected void Start()
     {
         awake = false;
         camera = GameObject.FindWithTag("MainCamera");
@@ -49,7 +49,7 @@ public class ObstacleBehavior : MonoBehaviour {
         sprite = GetComponentInChildren<SpriteRenderer>();
     }
 
-    private void Update()
+    protected void Update()
     {
         if (hp <= 0)
         {
@@ -57,7 +57,7 @@ public class ObstacleBehavior : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    protected void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Projectile")
         {
@@ -86,7 +86,7 @@ public class ObstacleBehavior : MonoBehaviour {
         }
     }
 
-    private void Die()
+    public void Die()
     {
         OmniController.omniController.enemiesKilled++;
         Destroy(gameObject);

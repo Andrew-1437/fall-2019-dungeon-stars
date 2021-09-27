@@ -179,7 +179,7 @@ MonoBehaviour:
   altTurret: 0
   otherTurret: {fileID: 0}
   thisTurret: {fileID: 478250728979570642}
-  shield: {fileID: 7472794564846183910}
+  shield: {fileID: 1033052144878910532}
   speed: 30
   timeBetweenMoves: 2
   minX: -20
@@ -728,6 +728,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8383434000212773711, guid: c65354b6e2dd13243a7411e59f20fcf1,
+        type: 3}
+      propertyPath: hp
+      value: 1500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c65354b6e2dd13243a7411e59f20fcf1, type: 3}
 --- !u!1 &7472794564846183909 stripped
@@ -742,15 +747,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8791540758947247883}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7472794564846183910 stripped
+--- !u!114 &1033052144878910532 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2140723498061615853, guid: c65354b6e2dd13243a7411e59f20fcf1,
+  m_CorrespondingSourceObject: {fileID: 8383434000212773711, guid: c65354b6e2dd13243a7411e59f20fcf1,
     type: 3}
   m_PrefabInstance: {fileID: 8791540758947247883}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7472794564846183909}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6015b2ba4a823d440bb14097dabb88a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b16c545a89b9b1498be2f21bef0be5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
