@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 82620008653097036}
   - component: {fileID: 82790658056604432}
   m_Layer: 3
-  m_Name: Player Variant
+  m_Name: PlayerAlien
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.7589171, y: 3.4067535}
+  m_Size: {x: 1.6638012, y: 2.4130101}
   m_Direction: 0
 --- !u!114 &114058955246685346
 MonoBehaviour:
@@ -93,44 +93,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b130d96ba8e0b0642a4bdc72a4d87743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipName: Interceptor Variant
-  desc: Standard Interceptor but with a railgun and buffed shields to support it.
-  primaryWeap: Bolts
-  secondaryWeap: Heavy Bolts
-  tertiaryWeap: Piercing Shots
-  id: 0
+  shipName: Quasar
+  desc: Advanced ship of aliend design, the Quasar is fast and accurate, rewarding
+    precise shooting
+  primaryWeap: Laser Bolts
+  secondaryWeap: Gun Bolts
+  tertiaryWeap: ???
+  id: 6
   isPlayer2: 0
-  maxHp: 500
+  maxHp: 300
   maxShield: 150
   hp: 0
   shield: 0
   shieldSprite: {fileID: 4422734179876284122}
-  shieldRecharge: 0.021
-  shieldRegenDelay: 1.8
+  shieldRecharge: 0.028
+  shieldRegenDelay: 1.7
   shieldDelay: 4
   shieldDown: 0
   level: 0
-  speed: 13.9
+  speed: 16.5
   rotate: 20
   primary:
-  - {fileID: 1798592306547478, guid: 80ab67ac8ee09d24ea0226f938eaa479, type: 3}
-  - {fileID: 3133016002362744516, guid: c2139a1021a6c2d4289d5d1374495c95, type: 3}
-  - {fileID: 8597321315343796439, guid: 54b13847ce7a38844b732e5bfe280992, type: 3}
-  - {fileID: 5957229176549922166, guid: fb21c6f724888ce4fa214f708560ac96, type: 3}
-  - {fileID: 6436069487473613827, guid: a2524304dec9b294498099a49b5eea0d, type: 3}
+  - {fileID: 2381551421524329383, guid: a2c5a399890521143adaeb455189a897, type: 3}
+  - {fileID: 2314858000855863748, guid: e5e256aef7407544faf6926292754734, type: 3}
+  - {fileID: 4052246578066163609, guid: 8b37bdd7e35d9a94eb131e4170b87620, type: 3}
+  - {fileID: 5701889852825551241, guid: 16cd5fa15a33aa34fab8f3cb69c15d38, type: 3}
+  - {fileID: 2099317521257059516, guid: d011f7b912cb4314f800fb5f4b0e4bff, type: 3}
   spawner: {fileID: 4120237883135858}
   secondary:
-  - {fileID: 4764460429754885460, guid: 1e1c4f0fc0957e34fb367ce0a9d5cd03, type: 3}
-  - {fileID: 7697191691533448849, guid: 07be5b4eb7db1d84695ee2aae72ff32f, type: 3}
-  - {fileID: 4578834216087093956, guid: 14ee5af02bd01a4489c8185fa52773c5, type: 3}
-  - {fileID: 8262575008038989756, guid: 9e3094317b206854ba323eca9bf1eb15, type: 3}
-  - {fileID: 3747645217978626618, guid: 21ea494c98fa86243bbfe8d1dfdbfe31, type: 3}
-  explosive: {fileID: 446043582643009660, guid: 429479caf27a876488418b25260f699b,
+  - {fileID: 5868978301655643022, guid: bb72857781e25e944be5b8384108647e, type: 3}
+  - {fileID: 4885591997900066927, guid: ad40ab01d29016e4db0991afdb8a01be, type: 3}
+  - {fileID: 6177278259737527033, guid: fb89866bfea6f3241887db4270f15b0d, type: 3}
+  - {fileID: 7889552313854733198, guid: 2b412e74c039278498ccf19129e1f26d, type: 3}
+  - {fileID: 2866268719939477943, guid: 7f521d99af696614a9c9ec8e123ec181, type: 3}
+  explosive: {fileID: 455191990633966392, guid: 96104edb52b8a6449813679bd35a69c4,
     type: 3}
-  fireRate: 0.2
-  secondaryFireRate: 0.5
-  maxMissile: 75
-  currentMissileCount: 75
+  fireRate: 0.6
+  secondaryFireRate: 0.08
+  maxMissile: 40
+  currentMissileCount: 40
   dmgMod: 1
   invincible: 0
   enableHeat: 0
@@ -142,8 +143,8 @@ MonoBehaviour:
   secondaryUsesHeat: 0
   secHeatGen: 0
   heatWarnAudio: {fileID: 0}
-  weapon1Cost: 8
-  weapon2Cost: 10
+  weapon1Cost: 10
+  weapon2Cost: 1
   explosionFx: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   speedFX: {fileID: 6882835510082918313}
   fireRateFX: {fileID: 313201674347606980}
@@ -588,7 +589,7 @@ Transform:
   m_GameObject: {fileID: 1514437652750396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4504378209215118}
   m_RootOrder: 0
@@ -634,7 +635,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1763f2d9dc8baae41b3c0f7e6299b6ba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 365a75df217ce484f96af40c66baa8a5, type: 3}
   m_Color: {r: 0.8006408, g: 0.9811321, b: 0.8232597, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -970,7 +971,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.9914521, g: 1, b: 0, a: 0.6392157}
+      maxColor: {r: 0.48663187, g: 0, b: 1, a: 0.6392157}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -10417,7 +10418,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4985477008873747241}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.6, z: 0}
+  m_LocalPosition: {x: 0, y: -1.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3844168738827788730}
