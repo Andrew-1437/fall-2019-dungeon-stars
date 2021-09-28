@@ -96,9 +96,10 @@ public class GM : MonoBehaviour {
 
     // Events
     public delegate void GmDelegate();
-    public static event GmDelegate OnBossActivate;
-    public static event GmDelegate OnLevelComplete;
-    public static event GmDelegate OnExitToMainMenu;
+    public static event GmDelegate OnBossActivate;  // Invoke when Boss is awakened
+    public static event GmDelegate OnLevelEnd;  // Invoked when the level is stopped
+    public static event GmDelegate OnLevelComplete; // Invoked when the level is completed by reaching the end
+    public static event GmDelegate OnExitToMainMenu;    // Invoked when the player leaves to the main menu
 
     private void Awake()
     {
@@ -454,8 +455,10 @@ public class GM : MonoBehaviour {
             mainFlowchart.SendFungusMessage("boss dead");
     }
 
+    // Tells fungus that we have finished the level and are ready to move on to the next scene
     public void EndLevel()
     {
+        OnLevelEnd?.Invoke();
         OnLevelComplete?.Invoke();
         mainFlowchart.SendFungusMessage("LevelComplete");
 
@@ -463,8 +466,10 @@ public class GM : MonoBehaviour {
         UnsubAllEvents();
     }
 
+    // Tells fungus to load in the game summary because we have no lives left
     public void GameOver()
     {
+        OnLevelEnd?.Invoke();
         mainFlowchart.SendFungusMessage("GameOver");
 
         // Unsubscribe to events at the end of the level
@@ -728,6 +733,7 @@ public class GM : MonoBehaviour {
 
     public void ExitToMainMenu()
     {
+        OnLevelEnd?.Invoke();
         OnExitToMainMenu?.Invoke();
 
         // Unsubscribe to events at the end of the level

@@ -14,9 +14,14 @@ public class Boss3TurretBehavior : TurretBehavior
     private new void Start()
     {
         base.Start();
-
+        
         OnBurstEnd += Boss3TurretBehavior_OnBurstEnd;
+        GM.OnLevelEnd += GM_OnLevelEnd;
     }
+
+    
+
+
 
     // Update is called once per frame
     private new void Update()
@@ -50,5 +55,17 @@ public class Boss3TurretBehavior : TurretBehavior
         {
             Fire();
         }
+    }
+
+    private void OnDestroy()
+    {
+        OnBurstEnd -= Boss3TurretBehavior_OnBurstEnd;
+        GM.OnLevelEnd -= GM_OnLevelEnd;
+    }
+
+    private void GM_OnLevelEnd()
+    {
+        OnBurstEnd -= Boss3TurretBehavior_OnBurstEnd;
+        GM.OnLevelEnd -= GM_OnLevelEnd;
     }
 }

@@ -49,7 +49,6 @@ public class Boss3Movement : MonoBehaviour
 
     LineRenderer lr;
 
-
     // Start is called before the first frame update
     void Awake()
     {
@@ -62,6 +61,7 @@ public class Boss3Movement : MonoBehaviour
 
         otherTurret.OnObstacleDeath += OtherTurret_OnObstacleDeath;
         shield.OnObstacleDeath += Shield_OnObstacleDeath;
+        GM.OnLevelEnd += GM_OnLevelEnd;
     }
 
     // Update is called once per frame
@@ -214,5 +214,19 @@ public class Boss3Movement : MonoBehaviour
         timeBetweenMoves /= 1.5f;
         thisTurret.shootDelay /= 1.5f;
         orbitSpeed *= 1.5f;
+    }
+
+    private void OnDestroy()
+    {
+        otherTurret.OnObstacleDeath -= OtherTurret_OnObstacleDeath;
+        shield.OnObstacleDeath -= Shield_OnObstacleDeath;
+        GM.OnLevelEnd -= GM_OnLevelEnd;
+    }
+
+    private void GM_OnLevelEnd()
+    {
+        otherTurret.OnObstacleDeath -= OtherTurret_OnObstacleDeath;
+        shield.OnObstacleDeath -= Shield_OnObstacleDeath;
+        GM.OnLevelEnd -= GM_OnLevelEnd;
     }
 }

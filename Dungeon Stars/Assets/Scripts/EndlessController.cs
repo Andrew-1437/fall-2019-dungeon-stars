@@ -189,7 +189,6 @@ public class EndlessController : MonoBehaviour
     // Spawns the next boss from the list and links it to the GM
     public void SpawnBoss()
     {
-        Debug.Log("Endless Mode - SpawnBoss()");
         GM.gameController.boss =
             Instantiate(
                 bossesList[(difficultyLevel / 6 - 1) % bossesList.Length]);
