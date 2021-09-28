@@ -5,28 +5,36 @@ using UnityEngine.SceneManagement;
 
 public class OmniController : MonoBehaviour
 {
+    // Singleton instance
     public static OmniController omniController;
 
+    #region Score Tracking
     [Header("Game Summary")]
     public int totalScore;
     public int enemiesKilled;
     public int timesDied;
     public int powerUpsCollected;
     public bool completedGame;
+    #endregion
 
+    #region Ship Selection
     public string loadIntoLevel = "";
     [HideInInspector]
     public GameObject selectedShip = null;
     [HideInInspector]
     public GameObject selectedShip2 = null;  // Two players
+    #endregion
 
+    #region Options
     [Header("Options")]
     public GameObject[] allShips;
     public bool enableAllShips;
     public bool enableDebug;
     public bool infiniteLives;
     public bool enableCameraShake;
-    
+    #endregion
+
+    #region Global Modifiers
     [Header("Modifiers")]
     public float globalTimeScale = 1f;  // Time for Unity's Time.timeScale
     public int deathPenalty = 50000;    // Score penalty upon dying
@@ -46,7 +54,9 @@ public class OmniController : MonoBehaviour
     public float obstacleHpScale = 1f;  // Multiply obstacle/enemy max hp by this amount
     public float additionalScoreMultiplier = 1f;    // Multiply all point gains by this amount
     public float powerUpDurationScale = 1f;  // Multiply the duration of all power ups by this amount
+    #endregion
 
+    #region Additional Game Modes
     [Header("Two Player Mode")]
     public bool twoPlayerMode;
 
@@ -54,6 +64,7 @@ public class OmniController : MonoBehaviour
     public bool endlessMode;
     public int finalDifficultyLevel;
     public float timeTaken;
+    #endregion
 
     private void Awake()
     {
@@ -72,16 +83,18 @@ public class OmniController : MonoBehaviour
 
     private void Update()
     {
+        // "Speedrun mode"
         if (enableDebug)
         {
-            if (Input.GetKeyDown(KeyCode.I)) globalTimeScale = 1f;
-            if (Input.GetKeyDown(KeyCode.O)) globalTimeScale = 2f;
-            if (Input.GetKeyDown(KeyCode.U)) globalTimeScale = .5f;
+            if (Input.GetKeyDown(KeyCode.I)) ChangeTimeScale(1f);
+            if (Input.GetKeyDown(KeyCode.O)) ChangeTimeScale(2f);
+            if (Input.GetKeyDown(KeyCode.U)) ChangeTimeScale(.5f);
         }
 
         //Time.timeScale = globalTimeScale;
     }
 
+    // Resets all variables used to track player's gameplay
     public void ResetGameplayVariables()
     {
         totalScore = 0;
@@ -91,9 +104,9 @@ public class OmniController : MonoBehaviour
         selectedShip = null;
         selectedShip2 = null;
         completedGame = false;
-        globalTimeScale = 1f;
     }
 
+    // Reset all global modifiers back to the default value of 1
     public void ResetModifiers()
     {
         playerHpScale = 1f;
@@ -110,6 +123,13 @@ public class OmniController : MonoBehaviour
         obstacleHpScale = 1f;  
         additionalScoreMultiplier = 1f;
         powerUpDurationScale = 1f;
+        ChangeTimeScale(1f);
+    }
+
+    public void ChangeTimeScale(float newTimeScale)
+    {
+        globalTimeScale = newTimeScale;
+        Time.timeScale = globalTimeScale;
     }
 
     public void SetTwoPlayers(bool setCoop)

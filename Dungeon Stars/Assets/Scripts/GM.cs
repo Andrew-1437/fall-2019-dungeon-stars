@@ -7,9 +7,11 @@ using TMPro;
 
 public class GM : MonoBehaviour {
 
+    // Singleton Instance
     [HideInInspector]
     public static GM gameController;
 
+    #region References
     [Header("References")]
     public GameObject playerObject;
     public GameObject playerObject2;
@@ -24,8 +26,9 @@ public class GM : MonoBehaviour {
     public GameObject bossWarnUI;
     private BossBehavior bossStats;
     private float bossMaxHp;
-    public AudioSource soundtrack;
+    #endregion
 
+    #region Score Tracking
     [Header("Score")]
     public int score;
     public int baseAmmoScore;  // Highest score bonus if have max ammo 
@@ -34,7 +37,9 @@ public class GM : MonoBehaviour {
     public int chainedKills = 0;
     public float multiplierTimer;   // If time between kills exceeds this, the multiplier is reset
     float endMultiplierTime = 0f;
+    #endregion
 
+    #region Level Management
     [Header("Level Management")]
     public bool gameStart;
     public bool allowBoss;
@@ -45,7 +50,9 @@ public class GM : MonoBehaviour {
     public bool twoPlayerMode;
     [HideInInspector]
     public bool gamePaused = false;
+    #endregion
 
+    #region UI
     [Header("UI")]
     public GameObject soloUIElements;
     public TextMeshProUGUI health;
@@ -90,16 +97,18 @@ public class GM : MonoBehaviour {
     public TextMeshProUGUI missileCount2;
     public GameObject heatBar2;
     public SimpleHealthBar heat2;
+    #endregion
 
     [Header("Flowchart")]
     public Fungus.Flowchart mainFlowchart;
 
-    // Events
+    #region Events
     public delegate void GmDelegate();
     public static event GmDelegate OnBossActivate;  // Invoke when Boss is awakened
     public static event GmDelegate OnLevelEnd;  // Invoked when the level is stopped
     public static event GmDelegate OnLevelComplete; // Invoked when the level is completed by reaching the end
     public static event GmDelegate OnExitToMainMenu;    // Invoked when the player leaves to the main menu
+    #endregion
 
     private void Awake()
     {
@@ -425,9 +434,7 @@ public class GM : MonoBehaviour {
         {
             score = 0;
         }
-
-        // Extra
-        soundtrack.pitch = OmniController.omniController.globalTimeScale;
+        
     }
 
     public void AwakenBoss()

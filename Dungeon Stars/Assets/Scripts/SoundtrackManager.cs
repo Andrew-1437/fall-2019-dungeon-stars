@@ -14,6 +14,11 @@ public class SoundtrackManager : MonoBehaviour
         currentlyPlaying = levelSoundtrack;
     }
 
+    private void Update()
+    {
+        currentlyPlaying.pitch = OmniController.omniController.globalTimeScale;
+    }
+
     // Helper methods for use by a Fungus Flowchart
     public void PlayLevelMusic()
     {

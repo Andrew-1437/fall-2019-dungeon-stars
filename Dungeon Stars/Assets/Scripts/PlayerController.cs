@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    // Name and Description
+    #region Metadata
     [Header("Name and Descriptions")]
     public string shipName;
     public string desc;
@@ -12,11 +12,12 @@ public class PlayerController : MonoBehaviour {
     public string secondaryWeap;
     public string tertiaryWeap;
     public ShipsEnum.ShipID id;
-
+    
     [HideInInspector]
     public bool isPlayer2 = false;
+    #endregion
 
-    // HP & Shields***********
+    #region HP & Shields
     [Header("HP & Shields")]
     public float maxHp; // Represents max hp
     public float maxShield; // Represents max shields
@@ -37,9 +38,9 @@ public class PlayerController : MonoBehaviour {
     private float shieldOpacity;
 
     public int level;
+    #endregion
 
-
-    // Movement***********
+    #region Movement
     [Header("Movement")]
     public float speed;
     public float rotate;
@@ -48,9 +49,9 @@ public class PlayerController : MonoBehaviour {
     bool disabled = false;  // Prevents shooting when true;
     float stunEndTime = 0;
     float disableEndTime = 0;
-
-
-    // Weapons**********
+    #endregion
+    
+    #region Weapons
     [Header("Weapons")]
     public GameObject[] primary; //Primary Fire Projectiles
     public Transform spawner;   //"Hardpoint" Location (Where to spawn projectiles)
@@ -65,9 +66,9 @@ public class PlayerController : MonoBehaviour {
     // Missile count
     public int maxMissile;
     public int currentMissileCount;
+    #endregion
 
-    
-    // PowerUp Mods
+    #region Local Modifiers
     public float dmgMod;    // Value to modify damage taken, for things like armor (1 = full damage, 0 = no damage, >1 = Extra damage, <0 = Healing??)
     private float fireRateMod;
     private float heatGenMod;  // Fire rate boost also reduces heat generated if using heat
@@ -79,12 +80,12 @@ public class PlayerController : MonoBehaviour {
     private float shieldBoostEnd;
     private float attackSpeedBuff;
     
-
     [HideInInspector]
     public bool invincible;  // When true, take no damage
     private float endSpawnInvincible;  // Time after spawn to end invulnerability
+    #endregion
 
-    // Heat Management
+    #region Heat Management
     [HideInInspector]
     public bool enableHeat;
     [HideInInspector]
@@ -104,22 +105,21 @@ public class PlayerController : MonoBehaviour {
     public float secHeatGen;
     [HideInInspector]
     public AudioSource heatWarnAudio;
+    #endregion
 
-    //score
+    #region Weapon Costs
     [Header("Score")]
     public int weapon1Cost;
     public int weapon2Cost;
+    #endregion
 
-    // Rigidbody
-    private Rigidbody2D rb;
+    #region References
+    private GM gm;  
+    private Rigidbody2D rb; 
+    private GameObject camera;
+    #endregion
 
-    // Camera Shake
-    private new GameObject camera;
-
-    // GM
-    private GM gm;
-
-    // Visual FX************
+    #region Visual & Audio FX
     [Header("Referenced Game Objects")]
     public GameObject explosionFx;
     public ParticleSystem speedFX;
@@ -128,11 +128,13 @@ public class PlayerController : MonoBehaviour {
 
     // Sound FX**************
     private new AudioSource[] audio;
+    #endregion
 
-    // Events
+    #region Events
     public delegate void PlayerDelegate(PlayerController pc);
     public static event PlayerDelegate OnPlayerSpawn;
     public static event PlayerDelegate OnPlayerDeath;
+    #endregion
 
     // Initialize**********
     void Start()
@@ -153,7 +155,7 @@ public class PlayerController : MonoBehaviour {
         shieldBoostEnd = 0.0f;
         currentMissileCount = maxMissile;
 
-        camera = GameObject.FindWithTag("MainCamera");
+        camera = Camera.main.gameObject;
         if(camera == null)
         {
             print("Ohshit! Camera not found by player!");
