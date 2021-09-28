@@ -4,24 +4,30 @@ using UnityEngine;
 using TMPro;
 
 public class LargeEnemyBehavior : MonoBehaviour {
-    //GM
+
+    #region References
     protected GM gm;
+    protected GameObject gameCamera;
+    #endregion
 
     public short turrets;
+
+    #region Visual FX
     public GameObject explosion;
     public GameObject subExplosion;
     public float subExplodeRadius = 5f;
+    #endregion
 
-    //Camera Shake
-    protected GameObject gameCamera;
-
-    //Score
+    #region Score
     public int score;
     public GameObject floatingScoreText;
+    #endregion
 
+    #region Dying Behavior
     protected bool dying = false;
     protected float dieTime = Mathf.Infinity;
     protected float subexplodeTime = Mathf.Infinity;
+    #endregion
 
     protected void Start()
     {

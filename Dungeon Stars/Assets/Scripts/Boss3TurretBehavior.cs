@@ -19,10 +19,6 @@ public class Boss3TurretBehavior : TurretBehavior
         GM.OnLevelEnd += GM_OnLevelEnd;
     }
 
-    
-
-
-
     // Update is called once per frame
     private new void Update()
     {

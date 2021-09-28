@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class TurretBehavior : MonoBehaviour {
 
+    #region Targeting
     [Tooltip("Leave empty or specify \"Player\" to target player")]
     public string targetTag;    // Default target is player
     public GameObject projectile;
     protected GameObject target;
+    #endregion
 
+    #region Shooting & Aiming
     public float shootDelay;
     public float fireRate;
     public float burstTime;
@@ -20,14 +23,16 @@ public class TurretBehavior : MonoBehaviour {
     float turnSpeedMod = 1f;
 
     public Transform hardpoint;
+    #endregion
 
+    #region Boolean Flags
     public bool awake;
     bool wasSleeping;
-
     public bool holdFire;   // If true, will not shoot, even if awake
-
     public bool ignoreObstacle;     // If true, the turret will not care about an attached ObstacleBehavior script
                                     // Mainly used for player's turrets or invulnerable turrets that should not be targeted
+    #endregion
+
     ObstacleBehavior thisObstacle;  // Reference to this gameObject's ObstacleBehavior script
 
     public delegate void TurretDelegate();

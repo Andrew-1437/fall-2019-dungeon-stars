@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class ProjectileBehavior : MonoBehaviour {
 
-    public float speed; //Speed of projectile
-    public float dmgValue; //Damage projectile will do
+    #region Variables
+    public float speed; // Speed of projectile
+    public float dmgValue; // Damage projectile will do
     public float lifeTime;
     protected float deathTime;
     public bool perist;
     public GameObject particleFX;
+    #endregion
 
     protected void Start()
     {

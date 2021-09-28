@@ -4,35 +4,41 @@ using UnityEngine;
 using TMPro;
 
 public class ObstacleBehavior : MonoBehaviour {
-    //GM
-    protected GM gm;
-    
-    //Hp********************
-    public float hp;    //Hp of the enemy
-    public float collisionVal;  //Base damage done on a collision with the player
+
+    #region Hp
+    public float hp;    // Hp of the enemy
+    public float collisionVal;  // Base damage done on a collision with the player
     public bool invincible;
+    #endregion
 
-    //Camera Shake
+    #region References
+    protected GM gm;
     private GameObject camera;
+    #endregion
 
-    //Visual FX
+    #region Visual FX
     public GameObject explosion;
     public GameObject hitFX;
     private SpriteRenderer sprite;
+    #endregion
 
-    //Score
-    public int score;
-    public GameObject floatingScoreText;
+    #region Score
+    public int score;   // SCore gained upon killing this obstacle
+    public GameObject floatingScoreText;    // Reference to the text GameObject to spawn
+    #endregion
 
-    public bool awake;
-    public bool isATurret;
-    public bool dontDieOnScreenExit;
-    public bool ignorePlayerCollisions;
-    public bool ignoreAwakeOnEnterBounds;
+    #region Boolean Flags
+    public bool awake;  // Is the obstacle active?
+    public bool isATurret;  // Is this obstacle a turret?
+    public bool dontDieOnScreenExit;    // Should this obstacle persist when it exits the screen?
+    public bool ignorePlayerCollisions; // Should this obstacle ignore collisions with the player?
+    public bool ignoreAwakeOnEnterBounds;   // Should this obstacle not wake when it enters the screen?
+    #endregion
 
-    // Events
+    #region Events
     public delegate void ObstacleDelegate(ObstacleBehavior thisObstacle);
-    public event ObstacleDelegate OnObstacleDeath; 
+    public event ObstacleDelegate OnObstacleDeath;
+    #endregion
 
     protected void Start()
     {

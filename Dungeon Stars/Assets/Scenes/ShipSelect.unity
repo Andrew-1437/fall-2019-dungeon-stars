@@ -1078,7 +1078,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 140, y: -20.600006}
+  m_AnchoredPosition: {x: 140, y: -20.599976}
   m_SizeDelta: {x: 258.89996, y: -61.899994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &551888329
@@ -2295,7 +2295,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -140, y: -20.600006}
+  m_AnchoredPosition: {x: -140, y: -20.599976}
   m_SizeDelta: {x: 258.8999, y: -61.899994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1274752625
@@ -7817,6 +7817,7 @@ MonoBehaviour:
   - {fileID: 1328236367363624, guid: daa0e9d774e49b543a7ee9253d51564b, type: 3}
   - {fileID: 1328236367363624, guid: 6331c0ba4b0041f47a566491348f0430, type: 3}
   - {fileID: 1328236367363624, guid: 9de2dd27d819c7d4893dc5310cb039fd, type: 3}
+  - {fileID: 1328236367363624, guid: 5e5a1b6c46480bb4885a364d3eb717d5, type: 3}
   previewingShips:
   - {fileID: 2147809428197147652, guid: 0c8ae49a1187dd74c94d745e321ade7d, type: 3}
   - {fileID: 8565689520926648036, guid: 5bcc72f1e91486945ab9ba881338fcf0, type: 3}
@@ -7830,7 +7831,6 @@ MonoBehaviour:
   spawn: {fileID: 1350673379}
   sceneLoader: {fileID: 228119621}
   selection: {fileID: 904203626}
-  nextSceneName: Level1
   canvas: {fileID: 927078959}
   title: {fileID: 1649041725}
   shipName: {fileID: 136902857}
@@ -13283,6 +13283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5

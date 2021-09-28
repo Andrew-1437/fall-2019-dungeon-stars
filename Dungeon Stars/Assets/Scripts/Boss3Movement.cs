@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class Boss3Movement : MonoBehaviour
 {
-    Vector3 startPos;
-    Vector3 endPos;
-
-    public short moveStage;     // State machine design for movement mode: 
-                                // 0 = Original, 1 = Orbit, 2 = Spin Attack
-
+    #region References
     [Tooltip("Designate this turret as the second turret for the purpose of movement")]
     public bool altTurret;  // Designate this turret as the second turret
     public ObstacleBehavior otherTurret;   // Reference to other turret base's ObstacleBehavior
     public Boss3TurretBehavior thisTurret;   // Reference to this turret's TurretBehavior
     public ObstacleBehavior shield; // Reference to this turret's shield
+    #endregion
 
+    #region Random Move Stage
+    // That moment when you spend hours to try to mimic a state machine only to find a Brackeys
+    // tutorial that explains you can just use the Animator
+    public short moveStage;     // State machine design for movement mode: 
+                                // 0 = Original, 1 = Orbit, 2 = Spin Attack
     public float speed;
     public float timeBetweenMoves;
+
+    Vector3 startPos;
+    Vector3 endPos;
 
     float nextMoveTime;
     float journeyLength;
@@ -28,16 +32,19 @@ public class Boss3Movement : MonoBehaviour
     public float maxX;
     public float minY;
     public float maxY;
+    #endregion
 
+    #region Orbit Stage
     [Header("Orbit Mode")]
     public float orbitRadius;
     public float orbitDuration;
-    //public float orbitMaxSpeed;
     float orbitStartTime = Mathf.Infinity;
     float orbitEndTime = Mathf.Infinity;
     public float orbitSpeed;
     int orbitMod = 1;
+    #endregion
 
+    #region Spining Stage
     [Header("Spin Mode")]
     public float spinAttackDuration;
     float spinStartTime = Mathf.Infinity;
@@ -46,6 +53,7 @@ public class Boss3Movement : MonoBehaviour
     public bool awake;
     bool orbiting = false;
     bool beginSpinAttack = false;
+    #endregion
 
     LineRenderer lr;
 
