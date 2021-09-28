@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class ShipPreview : MonoBehaviour
 {
-    [Header("Descriptive Info")]
+    [Tooltip("Setting this will auto fill the values below in runtime")]
+    public PlayerController referencedShip;
+
+    public string shipLore;
+    
+    // Descriptive info - Filled in by referencedShip
+    [Header("Descriptive Info - This gets auto filled in")]
     public string shipName;
     public string shipDesc;
-    public string shipLore;
     public string primaryWeap;
     public string secondaryWeap;
     public string tertiaryWeap;
     public ShipsEnum.ShipID id;
 
-    [Header("Numbers Info")]
+    // Numbers info - Filled in by referencedShip
+    [Header("Numbers Info - This gets auto filled in")]
     public float maxHP;
     public float maxShield;
     public float shieldRecharge;
@@ -21,36 +27,68 @@ public class ShipPreview : MonoBehaviour
     public float primaryFireRate;
     public float secondaryFireRate;
 
-    [Header("References")]
-    public GameObject primary;
-    public GameObject secondary;
+    // Weapons info - Filled in by referencedShip
+    GameObject[] primary;
+    GameObject[] secondary;
 
+    [Header("References")]
     public Transform hardpoints;
     public Animator animator;
 
     float nextPrimaryFire = 0f;
     float nextSecondaryFire = 0f;
 
+    // Power level to display - ship should cycle through its weapon's power levels
+    int displayedPower = 0;
+    float timeBetweenPowerUp = 2;
+    float nextPowerUp = Mathf.Infinity;
+
     // Start is called before the first frame update
     void Start()
     {
+        shipName = referencedShip.shipName;
+        shipDesc = referencedShip.desc;
+        primaryWeap = referencedShip.primaryWeap;
+        secondaryWeap = referencedShip.secondaryWeap;
+        tertiaryWeap = referencedShip.tertiaryWeap;
+        id = referencedShip.id;
+
+        maxHP = referencedShip.maxHp;
+        maxShield = referencedShip.maxShield;
+        shieldRecharge = referencedShip.shieldRecharge;
+        speed = referencedShip.speed;
+        primaryFireRate = referencedShip.fireRate;
+        secondaryFireRate = referencedShip.secondaryFireRate;
+
+        primary = referencedShip.primary;
+        secondary = referencedShip.secondary;
+
         animator.SetTrigger("FlyIntoScreen");
         nextPrimaryFire = Time.time + 1.5f;
         nextSecondaryFire = Time.time + 1.5f;
 
+        nextPowerUp = Time.time + timeBetweenPowerUp + 1.5f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Time.time >= nextPowerUp)
+        {
+            displayedPower++;
+            nextPowerUp = Time.time + timeBetweenPowerUp;
+        }
+
+        int pow = displayedPower % primary.Length;
+
         if(Time.time > nextPrimaryFire)
         {
-            Shoot(primary);
+            Shoot(primary[pow]);
             nextPrimaryFire = Time.time + primaryFireRate;
         }
         if (Time.time > nextSecondaryFire)
         {
-            Shoot(secondary);
+            Shoot(secondary[pow]);
             nextSecondaryFire = Time.time + secondaryFireRate;
         }
     }
