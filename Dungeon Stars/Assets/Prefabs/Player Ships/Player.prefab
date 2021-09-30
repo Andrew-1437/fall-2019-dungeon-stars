@@ -78,8 +78,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.7589171, y: 3.4067535}
+  m_Offset: {x: 0, y: -0.017680526}
+  m_Size: {x: 1.4053259, y: 2.2409341}
   m_Direction: 0
 --- !u!114 &114058955246685346
 MonoBehaviour:
@@ -105,12 +105,12 @@ MonoBehaviour:
   hp: 0
   shield: 0
   shieldSprite: {fileID: 8399370733121749494}
-  shieldRecharge: 0.018
+  shieldRecharge: 0.02
   shieldRegenDelay: 2
   shieldDelay: 5
   shieldDown: 0
   level: 0
-  speed: 13.9
+  speed: 15
   rotate: 20
   primary:
   - {fileID: 1798592306547478, guid: 80ab67ac8ee09d24ea0226f938eaa479, type: 3}
@@ -587,7 +587,7 @@ Transform:
   m_GameObject: {fileID: 1514437652750396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 4504378209215118}
   m_RootOrder: 0
@@ -5489,7 +5489,7 @@ Transform:
   m_GameObject: {fileID: 1360631125205141050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7, y: 1.5, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.3, z: 1}
   m_Children: []
   m_Father: {fileID: 4504378209215118}
   m_RootOrder: 2
@@ -5589,7 +5589,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5874070672263954693}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.6, z: 0}
+  m_LocalPosition: {x: 0, y: -1.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2619738422785334782}
