@@ -91,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 190
   collisionVal: 60
+  invincible: 0
   explosion: {fileID: 100010, guid: 645413a00f7bd0242bbd6d0e5eb6f439, type: 3}
   hitFX: {fileID: 0}
   score: 1800
@@ -114,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  rotate: 45
+  rotate: 75
   projectile: {fileID: 6519898879337686388, guid: 4e4ef567ec6c44644a30f87daa6a75db,
     type: 3}
   hardpoint0: {fileID: 4797819123797390}
@@ -122,9 +123,9 @@ MonoBehaviour:
   hardpoint2: {fileID: 4356339807757870}
   hardpoint3: {fileID: 4228486695051610}
   hardpoint4: {fileID: 4962022334341372}
-  shootDelay: 2
-  fireRate: 0.17
-  burstTime: 0.85
+  shootDelay: 2.5
+  fireRate: 0.18
+  burstTime: 0.9
 --- !u!1 &1636039994690316
 GameObject:
   m_ObjectHideFlags: 0
