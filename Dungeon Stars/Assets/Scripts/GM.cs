@@ -7,6 +7,14 @@ using TMPro;
 
 public class GM : MonoBehaviour {
 
+    #region Constants
+    // Default bounds for the level
+    const float LEVEL_UPPER_BOUND = 12.6f;
+    const float LEVEL_LOWER_BOUND = -12.6f;
+    const float LEVEL_RIGHT_BOUND = 27f;
+    const float LEVEL_LEFT_BOUND = -27f;
+    #endregion
+
     // Singleton Instance
     [HideInInspector]
     public static GM gameController;
@@ -50,6 +58,12 @@ public class GM : MonoBehaviour {
     public bool twoPlayerMode;
     [HideInInspector]
     public bool gamePaused = false;
+
+    [Header("Level Boundaries")]
+    public float upperBounds = LEVEL_UPPER_BOUND;
+    public float lowerBounds = LEVEL_LOWER_BOUND;
+    public float rightBounds = LEVEL_RIGHT_BOUND;
+    public float leftBounds = LEVEL_LEFT_BOUND;
     #endregion
 
     #region UI
@@ -680,6 +694,22 @@ public class GM : MonoBehaviour {
             return (int)(player1PercentHp * baseHpScore);
         else
             return (int)((player1PercentHp + player2PercentHp) / 2f * baseHpScore);
+    }
+
+    public void SetLevelBounds(float left, float right, float up, float down)
+    {
+        upperBounds = up;
+        lowerBounds = down;
+        rightBounds = right;
+        leftBounds = left;
+    }
+
+    public void ResetLevelBounds()
+    {
+        upperBounds = LEVEL_UPPER_BOUND;
+        lowerBounds = LEVEL_LOWER_BOUND;
+        rightBounds = LEVEL_RIGHT_BOUND;
+        leftBounds = LEVEL_LEFT_BOUND;
     }
 
     public void SetGameState(bool start)

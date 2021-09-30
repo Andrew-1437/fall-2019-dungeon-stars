@@ -1324,7 +1324,6 @@ MonoBehaviour:
   ui: {fileID: 677459759712866059}
   boss: {fileID: 0}
   bossWarnUI: {fileID: 676332107029847436}
-  soundtrack: {fileID: 677459759913781844}
   score: 0
   baseAmmoScore: 5000
   baseHpScore: 20000
@@ -1337,6 +1336,10 @@ MonoBehaviour:
   playerLives: 5
   twoPlayerMode: 0
   gamePaused: 0
+  upperBounds: 12.6
+  lowerBounds: -12.6
+  rightBounds: 27
+  leftBounds: -27
   soloUIElements: {fileID: 6216419814676492730}
   health: {fileID: 7613973731043725648}
   shields: {fileID: 7134037844097958991}
@@ -11191,6 +11194,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyWarning Mid
       objectReference: {fileID: 0}
+    - target: {fileID: 3348290566873642289, guid: d39a06f88a2bce74d806ab3528cc3072,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d39a06f88a2bce74d806ab3528cc3072, type: 3}
 --- !u!4 &4430125832561107605 stripped
@@ -11271,6 +11279,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyWarning MidR
       objectReference: {fileID: 0}
+    - target: {fileID: 3348290566873642289, guid: d39a06f88a2bce74d806ab3528cc3072,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d39a06f88a2bce74d806ab3528cc3072, type: 3}
 --- !u!4 &628096638300532943 stripped
@@ -11351,6 +11364,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyWarning L
       objectReference: {fileID: 0}
+    - target: {fileID: 3348290566873642289, guid: d39a06f88a2bce74d806ab3528cc3072,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d39a06f88a2bce74d806ab3528cc3072, type: 3}
 --- !u!4 &738191085052754809 stripped
@@ -11431,6 +11449,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyWarning MidL
       objectReference: {fileID: 0}
+    - target: {fileID: 3348290566873642289, guid: d39a06f88a2bce74d806ab3528cc3072,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d39a06f88a2bce74d806ab3528cc3072, type: 3}
 --- !u!4 &385394056089336533 stripped
@@ -12480,6 +12503,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyWarning R
       objectReference: {fileID: 0}
+    - target: {fileID: 3348290566873642289, guid: d39a06f88a2bce74d806ab3528cc3072,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d39a06f88a2bce74d806ab3528cc3072, type: 3}
 --- !u!4 &5961187071286581857 stripped

@@ -198,29 +198,27 @@ public class PlayerController : MonoBehaviour {
         {
             rb.velocity = move * speed * speedMod * OmniController.omniController.playerSpeedScale;
             transform.rotation = Quaternion.Euler(0.0f, horizontal * rotate, 0.0f);
-
-            if (move.magnitude != 0)
+            
+            // Only voluntary movement can be restricted to the screen bounds
+            Vector2 position = transform.position;
+            if (position.x > gm.rightBounds)
             {
-                // Only voluntary movement can be restricted to the screen bounds
-                Vector2 position = transform.position;
-                if (position.x > 27f)
-                {
-                    position.x = 27f;
-                }
-                else if (position.x < -27f)
-                {
-                    position.x = -27f;
-                }
-                if (position.y > 12.6f)
-                {
-                    position.y = 12.6f;
-                }
-                else if (position.y < -12.6f)
-                {
-                    position.y = -12.6f;
-                }
-                transform.position = position;
+                position.x = gm.rightBounds;
             }
+            else if (position.x < gm.leftBounds)
+            {
+                position.x = gm.leftBounds;
+            }
+            if (position.y > gm.upperBounds)
+            {
+                position.y = gm.upperBounds;
+            }
+            else if (position.y < gm.lowerBounds)
+            {
+                position.y = gm.lowerBounds;
+            }
+            transform.position = position;
+            
         }
     }
 
