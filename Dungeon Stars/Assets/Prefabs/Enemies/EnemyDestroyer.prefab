@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7154189538663187792}
   - component: {fileID: 7154189538663187793}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 463566236801758636}
   - component: {fileID: 8361794000605671278}
   - component: {fileID: 7895581269739861535}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyDestroyer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,6 +158,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.25
+  turn: 0
+  additionalMovementVector: {x: 0, y: 0}
+  lookAtPlayer: 0
   projectile: {fileID: 0}
   hardpoint: {fileID: 0}
   shootDelay: 0
@@ -469,9 +472,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5874831765997327116}
     m_Modifications:
+    - target: {fileID: 100000, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_Name
       value: Afterburner (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalPosition.z
@@ -616,9 +627,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5874831765997327116}
     m_Modifications:
+    - target: {fileID: 100000, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_Name
       value: Afterburner
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalPosition.z

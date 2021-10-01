@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 519178488363583975}
   - component: {fileID: 519178488363583974}
   - component: {fileID: 8123963682224353861}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyMulticannon
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -202,11 +202,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca95efebbb16ec499e4a2b4be527fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveStage: 0
   altTurret: 0
   otherTurret: {fileID: 0}
   thisTurret: {fileID: 1290700393919742048}
   shield: {fileID: 1033052144878910532}
+  moveStage: 0
   speed: 30
   timeBetweenMoves: 2
   minX: -20
@@ -560,6 +560,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SimpleLightningBoltPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 106988, guid: 15dec7b07032b2f4aa6f855bfbe120f7, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 163122, guid: 15dec7b07032b2f4aa6f855bfbe120f7, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 171180, guid: 15dec7b07032b2f4aa6f855bfbe120f7, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 427242, guid: 15dec7b07032b2f4aa6f855bfbe120f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -40
@@ -686,6 +698,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 2140723498061615854, guid: c65354b6e2dd13243a7411e59f20fcf1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2140723498061615854, guid: c65354b6e2dd13243a7411e59f20fcf1,
         type: 3}

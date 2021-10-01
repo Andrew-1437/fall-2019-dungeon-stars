@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 114967116784879236}
   - component: {fileID: 114426144744041462}
   - component: {fileID: 70620955188676160}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyLarge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,6 +71,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
+  turn: 0
+  additionalMovementVector: {x: 0, y: 0}
+  lookAtPlayer: 0
   projectile: {fileID: 0}
   hardpoint: {fileID: 0}
   shootDelay: 0
@@ -121,7 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3781793426721703492}
   - component: {fileID: 7982146898430366403}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,6 +156,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

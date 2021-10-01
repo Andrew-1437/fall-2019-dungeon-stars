@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4363118480405272887}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hardpoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4362911521268381577}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hardpoint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4363011192527002363}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hardpoint0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 4346988821132439305}
   - component: {fileID: 4397152443441464463}
   - component: {fileID: 1492679287010963845}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyMegaStationRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,7 +228,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4364821563492610395}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hardpoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4364702507509184047}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hardpoint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4869373744353606438}
   - component: {fileID: 6067780291995903744}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -921,10 +921,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4364667390627582579}
     m_Modifications:
+    - target: {fileID: 3324974150510843252, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324974150923339977, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324974151180777461, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324974151288999301, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3324974151981602368, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
         type: 3}
       propertyPath: m_Name
       value: EnemyBeamWeapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324974151981602368, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324974151981804288, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324974151981845150, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3324974151982042564, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
         type: 3}
@@ -990,6 +1025,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6959696543211559708, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6959696543211559708, guid: 7348ae11d74e0d94f9c4e2a6c88f32d8,
         type: 3}

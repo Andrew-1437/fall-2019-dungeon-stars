@@ -34,6 +34,7 @@ public class TurretBehavior : MonoBehaviour {
     #endregion
 
     ObstacleBehavior thisObstacle;  // Reference to this gameObject's ObstacleBehavior script
+    GM gm;
 
     public delegate void TurretDelegate();
     public event TurretDelegate OnBurstEnd;
@@ -53,6 +54,10 @@ public class TurretBehavior : MonoBehaviour {
         {
             hardpoint = transform;
         }
+
+        gm = GM.gameController;
+
+        StartCoroutine(FindTargetsAsync());
     }
 	
 	// Update is called once per frame
@@ -73,7 +78,7 @@ public class TurretBehavior : MonoBehaviour {
 
         if (awake)
         {
-            target = FindClosestByTag(targetTag);
+            // Target is found by FindTargetsAsync() every .2 seconds, not in the update method
             
             if (target != null)
             {
@@ -105,8 +110,6 @@ public class TurretBehavior : MonoBehaviour {
             }
 
         }
-        
-        
     }
 
     public void Fire()
@@ -129,8 +132,48 @@ public class TurretBehavior : MonoBehaviour {
         nextFire = 0.0f;
     }
 
+    // Do not search for a new target every frame (bad for performance)
+    // But instead every .2 seconds
+    IEnumerator FindTargetsAsync()
+    {
+        for (; ; )
+        {
+            target = FindClosestByTag(targetTag);
+            yield return new WaitForSeconds(.2f);
+        }
+    }
+
     GameObject FindClosestByTag(string tag)
     {
+        // For turrets targeting the player, we dont need to use FindGameObjectByTag()
+        // This is uglier but theoretically faster
+        if(targetTag == "Player")
+        {
+            // If player 2 does not exist but player 1 does, target player 1
+            if (gm.player2 == null && gm.player != null)
+            {
+                return gm.player;
+            }
+            // If player 1 does not exist but player 2 does, target player 2
+            else if (gm.player == null && gm.player2 != null)
+            {
+                return gm.player2;
+            }
+            // If both exist, compare the distance between us and both players and return closer one
+            else if (gm.player != null && gm.player2 != null)
+            {
+                if (Vector3.Distance(transform.position, gm.player.transform.position) <=
+                Vector3.Distance(transform.position, gm.player2.transform.position))
+                    return gm.player;
+                else
+                    return gm.player2;
+            }
+            // If none exist, return null
+            else
+                return null;
+        }
+
+        // If this turret wants to target something not the player, we have to find it (performance heavy)
         GameObject[] gos;
         gos = GameObject.FindGameObjectsWithTag(tag);
         GameObject closest = null;
@@ -139,7 +182,7 @@ public class TurretBehavior : MonoBehaviour {
         //print(gos.Length);
         foreach (GameObject go in gos)
         {
-            if (tag == "Player")
+            if (go.GetComponent<ObstacleBehavior>().awake)
             {
                 Vector3 diff = go.transform.position - position;
                 float curDistance = diff.sqrMagnitude;
@@ -147,19 +190,6 @@ public class TurretBehavior : MonoBehaviour {
                 {
                     closest = go;
                     distance = curDistance;
-                }
-            }
-            else
-            {
-                if (go.GetComponent<ObstacleBehavior>().awake)
-                {
-                    Vector3 diff = go.transform.position - position;
-                    float curDistance = diff.sqrMagnitude;
-                    if (curDistance < distance)
-                    {
-                        closest = go;
-                        distance = curDistance;
-                    }
                 }
             }
         }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2315783709180073909}
   - component: {fileID: 3248024313477183115}
   - component: {fileID: 1066761758987121229}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WeakSpot
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -126,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 180
   collisionVal: 0
+  invincible: 0
   explosion: {fileID: 100010, guid: 645413a00f7bd0242bbd6d0e5eb6f439, type: 3}
   hitFX: {fileID: 1757046686617944, guid: 019f24cae3d2624468fc4294aba76a0f, type: 3}
   score: 200
