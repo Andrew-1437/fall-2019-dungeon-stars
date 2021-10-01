@@ -8,7 +8,6 @@ public class MissileCruiser : MonoBehaviour
     public ParticleSystem missileFX;
     public ParticleSystem missileGroupFX;
     public AudioSource missileSFX;
-
     
     IEnumerator coroutine;
 
@@ -33,6 +32,11 @@ public class MissileCruiser : MonoBehaviour
             StopCoroutine(coroutine);
             Destroy(gameObject, 8f);
         }
+    }
+    
+    public void StopFiring()
+    {
+        StopCoroutine(coroutine);
     }
 
     IEnumerator MissileBurst()

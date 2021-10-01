@@ -293,10 +293,10 @@ public class PlayerController : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.RightShift))
                 LevelUp();
             //Self Destruct
-            if (hp <= 0 || Input.GetKeyDown("backspace"))
-                Die();
+            if (hp <= 0 || Input.GetKeyDown(KeyCode.Backspace))
+                StartCoroutine(DieSequence());
             //Break Shields 
-            if (Input.GetKeyDown("delete") && !shieldDown)
+            if (Input.GetKeyDown(KeyCode.Delete) && !shieldDown)
             {
                 //Mark shield is down and set time when shield returns
                 shieldDown = true;
