@@ -47,6 +47,8 @@ MonoBehaviour:
   enemiesKilled: 0
   timesDied: 0
   powerUpsCollected: 0
+  completedGame: 0
+  loadIntoLevel: 
   selectedShip: {fileID: 0}
   selectedShip2: {fileID: 0}
   allShips:
@@ -55,26 +57,34 @@ MonoBehaviour:
   - {fileID: 1328236367363624, guid: 6331c0ba4b0041f47a566491348f0430, type: 3}
   - {fileID: 1328236367363624, guid: 9de2dd27d819c7d4893dc5310cb039fd, type: 3}
   - {fileID: 1328236367363624, guid: 5e5a1b6c46480bb4885a364d3eb717d5, type: 3}
-  - {fileID: 2723808112731600890, guid: e218fbd779258b74db933b6a518fa36d, type: 3}
-  - {fileID: 1328236367363624, guid: 3f37f553f61fbe344a64b0d1ad463c42, type: 3}
+  - {fileID: 8167625377666880341, guid: ea222cc6c38a5ab48b5a675dd362d753, type: 3}
   - {fileID: 1475961031473195667, guid: 1fb838370e2229f4c993462fa9191814, type: 3}
+  - {fileID: 2723808112731600890, guid: e218fbd779258b74db933b6a518fa36d, type: 3}
   - {fileID: 1328236367363624, guid: 63dff43356469684fad2e4fdd6f633f2, type: 3}
+  - {fileID: 1328236367363624, guid: 3f37f553f61fbe344a64b0d1ad463c42, type: 3}
   enableAllShips: 0
   enableDebug: 0
   infiniteLives: 0
   enableCameraShake: 1
   globalTimeScale: 1
+  deathPenalty: 50000
   playerHpScale: 1
   playerShieldScale: 1
   hpPerLevelScale: 1
   shieldPerLevelScale: 1
   playerIncommingDamageScale: 1
   obstacleIncommingDamageScale: 1
+  collisionDamageScale: 1
   projectileDamageScale: 1
+  projectileSpeedScale: 1
   playerSpeedScale: 1
   obstacleSpeedScale: 1
   playerFireRateScale: 1
   enemyFireRateScale: 1
   obstacleHpScale: 1
   additionalScoreMultiplier: 1
+  powerUpDurationScale: 1
   twoPlayerMode: 0
+  endlessMode: 0
+  finalDifficultyLevel: 0
+  timeTaken: 0
