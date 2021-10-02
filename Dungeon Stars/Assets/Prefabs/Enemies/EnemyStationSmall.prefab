@@ -118,11 +118,12 @@ MonoBehaviour:
   rotate: 45
   projectile: {fileID: 6519898879337686388, guid: 4e4ef567ec6c44644a30f87daa6a75db,
     type: 3}
-  hardpoint0: {fileID: 4797819123797390}
-  hardpoint1: {fileID: 4896276815384130}
-  hardpoint2: {fileID: 4356339807757870}
-  hardpoint3: {fileID: 4228486695051610}
-  hardpoint4: {fileID: 4962022334341372}
+  hardpoints:
+  - {fileID: 4797819123797390}
+  - {fileID: 4896276815384130}
+  - {fileID: 4356339807757870}
+  - {fileID: 4228486695051610}
+  - {fileID: 4962022334341372}
   shootDelay: 2
   fireRate: 0.5
   burstTime: 1.5

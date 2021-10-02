@@ -40,15 +40,15 @@ public class BossAce : BossBehavior
 
 
     // Start is called before the first frame update
-    void Awake()
+    new void Start()
     {
-        base.Awake();
+        base.Start();
         animator = GetComponent<Animator>();
         halfHp = hp / 2f;
     }
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
         // Handles shooting of weapons. Fungus toggles bool which fires corresponding weapons if true
         if(fireMissiles && Time.time > nextMissileTime)

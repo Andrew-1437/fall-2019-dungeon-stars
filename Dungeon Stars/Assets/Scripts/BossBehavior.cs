@@ -29,8 +29,9 @@ public class BossBehavior : LargeEnemyBehavior {
     public delegate void BossDelegate();
     public static event BossDelegate OnBossDeath;
 
-    protected void Awake()
+    protected new void Start()
     {
+        base.Start();
         hp = hp * OmniController.omniController.obstacleHpScale;
         dieTime = Mathf.Infinity;
         GM.OnBossActivate += GM_OnBossActivate;

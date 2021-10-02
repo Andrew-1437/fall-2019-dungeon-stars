@@ -9,11 +9,7 @@ public class StationBehavior : MonoBehaviour {
 
     //Weapons*********************
     public GameObject projectile;
-    public Transform hardpoint0;
-    public Transform hardpoint1;
-    public Transform hardpoint2;
-    public Transform hardpoint3;
-    public Transform hardpoint4;
+    public Transform[] hardpoints;
     public float shootDelay;
     public float fireRate;
     public float burstTime;
@@ -21,37 +17,31 @@ public class StationBehavior : MonoBehaviour {
     private float nextBurst;
     private float nextFire;
 
-    private bool awake;
+    protected bool awake;
 
-    private GameObject gm;
+    protected GM gm;
+    protected Rigidbody2D rb;
 
-    private void Start()
+    protected void Start()
     {
-        gm = GameObject.FindWithTag("GameController");
-        if (gm == null)
-        {
-            print("Ohshit! Game Controller not found by Station!");
-        }
+        gm = GM.gameController;
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
-        if (gm.GetComponent<GM>().gameStart)
+        if (gm.gameStart)
         {
             if (awake)
-            {
-                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, -speed);
-            }
+                rb.velocity = Vector2.down * speed * OmniController.omniController.obstacleSpeedScale;
             else
-            {
-                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, -1.0f);
-            }
-            gameObject.GetComponent<Rigidbody2D>().angularVelocity = rotate;
+                rb.velocity = Vector2.down;
+            rb.angularVelocity = rotate;
         }
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         if (awake && (Time.time > nextBurst || Time.time < burstEnd))
         {
@@ -62,18 +52,18 @@ public class StationBehavior : MonoBehaviour {
             }
             if (Time.time > nextFire && Time.time < burstEnd)
             {
-                Instantiate(projectile, hardpoint0.position, hardpoint0.rotation);
-                Instantiate(projectile, hardpoint1.position, hardpoint1.rotation);
-                Instantiate(projectile, hardpoint2.position, hardpoint2.rotation);
-                Instantiate(projectile, hardpoint3.position, hardpoint3.rotation);
-                Instantiate(projectile, hardpoint4.position, hardpoint4.rotation);
-                nextFire = Time.time + fireRate;
+                // For each projectile spawn location, shoot a projectile from there
+                foreach (Transform hardpoint in hardpoints)
+                {
+                    Destroy(
+                        Instantiate(projectile, hardpoint.position, hardpoint.rotation), 5f);
+                }
+                nextFire = Time.time + fireRate * OmniController.omniController.enemyFireRateScale;
             }
-
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    protected void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Bounds")
         {
