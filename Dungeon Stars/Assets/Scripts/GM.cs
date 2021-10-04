@@ -7,9 +7,19 @@ using TMPro;
 
 public class GM : MonoBehaviour {
 
+    #region Constants
+    // Default bounds for the level
+    const float LEVEL_UPPER_BOUND = 12.6f;
+    const float LEVEL_LOWER_BOUND = -12.6f;
+    const float LEVEL_RIGHT_BOUND = 27f;
+    const float LEVEL_LEFT_BOUND = -27f;
+    #endregion
+
+    // Singleton Instance
     [HideInInspector]
     public static GM gameController;
 
+    #region References
     [Header("References")]
     public GameObject playerObject;
     public GameObject playerObject2;
@@ -24,8 +34,9 @@ public class GM : MonoBehaviour {
     public GameObject bossWarnUI;
     private BossBehavior bossStats;
     private float bossMaxHp;
-    public AudioSource soundtrack;
+    #endregion
 
+    #region Score Tracking
     [Header("Score")]
     public int score;
     public int baseAmmoScore;  // Highest score bonus if have max ammo 
@@ -34,7 +45,9 @@ public class GM : MonoBehaviour {
     public int chainedKills = 0;
     public float multiplierTimer;   // If time between kills exceeds this, the multiplier is reset
     float endMultiplierTime = 0f;
+    #endregion
 
+    #region Level Management
     [Header("Level Management")]
     public bool gameStart;
     public bool allowBoss;
@@ -46,6 +59,14 @@ public class GM : MonoBehaviour {
     [HideInInspector]
     public bool gamePaused = false;
 
+    [Header("Level Boundaries")]
+    public float upperBounds = LEVEL_UPPER_BOUND;
+    public float lowerBounds = LEVEL_LOWER_BOUND;
+    public float rightBounds = LEVEL_RIGHT_BOUND;
+    public float leftBounds = LEVEL_LEFT_BOUND;
+    #endregion
+
+    #region UI
     [Header("UI")]
     public GameObject soloUIElements;
     public TextMeshProUGUI health;
@@ -90,15 +111,18 @@ public class GM : MonoBehaviour {
     public TextMeshProUGUI missileCount2;
     public GameObject heatBar2;
     public SimpleHealthBar heat2;
+    #endregion
 
     [Header("Flowchart")]
     public Fungus.Flowchart mainFlowchart;
 
-    // Events
+    #region Events
     public delegate void GmDelegate();
-    public static event GmDelegate OnBossActivate;
-    public static event GmDelegate OnLevelComplete;
-    public static event GmDelegate OnExitToMainMenu;
+    public static event GmDelegate OnBossActivate;  // Invoke when Boss is awakened
+    public static event GmDelegate OnLevelEnd;  // Invoked when the level is stopped
+    public static event GmDelegate OnLevelComplete; // Invoked when the level is completed by reaching the end
+    public static event GmDelegate OnExitToMainMenu;    // Invoked when the player leaves to the main menu
+    #endregion
 
     private void Awake()
     {
@@ -424,9 +448,7 @@ public class GM : MonoBehaviour {
         {
             score = 0;
         }
-
-        // Extra
-        soundtrack.pitch = OmniController.omniController.globalTimeScale;
+        
     }
 
     public void AwakenBoss()
@@ -454,8 +476,10 @@ public class GM : MonoBehaviour {
             mainFlowchart.SendFungusMessage("boss dead");
     }
 
+    // Tells fungus that we have finished the level and are ready to move on to the next scene
     public void EndLevel()
     {
+        OnLevelEnd?.Invoke();
         OnLevelComplete?.Invoke();
         mainFlowchart.SendFungusMessage("LevelComplete");
 
@@ -463,8 +487,10 @@ public class GM : MonoBehaviour {
         UnsubAllEvents();
     }
 
+    // Tells fungus to load in the game summary because we have no lives left
     public void GameOver()
     {
+        OnLevelEnd?.Invoke();
         mainFlowchart.SendFungusMessage("GameOver");
 
         // Unsubscribe to events at the end of the level
@@ -670,6 +696,22 @@ public class GM : MonoBehaviour {
             return (int)((player1PercentHp + player2PercentHp) / 2f * baseHpScore);
     }
 
+    public void SetLevelBounds(float left, float right, float up, float down)
+    {
+        upperBounds = up;
+        lowerBounds = down;
+        rightBounds = right;
+        leftBounds = left;
+    }
+
+    public void ResetLevelBounds()
+    {
+        upperBounds = LEVEL_UPPER_BOUND;
+        lowerBounds = LEVEL_LOWER_BOUND;
+        rightBounds = LEVEL_RIGHT_BOUND;
+        leftBounds = LEVEL_LEFT_BOUND;
+    }
+
     public void SetGameState(bool start)
     {
         gameStart = start;
@@ -728,6 +770,7 @@ public class GM : MonoBehaviour {
 
     public void ExitToMainMenu()
     {
+        OnLevelEnd?.Invoke();
         OnExitToMainMenu?.Invoke();
 
         // Unsubscribe to events at the end of the level

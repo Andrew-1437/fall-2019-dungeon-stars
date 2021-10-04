@@ -14,6 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -29,6 +34,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -40,16 +50,6 @@ PrefabInstance:
     - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
@@ -69,8 +69,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2250098081740826684, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
-      propertyPath: m_Color.r
-      value: 0.5790762
+      propertyPath: m_Color.b
+      value: 0.7264151
       objectReference: {fileID: 0}
     - target: {fileID: 2250098081740826684, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
@@ -79,44 +79,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2250098081740826684, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
-      propertyPath: m_Color.b
-      value: 0.7264151
-      objectReference: {fileID: 0}
-    - target: {fileID: 6080253122387963760, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.51473546
+      propertyPath: m_Color.r
+      value: 0.5790762
       objectReference: {fileID: 0}
     - target: {fileID: 6080253122387963760, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+    - target: {fileID: 6080253122387963760, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
-      propertyPath: shipName
-      value: Test Ship
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: shipDesc
-      value: Test ship
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: primaryWeap
-      value: Convergence Bolts
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: secondaryWeap
-      value: Sine-wave Bolts
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.51473546
       objectReference: {fileID: 0}
     - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
       propertyPath: id
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: primary
+      value: 
+      objectReference: {fileID: 3427498309307836156, guid: 4d19fbcdd581ae0449ae8184af7b9769,
+        type: 3}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: shipDesc
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: shipName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: secondary
+      value: 
+      objectReference: {fileID: 8561310630437983120, guid: 5ba162e64102e8f4e863e400216647ed,
+        type: 3}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: primaryWeap
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: tertiaryWeap
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: secondaryWeap
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: referencedShip
+      value: 
+      objectReference: {fileID: 114058955246685346, guid: 63dff43356469684fad2e4fdd6f633f2,
+        type: 3}
     - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
       propertyPath: shieldRecharge
@@ -132,17 +155,5 @@ PrefabInstance:
       propertyPath: secondaryFireRate
       value: 0.75
       objectReference: {fileID: 0}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: primary
-      value: 
-      objectReference: {fileID: 3427498309307836156, guid: 4d19fbcdd581ae0449ae8184af7b9769,
-        type: 3}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: secondary
-      value: 
-      objectReference: {fileID: 8561310630437983120, guid: 5ba162e64102e8f4e863e400216647ed,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c8ae49a1187dd74c94d745e321ade7d, type: 3}

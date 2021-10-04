@@ -195,7 +195,7 @@ PrefabInstance:
     - target: {fileID: 766112887361474799, guid: 48c419e98fd22b442b2eb810cb43f7fb,
         type: 3}
       propertyPath: m_Volume
-      value: 0.15
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 829163794131290049, guid: 48c419e98fd22b442b2eb810cb43f7fb,
         type: 3}
@@ -597,6 +597,11 @@ PrefabInstance:
       propertyPath: m_Vertices.Array.data[7].position.y
       value: -0.9985304
       objectReference: {fileID: 0}
+    - target: {fileID: 8255041796032314774, guid: 48c419e98fd22b442b2eb810cb43f7fb,
+        type: 3}
+      propertyPath: targetPos
+      value: 
+      objectReference: {fileID: 2627280676551191578}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48c419e98fd22b442b2eb810cb43f7fb, type: 3}
 --- !u!4 &9065698583123028523 stripped

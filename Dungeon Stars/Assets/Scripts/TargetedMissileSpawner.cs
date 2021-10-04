@@ -13,15 +13,21 @@ public class TargetedMissileSpawner : MonoBehaviour
     float burstBegin = Mathf.Infinity;
     float burstEnd = Mathf.Infinity;
 
+    #region Bounds
     public float minX;
     public float maxX;
     public float minY;
     public float maxY;
+    #endregion
 
+    #region Boolean Flags
     public bool awake;
     [Tooltip("If true, only fire a burst when the FireBurst() method is called")]
     public bool onlyTrigger;    
+    [Tooltip("If true, the missiles will be randomized around the player. \n" +
+        "If false, they are random around the screen")]
     public bool targetPlayer = false;
+    #endregion
 
     // Start is called before the first frame update
     void Start()

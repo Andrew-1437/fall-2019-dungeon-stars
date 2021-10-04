@@ -9,27 +9,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
-      propertyPath: shipName
-      value: Quantum Fighter
-      objectReference: {fileID: 0}
-    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
-        type: 3}
-      propertyPath: shipDesc
-      value: A hard to fly and extremely fragile ship, but uses alien technology
-        to make it much smaller than it appears...
-      objectReference: {fileID: 0}
-    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
-        type: 3}
-      propertyPath: secondaryWeap
-      value: Heavy Bolts
-      objectReference: {fileID: 0}
-    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
-        type: 3}
-      propertyPath: tertiaryWeap
-      value: Nuclear Bomb
-      objectReference: {fileID: 0}
-    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
-        type: 3}
       propertyPath: id
       value: 6
       objectReference: {fileID: 0}
@@ -40,18 +19,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
+      propertyPath: speed
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: shipDesc
+      value: A hard to fly and extremely fragile ship, but uses alien technology
+        to make it much smaller than it appears...
+      objectReference: {fileID: 0}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: shipName
+      value: Quantum Fighter
+      objectReference: {fileID: 0}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
       propertyPath: maxShield
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
-      propertyPath: shieldRecharge
-      value: 0.3
+      propertyPath: secondary
+      value: 
+      objectReference: {fileID: 4764460429754885460, guid: 1e1c4f0fc0957e34fb367ce0a9d5cd03,
+        type: 3}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: tertiaryWeap
+      value: Nuclear Bomb
       objectReference: {fileID: 0}
     - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
-      propertyPath: speed
-      value: 26
+      propertyPath: secondaryWeap
+      value: Heavy Bolts
+      objectReference: {fileID: 0}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: referencedShip
+      value: 
+      objectReference: {fileID: 2620366048888964464, guid: e218fbd779258b74db933b6a518fa36d,
+        type: 3}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: shieldRecharge
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
@@ -63,16 +75,10 @@ PrefabInstance:
       propertyPath: secondaryFireRate
       value: 0.34
       objectReference: {fileID: 0}
-    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
-        type: 3}
-      propertyPath: secondary
-      value: 
-      objectReference: {fileID: 4764460429754885460, guid: 1e1c4f0fc0957e34fb367ce0a9d5cd03,
-        type: 3}
     - target: {fileID: 3028757843046329145, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.047058824
+      propertyPath: InheritVelocityModule.m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3028757843046329145, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
@@ -81,8 +87,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3028757843046329145, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
-      propertyPath: InheritVelocityModule.m_Mode
-      value: 1
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.047058824
       objectReference: {fileID: 0}
     - target: {fileID: 3028757843046329145, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
@@ -96,8 +102,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3745608297802740374, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.047058824
+      propertyPath: InheritVelocityModule.m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3745608297802740374, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
@@ -106,8 +112,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3745608297802740374, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
-      propertyPath: InheritVelocityModule.m_Mode
-      value: 1
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.047058824
       objectReference: {fileID: 0}
     - target: {fileID: 3745608297802740374, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
@@ -127,6 +133,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -142,6 +153,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -153,16 +169,6 @@ PrefabInstance:
     - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
-        type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,

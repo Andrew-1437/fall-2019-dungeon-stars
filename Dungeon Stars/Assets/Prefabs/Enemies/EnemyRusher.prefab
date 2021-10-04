@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 114979533683665214}
   - component: {fileID: 8586662710528874129}
   - component: {fileID: 8418770731124937916}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyRusher
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -70,6 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 15
   collisionVal: 10
+  invincible: 0
   explosion: {fileID: 100010, guid: 74f150540a0de664bac84f89b4c8c69a, type: 3}
   hitFX: {fileID: 0}
   score: 100
@@ -93,6 +94,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
+  turn: 0
+  additionalMovementVector: {x: 0, y: 0}
+  lookAtPlayer: 0
   projectile: {fileID: 0}
   hardpoint: {fileID: 0}
   shootDelay: 0

@@ -12,6 +12,10 @@ PrefabInstance:
       value: Turret Light
       objectReference: {fileID: 0}
     - target: {fileID: 4432350491282226, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432350491282226, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -24,6 +28,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4432350491282226, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432350491282226, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -33,14 +41,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4432350491282226, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4432350491282226, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4432350491282226, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5, type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4432350491282226, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5, type: 3}
@@ -57,6 +57,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114675303052786826, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
         type: 3}
+      propertyPath: fireRate
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 114675303052786826, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
+        type: 3}
+      propertyPath: burstTime
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114675303052786826, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
+        type: 3}
       propertyPath: projectile
       value: 
       objectReference: {fileID: 8225243868021486331, guid: e58683652cd55dd45adb3ec769c9173c,
@@ -66,20 +76,10 @@ PrefabInstance:
       propertyPath: shootDelay
       value: 2.1
       objectReference: {fileID: 0}
-    - target: {fileID: 114675303052786826, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
-        type: 3}
-      propertyPath: fireRate
-      value: 0.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 114675303052786826, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
-        type: 3}
-      propertyPath: burstTime
-      value: 1.4
-      objectReference: {fileID: 0}
     - target: {fileID: 189565879829607006, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
+      propertyPath: m_LocalScale.x
+      value: 1.5689306
       objectReference: {fileID: 0}
     - target: {fileID: 189565879829607006, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
         type: 3}
@@ -93,13 +93,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 189565879829607006, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5689306
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4021633060785246447, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.191
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034495681796001524, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 2.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5, type: 3}

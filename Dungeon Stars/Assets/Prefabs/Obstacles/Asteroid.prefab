@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 114428325881992684}
   - component: {fileID: 6999007427409251615}
   - component: {fileID: 4836940059980236086}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Asteroid
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -71,6 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 65
   collisionVal: 60
+  invincible: 0
   explosion: {fileID: 2060626098244697186, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
     type: 3}
   hitFX: {fileID: 0}
@@ -175,7 +176,7 @@ GameObject:
   - component: {fileID: 1323035453004833622}
   - component: {fileID: 606764589980664644}
   - component: {fileID: 8706670049391382872}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -19,6 +19,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -34,6 +39,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -45,16 +55,6 @@ PrefabInstance:
     - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2151091115505195170, guid: 0c8ae49a1187dd74c94d745e321ade7d,
@@ -90,18 +90,8 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 6080253122387963760, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
+      propertyPath: InheritVelocityModule.m_Mode
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6080253122387963760, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6080253122387963760, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.6260259
       objectReference: {fileID: 0}
     - target: {fileID: 6080253122387963760, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
@@ -110,7 +100,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6080253122387963760, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
-      propertyPath: InheritVelocityModule.m_Mode
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.6260259
+      objectReference: {fileID: 0}
+    - target: {fileID: 6080253122387963760, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6080253122387963760, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6080253122387963760, guid: 0c8ae49a1187dd74c94d745e321ade7d,
@@ -125,32 +125,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
-      propertyPath: shipName
-      value: Lectro Prototype
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: shipDesc
-      value: Using experimental technology, the Lectro Prototype harnesses electricity
-        with its strong shields and weapons.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: primaryWeap
-      value: Lectro Bolts
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: secondaryWeap
-      value: Chain Lightning
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: tertiaryWeap
-      value: Chain Bombs
-      objectReference: {fileID: 0}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
       propertyPath: id
       value: 3
       objectReference: {fileID: 0}
@@ -161,18 +135,62 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
+      propertyPath: speed
+      value: 15.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: primary
+      value: 
+      objectReference: {fileID: 4451706636244354111, guid: ecbbd71eec92d14448ced69073bd1328,
+        type: 3}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: shipDesc
+      value: Using experimental technology, the Lectro Prototype harnesses electricity
+        with its strong shields and weapons.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: shipName
+      value: Lectro Prototype
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
       propertyPath: maxShield
       value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
-      propertyPath: shieldRecharge
-      value: 0.12
+      propertyPath: secondary
+      value: 
+      objectReference: {fileID: 460567092914299313, guid: abe2bbd9b7b14974ea8a16c94809b8c7,
+        type: 3}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: primaryWeap
+      value: Lectro Bolts
       objectReference: {fileID: 0}
     - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
-      propertyPath: speed
-      value: 15.8
+      propertyPath: tertiaryWeap
+      value: Chain Bombs
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: secondaryWeap
+      value: Chain Lightning
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: referencedShip
+      value: 
+      objectReference: {fileID: 114058955246685346, guid: 9de2dd27d819c7d4893dc5310cb039fd,
+        type: 3}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: shieldRecharge
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
@@ -184,17 +202,5 @@ PrefabInstance:
       propertyPath: secondaryFireRate
       value: 0.03
       objectReference: {fileID: 0}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: primary
-      value: 
-      objectReference: {fileID: 4451706636244354111, guid: ecbbd71eec92d14448ced69073bd1328,
-        type: 3}
-    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
-        type: 3}
-      propertyPath: secondary
-      value: 
-      objectReference: {fileID: 460567092914299313, guid: abe2bbd9b7b14974ea8a16c94809b8c7,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c8ae49a1187dd74c94d745e321ade7d, type: 3}

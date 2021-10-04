@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4457281880098294}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hardpoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 114241128091395112}
   - component: {fileID: 1757065635158470634}
   - component: {fileID: 494484444801009127}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyLectro
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -99,7 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86112901b817d54ea5e5691938e522c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4.5
+  speed: 5.5
+  turn: 0
+  additionalMovementVector: {x: 0, y: 0}
+  lookAtPlayer: 0
   projectile: {fileID: 8434112883702766647, guid: 3c8dd108c8abd4e4e8d6538f187f1f3b,
     type: 3}
   hardpoint: {fileID: 4457281880098294}
@@ -120,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 40
   collisionVal: 25
+  invincible: 0
   explosion: {fileID: 100010, guid: 74f150540a0de664bac84f89b4c8c69a, type: 3}
   hitFX: {fileID: 0}
   score: 500

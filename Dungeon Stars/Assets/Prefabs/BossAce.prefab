@@ -12078,6 +12078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100000000
   collisionVal: 50
+  invincible: 0
   explosion: {fileID: 0}
   hitFX: {fileID: 0}
   score: 0
@@ -22439,6 +22440,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.438
       objectReference: {fileID: 0}
+    - target: {fileID: 7034495681777096596, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5, type: 3}
 --- !u!4 &1566903642732330563 stripped
@@ -22716,6 +22722,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.438
       objectReference: {fileID: 0}
+    - target: {fileID: 7034495681777096596, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5, type: 3}
 --- !u!4 &1566903643418144604 stripped
@@ -22857,6 +22868,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.438
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034495681777096596, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5, type: 3}

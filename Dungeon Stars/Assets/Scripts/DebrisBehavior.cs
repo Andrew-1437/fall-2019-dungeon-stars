@@ -18,13 +18,6 @@ public class DebrisBehavior : MonoBehaviour {
     {
         angVel = Random.Range(-1*rotate, rotate);
 
-        /*
-        gm = GameObject.FindWithTag("GameController");
-        if (gm == null)
-        {
-            print("Ohshit! Game Controller not found by debris!");
-        } */
-
         gm = GM.gameController;
         rb = GetComponent<Rigidbody2D>();
     }

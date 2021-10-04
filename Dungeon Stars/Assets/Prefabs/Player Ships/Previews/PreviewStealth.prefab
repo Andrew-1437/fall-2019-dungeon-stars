@@ -9,28 +9,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
-      propertyPath: shipName
-      value: Vector Hunter
-      objectReference: {fileID: 0}
-    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
-        type: 3}
-      propertyPath: shipDesc
-      value: An experimental stealth craft, the Vector Hunter has strong weapons
-        and a unique anti-projectile field generator. It's high tech frame gives
-        it heat management problems.
-      objectReference: {fileID: 0}
-    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
-        type: 3}
-      propertyPath: secondaryWeap
-      value: Shard Bolts
-      objectReference: {fileID: 0}
-    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
-        type: 3}
-      propertyPath: tertiaryWeap
-      value: Null Field
-      objectReference: {fileID: 0}
-    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
-        type: 3}
       propertyPath: id
       value: 4
       objectReference: {fileID: 0}
@@ -41,18 +19,52 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
+      propertyPath: speed
+      value: 18.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: shipDesc
+      value: An experimental stealth craft, the Vector Hunter has strong weapons
+        and a unique anti-projectile field generator. It's high tech frame gives
+        it heat management problems.
+      objectReference: {fileID: 0}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: shipName
+      value: Vector Hunter
+      objectReference: {fileID: 0}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
       propertyPath: maxShield
       value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
-      propertyPath: shieldRecharge
-      value: 0.09
+      propertyPath: secondary
+      value: 
+      objectReference: {fileID: 315717264876986506, guid: f617920764909c94ab4049ac24d05bc4,
+        type: 3}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: tertiaryWeap
+      value: Null Field
       objectReference: {fileID: 0}
     - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
-      propertyPath: speed
-      value: 18.3
+      propertyPath: secondaryWeap
+      value: Shard Bolts
+      objectReference: {fileID: 0}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: referencedShip
+      value: 
+      objectReference: {fileID: 1579121593965320217, guid: 1fb838370e2229f4c993462fa9191814,
+        type: 3}
+    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: shieldRecharge
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
@@ -64,23 +76,12 @@ PrefabInstance:
       propertyPath: secondaryFireRate
       value: 0.55
       objectReference: {fileID: 0}
-    - target: {fileID: 678699497047694950, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
-        type: 3}
-      propertyPath: secondary
-      value: 
-      objectReference: {fileID: 315717264876986506, guid: f617920764909c94ab4049ac24d05bc4,
-        type: 3}
-    - target: {fileID: 3028757843046329145, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.3301887
-      objectReference: {fileID: 0}
     - target: {fileID: 3028757843046329145, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
       value: 0.24084352
       objectReference: {fileID: 0}
-    - target: {fileID: 3745608297802740374, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+    - target: {fileID: 3028757843046329145, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
       value: 0.3301887
@@ -89,10 +90,15 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
       value: 0.24084352
+      objectReference: {fileID: 0}
+    - target: {fileID: 3745608297802740374, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.3301887
       objectReference: {fileID: 0}
     - target: {fileID: 8692933192411149786, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
-      propertyPath: m_Color.r
+      propertyPath: m_Color.b
       value: 0.24528301
       objectReference: {fileID: 0}
     - target: {fileID: 8692933192411149786, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
@@ -102,8 +108,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8692933192411149786, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
-      propertyPath: m_Color.b
+      propertyPath: m_Color.r
       value: 0.24528301
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
@@ -122,6 +133,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -133,16 +149,6 @@ PrefabInstance:
     - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,
-        type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8809112469063779652, guid: 62c0bd3b6a7aac44c9f2ddfcc78e1ec2,

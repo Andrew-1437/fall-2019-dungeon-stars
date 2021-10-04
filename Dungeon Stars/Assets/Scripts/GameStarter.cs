@@ -13,17 +13,11 @@ public class GameStarter : MonoBehaviour {
     private bool triggered;
 
     private GM gm;
-    //public GameObject player;
-    //public GameObject fx;
     public GameObject textDisplay;
 
     private void Start()
     {
         gm = GM.gameController;
-        if (gm == null)
-        {
-            print("Ohshit! Game Controller not found by BackgroundMove!");
-        }
 
         triggered = false;
     }

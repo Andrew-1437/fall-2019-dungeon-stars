@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 332253699880867492}
   - component: {fileID: 1527234245518690305}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4055568191011098668}
   - component: {fileID: 2124736951805612067}
   - component: {fileID: 8005554461654911713}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyCorvette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86112901b817d54ea5e5691938e522c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 3.4
+  turn: 0
+  additionalMovementVector: {x: 0, y: 0}
+  lookAtPlayer: 0
   projectile: {fileID: 0}
   hardpoint: {fileID: 0}
   shootDelay: 0

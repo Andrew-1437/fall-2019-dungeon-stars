@@ -4,20 +4,25 @@ using UnityEngine;
 
 public class EndlessController : MonoBehaviour
 {
+    #region Endless Mode Variables
     float startTime = -1f;
 
     [Header("Endless Mode variables")]
     public int difficultyLevel = 0;
     public float timeBetweenDifficultyIncrease; // Time interval at the end of which the difficulty will increase
                                                 // Set this to something high, preferably >30 sec
+    #endregion
 
+    #region Spawn Lists
     [Header("Spawn lists")]
     public GameObject[] spawnList;  // List of normal enemies to spawn. Sorted from Easy -> Hard
     public GameObject[] dangerSpawnList;   // List of more dangerous/complex enemies to spawn. Sorted from Easy -> Hard
     public GameObject[] powerUpList;    // List of power ups to spawn. Index 0 should be LevelUp
     public GameObject hpRepairPowerUp;  // Hp repair power up to spawn after a boss
     public GameObject[] bossesList; // List of bosses to spawn in order of appearance (or random maybe?)
+    #endregion
 
+    #region Spawning Values
     public bool spawnEnemies;
     public bool activeBoss;
 
@@ -36,6 +41,7 @@ public class EndlessController : MonoBehaviour
 
     public float timeBetweenLevelUp;    // Time interval to spawn a level up power up
     float timeForLevelUp;
+    #endregion
 
     [Header("References")]
     public Fungus.Flowchart flowchart;

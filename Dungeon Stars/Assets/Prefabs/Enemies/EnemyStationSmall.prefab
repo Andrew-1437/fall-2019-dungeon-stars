@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 58009452988823676}
   - component: {fileID: 114277950749879580}
   - component: {fileID: 114946101557318650}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyStationSmall
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -91,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 140
   collisionVal: 50
+  invincible: 0
   explosion: {fileID: 100010, guid: 645413a00f7bd0242bbd6d0e5eb6f439, type: 3}
   hitFX: {fileID: 0}
   score: 1400
@@ -117,14 +118,15 @@ MonoBehaviour:
   rotate: 45
   projectile: {fileID: 6519898879337686388, guid: 4e4ef567ec6c44644a30f87daa6a75db,
     type: 3}
-  hardpoint0: {fileID: 4797819123797390}
-  hardpoint1: {fileID: 4896276815384130}
-  hardpoint2: {fileID: 4356339807757870}
-  hardpoint3: {fileID: 4228486695051610}
-  hardpoint4: {fileID: 4962022334341372}
+  hardpoints:
+  - {fileID: 4797819123797390}
+  - {fileID: 4896276815384130}
+  - {fileID: 4356339807757870}
+  - {fileID: 4228486695051610}
+  - {fileID: 4962022334341372}
   shootDelay: 2
-  fireRate: 0.25
-  burstTime: 0.8
+  fireRate: 0.5
+  burstTime: 1.5
 --- !u!1 &1636039994690316
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4896276815384130}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hardpoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4962022334341372}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hardpoint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4797819123797390}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hardpoint0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4356339807757870}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hardpoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4228486695051610}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hardpoint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9155520729775434835}
   - component: {fileID: 7541446907377889397}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

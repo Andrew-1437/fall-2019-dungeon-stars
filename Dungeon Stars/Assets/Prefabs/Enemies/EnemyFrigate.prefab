@@ -164,6 +164,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.8
+  turn: 0
+  additionalMovementVector: {x: 0, y: 0}
+  lookAtPlayer: 0
   projectile: {fileID: 0}
   hardpoint: {fileID: 0}
   shootDelay: 0
@@ -1524,12 +1527,12 @@ PrefabInstance:
     - target: {fileID: 2383741100150842074, guid: 3d85df593cb76bd4d97db0bd24c5fd20,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2383741100150842074, guid: 3d85df593cb76bd4d97db0bd24c5fd20,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2383741100150842074, guid: 3d85df593cb76bd4d97db0bd24c5fd20,
         type: 3}
@@ -2489,12 +2492,12 @@ PrefabInstance:
     - target: {fileID: 2383741100150842074, guid: 3d85df593cb76bd4d97db0bd24c5fd20,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2383741100150842074, guid: 3d85df593cb76bd4d97db0bd24c5fd20,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2383741100150842074, guid: 3d85df593cb76bd4d97db0bd24c5fd20,
         type: 3}
