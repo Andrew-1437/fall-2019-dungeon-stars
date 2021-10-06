@@ -49,10 +49,11 @@ public class GM : MonoBehaviour {
 
     #region Level Management
     [Header("Level Management")]
-    public bool gameStart;
+    public int levelIndex;  // Index of the level starting from 1 (1 is Level 1 and so on)
+    public bool gameStart;  // Is game in progress?
     public bool allowBoss;
-    public bool endLevelOnBossDeath;
-    public int playerLives;
+    public bool endLevelOnBossDeath;    // Do we end the level when the boss dies?
+    public int playerLives; // Number of lives player has
     private bool initialSpawn1 = true;
     private bool initialSpawn2 = true;
     public bool twoPlayerMode;
@@ -482,6 +483,12 @@ public class GM : MonoBehaviour {
         OnLevelEnd?.Invoke();
         OnLevelComplete?.Invoke();
         mainFlowchart.SendFungusMessage("LevelComplete");
+
+        // Save the highest level completed
+        if (PlayerPrefs.GetInt("highestLevelCompleted", 0) < levelIndex)
+        {
+            PlayerPrefs.SetInt("highestLevelCompleted", levelIndex);
+        }
 
         // Unsubscribe to events at the end of the level
         UnsubAllEvents();

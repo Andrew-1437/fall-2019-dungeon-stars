@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
         sceneLoader.LoadScene(shipSelect);
         OmniController.omniController.ResetGameplayVariables();
         OmniController.omniController.SetTwoPlayers(twoPlayer);
-        OmniController.omniController.loadIntoLevel = level1;
+        OmniController.omniController.loadIntoLevel = "LevelSelect";
         OmniController.omniController.endlessMode = false;
         gameObject.SetActive(false);
     }
