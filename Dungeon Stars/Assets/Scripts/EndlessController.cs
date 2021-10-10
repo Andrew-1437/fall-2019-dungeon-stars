@@ -244,8 +244,6 @@ public class EndlessController : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenDifficultyIncrease); // Every interval, increase the difficulty slightly
 
             IncreaseDifficulty();
-
-            
         }
     }
 }

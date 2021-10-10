@@ -19,23 +19,16 @@ public class BossBehavior : LargeEnemyBehavior {
 
     private GameObject[] triggers;
 
-    //private bool dying;
-    //private float dieTime;
-
-    //float explosionDelay = .12f;
-    //float nextExplosion = 0f;
-
     // Events
     public delegate void BossDelegate();
     public static event BossDelegate OnBossDeath;
 
-    protected new void Start()
+    private void Awake()
     {
-        base.Start();
-        hp = hp * OmniController.omniController.obstacleHpScale;
-        dieTime = Mathf.Infinity;
         GM.OnBossActivate += GM_OnBossActivate;
         GM.OnLevelEnd += GM_OnLevelEnd;
+        hp = hp * OmniController.omniController.obstacleHpScale;
+        dieTime = Mathf.Infinity;
     }
 
     private void GM_OnLevelEnd()

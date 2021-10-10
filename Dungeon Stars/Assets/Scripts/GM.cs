@@ -484,10 +484,13 @@ public class GM : MonoBehaviour {
         OnLevelComplete?.Invoke();
         mainFlowchart.SendFungusMessage("LevelComplete");
 
-        // Save the highest level completed
-        if (PlayerPrefs.GetInt("highestLevelCompleted", 0) < levelIndex)
+        // Save the highest level completed but ignore if we are in Endless Mode
+        if (!OmniController.omniController.endlessMode)
         {
-            PlayerPrefs.SetInt("highestLevelCompleted", levelIndex);
+            if (PlayerPrefs.GetInt("highestLevelCompleted", 0) < levelIndex)
+            {
+                PlayerPrefs.SetInt("highestLevelCompleted", levelIndex);
+            }
         }
 
         // Unsubscribe to events at the end of the level
