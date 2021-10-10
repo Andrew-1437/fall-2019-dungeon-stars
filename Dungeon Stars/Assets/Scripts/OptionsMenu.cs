@@ -7,19 +7,10 @@ using TMPro;
 public class OptionsMenu : MonoBehaviour
 {
     public TMP_Dropdown resDropdown;
-    public TextMeshProUGUI ships;
-    public TextMeshProUGUI debug;
-    public TextMeshProUGUI lives;
-    public TextMeshProUGUI camShake;
     public Slider volumeSlider;
     public TextMeshProUGUI volumeDisplay;
 
     Resolution[] resolutions;
-
-    string shipText = "Unlock all Ships:  ";
-    string debugText = "Enable Debug Tools:  ";
-    string livesText = "Enable Infinite Lives:  ";
-    string camShakeText = "Enable Camera Shake:  ";
 
     private void Start()
     {
@@ -48,31 +39,27 @@ public class OptionsMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ships.text = shipText + OmniController.omniController.enableAllShips.ToString();
-        debug.text = debugText + OmniController.omniController.enableDebug.ToString();
-        lives.text = livesText + OmniController.omniController.infiniteLives.ToString();
-        camShake.text = camShakeText + OmniController.omniController.enableCameraShake.ToString();
         volumeDisplay.text = ((int)(AudioListener.volume * 100)).ToString();
     }
 
-    public void ToggleShips()
+    public void ToggleShips(bool toggle)
     {
-        OmniController.omniController.enableAllShips = !OmniController.omniController.enableAllShips;
+        OmniController.omniController.enableAllShips = toggle;
     }
 
-    public void ToggleDebug()
+    public void ToggleDebug(bool toggle)
     {
-        OmniController.omniController.enableDebug = !OmniController.omniController.enableDebug;
+        OmniController.omniController.enableDebug = toggle;
     }
 
-    public void ToggleLives()
+    public void ToggleLives(bool toggle)
     {
-        OmniController.omniController.infiniteLives = !OmniController.omniController.infiniteLives;
+        OmniController.omniController.infiniteLives = toggle;
     }
 
-    public void ToggleCameraShake()
+    public void ToggleCameraShake(bool toggle)
     {
-        OmniController.omniController.enableCameraShake = !OmniController.omniController.enableCameraShake;
+        OmniController.omniController.enableCameraShake = toggle;
     }
 
     public void SetResolution(int resolutionIndex)
