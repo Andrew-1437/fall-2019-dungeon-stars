@@ -90,6 +90,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8126952253366477279, guid: ea222cc6c38a5ab48b5a675dd362d753,
         type: 3}
+      propertyPath: fireRate
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126952253366477279, guid: ea222cc6c38a5ab48b5a675dd362d753,
+        type: 3}
       propertyPath: shipName
       value: Nullifier
       objectReference: {fileID: 0}
@@ -141,9 +146,74 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8126952253366477279, guid: ea222cc6c38a5ab48b5a675dd362d753,
         type: 3}
+      propertyPath: secondaryFireRate
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126952253366477279, guid: ea222cc6c38a5ab48b5a675dd362d753,
+        type: 3}
       propertyPath: currentMissileCount
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 8126952253366477279, guid: ea222cc6c38a5ab48b5a675dd362d753,
+        type: 3}
+      propertyPath: primary.Array.data[0]
+      value: 
+      objectReference: {fileID: 4451706636244354111, guid: ecbbd71eec92d14448ced69073bd1328,
+        type: 3}
+    - target: {fileID: 8126952253366477279, guid: ea222cc6c38a5ab48b5a675dd362d753,
+        type: 3}
+      propertyPath: primary.Array.data[1]
+      value: 
+      objectReference: {fileID: 7221269603096458250, guid: 2fe6c99b1c76fbb4a8c8c4b11dc831a4,
+        type: 3}
+    - target: {fileID: 8126952253366477279, guid: ea222cc6c38a5ab48b5a675dd362d753,
+        type: 3}
+      propertyPath: primary.Array.data[2]
+      value: 
+      objectReference: {fileID: 7221269603096458250, guid: 630e12769cebcf2478db9ad23763d1b9,
+        type: 3}
+    - target: {fileID: 8126952253366477279, guid: ea222cc6c38a5ab48b5a675dd362d753,
+        type: 3}
+      propertyPath: primary.Array.data[3]
+      value: 
+      objectReference: {fileID: 7221269603096458250, guid: ded05b33b9af3d2479d881e18137caea,
+        type: 3}
+    - target: {fileID: 8126952253366477279, guid: ea222cc6c38a5ab48b5a675dd362d753,
+        type: 3}
+      propertyPath: primary.Array.data[4]
+      value: 
+      objectReference: {fileID: 7221269603096458250, guid: b0fbfb1bb3a30834f952e41bf4463002,
+        type: 3}
+    - target: {fileID: 8126952253366477279, guid: ea222cc6c38a5ab48b5a675dd362d753,
+        type: 3}
+      propertyPath: secondary.Array.data[0]
+      value: 
+      objectReference: {fileID: 446043582643009660, guid: 429479caf27a876488418b25260f699b,
+        type: 3}
+    - target: {fileID: 8126952253366477279, guid: ea222cc6c38a5ab48b5a675dd362d753,
+        type: 3}
+      propertyPath: secondary.Array.data[1]
+      value: 
+      objectReference: {fileID: 4608429394026987126, guid: 95f87f14450dc614da42c01f126f285f,
+        type: 3}
+    - target: {fileID: 8126952253366477279, guid: ea222cc6c38a5ab48b5a675dd362d753,
+        type: 3}
+      propertyPath: secondary.Array.data[2]
+      value: 
+      objectReference: {fileID: 2429897456907979829, guid: eb4c2855bfa5ac0478c32bb433857ef9,
+        type: 3}
+    - target: {fileID: 8126952253366477279, guid: ea222cc6c38a5ab48b5a675dd362d753,
+        type: 3}
+      propertyPath: secondary.Array.data[3]
+      value: 
+      objectReference: {fileID: 2964801037045979450, guid: 76ab7f7029e05d749b47e1029cf817be,
+        type: 3}
+    - target: {fileID: 8126952253366477279, guid: ea222cc6c38a5ab48b5a675dd362d753,
+        type: 3}
+      propertyPath: secondary.Array.data[4]
+      value: 
+      objectReference: {fileID: 408090890663753563, guid: b5702dbd9158def46804d2d233d8c002,
+        type: 3}
     - target: {fileID: 8164327602376298483, guid: ea222cc6c38a5ab48b5a675dd362d753,
         type: 3}
       propertyPath: m_RootOrder
