@@ -42,26 +42,37 @@ public class OptionsMenu : MonoBehaviour
         volumeDisplay.text = ((int)(AudioListener.volume * 100)).ToString();
     }
 
+    // Toggles if all extra ships are available
     public void ToggleShips(bool toggle)
     {
         OmniController.omniController.enableAllShips = toggle;
     }
 
+    // Toggles use of debugging tools in game
     public void ToggleDebug(bool toggle)
     {
         OmniController.omniController.enableDebug = toggle;
     }
 
+    // Toggle infinite lives
     public void ToggleLives(bool toggle)
     {
         OmniController.omniController.infiniteLives = toggle;
     }
 
+    // Toggles Camera Shaking
     public void ToggleCameraShake(bool toggle)
     {
         OmniController.omniController.enableCameraShake = toggle;
     }
 
+    // Resets level progress in the main story
+    public void ResetLevelProgress()
+    {
+        PlayerPrefs.SetInt("highestLevelCompleted", 0);
+    }
+
+    // Sets resolution of the screen to the resolution at index
     public void SetResolution(int resolutionIndex)
     {
         Screen.SetResolution(resolutions[resolutionIndex].width,
@@ -69,6 +80,7 @@ public class OptionsMenu : MonoBehaviour
             Screen.fullScreen);
     }
 
+    // Toggles if game is in fullscreen
     public void SetFullScreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;

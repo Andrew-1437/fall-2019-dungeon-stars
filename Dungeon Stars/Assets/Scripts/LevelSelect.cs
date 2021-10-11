@@ -7,6 +7,7 @@ using TMPro;
 public class LevelSelect : MonoBehaviour
 {
     public Button[] buttons;
+    public RectTransform content;
 
     int highestLevelCompleted; // Get from PlayerPrefs
 
@@ -29,6 +30,11 @@ public class LevelSelect : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
             SceneLoader.Instance.LoadScene("MainMenu");
+
+        float scroll = Input.mouseScrollDelta.y * Time.deltaTime * 10f;
+        content.localScale = new Vector3(
+            Mathf.Clamp(content.localScale.x + scroll, .2f, 2f),
+            Mathf.Clamp(content.localScale.y + scroll, .2f, 2f), 1);
     }
 
     public void LoadLevel(string levelName)
