@@ -7,7 +7,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7086400437114959091}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c7e38a050503846499dba410c58efc37, type: 3}
@@ -186,7 +186,7 @@ PrefabInstance:
     - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
       propertyPath: id
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}
@@ -218,6 +218,11 @@ PrefabInstance:
         type: 3}
       propertyPath: shipName
       value: Meme Ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
+        type: 3}
+      propertyPath: unlocked
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7994256019082363776, guid: 0c8ae49a1187dd74c94d745e321ade7d,
         type: 3}

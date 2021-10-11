@@ -9,10 +9,10 @@ public class ShipsEnum
         GUNSHIP,
         SCOUT,
         LECTRO,
-        VECTOR,
-        TEST,
         QUASAR,
         EXCALIBUR,
+        VECTOR,
+        TEST,
         NULLIFIER,
         QUANTUM,
         MEME }

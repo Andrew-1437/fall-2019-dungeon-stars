@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ShipSelect : MonoBehaviour
 {
-    public GameObject[] ships;
+    GameObject[] ships;
     public GameObject[] previewingShips;
     private GameObject currentShip;
     private ShipPreview ship;
@@ -39,28 +39,47 @@ public class ShipSelect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ships = OmniController.omniController.allShips;
         SelectNextShip(0);
         sound = GetComponent<AudioSource>();
         if(OmniController.omniController.enableAllShips)
         {
-            ships = OmniController.omniController.allShips;
+            foreach (GameObject preview in previewingShips)
+                preview.GetComponent<ShipPreview>().unlocked = true;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        shipName.text = ship.shipName;
-        health.text = "Hull: " + ship.maxHP;
-        shield.text = "Shield: " + ship.maxShield;
-        shieldRecharge.text = "Shield Recharge: " + (ship.shieldRecharge*30f);
-        speed.text = "Speed: " + ship.speed;
-        primary.text = "Primary Weapons: " + ship.primaryWeap;
-        secondary.text = "Secondary Weapons: " + ship.secondaryWeap;
-        primaryFR.text = "Primary Fire Rate: " + (1f / ship.primaryFireRate) + " / sec ";
-        secondaryFR.text = "Secondary Fire Rate: " + (1f / ship.secondaryFireRate) + " / sec ";
-        tertiary.text = "Tertiary Weapons: " + ship.tertiaryWeap;
-        description.text = ship.shipDesc;
+        if (ship.unlocked)
+        {
+            shipName.text = ship.shipName;
+            health.text = "Hull: " + ship.maxHP;
+            shield.text = "Shield: " + ship.maxShield;
+            shieldRecharge.text = "Shield Recharge: " + (ship.shieldRecharge * 30f);
+            speed.text = "Speed: " + ship.speed;
+            primary.text = "Primary Weapons: " + ship.primaryWeap;
+            secondary.text = "Secondary Weapons: " + ship.secondaryWeap;
+            primaryFR.text = "Primary Fire Rate: " + (1f / ship.primaryFireRate) + " / sec ";
+            secondaryFR.text = "Secondary Fire Rate: " + (1f / ship.secondaryFireRate) + " / sec ";
+            tertiary.text = "Tertiary Weapons: " + ship.tertiaryWeap;
+            description.text = ship.shipDesc;
+        }
+        else
+        {
+            shipName.text = "???";
+            health.text = "Hull: ???";
+            shield.text = "Shield: ???";
+            shieldRecharge.text = "Shield Recharge: ???";
+            speed.text = "Speed: ???";
+            primary.text = "Primary Weapons: ???";
+            secondary.text = "Secondary Weapons: ???";
+            primaryFR.text = "Primary Fire Rate: ???";
+            secondaryFR.text = "Secondary Fire Rate: ???";
+            tertiary.text = "Tertiary Weapons: ???";
+            description.text = "???";
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -77,7 +96,7 @@ public class ShipSelect : MonoBehaviour
             sound.Play();
         }
 
-        if (Input.GetKeyDown(KeyCode.Return) && OmniController.omniController.twoPlayerMode && p2Picking)
+        if (Input.GetKeyDown(KeyCode.Return) && ship.unlocked && OmniController.omniController.twoPlayerMode && p2Picking)
         {
             ship.LeaveScreen();
             selectSound.Play();
@@ -87,7 +106,7 @@ public class ShipSelect : MonoBehaviour
             sceneLoader.LoadScene(OmniController.omniController.loadIntoLevel);
         }
 
-        if (Input.GetKeyDown(KeyCode.Return) && !p2Picking)
+        if (Input.GetKeyDown(KeyCode.Return) && ship.unlocked && !p2Picking)
         {
             selectSound.Play();
             OmniController.omniController.selectedShip = ships[index];

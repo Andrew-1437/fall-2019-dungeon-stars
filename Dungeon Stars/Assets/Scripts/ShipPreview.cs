@@ -7,6 +7,7 @@ public class ShipPreview : MonoBehaviour
     [Tooltip("Setting this will auto fill the values below in runtime")]
     public PlayerController referencedShip;
 
+    public bool unlocked;   // If false, the ship will be displayed as a silouhette
     public string shipLore;
     
     // Descriptive info - Filled in by referencedShip
@@ -34,6 +35,7 @@ public class ShipPreview : MonoBehaviour
     [Header("References")]
     public Transform hardpoints;
     public Animator animator;
+    public SpriteRenderer sprite;
 
     float nextPrimaryFire = 0f;
     float nextSecondaryFire = 0f;
@@ -68,28 +70,36 @@ public class ShipPreview : MonoBehaviour
         nextSecondaryFire = Time.time + 1.5f;
 
         nextPowerUp = Time.time + timeBetweenPowerUp + 1.5f;
+
+        if (!unlocked)
+        {
+            sprite.color = Color.black;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Time.time >= nextPowerUp)
+        if (unlocked)
         {
-            displayedPower++;
-            nextPowerUp = Time.time + timeBetweenPowerUp;
-        }
+            if (Time.time >= nextPowerUp)
+            {
+                displayedPower++;
+                nextPowerUp = Time.time + timeBetweenPowerUp;
+            }
 
-        int pow = displayedPower % primary.Length;
+            int pow = displayedPower % primary.Length;
 
-        if(Time.time > nextPrimaryFire)
-        {
-            Shoot(primary[pow]);
-            nextPrimaryFire = Time.time + primaryFireRate;
-        }
-        if (Time.time > nextSecondaryFire)
-        {
-            Shoot(secondary[pow]);
-            nextSecondaryFire = Time.time + secondaryFireRate;
+            if (Time.time > nextPrimaryFire)
+            {
+                Shoot(primary[pow]);
+                nextPrimaryFire = Time.time + primaryFireRate;
+            }
+            if (Time.time > nextSecondaryFire)
+            {
+                Shoot(secondary[pow]);
+                nextSecondaryFire = Time.time + secondaryFireRate;
+            }
         }
     }
 

@@ -18,6 +18,7 @@ public class OmniController : MonoBehaviour
     #endregion
 
     #region Ship Selection
+    public GameObject[] allShips;
     public string loadIntoLevel = "";
     [HideInInspector]
     public GameObject selectedShip = null;
@@ -27,7 +28,6 @@ public class OmniController : MonoBehaviour
 
     #region Options
     [Header("Options")]
-    public GameObject[] allShips;
     public bool enableAllShips;
     public bool enableDebug;
     public bool infiniteLives;

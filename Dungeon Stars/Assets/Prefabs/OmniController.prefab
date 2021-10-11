@@ -48,9 +48,6 @@ MonoBehaviour:
   timesDied: 0
   powerUpsCollected: 0
   completedGame: 0
-  loadIntoLevel: 
-  selectedShip: {fileID: 0}
-  selectedShip2: {fileID: 0}
   allShips:
   - {fileID: 1328236367363624, guid: b70064a0a7a1539458bd482b6b6803d1, type: 3}
   - {fileID: 1328236367363624, guid: daa0e9d774e49b543a7ee9253d51564b, type: 3}
@@ -58,10 +55,14 @@ MonoBehaviour:
   - {fileID: 1328236367363624, guid: 9de2dd27d819c7d4893dc5310cb039fd, type: 3}
   - {fileID: 1328236367363624, guid: 5e5a1b6c46480bb4885a364d3eb717d5, type: 3}
   - {fileID: 8167625377666880341, guid: ea222cc6c38a5ab48b5a675dd362d753, type: 3}
+  - {fileID: 6490978359253414090, guid: 214716f07f6b8a744a97b71eac3da3aa, type: 3}
   - {fileID: 1475961031473195667, guid: 1fb838370e2229f4c993462fa9191814, type: 3}
   - {fileID: 2723808112731600890, guid: e218fbd779258b74db933b6a518fa36d, type: 3}
   - {fileID: 1328236367363624, guid: 63dff43356469684fad2e4fdd6f633f2, type: 3}
   - {fileID: 1328236367363624, guid: 3f37f553f61fbe344a64b0d1ad463c42, type: 3}
+  loadIntoLevel: 
+  selectedShip: {fileID: 0}
+  selectedShip2: {fileID: 0}
   enableAllShips: 0
   enableDebug: 0
   infiniteLives: 0

@@ -4971,6 +4971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   referencedShip: {fileID: 114058955246685346, guid: b70064a0a7a1539458bd482b6b6803d1,
     type: 3}
+  unlocked: 1
   shipLore: No lore yet
   shipName: Interceptor
   shipDesc: Balanced for speed and durability.
@@ -4986,6 +4987,7 @@ MonoBehaviour:
   secondaryFireRate: 0.5
   hardpoints: {fileID: 2145004352884813150}
   animator: {fileID: 2378391142962359175}
+  sprite: {fileID: 2250098081740826684}
 --- !u!95 &2378391142962359175
 Animator:
   serializedVersion: 3
