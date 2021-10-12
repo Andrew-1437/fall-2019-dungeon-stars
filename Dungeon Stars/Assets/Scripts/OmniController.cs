@@ -19,6 +19,8 @@ public class OmniController : MonoBehaviour
 
     #region Ship Selection
     public GameObject[] allShips;
+    
+    public bool[] unlockedShips;    // Bool array corresponding to the ships in allShips
     public string loadIntoLevel = "";
     [HideInInspector]
     public GameObject selectedShip = null;
@@ -72,6 +74,7 @@ public class OmniController : MonoBehaviour
         if(omniController != null && omniController != this)
         {
             Destroy(gameObject);
+            return;
         }
         else
         {
@@ -124,6 +127,58 @@ public class OmniController : MonoBehaviour
         additionalScoreMultiplier = 1f;
         powerUpDurationScale = 1f;
         ChangeTimeScale(1f);
+    }
+
+    // Unlocks a ship by setting its corresponding index to true
+    // Theoretically, can be done with UnlockShip(ShipsEnum.SHIPID)
+    public void UnlockShip(int index)
+    {
+        unlockedShips[index] = true;
+        SaveUnlockedShips();
+    }
+
+    // Unlocks all ships, then saves
+    public void UnlockAllShips()
+    {
+        for (int i = 0; i < unlockedShips.Length; i++)
+        {
+            unlockedShips[i] = true;
+        }
+        SaveUnlockedShips();
+    }
+
+    // Resets unlocked ships to the default of the first 3 ships available
+    public void ResetUnlockedShips()
+    {
+        unlockedShips[0] = true;
+        unlockedShips[1] = true;
+        unlockedShips[2] = true;
+        for (int i = 3; i < unlockedShips.Length; i++)
+        {
+            unlockedShips[i] = false;
+        }
+        SaveUnlockedShips();
+    }
+
+    // Converts the unlockedShips bool array into Json string so we can store it in PlayerPrefs
+    public void SaveUnlockedShips()
+    {
+        string jsonShips = JsonHelper.ToJson(unlockedShips);
+        print("Saving as: " + jsonShips);
+        PlayerPrefs.SetString("unlockedShips", jsonShips);
+    }
+
+    // Loads the unlockedShips bool array from PLayerPrefs by converting it from a Json string
+    public void LoadUnlockedShips()
+    {
+        string jsonShips = PlayerPrefs.GetString("unlockedShips", "{}");
+        print("Loaded as: " + jsonShips);
+        if (jsonShips != "{}")
+        {
+            unlockedShips = JsonHelper.FromJson<bool>(jsonShips);
+        }
+        else
+            ResetUnlockedShips();
     }
 
     public void ChangeTimeScale(float newTimeScale)

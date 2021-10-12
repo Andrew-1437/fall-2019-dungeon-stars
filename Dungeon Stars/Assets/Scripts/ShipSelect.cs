@@ -39,14 +39,10 @@ public class ShipSelect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        OmniController.omniController.LoadUnlockedShips();
         ships = OmniController.omniController.allShips;
         SelectNextShip(0);
         sound = GetComponent<AudioSource>();
-        if(OmniController.omniController.enableAllShips)
-        {
-            foreach (GameObject preview in previewingShips)
-                preview.GetComponent<ShipPreview>().unlocked = true;
-        }
     }
 
     // Update is called once per frame
@@ -127,6 +123,11 @@ public class ShipSelect : MonoBehaviour
             }
         }
 
+        if (OmniController.omniController.enableDebug && Input.GetKeyDown(KeyCode.Space))
+        {
+            OmniController.omniController.UnlockShip((int)ship.id);
+        }
+
         if(!OmniController.omniController.twoPlayerMode)
         {
             title.text = "Select your ship";
@@ -155,6 +156,7 @@ public class ShipSelect : MonoBehaviour
 
         currentShip = Instantiate(previewingShips[index], spawn) as GameObject;
         ship = currentShip.GetComponent<ShipPreview>();
+        ship.unlocked = OmniController.omniController.unlockedShips[index];
     }
 
     public void SelectShipIndex(int ind)
@@ -166,5 +168,6 @@ public class ShipSelect : MonoBehaviour
 
         currentShip = Instantiate(previewingShips[index], spawn) as GameObject;
         ship = currentShip.GetComponent<ShipPreview>();
+        ship.unlocked = OmniController.omniController.unlockedShips[index];
     }
 }
