@@ -19,7 +19,21 @@ public class OmniController : MonoBehaviour
 
     #region Ship Selection
     public GameObject[] allShips;
-    
+
+    /* Current places where ships are unlocked in the game
+     * 
+     * INTERCEPTOR - Unlocked by default
+     * GUNSHIP - Unlocked by default
+     * SCOUT - Unlocked by default
+     * LECTRO - Get B tier or higher in the campaign
+     * QUASAR - Get B tier or higher in Endless
+     * EXCALIBUR - Complete Level 5 without dying
+     * NULLIFIER - Complete Level 4 without dying
+     * VECTOR - Get S tier in Endless
+     * QUANTUM - Get S tier in the campaign
+     * TEST - Not implemented / cheats only
+     * MEME - Not implemented / cheats only
+     */
     public bool[] unlockedShips;    // Bool array corresponding to the ships in allShips
     public string loadIntoLevel = "";
     [HideInInspector]
@@ -164,7 +178,6 @@ public class OmniController : MonoBehaviour
     public void SaveUnlockedShips()
     {
         string jsonShips = JsonHelper.ToJson(unlockedShips);
-        print("Saving as: " + jsonShips);
         PlayerPrefs.SetString("unlockedShips", jsonShips);
     }
 
@@ -172,7 +185,6 @@ public class OmniController : MonoBehaviour
     public void LoadUnlockedShips()
     {
         string jsonShips = PlayerPrefs.GetString("unlockedShips", "{}");
-        print("Loaded as: " + jsonShips);
         if (jsonShips != "{}")
         {
             unlockedShips = JsonHelper.FromJson<bool>(jsonShips);

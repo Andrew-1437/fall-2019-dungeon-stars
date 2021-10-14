@@ -66,6 +66,12 @@ public class OptionsMenu : MonoBehaviour
         OmniController.omniController.enableCameraShake = toggle;
     }
 
+    // Resets all unlocked ships
+    public void ResetUnlockedShips()
+    {
+        OmniController.omniController.ResetUnlockedShips();
+    }
+
     // Resets level progress in the main story
     public void ResetLevelProgress()
     {

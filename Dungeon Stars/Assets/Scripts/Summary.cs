@@ -261,7 +261,9 @@ public class Summary : MonoBehaviour
                 rank++;
         }
         rankFlowchart.SetIntegerVariable("Rank", rank);
-    }
+        if (rank >= 3) UnlockShipInSummary(ShipsEnum.ShipID.LECTRO);    // If B rank or higher, unlock Lectro
+        if (rank >= 5) UnlockShipInSummary(ShipsEnum.ShipID.QUANTUM);   // If S rank or higher, unlock Quantum
+    }   
 
     // Calculate the rank from 0-5 (F, D, C, B, A, S Tier) for Endless Mode
     public void GetRankingEndless()
@@ -336,6 +338,8 @@ public class Summary : MonoBehaviour
                 rank++;
         }
         rankFlowchart.SetIntegerVariable("Rank", rank);
+        if (rank >= 3) UnlockShipInSummary(ShipsEnum.ShipID.QUASAR);    // If B rank or higher, unlock Quasar
+        if (rank >= 5) UnlockShipInSummary(ShipsEnum.ShipID.VECTOR);   // If S rank or higher, unlock Vector
     }
 
     // Fungus helper method to 
@@ -404,5 +408,16 @@ public class Summary : MonoBehaviour
         }
         rankFlowchart.SetBooleanVariable("Accumulating", false);
         
+    }
+
+    public void UnlockShipInSummary(ShipsEnum.ShipID id)
+    {
+        OmniController.omniController.UnlockShip((int)id);
+    }
+
+    // Fungus helper method cause Fungus can't access a static singleton (or at least I dont know how)
+    public bool IsEndlessMode()
+    {
+        return OmniController.omniController.endlessMode;
     }
 }

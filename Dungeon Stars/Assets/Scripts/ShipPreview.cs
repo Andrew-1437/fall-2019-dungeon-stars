@@ -8,6 +8,7 @@ public class ShipPreview : MonoBehaviour
     public PlayerController referencedShip;
 
     public bool unlocked;   // If false, the ship will be displayed as a silouhette
+    public string howToUnlock;  // Text on how to unlock ship, displayed instead of description
     public string shipLore;
     
     // Descriptive info - Filled in by referencedShip

@@ -11,9 +11,9 @@ public class ShipsEnum
         LECTRO,
         QUASAR,
         EXCALIBUR,
-        VECTOR,
-        TEST,
         NULLIFIER,
+        VECTOR,
         QUANTUM,
+        TEST,
         MEME }
 }

@@ -74,7 +74,7 @@ public class ShipSelect : MonoBehaviour
             primaryFR.text = "Primary Fire Rate: ???";
             secondaryFR.text = "Secondary Fire Rate: ???";
             tertiary.text = "Tertiary Weapons: ???";
-            description.text = "???";
+            description.text = "To Unlock: " + ship.howToUnlock;
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))

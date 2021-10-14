@@ -59,6 +59,7 @@ public class GM : MonoBehaviour {
     public bool twoPlayerMode;
     [HideInInspector]
     public bool gamePaused = false;
+    bool hasDied = false;   // True if the player has died at least once this level
 
     [Header("Level Boundaries")]
     public float upperBounds = LEVEL_UPPER_BOUND;
@@ -570,7 +571,8 @@ public class GM : MonoBehaviour {
     // Invoked on a player's death
     private void PlayerController_OnPlayerDeath(PlayerController pc)
     {
-        
+        hasDied = true;
+
         // If no lives are left and no players are alive, it is game over.
         if (playerLives <= 0)
         {
@@ -584,7 +586,6 @@ public class GM : MonoBehaviour {
         AddRawScore(-OmniController.omniController.deathPenalty);   // Lose score from dying
         StartCoroutine(CoolTimeSlowFX());   // Briefly slow down time when player dies
         ResetMultiplier();  // Set score multiplier to 0
-        
     }
 
     // Tells fungus flowchart to say a death flavor text when player dies
@@ -596,6 +597,12 @@ public class GM : MonoBehaviour {
             return;
         }
         mainFlowchart.SendFungusMessage("death");
+    }
+
+    // Returns true if the player has died at least once this level
+    public bool HasDied()
+    {
+        return hasDied;
     }
 
     // Idk wtf this is
@@ -704,6 +711,11 @@ public class GM : MonoBehaviour {
             return (int)(player1PercentHp * baseHpScore);
         else
             return (int)((player1PercentHp + player2PercentHp) / 2f * baseHpScore);
+    }
+
+    public void UnlockShipInLevel(ShipsEnum.ShipID id)
+    {
+        OmniController.omniController.UnlockShip((int)id);
     }
 
     public void SetLevelBounds(float left, float right, float up, float down)

@@ -28,8 +28,11 @@ public class PlayerController : MonoBehaviour {
     bool alive = true;
 
     public Animator shieldSprite;
-    public float shieldRecharge;    // Represents rate at which shield recharges/frame
+    [Tooltip("Rate at which shield recharges/second")]
+    public float shieldRecharge;    // Represents rate at which shield recharges/second
+    [Tooltip("Time in seconds since last damage before shield will regen IF SHIELD IS ACTIVE")]
     public float shieldRegenDelay; // Represents time in seconds since last damage before shield will regen IF SHIELD IS ACTIVE
+    [Tooltip("Time in seconds the shield will take to reboot after being disabled")]
     public float shieldDelay;   // Represents time in seconds the shield will take to reboot after being disabled
     [HideInInspector]
     public bool shieldDown;    // True if shields are disabled -"Shields offline!"
