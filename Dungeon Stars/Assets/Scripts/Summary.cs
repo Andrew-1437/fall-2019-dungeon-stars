@@ -271,14 +271,14 @@ public class Summary : MonoBehaviour
         /* ***********************
          * Criteria for S rank
          * Enemies Killed: >= 1000
-         * Power Ups Collected >= 90
+         * Power Ups Collected >= 75
          * Difficulty Reached > 30
          * Final Score >= 4,000,000
          * 
          * ***********************
          * Criteria for A Rank
          * Enemies Killed: >= 800
-         * Power Ups Collected >= 70
+         * Power Ups Collected >= 60
          * Difficulty Reached > 24
          * Final Score >= 3,500,000
          * 
@@ -326,13 +326,13 @@ public class Summary : MonoBehaviour
                 rank++;
             // A Rank
             if (OmniController.omniController.enemiesKilled >= 800 &&
-                OmniController.omniController.powerUpsCollected >= 70 &&
+                OmniController.omniController.powerUpsCollected >= 60 &&
                 OmniController.omniController.finalDifficultyLevel > 24 &&
                 trueScore >= 3000000)
                 rank++;
             // S Rank
             if (OmniController.omniController.enemiesKilled >= 1000 &&
-                OmniController.omniController.powerUpsCollected >= 90 &&
+                OmniController.omniController.powerUpsCollected >= 75 &&
                 OmniController.omniController.finalDifficultyLevel > 30 &&
                 trueScore >= 4000000)
                 rank++;
