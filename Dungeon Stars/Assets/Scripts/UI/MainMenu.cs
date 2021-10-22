@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
     public SceneLoader sceneLoader;
+
+    public TextMeshProUGUI connectionStatus;
 
     // Scene names
     const string shipSelect = "ShipSelect";
@@ -20,10 +23,20 @@ public class MainMenu : MonoBehaviour
     {
         OmniController.omniController.ResetGameplayVariables();
         OmniController.omniController.ResetModifiers();
+
+        NetworkManager.OnConnectToMaster += NetworkManager_OnConnectToMaster;
+        connectionStatus.text = "Not connected...";
+    }
+
+    private void NetworkManager_OnConnectToMaster()
+    {
+        connectionStatus.text = "Connected to Photon Services!";
+        NetworkManager.OnConnectToMaster -= NetworkManager_OnConnectToMaster;
     }
 
     public void PlayGame(bool twoPlayer)
     {
+        NetworkManager.OnConnectToMaster -= NetworkManager_OnConnectToMaster;
         sceneLoader.LoadScene(shipSelect);
         OmniController.omniController.ResetGameplayVariables();
         OmniController.omniController.SetTwoPlayers(twoPlayer);
@@ -34,6 +47,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayEndless(bool twoPlayer)
     {
+        NetworkManager.OnConnectToMaster -= NetworkManager_OnConnectToMaster;
         sceneLoader.LoadScene(shipSelect);
         OmniController.omniController.ResetGameplayVariables();
         OmniController.omniController.SetTwoPlayers(twoPlayer);
@@ -44,6 +58,7 @@ public class MainMenu : MonoBehaviour
 
     public void Tutorial()
     {
+        NetworkManager.OnConnectToMaster -= NetworkManager_OnConnectToMaster;
         sceneLoader.LoadScene(tutorial);
         OmniController.omniController.ResetGameplayVariables();
         OmniController.omniController.SetTwoPlayers(false);
@@ -53,6 +68,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        NetworkManager.OnConnectToMaster -= NetworkManager_OnConnectToMaster;
         print("*Windows shut down sound effect*");
         Application.Quit();
     }
