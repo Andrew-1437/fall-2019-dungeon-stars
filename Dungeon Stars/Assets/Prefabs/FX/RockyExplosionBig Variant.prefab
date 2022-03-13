@@ -9,18 +9,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 514217320566258485, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
         type: 3}
-      propertyPath: InitialModule.startSize.minScalar
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 514217320566258485, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
-        type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 1017162130108231852, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
+    - target: {fileID: 514217320566258485, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
         type: 3}
       propertyPath: InitialModule.startSize.minScalar
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1017162130108231852, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
         type: 3}
@@ -29,18 +24,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017162130108231852, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
         type: 3}
-      propertyPath: InitialModule.startSpeed.minScalar
-      value: 3
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1017162130108231852, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
         type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 13
+      propertyPath: InitialModule.startSize.minScalar
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017162130108231852, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2060626098244697186, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
         type: 3}
       propertyPath: m_Name
       value: RockyExplosionBig Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415269659517924653, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 022c358c77597d54d898780655d6f040, type: 3}
+    - target: {fileID: 4189799532160340681, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 23bd03ce905970940a11ef65b795c775, type: 3}
+    - target: {fileID: 4964550582123108768, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4964550582123108768, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
         type: 3}
@@ -49,13 +64,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4964550582123108768, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
         type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4964550582123108768, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
-        type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 6335368820963311423, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 64923c268a653524aabf7c384301492b, type: 3}
+    - target: {fileID: 6405650618899788501, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6405650618899788501, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
         type: 3}
@@ -74,6 +94,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6405650618899788501, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6405650618899788501, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -85,16 +110,6 @@ PrefabInstance:
     - target: {fileID: 6405650618899788501, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6405650618899788501, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6405650618899788501, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
-        type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6405650618899788501, guid: 4c9ec99f8d47cae4984543c3bdbf3a41,
