@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
 
 public class PowerUpBehavior : MonoBehaviour {
@@ -12,10 +11,14 @@ public class PowerUpBehavior : MonoBehaviour {
     public float duration;
     public int score;
 
+    [Tooltip("GameObject that is summoned when player collects")]
     public GameObject summon;
+    [Tooltip("Text that pops up when player collects power up")]
+    public GameObject popupText;   
 
     private bool awake;
 
+    [Tooltip("Used to identify power up in scene editor")]
     public GameObject marker;  // Used to identify in scene in edit mode
     Rigidbody2D rb;
     public AudioSource collectAudio;
@@ -67,5 +70,14 @@ public class PowerUpBehavior : MonoBehaviour {
         collectAudio.gameObject.transform.parent = null;
         Destroy(gameObject);
         Destroy(collectAudio.gameObject, 2f);
+        if(popupText)
+        {
+            GameObject flashText = Instantiate(popupText,
+                transform.position,
+                Quaternion.Euler(0f, 0f, Random.Range(-30f, 30f))
+                );
+            flashText.GetComponent<Rigidbody2D>().AddForce(Random.onUnitSphere, ForceMode2D.Impulse);
+            Destroy(flashText, 1);
+        }
     }
 }
