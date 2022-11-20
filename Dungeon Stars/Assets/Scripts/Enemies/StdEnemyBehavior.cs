@@ -42,14 +42,7 @@ public class StdEnemyBehavior : MonoBehaviour {
         gm = GM.gameController;
         rb = GetComponent<Rigidbody2D>();
         ob = GetComponent<ObstacleBehavior>();
-        if (ob == null)
-        {
-            hexSpeedMod = 1f;
-        }
-        else
-        {
-            hexSpeedMod = ob.hex.GetHexSpeedMod();
-        }
+        
     }
 
     private void FixedUpdate()
@@ -60,6 +53,9 @@ public class StdEnemyBehavior : MonoBehaviour {
             {
                 if (awake)
                 {
+                    if (ob == null) { hexSpeedMod = 1f; }
+                    else { hexSpeedMod = ob.hex.GetHexSpeedMod(); }
+
                     rb.velocity = ((transform.up + (Vector3)additionalMovementVector).normalized * 
                         speed * OmniController.omniController.obstacleSpeedScale * hexSpeedMod) + Vector3.down;
                 }

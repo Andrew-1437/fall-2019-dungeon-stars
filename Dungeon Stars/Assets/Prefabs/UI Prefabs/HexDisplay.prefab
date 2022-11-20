@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7000866357114388623}
   - component: {fileID: 8456948490860454898}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Hexagon (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2135585597343286014, guid: 4f95a4726897c3f40872d560a5f0e816,
     type: 3}
   m_Color: {r: 0.31234583, g: 0.09803921, b: 1, a: 0.7058824}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2177527074609890603}
   - component: {fileID: 7001665529349421825}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Hexagon (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2135585597343286014, guid: 4f95a4726897c3f40872d560a5f0e816,
     type: 3}
   m_Color: {r: 0.31234583, g: 0.09803921, b: 1, a: 0.7058824}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5516202517270494315}
   - component: {fileID: 4293091686369285840}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Hexagon (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2135585597343286014, guid: 4f95a4726897c3f40872d560a5f0e816,
     type: 3}
   m_Color: {r: 0.31234583, g: 0.09803921, b: 1, a: 0.7058824}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4613420476315563309}
   - component: {fileID: 7228982388494363047}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Hexagon (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2135585597343286014, guid: 4f95a4726897c3f40872d560a5f0e816,
     type: 3}
   m_Color: {r: 0.31234583, g: 0.09803921, b: 1, a: 0.7058824}
@@ -346,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8281589581928926440}
   - component: {fileID: 5154615437873319837}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Hexagon (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2135585597343286014, guid: 4f95a4726897c3f40872d560a5f0e816,
     type: 3}
   m_Color: {r: 0.31234583, g: 0.09803921, b: 1, a: 0.7058824}
@@ -430,7 +430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3413857321509417682}
   - component: {fileID: 417194222323124811}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Hexagon (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2135585597343286014, guid: 4f95a4726897c3f40872d560a5f0e816,
     type: 3}
   m_Color: {r: 0.31234583, g: 0.09803921, b: 1, a: 0.7058824}
@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 2765368405320731844}
   - component: {fileID: 8152640453380980760}
   - component: {fileID: 2831044768386669158}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HexDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -563,6 +563,8 @@ MonoBehaviour:
   - {fileID: 612016879866984995}
   - {fileID: 3698769939139045754}
   obstacle: {fileID: 0}
+  boss: {fileID: 0}
+  player: {fileID: 0}
 --- !u!198 &8152640453380980760
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5312,7 +5314,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0

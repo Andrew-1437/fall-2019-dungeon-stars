@@ -51,10 +51,6 @@ public class MissileBehavior : ProjectileBehavior {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == targetTag)
-        {
-            Detonate();
-        }
         if (gameObject.tag == "EnemyMissile" && other.tag == "AntiProjectile")
         {
             DestroyProjectile();

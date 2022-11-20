@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
@@ -121,6 +122,7 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody2D rb; 
     private GameObject camera;
     public HexStatus hex;
+    private GameObject floatingDamageText;
     #endregion
 
     #region Visual & Audio FX
@@ -173,6 +175,8 @@ public class PlayerController : MonoBehaviour {
         invincible = true;
         endSpawnInvincible = Time.time + 1.5f;
 
+        floatingDamageText = OmniController.omniController.FloatingDamageText;
+
         OnPlayerSpawn?.Invoke(this);
     }
 
@@ -202,7 +206,7 @@ public class PlayerController : MonoBehaviour {
         // If not stunned, allow movement
         if (!stunned)
         {
-            rb.velocity = move * speed * speedMod * OmniController.omniController.playerSpeedScale;
+            rb.velocity = move * speed * speedMod * OmniController.omniController.playerSpeedScale * hex.GetHexSpeedMod();
             transform.rotation = Quaternion.Euler(0.0f, horizontal * rotate, 0.0f);
             
             // Only voluntary movement can be restricted to the screen bounds
@@ -566,6 +570,7 @@ public class PlayerController : MonoBehaviour {
                 shieldSprite.SetTrigger("Hit");
                 shieldRegenTime = Time.time + shieldRegenDelay;
             }
+            DisplayDamage(dmg);
         }
         if (hp < 0 && alive)
         {
@@ -579,9 +584,11 @@ public class PlayerController : MonoBehaviour {
     {
         if (!invincible)
         {
-            float dmg = baseDmg * dmgMod * OmniController.omniController.playerIncommingDamageScale;
+            float dmg = baseDmg * dmgMod * OmniController.omniController.playerIncommingDamageScale * hex.GetHexDmgMod();
 
             hp -= dmg;
+
+            DisplayDamage(dmg);
         }
         if (hp < 0)
         {
@@ -642,6 +649,20 @@ public class PlayerController : MonoBehaviour {
         disableEndTime = Mathf.Max(disableEndTime, Time.time) + seconds;
     }
 
+    private void DisplayDamage(float dmg)
+    {
+        if (!OmniController.omniController.showDamageNumbers) { return; }
 
+        if (dmg != 0 && floatingDamageText)
+        {
+            GameObject dmgText = Instantiate(floatingDamageText,
+                transform.position + Random.insideUnitSphere,
+                Quaternion.Euler(0f, 0f, Random.Range(-45f, 45f))
+                ) as GameObject;
+            dmgText.GetComponent<TextMeshPro>().text = ((int)dmg).ToString();
+            dmgText.GetComponent<Rigidbody2D>().AddForce(Random.onUnitSphere * 3f, ForceMode2D.Impulse);
+            Destroy(dmgText, .5f);
+        }
+    }
 
 }

@@ -77,7 +77,7 @@ public class ObstacleBehavior : MonoBehaviour {
 
     protected void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Projectile")
+        if (other.tag == "Projectile" || other.tag == "Missile")
         {
             if (!awake) { return; }
             ProjectileBehavior hit = other.gameObject.GetComponent<ProjectileBehavior>();

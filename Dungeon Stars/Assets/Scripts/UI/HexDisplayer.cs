@@ -6,6 +6,8 @@ public class HexDisplayer : MonoBehaviour
 {
     public GameObject[] hexMarkers;
     public ObstacleBehavior obstacle;
+    public BossBehavior boss;
+    public PlayerController player;
 
     private ParticleSystem particles;
 
@@ -17,17 +19,25 @@ public class HexDisplayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (obstacle == null) { return; }
+        int currentStacks = GetCurrentStacks();
 
-        DisplayHexMarkers(obstacle.hex.Stacks);
-        if (obstacle.hex.Stacks == 6 && particles.isStopped) 
+        DisplayHexMarkers(currentStacks);
+        if (currentStacks == 6 && particles.isStopped) 
         { 
             particles.Play(); 
         }
-        else if (obstacle.hex.Stacks < 6 && particles.isPlaying) 
+        else if (currentStacks < 6 && particles.isPlaying) 
         { 
             particles.Stop(); 
         }
+    }
+
+    private int GetCurrentStacks()
+    {
+        if (obstacle) { return obstacle.hex.Stacks; }
+        if (boss) { return boss.hex.Stacks; }
+        if (player) { return player.hex.Stacks; }
+        return 0;
     }
 
     public void DisplayHexMarkers(int stacks)

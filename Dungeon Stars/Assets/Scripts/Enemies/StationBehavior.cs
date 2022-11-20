@@ -21,19 +21,25 @@ public class StationBehavior : MonoBehaviour {
 
     protected GM gm;
     protected Rigidbody2D rb;
+    protected ObstacleBehavior ob;
 
     protected void Start()
     {
         gm = GM.gameController;
         rb = GetComponent<Rigidbody2D>();
+        ob = GetComponent<ObstacleBehavior>();
     }
 
     protected void FixedUpdate()
     {
         if (gm.gameStart)
         {
+            float hexSpeedMod;
+            if (ob == null) { hexSpeedMod = 1f; }
+            else { hexSpeedMod = ob.hex.GetHexSpeedMod(); }
+
             if (awake)
-                rb.velocity = Vector2.down * speed * OmniController.omniController.obstacleSpeedScale;
+                rb.velocity = Vector2.down * speed * OmniController.omniController.obstacleSpeedScale * hexSpeedMod;
             else
                 rb.velocity = Vector2.down;
             rb.angularVelocity = rotate;
