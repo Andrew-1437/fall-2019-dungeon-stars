@@ -28,9 +28,11 @@ public class TurretBehavior : MonoBehaviour {
     #region Boolean Flags
     public bool awake;
     bool wasSleeping;
-    public bool holdFire;   // If true, will not shoot, even if awake
-    public bool ignoreObstacle;     // If true, the turret will not care about an attached ObstacleBehavior script
-                                    // Mainly used for player's turrets or invulnerable turrets that should not be targeted
+    [Tooltip("If true, will not shoot, even if awake")]
+    public bool holdFire;   
+    [Tooltip("If true, the turret will not care about an attached ObstacleBehavior script. " +
+        "Mainly used for player's turrets or invulnerable turrets that should not be targeted.")]
+    public bool ignoreObstacle;     
     #endregion
 
     ObstacleBehavior thisObstacle;  // Reference to this gameObject's ObstacleBehavior script

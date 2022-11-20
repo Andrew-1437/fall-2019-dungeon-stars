@@ -51,7 +51,7 @@ public class GM : MonoBehaviour {
     [Header("Level Management")]
     public int levelIndex;  // Index of the level starting from 1 (1 is Level 1 and so on)
     public bool gameStart;  // Is game in progress?
-    public bool warpDrive;  // Is the Warp Drive enabled in this level?
+    public bool warpDrive;  // Is the Warp Drive enabled in this level? [WIP]
     public bool allowBoss;
     public bool endLevelOnBossDeath;    // Do we end the level when the boss dies?
     public int playerLives; // Number of lives player has

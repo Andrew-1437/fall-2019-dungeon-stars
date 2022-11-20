@@ -31,9 +31,13 @@ public class ObstacleBehavior : MonoBehaviour {
 
     #region Boolean Flags
     public bool awake;  // Is the obstacle active?
-    public bool isATurret;  // Is this obstacle a turret?
+    [Tooltip("Is this obstacle a turret? Expects a LargeEnemyBehavior class in the parent gameobject")]
+    public bool isATurret;  // Is this obstacle a turret? Expects a LargeEnemyBehavior class in the parent gameobject 
+    [Tooltip("Should this obstacle persist when it exits the screen?")]
     public bool dontDieOnScreenExit;    // Should this obstacle persist when it exits the screen?
+    [Tooltip("Should this obstacle ignore collisions with the player?")]
     public bool ignorePlayerCollisions; // Should this obstacle ignore collisions with the player?
+    [Tooltip("Should this obstacle not wake when it enters the screen?")]
     public bool ignoreAwakeOnEnterBounds;   // Should this obstacle not wake when it enters the screen?
     #endregion
 
