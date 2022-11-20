@@ -48,6 +48,7 @@ public class OmniController : MonoBehaviour
     public bool enableDebug;
     public bool infiniteLives;
     public bool enableCameraShake;
+    public bool showDamageNumbers;
     #endregion
 
     #region Global Modifiers
@@ -80,6 +81,13 @@ public class OmniController : MonoBehaviour
     public bool endlessMode;
     public int finalDifficultyLevel;
     public float timeTaken;
+    #endregion
+
+    #region Public References
+    [Header("Public References")]
+    public GameObject FloatingScoreText;
+    public GameObject FloatingDamageText;
+    public GameObject Hexplosion;
     #endregion
 
     private void Awake()

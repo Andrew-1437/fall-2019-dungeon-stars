@@ -19,6 +19,8 @@ public class BossBehavior : LargeEnemyBehavior {
 
     private GameObject[] triggers;
 
+    public HexStatus hex;
+
     // Events
     public delegate void BossDelegate();
     public static event BossDelegate OnBossDeath;
@@ -29,6 +31,14 @@ public class BossBehavior : LargeEnemyBehavior {
         GM.OnLevelEnd += GM_OnLevelEnd;
         hp = hp * OmniController.omniController.obstacleHpScale;
         dieTime = Mathf.Infinity;
+
+        hex = new HexStatus();
+    }
+
+    private void Update()
+    {
+        base.Update();
+        hex.Update();
     }
 
     private void GM_OnLevelEnd()
@@ -46,15 +56,10 @@ public class BossBehavior : LargeEnemyBehavior {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!ignoreProjectileDamage && other.tag == "Projectile")
+        if (!ignoreProjectileDamage && other.tag == "Projectile" || other.tag == "Missile")
         {
-            Damage(other.gameObject.GetComponent<ProjectileBehavior>().dmgValue);
-            if(!other.gameObject.GetComponent<ProjectileBehavior>().perist)
-                other.gameObject.GetComponent<ProjectileBehavior>().DestroyProjectile();
-        }
-        if (other.tag == "Missile")
-        {
-            other.gameObject.GetComponent<MissileBehavior>().Detonate();
+            ProjectileBehavior hit = other.gameObject.GetComponent<ProjectileBehavior>();
+            hit.ApplyProjectile(this);
         }
     }
 
@@ -76,7 +81,7 @@ public class BossBehavior : LargeEnemyBehavior {
     //Takes damage from another source (another script)
     public void Damage(float dmg)
     {
-        hp -= dmg * dmgMod * OmniController.omniController.obstacleIncommingDamageScale;
+        hp -= dmg * dmgMod * OmniController.omniController.obstacleIncommingDamageScale * hex.GetHexDmgMod();
         if ((hp <= 0 || turrets <= 0) && !dying)
         {
             hp = 0;

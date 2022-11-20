@@ -65,10 +65,46 @@ public class MissileBehavior : ProjectileBehavior {
         }
     }
 
+    /// <summary>
+    /// Applies the projectile's effects. For missiles, this detonates it, instatiating an explosion
+    /// object that is considered a projectile
+    /// </summary>
+    /// <param name="target">Target this missile hit. Pass in "this" from the target object</param>
+    public override void ApplyProjectile(ObstacleBehavior target)
+    {
+        Detonate();
+    }
+
+    /// <summary>
+    /// Applies the projectile's effects. For missiles, this detonates it, instatiating an explosion
+    /// object that is considered a projectile
+    /// </summary>
+    /// <param name="target">Target this missile hit. Pass in "this" from the target object</param>
+    public override void ApplyProjectile(BossBehavior target)
+    {
+        Detonate();
+    }
+
+    /// <summary>
+    /// Applies the projectile's effects. For missiles, this detonates it, instatiating an explosion
+    /// object that is considered a projectile
+    /// </summary>
+    /// <param name="target">Target this missile hit. Pass in "this" from the target object</param>
+    public override void ApplyProjectile(PlayerController target)
+    {
+        Detonate();
+    }
+
+    /// <summary>
+    /// Detonates the missile and instatiates it's explosion object. 
+    /// The explosion object does the damage.
+    /// </summary>
     public void Detonate()
     {
         DestroyProjectile();
-        Instantiate(explosion, transform.position, transform.rotation);
+        // Clean up payload if it doesn't clean itself up
+        Destroy(
+            Instantiate(explosion, transform.position, transform.rotation),5);
     }
 
     GameObject FindClosestByTag(string tag)

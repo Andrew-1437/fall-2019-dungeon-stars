@@ -10,6 +10,7 @@ public class StdEnemyBehavior : MonoBehaviour {
     public float turn;
     public Vector2 additionalMovementVector;
     public bool lookAtPlayer;
+    private float hexSpeedMod;
 
     //Weapons*********************
     [Header("Attack")]
@@ -29,6 +30,7 @@ public class StdEnemyBehavior : MonoBehaviour {
 
     GM gm;
     Rigidbody2D rb;
+    ObstacleBehavior ob;
 
 
     protected void Start()
@@ -39,6 +41,15 @@ public class StdEnemyBehavior : MonoBehaviour {
 
         gm = GM.gameController;
         rb = GetComponent<Rigidbody2D>();
+        ob = GetComponent<ObstacleBehavior>();
+        if (ob == null)
+        {
+            hexSpeedMod = 1f;
+        }
+        else
+        {
+            hexSpeedMod = ob.hex.GetHexSpeedMod();
+        }
     }
 
     private void FixedUpdate()
@@ -50,7 +61,7 @@ public class StdEnemyBehavior : MonoBehaviour {
                 if (awake)
                 {
                     rb.velocity = ((transform.up + (Vector3)additionalMovementVector).normalized * 
-                        speed * OmniController.omniController.obstacleSpeedScale) + Vector3.down;
+                        speed * OmniController.omniController.obstacleSpeedScale * hexSpeedMod) + Vector3.down;
                 }
                 else
                 {

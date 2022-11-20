@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 82350192218414502}
   - component: {fileID: 70044119275130630}
   - component: {fileID: 114365111622200450}
+  - component: {fileID: -5521838430098847991}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Missile
@@ -168,6 +169,27 @@ MonoBehaviour:
   turn: 90
   targetTag: Obstacle
   explosion: {fileID: 1130481369285606, guid: 195ab19f427974544b7cb91e1faa232f, type: 3}
+--- !u!50 &-5521838430098847991
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300305888479880}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2563835969011394186
 GameObject:
   m_ObjectHideFlags: 0

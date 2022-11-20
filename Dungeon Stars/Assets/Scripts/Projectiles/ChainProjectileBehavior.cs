@@ -45,7 +45,7 @@ public class ChainProjectileBehavior : BombBehavior
 
 
             //lineRenderer.SetPositions(chain);
-            entity.hp -= dmgValue;
+            entity.Damage(dmgValue);
         }
     }
 

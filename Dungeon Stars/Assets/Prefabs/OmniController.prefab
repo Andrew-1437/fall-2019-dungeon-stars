@@ -58,9 +58,10 @@ MonoBehaviour:
   - {fileID: 6490978359253414090, guid: 214716f07f6b8a744a97b71eac3da3aa, type: 3}
   - {fileID: 1475961031473195667, guid: 1fb838370e2229f4c993462fa9191814, type: 3}
   - {fileID: 2723808112731600890, guid: e218fbd779258b74db933b6a518fa36d, type: 3}
+  - {fileID: 8393200310247030459, guid: 5411e4b7cd7b4734e9b488e9cc8ac7b6, type: 3}
   - {fileID: 1328236367363624, guid: 63dff43356469684fad2e4fdd6f633f2, type: 3}
   - {fileID: 1328236367363624, guid: 3f37f553f61fbe344a64b0d1ad463c42, type: 3}
-  unlockedShips: 0101010000000000000000
+  unlockedShips: 010101000000000000000000
   loadIntoLevel: 
   selectedShip: {fileID: 0}
   selectedShip2: {fileID: 0}
@@ -68,6 +69,7 @@ MonoBehaviour:
   enableDebug: 0
   infiniteLives: 0
   enableCameraShake: 1
+  showDamageNumbers: 0
   globalTimeScale: 1
   deathPenalty: 50000
   playerHpScale: 1
@@ -90,3 +92,9 @@ MonoBehaviour:
   endlessMode: 0
   finalDifficultyLevel: 0
   timeTaken: 0
+  FloatingScoreText: {fileID: 5520782144581124303, guid: d1c3623ad77006e45be3f0a8c9a06bc4,
+    type: 3}
+  FloatingDamageText: {fileID: 5425617779214692777, guid: d8c4f361ddd494d4e8849d18600c400e,
+    type: 3}
+  Hexplosion: {fileID: 1544564963094003250, guid: 0144eb6d6092c264a821a69672d0f099,
+    type: 3}

@@ -11,9 +11,10 @@ public class ObstacleBehavior : MonoBehaviour {
     public bool invincible;
     #endregion
 
-    #region References
+    #region Objects
     protected GM gm;
     private GameObject camera;
+    public HexStatus hex;
     #endregion
 
     #region Visual FX
@@ -24,7 +25,8 @@ public class ObstacleBehavior : MonoBehaviour {
 
     #region Score
     public int score;   // SCore gained upon killing this obstacle
-    public GameObject floatingScoreText;    // Reference to the text GameObject to spawn
+    private GameObject floatingScoreText;    // Reference to the text GameObject to spawn
+    private GameObject floatingDamageText;   
     #endregion
 
     #region Boolean Flags
@@ -40,9 +42,14 @@ public class ObstacleBehavior : MonoBehaviour {
     public event ObstacleDelegate OnObstacleDeath;
     #endregion
 
-    protected void Start()
+    private void Awake()
     {
         awake = false;
+        hex = new HexStatus();
+    }
+
+    protected void Start()
+    {
         camera = GameObject.FindWithTag("MainCamera");
         if(camera == null)
         {
@@ -53,6 +60,9 @@ public class ObstacleBehavior : MonoBehaviour {
         hp = hp * OmniController.omniController.obstacleHpScale;
         
         sprite = GetComponentInChildren<SpriteRenderer>();
+
+        floatingScoreText = OmniController.omniController.FloatingScoreText;
+        floatingDamageText = OmniController.omniController.FloatingDamageText;
     }
 
     protected void Update()
@@ -61,18 +71,17 @@ public class ObstacleBehavior : MonoBehaviour {
         {
             Die();
         }
+
+        hex.Update();
     }
 
     protected void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Projectile")
         {
+            if (!awake) { return; }
             ProjectileBehavior hit = other.gameObject.GetComponent<ProjectileBehavior>();
-            Damage(hit.dmgValue);
-            if (!hit.perist)
-            {
-                hit.DestroyProjectile();
-            }
+            hit.ApplyProjectile(this);
             if (hitFX)
                 Destroy(Instantiate(hitFX, transform.position, transform.rotation), 1f);
         }
@@ -83,11 +92,13 @@ public class ObstacleBehavior : MonoBehaviour {
         }
     }
 
-    public void Damage(float dmg)
+    public void Damage(float baseDmg)
     {
         if (!invincible)
         {
-            hp -= dmg * OmniController.omniController.obstacleIncommingDamageScale;
+            float dmg = baseDmg * OmniController.omniController.obstacleIncommingDamageScale * hex.GetHexDmgMod();
+            hp -= dmg;
+            DisplayDamage(dmg);
             StartCoroutine(OnHitFx());
         }
     }
@@ -102,6 +113,12 @@ public class ObstacleBehavior : MonoBehaviour {
                 5f);
         DisplayScore();
         camera.GetComponent<CameraShaker>().CustomShake(collisionVal / 60.0f);
+
+        if (hex.Stacks > 0)
+        {
+            hex.Hexplosion(transform);
+        }
+
         gm.AddScore(score);
         if (isATurret)
         {
@@ -121,6 +138,22 @@ public class ObstacleBehavior : MonoBehaviour {
             scoreText.GetComponent<TextMeshPro>().text = (score * gm.scoreMultiplier).ToString();
             scoreText.GetComponent<Rigidbody2D>().AddForce(Random.onUnitSphere, ForceMode2D.Impulse);
             Destroy(scoreText, 1);
+        }
+    }
+
+    private void DisplayDamage(float dmg)
+    {
+        if (!OmniController.omniController.showDamageNumbers) { return; }
+
+        if (dmg != 0 && floatingDamageText)
+        {
+            GameObject dmgText = Instantiate(floatingDamageText,
+                transform.position + Random.insideUnitSphere,
+                Quaternion.Euler(0f, 0f, Random.Range(-45f, 45f))
+                ) as GameObject;
+            dmgText.GetComponent<TextMeshPro>().text = ((int)dmg).ToString();
+            dmgText.GetComponent<Rigidbody2D>().AddForce(Random.onUnitSphere * 3f, ForceMode2D.Impulse);
+            Destroy(dmgText, .5f);
         }
     }
 

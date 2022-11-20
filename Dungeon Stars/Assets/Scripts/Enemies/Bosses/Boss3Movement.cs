@@ -206,6 +206,7 @@ public class Boss3Movement : MonoBehaviour
     private void OtherTurret_OnObstacleDeath(ObstacleBehavior thisObstacle)
     {
         shield.gameObject.SetActive(true);
+        shield.SetAwake(true);
         GetComponent<ObstacleBehavior>().invincible = true;
         speed *= 1.5f;
         timeBetweenMoves /= 1.5f;

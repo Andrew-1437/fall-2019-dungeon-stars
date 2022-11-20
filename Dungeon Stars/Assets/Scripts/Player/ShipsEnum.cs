@@ -14,6 +14,7 @@ public class ShipsEnum
         NULLIFIER,
         VECTOR,
         QUANTUM,
+        HEXURGENT,
         TEST,
         MEME }
 }

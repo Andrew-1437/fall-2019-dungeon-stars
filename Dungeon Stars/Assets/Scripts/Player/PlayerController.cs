@@ -120,6 +120,7 @@ public class PlayerController : MonoBehaviour {
     private GM gm;  
     private Rigidbody2D rb; 
     private GameObject camera;
+    public HexStatus hex;
     #endregion
 
     #region Visual & Audio FX
@@ -166,6 +167,8 @@ public class PlayerController : MonoBehaviour {
 
         gm = GM.gameController;
         rb = GetComponent<Rigidbody2D>();
+
+        hex = new HexStatus();
 
         invincible = true;
         endSpawnInvincible = Time.time + 1.5f;
@@ -285,8 +288,8 @@ public class PlayerController : MonoBehaviour {
 
         // Out of bounds death
         // Involuntary movement (walls) could move the player beyond the screen bounds and thus kill them
-        if (transform.position.x > 28f || transform.position.x < -28f || 
-            transform.position.y > 13.6f || transform.position.y < -13.6f)
+        if (transform.position.x > gm.rightBounds + 1 || transform.position.x < gm.leftBounds - 1 || 
+            transform.position.y > gm.upperBounds + 1 || transform.position.y < gm.lowerBounds - 1)
             Die();
 
         //Debug Tools
@@ -371,30 +374,22 @@ public class PlayerController : MonoBehaviour {
         {
             invincible = false;
         }
+
+        hex.Update();
     }
 
     //Collisions and damage
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //Damage from projectiles
-        if(other.tag == "EnemyProjectile")
+        //Damage from projectiles/missiles
+        if(other.tag == "EnemyProjectile" || other.tag == "EnemyMissile")
         {
-            float dmg = other.gameObject.GetComponent<ProjectileBehavior>().dmgValue;
+            ProjectileBehavior hit = other.gameObject.GetComponent<ProjectileBehavior>();
 
-            Damage(dmg);
+            hit.ApplyProjectile(this);
 
             camera.GetComponent<CameraShaker>().SmallShake();
-            if (!other.gameObject.GetComponent<ProjectileBehavior>().perist)
-            {
-                other.gameObject.GetComponent<ProjectileBehavior>().DestroyProjectile();
-            }
             
-        }
-
-        if(other.tag == "EnemyMissile") //Damage from missiles will be done by the MissileExplosion object
-        {
-            camera.GetComponent<CameraShaker>().SmallShake(); ;
-            other.gameObject.GetComponent<MissileBehavior>().DestroyProjectile();
         }
 
         // Collision damage
@@ -548,7 +543,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (!invincible)
         {
-            float dmg = baseDmg * dmgMod * OmniController.omniController.playerIncommingDamageScale;
+            float dmg = baseDmg * dmgMod * OmniController.omniController.playerIncommingDamageScale * hex.GetHexDmgMod();
 
             shield -= dmg;  //All damage hits shield first
             if (shield <= 0 && !shieldDown)
