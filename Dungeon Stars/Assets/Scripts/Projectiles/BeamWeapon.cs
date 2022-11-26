@@ -87,6 +87,8 @@ public class BeamWeapon : MonoBehaviour
 
     void RotateTowards(string tag)
     {
+        if (turn == 0) { return; }
+
         target = FindClosestByTag("Player");
         
         if (target != null)

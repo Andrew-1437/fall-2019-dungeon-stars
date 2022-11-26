@@ -126,7 +126,16 @@ public class ObstacleBehavior : MonoBehaviour {
         gm.AddScore(score);
         if (isATurret)
         {
-            GetComponentInParent<LargeEnemyBehavior>().turrets--;
+            System.NullReferenceException e;
+            // Some turrets might not be on a LargeEnemyBehavior. Ignore if there is none.
+            try
+            {
+                GetComponentInParent<LargeEnemyBehavior>().turrets--;
+            }
+            catch (System.NullReferenceException)
+            {
+                // Do nothing
+            }
         }
         OnObstacleDeath?.Invoke(this);
     }

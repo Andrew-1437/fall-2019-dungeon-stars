@@ -1381,7 +1381,7 @@ Animator:
   m_GameObject: {fileID: 3324974151981602368}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 201acf629639b58468f35548a2c72af6, type: 2}
+  m_Controller: {fileID: 9100000, guid: f98ba2d09549d68468125554b50b0938, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1520,6 +1520,7 @@ MonoBehaviour:
   dmgValue: 300
   lifeTime: 100000000
   perist: 1
+  inaccuracy: 0
   particleFX: {fileID: 0}
 --- !u!50 &717356008598352289
 Rigidbody2D:
