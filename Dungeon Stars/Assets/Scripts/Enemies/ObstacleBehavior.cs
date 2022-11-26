@@ -48,7 +48,6 @@ public class ObstacleBehavior : MonoBehaviour {
 
     private void Awake()
     {
-        awake = false;
         hex = new HexStatus();
     }
 
