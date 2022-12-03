@@ -12,6 +12,10 @@ PrefabInstance:
       value: EnemyRusher Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4710609142361000, guid: af906bdab26ef214bb4e181c84087ccc, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710609142361000, guid: af906bdab26ef214bb4e181c84087ccc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -21,6 +25,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4710609142361000, guid: af906bdab26ef214bb4e181c84087ccc, type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710609142361000, guid: af906bdab26ef214bb4e181c84087ccc, type: 3}
+      propertyPath: m_LocalRotation.w
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4710609142361000, guid: af906bdab26ef214bb4e181c84087ccc, type: 3}
@@ -34,14 +42,6 @@ PrefabInstance:
     - target: {fileID: 4710609142361000, guid: af906bdab26ef214bb4e181c84087ccc, type: 3}
       propertyPath: m_LocalRotation.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4710609142361000, guid: af906bdab26ef214bb4e181c84087ccc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4710609142361000, guid: af906bdab26ef214bb4e181c84087ccc, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4710609142361000, guid: af906bdab26ef214bb4e181c84087ccc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -62,23 +62,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114492732314849722, guid: af906bdab26ef214bb4e181c84087ccc,
         type: 3}
-      propertyPath: collisionVal
-      value: 12
+      propertyPath: score
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 114492732314849722, guid: af906bdab26ef214bb4e181c84087ccc,
         type: 3}
-      propertyPath: score
-      value: 120
+      propertyPath: collisionVal
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 114979533683665214, guid: af906bdab26ef214bb4e181c84087ccc,
         type: 3}
       propertyPath: speed
       value: 8.9
       objectReference: {fileID: 0}
+    - target: {fileID: 4152894619951782050, guid: af906bdab26ef214bb4e181c84087ccc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152894619951782050, guid: af906bdab26ef214bb4e181c84087ccc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152894619951782050, guid: af906bdab26ef214bb4e181c84087ccc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6790639587347860173, guid: af906bdab26ef214bb4e181c84087ccc,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300022, guid: f0af345e9ad1a924aa5bdc41afb2b930,
+        type: 3}
     - target: {fileID: 8586662710528874129, guid: af906bdab26ef214bb4e181c84087ccc,
         type: 3}
-      propertyPath: m_Color.r
-      value: 0.5990566
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8586662710528874129, guid: af906bdab26ef214bb4e181c84087ccc,
         type: 3}
@@ -87,8 +108,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8586662710528874129, guid: af906bdab26ef214bb4e181c84087ccc,
         type: 3}
-      propertyPath: m_Color.b
-      value: 1
+      propertyPath: m_Color.r
+      value: 0.5990566
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af906bdab26ef214bb4e181c84087ccc, type: 3}
