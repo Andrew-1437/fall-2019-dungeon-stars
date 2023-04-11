@@ -499,6 +499,10 @@ public class PlayerController : MonoBehaviour {
     // Disables and stuns player while they fly around, on fire, until they explode and die.
     public IEnumerator DieSequence()
     {
+        if (!alive) { yield break; }
+
+        alive = false;
+
         Stun(100);
         Disable(100);
 
@@ -521,6 +525,14 @@ public class PlayerController : MonoBehaviour {
         Destroy(gameObject);
         Instantiate(explosionFx, transform.position, transform.rotation);
         camera.GetComponent<CameraShaker>().HugeShake();
+
+        // Drop level ups equal to half the player's level rounded down
+        for (int i = 0; i < level/2; i++)
+        {
+            Instantiate(OmniController.omniController.LevelUp,
+                transform.position + Random.insideUnitSphere * 5f,
+                transform.rotation);
+        }
         
         OnPlayerDeath?.Invoke(this);
     }
@@ -574,7 +586,6 @@ public class PlayerController : MonoBehaviour {
         }
         if (hp < 0 && alive)
         {
-            alive = false;
             StartCoroutine(DieSequence());
         }
     }

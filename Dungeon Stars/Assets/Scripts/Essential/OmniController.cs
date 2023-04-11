@@ -88,6 +88,7 @@ public class OmniController : MonoBehaviour
     public GameObject FloatingScoreText;
     public GameObject FloatingDamageText;
     public GameObject Hexplosion;
+    public GameObject LevelUp;
     #endregion
 
     private void Awake()
