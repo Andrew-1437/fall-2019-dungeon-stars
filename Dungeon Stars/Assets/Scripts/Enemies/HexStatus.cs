@@ -71,6 +71,17 @@ public class HexStatus
     }
 
     /// <summary>
+    /// Begins a brief timer to cause a hexplosion at the target location.
+    /// </summary>
+    /// <param name="transform">The transform of the GameObject to spawn the hexplosion</param>
+    public IEnumerator PreHexplode(Transform transform)
+    {
+        yield return new WaitForSeconds(.1f);
+
+        Hexplosion(transform);
+    }
+
+    /// <summary>
     /// Causes a hexplosion when the target object has stacks of Hex and dies.
     /// The hexplosion applies the amount of Stacks that the object currently has to 
     /// nearby objects and deals damage based on how many stacks they had.

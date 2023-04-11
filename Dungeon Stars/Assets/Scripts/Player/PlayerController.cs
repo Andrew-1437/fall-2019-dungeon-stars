@@ -513,7 +513,7 @@ public class PlayerController : MonoBehaviour {
         rb.angularDrag = 0f;
         rb.velocity = rb.velocity + Random.insideUnitCircle * Random.Range(3f, 10f);
         
-        yield return new WaitForSeconds(Random.Range(1.5f, 4f));
+        yield return new WaitForSeconds(Random.Range(1f, 3.5f));
 
         Die();
     }

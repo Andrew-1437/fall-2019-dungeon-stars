@@ -125,7 +125,6 @@ public class ObstacleBehavior : MonoBehaviour {
         gm.AddScore(score);
         if (isATurret)
         {
-            System.NullReferenceException e;
             // Some turrets might not be on a LargeEnemyBehavior. Ignore if there is none.
             try
             {
