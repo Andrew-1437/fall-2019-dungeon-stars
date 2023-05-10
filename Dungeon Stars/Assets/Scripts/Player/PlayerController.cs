@@ -527,11 +527,11 @@ public class PlayerController : MonoBehaviour {
         camera.GetComponent<CameraShaker>().HugeShake();
 
         // Drop level ups equal to half the player's level rounded down
-        for (int i = 0; i < level/2; i++)
+        for (int i = 0; i < (level + 1) / 2; i++)
         {
             Instantiate(OmniController.omniController.LevelUp,
                 transform.position + Random.insideUnitSphere * 5f,
-                transform.rotation);
+                transform.rotation).GetComponent<PowerUpBehavior>().GoToScreenTop();
         }
         
         OnPlayerDeath?.Invoke(this);
