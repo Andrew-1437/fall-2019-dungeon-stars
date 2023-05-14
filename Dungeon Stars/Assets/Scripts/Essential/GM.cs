@@ -310,7 +310,7 @@ public class GM : MonoBehaviour {
                 else
                     level.text = "Power: 69";
 
-                missileCount.text = "Ammo: " + playerController.explosive.Ammo + "/" + playerController.explosive.BaseCapacity;
+                missileCount.text = "Ammo: " + playerController.explosive.Ammo + "/" + playerController.explosive.Capacity;
 
                 // Updates bars
                 hp.UpdateBar(playerController.hp, playerController.maxHp);
@@ -369,7 +369,7 @@ public class GM : MonoBehaviour {
                 else
                     level1.text = "Power: 69";
 
-                missileCount1.text = "Ammo: " + playerController.explosive.Ammo + "/" + playerController.explosive.BaseCapacity;
+                missileCount1.text = "Ammo: " + playerController.explosive.Ammo + "/" + playerController.explosive.Capacity;
 
                 hp1.UpdateBar(playerController.hp, playerController.maxHp);
                 shield1.UpdateBar(playerController.shield, playerController.maxShield);
@@ -423,7 +423,7 @@ public class GM : MonoBehaviour {
                 else
                     level2.text = "Power: 69";
 
-                missileCount2.text = "Ammo: " + playerController2.explosive.Ammo + "/" + playerController2.explosive.BaseCapacity;
+                missileCount2.text = "Ammo: " + playerController2.explosive.Ammo + "/" + playerController2.explosive.Capacity;
 
                 hp2.UpdateBar(playerController2.hp, playerController2.maxHp);
                 shield2.UpdateBar(playerController2.shield, playerController2.maxShield);
@@ -677,12 +677,12 @@ public class GM : MonoBehaviour {
         float player2PercentAmmo;
 
         if (player != null)
-            player1PercentAmmo = (float)playerController.explosive.Ammo / (float)playerController.explosive.BaseCapacity;
+            player1PercentAmmo = (float)playerController.explosive.Ammo / (float)playerController.explosive.Capacity;
         else
             player1PercentAmmo = 0f;
 
         if (player2 != null)
-            player2PercentAmmo = (float)playerController2.explosive.Ammo / (float)playerController2.explosive.BaseCapacity;
+            player2PercentAmmo = (float)playerController2.explosive.Ammo / (float)playerController2.explosive.Capacity;
         else
             player2PercentAmmo = 0f;
 

@@ -43,16 +43,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4babda6e3536d0345bad3bfc861403b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponType: 7
-  Projectiles:
-  - {fileID: 1798592306547478, guid: 80ab67ac8ee09d24ea0226f938eaa479, type: 3}
-  - {fileID: 3133016002362744516, guid: c2139a1021a6c2d4289d5d1374495c95, type: 3}
-  - {fileID: 8597321315343796439, guid: 54b13847ce7a38844b732e5bfe280992, type: 3}
-  - {fileID: 5957229176549922166, guid: fb21c6f724888ce4fa214f708560ac96, type: 3}
-  - {fileID: 6436069487473613827, guid: a2524304dec9b294498099a49b5eea0d, type: 3}
-  BaseFireRate: 0.45
-  BaseCapacity: 0
-  BaseHeatGen: 0
+  PowerLevels:
+  - {fileID: 446043582643009660, guid: 429479caf27a876488418b25260f699b, type: 3}
+  - {fileID: 4608429394026987126, guid: 95f87f14450dc614da42c01f126f285f, type: 3}
+  - {fileID: 2429897456907979829, guid: eb4c2855bfa5ac0478c32bb433857ef9, type: 3}
+  - {fileID: 2964801037045979450, guid: 76ab7f7029e05d749b47e1029cf817be, type: 3}
+  - {fileID: 408090890663753563, guid: b5702dbd9158def46804d2d233d8c002, type: 3}
+  FireRate: 0.45
+  Capacity: 0
+  HeatGen: 0
   WeaponCost: 10
   EnableSemiAuto: 0
   Ammo: 0

@@ -43,12 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4babda6e3536d0345bad3bfc861403b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponType: 10
-  Projectiles:
+  PowerLevels:
   - {fileID: 3427498309307836156, guid: 4d19fbcdd581ae0449ae8184af7b9769, type: 3}
-  BaseFireRate: 0.18
-  BaseCapacity: 0
-  BaseHeatGen: 0
+  FireRate: 0.18
+  Capacity: 0
+  HeatGen: 0
   WeaponCost: 12
   EnableSemiAuto: 0
   Ammo: 0
