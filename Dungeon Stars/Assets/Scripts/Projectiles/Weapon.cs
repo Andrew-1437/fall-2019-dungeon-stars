@@ -55,7 +55,7 @@ public class Weapon : MonoBehaviour
         int powerLevel = Mathf.Clamp(player.level, 0, PowerLevels.Length - 1);
 
         // Only shoot when key is pressed down if semi auto
-        if(EnableSemiAuto && !Input.GetKeyDown(fireButton))
+        if(EnableSemiAuto && !Input.GetButtonDown(fireButton))
         {
             return;
         }
@@ -82,7 +82,7 @@ public class Weapon : MonoBehaviour
         // Spawn projectile and delete it 5 seconds later if it is not already deleted
         Destroy(
             Instantiate(PowerLevels[powerLevel], spawner.position, spawner.rotation),
-            5);
+            20);
         // Subtract score for every shot fired
         GM.gameController.AddRawScore(-Mathf.Max(WeaponCost - Mathf.FloorToInt(WeaponCost * (1f - fireRateMod)), 0));
 
