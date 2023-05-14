@@ -114,25 +114,12 @@ MonoBehaviour:
   level: 0
   speed: 14
   rotate: 20
-  primary:
-  - {fileID: 4764460429754885460, guid: 1e1c4f0fc0957e34fb367ce0a9d5cd03, type: 3}
-  - {fileID: 7697191691533448849, guid: 07be5b4eb7db1d84695ee2aae72ff32f, type: 3}
-  - {fileID: 4578834216087093956, guid: 14ee5af02bd01a4489c8185fa52773c5, type: 3}
-  - {fileID: 8262575008038989756, guid: 9e3094317b206854ba323eca9bf1eb15, type: 3}
-  - {fileID: 3747645217978626618, guid: 21ea494c98fa86243bbfe8d1dfdbfe31, type: 3}
   spawner: {fileID: 4120237883135858}
-  secondary:
-  - {fileID: 9141100371243653115, guid: 3abf365fb13828c4481511a358030f6f, type: 3}
-  - {fileID: 9141100371243653115, guid: 3abf365fb13828c4481511a358030f6f, type: 3}
-  - {fileID: 9155367235327037550, guid: 382c6e1fc944c0248aaba3475511f446, type: 3}
-  - {fileID: 9155367235327037550, guid: 382c6e1fc944c0248aaba3475511f446, type: 3}
-  - {fileID: 9155367235327037550, guid: 0fd65c5f7747591419a66050eb27779b, type: 3}
-  explosive: {fileID: 6471332600072635678, guid: ab8fd0d0d3246df4b82f994db2278dac,
+  primary: {fileID: 3352429461601540721, guid: 6d0d276268a67164f90c534f8106a244, type: 3}
+  secondary: {fileID: 3352429461601540721, guid: f408878d8b5f5c444a6ddd54d9865784,
     type: 3}
-  fireRate: 0.25
-  secondaryFireRate: 2
-  maxMissile: 5
-  currentMissileCount: 5
+  explosive: {fileID: 3352429461601540721, guid: 45a9d5004b2d56242b82ca46da569439,
+    type: 3}
   dmgMod: 0.8
   invincible: 0
   enableHeat: 0
@@ -144,8 +131,6 @@ MonoBehaviour:
   secondaryUsesHeat: 0
   secHeatGen: 0
   heatWarnAudio: {fileID: 0}
-  weapon1Cost: 10
-  weapon2Cost: 60
   explosionFx: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   speedFX: {fileID: 4856222607397157694}
   fireRateFX: {fileID: 371119980702395932}

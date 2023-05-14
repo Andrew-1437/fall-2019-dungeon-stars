@@ -98,7 +98,7 @@ MonoBehaviour:
   desc: A unique ship of alien design, the Quasar is fast and accurate, encouraging
     precise shooting with quick and high damage projectiles
   primaryWeap: Laser Bolts
-  secondaryWeap: Gun Bolts
+  secondaryWeap: Lectro Bolts
   tertiaryWeap: TBD, for now Bolt Bomb
   id: 4
   isPlayer2: 0
@@ -114,25 +114,12 @@ MonoBehaviour:
   level: 0
   speed: 17.4
   rotate: 20
-  primary:
-  - {fileID: 2381551421524329383, guid: a2c5a399890521143adaeb455189a897, type: 3}
-  - {fileID: 2314858000855863748, guid: e5e256aef7407544faf6926292754734, type: 3}
-  - {fileID: 4052246578066163609, guid: 8b37bdd7e35d9a94eb131e4170b87620, type: 3}
-  - {fileID: 5701889852825551241, guid: 16cd5fa15a33aa34fab8f3cb69c15d38, type: 3}
-  - {fileID: 2099317521257059516, guid: d011f7b912cb4314f800fb5f4b0e4bff, type: 3}
   spawner: {fileID: 4120237883135858}
-  secondary:
-  - {fileID: 5868978301655643022, guid: bb72857781e25e944be5b8384108647e, type: 3}
-  - {fileID: 4885591997900066927, guid: ad40ab01d29016e4db0991afdb8a01be, type: 3}
-  - {fileID: 6177278259737527033, guid: fb89866bfea6f3241887db4270f15b0d, type: 3}
-  - {fileID: 7889552313854733198, guid: 2b412e74c039278498ccf19129e1f26d, type: 3}
-  - {fileID: 2866268719939477943, guid: 7f521d99af696614a9c9ec8e123ec181, type: 3}
-  explosive: {fileID: 455191990633966392, guid: 96104edb52b8a6449813679bd35a69c4,
+  primary: {fileID: 3352429461601540721, guid: d6deee3ec8a7e9548b714143cd63c7f0, type: 3}
+  secondary: {fileID: 3352429461601540721, guid: 1040918c6a8381d469d7c725f86b93cd,
     type: 3}
-  fireRate: 0.6
-  secondaryFireRate: 0.08
-  maxMissile: 40
-  currentMissileCount: 40
+  explosive: {fileID: 3352429461601540721, guid: cb8ce7e820a972341822ecfd8515c2c9,
+    type: 3}
   dmgMod: 1
   invincible: 0
   enableHeat: 0
@@ -144,8 +131,6 @@ MonoBehaviour:
   secondaryUsesHeat: 0
   secHeatGen: 0
   heatWarnAudio: {fileID: 0}
-  weapon1Cost: 10
-  weapon2Cost: 1
   explosionFx: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   speedFX: {fileID: 6882835510082918313}
   fireRateFX: {fileID: 313201674347606980}

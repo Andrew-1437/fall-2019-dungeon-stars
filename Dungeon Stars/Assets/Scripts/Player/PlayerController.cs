@@ -57,19 +57,10 @@ public class PlayerController : MonoBehaviour {
     
     #region Weapons
     [Header("Weapons")]
-    public GameObject[] primary; //Primary Fire Projectiles
     public Transform spawner;   //"Hardpoint" Location (Where to spawn projectiles)
-    public GameObject[] secondary;  //Secondary Fire Projectiles
-    public GameObject explosive;    
-
-    public float fireRate;  //Represents time until next shot
-    public float secondaryFireRate;
-    private float nextFire;
-    private float nextSecondary;
-
-    // Missile count
-    public int maxMissile;
-    public int currentMissileCount;
+    public Weapon primary; 
+    public Weapon secondary;  
+    public Weapon explosive;   
     #endregion
 
     #region Local Modifiers
@@ -82,7 +73,6 @@ public class PlayerController : MonoBehaviour {
     private float speedEnd;
 
     private float shieldBoostEnd;
-    private float attackSpeedBuff;
     
     [HideInInspector]
     public bool invincible;  // When true, take no damage
@@ -109,12 +99,6 @@ public class PlayerController : MonoBehaviour {
     public float secHeatGen;
     [HideInInspector]
     public AudioSource heatWarnAudio;
-    #endregion
-
-    #region Weapon Costs
-    [Header("Score")]
-    public int weapon1Cost;
-    public int weapon2Cost;
     #endregion
 
     #region References
@@ -159,7 +143,10 @@ public class PlayerController : MonoBehaviour {
         fireRateEnd = 0.0f;
         speedEnd = 0.0f;
         shieldBoostEnd = 0.0f;
-        currentMissileCount = maxMissile;
+
+        primary.Start();
+        secondary.Start();
+        explosive.Start();
 
         camera = Camera.main.gameObject;
         if(camera == null)
@@ -239,25 +226,21 @@ public class PlayerController : MonoBehaviour {
         if (!GM.gameController.gamePaused && !disabled)
         {
             // Primary Fire
-            if (((!isPlayer2 && Input.GetButton("Fire1")) || (isPlayer2 && Input.GetButton("Fire12"))) && Time.time > nextFire)
+            if ((!isPlayer2 && Input.GetButton("Fire1")) || (isPlayer2 && Input.GetButton("Fire12")))
             {
-                FirePrimaryWeapon();
+                primary.Fire(spawner, this, fireRateMod, heatMod, isPlayer2 ? "Fire12" : "Fire1");
             }
 
             // Secondary Fire
-            if (((!isPlayer2 && Input.GetButton("Fire2")) || (isPlayer2 && Input.GetButton("Fire22"))) && Time.time > nextSecondary)
+            if ((!isPlayer2 && Input.GetButton("Fire2")) || (isPlayer2 && Input.GetButton("Fire22")))
             {
-                FireSecondaryWeapon();
+                secondary.Fire(spawner, this, fireRateMod, heatMod, isPlayer2 ? "Fire22" : "Fire2");
             }
 
             // Tertiary Fire
-            if ((!isPlayer2 && Input.GetButtonDown("Fire3")) || (isPlayer2 && Input.GetButtonDown("Fire32")))
+            if ((!isPlayer2 && Input.GetButton("Fire3")) || (isPlayer2 && Input.GetButton("Fire32")))
             {
-                if (currentMissileCount > 0)
-                {
-                    Instantiate(explosive, spawner.position, spawner.rotation);
-                    currentMissileCount--;
-                }
+                explosive.Fire(spawner, this, fireRateMod, heatMod, isPlayer2 ? "Fire32" : "Fire3");
             }
         }
 
@@ -362,7 +345,6 @@ public class PlayerController : MonoBehaviour {
         {
             fireRateMod = 1.0f;
             heatGenMod = 1.0f;
-            attackSpeedBuff = 0;
             fireRateFX.Stop();
         }
 
@@ -449,7 +431,6 @@ public class PlayerController : MonoBehaviour {
             {
                 fireRateMod = 0.75f;
                 heatGenMod = 0.2f;
-                attackSpeedBuff = 0.25f;
                 fireRateEnd = Time.time + pow.duration * OmniController.omniController.powerUpDurationScale;
                 fireRateFX.Play();
             }
@@ -468,7 +449,9 @@ public class PlayerController : MonoBehaviour {
             // Resets ammo to max
             if (pow.type == PowerUpBehavior.PowerUps.Ammo)
             {
-                currentMissileCount = maxMissile;
+                primary.ReplenishAmmo();
+                secondary.ReplenishAmmo();
+                explosive.ReplenishAmmo();
             }
             // Summons a bolt-shooting drone to assist
             if (pow.type == PowerUpBehavior.PowerUps.BoltDrone)
@@ -541,9 +524,9 @@ public class PlayerController : MonoBehaviour {
     private void LevelUp()
     {
         level++;
-        if (level >= primary.Length || level >= secondary.Length)
+        if (level > 4)
         {
-            level = primary.Length - 1;
+            level = 4;
         }
         else
         {
@@ -608,41 +591,13 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    // Shoots the primary weapon and manages what else happens when it does so
-    public void FirePrimaryWeapon()
+    /// <summary>
+    /// Adds one instance of heat to the player
+    /// </summary>
+    /// <param name="applyHeat">Heat to apply</param>
+    public void AddHeat(float applyHeat)
     {
-        nextFire = Time.time + fireRate *
-                fireRateMod * heatMod * OmniController.omniController.playerFireRateScale;
-        // Spawn projectile and delete it 5 seconds later if it is not already deleted
-        Destroy(
-            Instantiate(primary[level], spawner.position, spawner.rotation), 
-            5);
-        // Subtract score for every shot fired
-        gm.AddRawScore(-Mathf.Max(weapon1Cost - Mathf.FloorToInt(weapon1Cost * attackSpeedBuff), 0));
-        // Add heat if the ship and weapon use heat
-        if (enableHeat && primaryUsesHeat)
-        {
-            heat += primHeatGen * heatGenMod;
-        }
-    }
-
-    // Shoots the secondary weapon and manages what else happens when it does so
-    public void FireSecondaryWeapon()
-    {
-        nextSecondary = Time.time + secondaryFireRate *
-                fireRateMod * heatMod * OmniController.omniController.playerFireRateScale;
-        // Spawn projectile and delete it 5 seconds later if it is not already deleted
-        Destroy(
-            Instantiate(secondary[level], spawner.position, spawner.rotation), 
-            5);
-        // Subtract score for every shot fired
-        gm.AddRawScore(-Mathf.Max(weapon2Cost - Mathf.FloorToInt(weapon2Cost * attackSpeedBuff), 0));
-
-        // Add heat if the ship and weapon use heat
-        if (enableHeat && secondaryUsesHeat)
-        {
-            heat += secHeatGen * heatGenMod;
-        }
+        heat += applyHeat * heatGenMod;
     }
 
     // Halt Movement
@@ -669,7 +624,7 @@ public class PlayerController : MonoBehaviour {
             GameObject dmgText = Instantiate(floatingDamageText,
                 transform.position + Random.insideUnitSphere,
                 Quaternion.Euler(0f, 0f, Random.Range(-45f, 45f))
-                ) as GameObject;
+                );
             dmgText.GetComponent<TextMeshPro>().text = ((int)dmg).ToString();
             dmgText.GetComponent<Rigidbody2D>().AddForce(Random.onUnitSphere * 3f, ForceMode2D.Impulse);
             Destroy(dmgText, .5f);

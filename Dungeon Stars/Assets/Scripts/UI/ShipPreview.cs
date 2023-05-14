@@ -60,11 +60,11 @@ public class ShipPreview : MonoBehaviour
         maxShield = referencedShip.maxShield;
         shieldRecharge = referencedShip.shieldRecharge;
         speed = referencedShip.speed;
-        primaryFireRate = referencedShip.fireRate;
-        secondaryFireRate = referencedShip.secondaryFireRate;
+        primaryFireRate = referencedShip.primary.BaseFireRate;
+        secondaryFireRate = referencedShip.secondary.BaseFireRate;
 
-        primary = referencedShip.primary;
-        secondary = referencedShip.secondary;
+        primary = referencedShip.primary.Projectiles;
+        secondary = referencedShip.secondary.Projectiles;
 
         animator.SetTrigger("FlyIntoScreen");
         nextPrimaryFire = Time.time + 1.5f;

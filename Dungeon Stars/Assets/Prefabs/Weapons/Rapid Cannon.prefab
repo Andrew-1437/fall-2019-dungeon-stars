@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4504129813108759044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5904442097526206497}
+  - component: {fileID: 3352429461601540721}
+  m_Layer: 0
+  m_Name: Rapid Cannon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5904442097526206497
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4504129813108759044}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3352429461601540721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4504129813108759044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4babda6e3536d0345bad3bfc861403b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponType: 4
+  Projectiles:
+  - {fileID: 3512552593326579218, guid: 4aa5f039e09717846a5e3e8fd2982e24, type: 3}
+  - {fileID: 7942594179466530605, guid: bd26c63d7ceb5a6478ba8fa72456a100, type: 3}
+  - {fileID: 6729415370175247160, guid: 269cfc81cfe05c44598af2fabb5e323f, type: 3}
+  - {fileID: 246854127007947497, guid: 5c5e1b43f5b3e5b468c88e2b83995f6f, type: 3}
+  - {fileID: 3423613018609564896, guid: d34b3c900b98d824189b35f54f597a60, type: 3}
+  BaseFireRate: 0.06
+  BaseCapacity: 0
+  BaseHeatGen: 0.8
+  WeaponCost: 2
+  EnableSemiAuto: 0
+  EnableAmmo: 0
+  EnableHeat: 1

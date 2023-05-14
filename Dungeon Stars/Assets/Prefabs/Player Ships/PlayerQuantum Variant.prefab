@@ -83,6 +83,18 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 4807829447889170, guid: 6331c0ba4b0041f47a566491348f0430, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807829447889170, guid: 6331c0ba4b0041f47a566491348f0430, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807829447889170, guid: 6331c0ba4b0041f47a566491348f0430, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 70685405264876654, guid: 6331c0ba4b0041f47a566491348f0430,
         type: 3}
       propertyPath: m_Size.x
@@ -143,13 +155,19 @@ PrefabInstance:
         type: 3}
       propertyPath: explosive
       value: 
-      objectReference: {fileID: 455191990633966392, guid: d7f2efdff57ca08419403c66fa742efb,
+      objectReference: {fileID: 3352429461601540721, guid: ad66dc99312ac4d418e24da7054df80e,
         type: 3}
     - target: {fileID: 114058955246685346, guid: 6331c0ba4b0041f47a566491348f0430,
         type: 3}
       propertyPath: maxShield
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114058955246685346, guid: 6331c0ba4b0041f47a566491348f0430,
+        type: 3}
+      propertyPath: secondary
+      value: 
+      objectReference: {fileID: 3352429461601540721, guid: 6d0d276268a67164f90c534f8106a244,
+        type: 3}
     - target: {fileID: 114058955246685346, guid: 6331c0ba4b0041f47a566491348f0430,
         type: 3}
       propertyPath: maxMissile

@@ -9795,6 +9795,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114058955246685346, guid: b70064a0a7a1539458bd482b6b6803d1,
         type: 3}
+      propertyPath: primary
+      value: 
+      objectReference: {fileID: 3352429461601540721, guid: 695243431b1063c429d5e81416422d92,
+        type: 3}
+    - target: {fileID: 114058955246685346, guid: b70064a0a7a1539458bd482b6b6803d1,
+        type: 3}
       propertyPath: fireRate
       value: 0.08
       objectReference: {fileID: 0}
@@ -9807,13 +9813,19 @@ PrefabInstance:
         type: 3}
       propertyPath: explosive
       value: 
-      objectReference: {fileID: 6450759887378058983, guid: f23e8fde65d91814286b048f63890ec8,
+      objectReference: {fileID: 3352429461601540721, guid: 459b91a291e797743b543ff5fae98458,
         type: 3}
     - target: {fileID: 114058955246685346, guid: b70064a0a7a1539458bd482b6b6803d1,
         type: 3}
       propertyPath: maxShield
       value: 170
       objectReference: {fileID: 0}
+    - target: {fileID: 114058955246685346, guid: b70064a0a7a1539458bd482b6b6803d1,
+        type: 3}
+      propertyPath: secondary
+      value: 
+      objectReference: {fileID: 3352429461601540721, guid: 5eaa594aef653654fb99aa45adad8ae0,
+        type: 3}
     - target: {fileID: 114058955246685346, guid: b70064a0a7a1539458bd482b6b6803d1,
         type: 3}
       propertyPath: maxMissile
