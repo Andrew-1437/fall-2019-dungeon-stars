@@ -11,7 +11,8 @@ public class ProjectileBehavior : MonoBehaviour {
     protected float deathTime;
     public bool perist;
     public float inaccuracy; // Amount of random rotation to apply to projectile when it spawns
-    public GameObject particleFX;
+    public GameObject particleFX; // GameObject that contains the projectile's effects
+    public ParticleSystem hitFx; // Particle system to play when this projectile hits something
     #endregion
 
     protected void Start()
@@ -47,6 +48,8 @@ public class ProjectileBehavior : MonoBehaviour {
     {
         target.Damage(dmgValue);
 
+        if (hitFx) { hitFx.Play(); }
+
         if (!perist)
         {
             DestroyProjectile();
@@ -56,6 +59,8 @@ public class ProjectileBehavior : MonoBehaviour {
     public virtual void ApplyProjectile(BossBehavior target)
     {
         target.Damage(dmgValue);
+
+        if (hitFx) { hitFx.Play(); }
 
         if (!perist)
         {
@@ -71,6 +76,8 @@ public class ProjectileBehavior : MonoBehaviour {
     {
         target.Damage(dmgValue);
 
+        if (hitFx) { hitFx.Play(); }
+
         if (!perist)
         {
             DestroyProjectile();
@@ -84,6 +91,8 @@ public class ProjectileBehavior : MonoBehaviour {
             particleFX.transform.parent = null;
             if(particleFX.GetComponent<ParticleSystem>()) particleFX.GetComponent<ParticleSystem>().Stop();
             Destroy(particleFX, 5);
+
+            if (hitFx) { hitFx.Play(); }
         }
         Destroy(gameObject);
     }

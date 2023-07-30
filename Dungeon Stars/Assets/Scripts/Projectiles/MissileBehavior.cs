@@ -17,29 +17,38 @@ public class MissileBehavior : ProjectileBehavior {
     {
         // Acquire target when instantiated
         base.Start();
-        target = FindClosestByTag(targetTag);
+        if (targetTag != "")
+        {
+            target = FindClosestByTag(targetTag);
+        }
     }
 
-    protected void Update()
+    protected void FixedUpdate()
     {
-        if (target != null)
+        base.FixedUpdate();
+
+        // Only do missile tracking if missile can actually turn to a target
+        if (turn > 0 && targetTag != "")
         {
-            if (targetTag == "Player" && target.GetComponent<PlayerController>().id.Equals(ShipsEnum.ShipID.VECTOR))
-                turnSpeedMod = .5f;
+            if (target != null)
+            {
+                if (targetTag == "Player" && target.GetComponent<PlayerController>().id.Equals(ShipsEnum.ShipID.VECTOR))
+                    turnSpeedMod = .5f;
+                else
+                    turnSpeedMod = 1f;
+
+                // If we have a target, turn towards it
+                Vector3 targetDir = target.GetComponent<Transform>().position - transform.position;
+
+                float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg - 90;
+                Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, q, turn * Time.fixedDeltaTime * turnSpeedMod);
+            }
             else
-                turnSpeedMod = 1f;
-
-            // If we have a target, turn towards it
-            Vector3 targetDir = target.GetComponent<Transform>().position - transform.position;
-
-            float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg - 90;
-            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, q, turn * Time.deltaTime * turnSpeedMod);
-        }
-        else 
-        { 
-            // Acquire new target
-            target = FindClosestByTag(targetTag);
+            {
+                // Acquire new target
+                target = FindClosestByTag(targetTag);
+            }
         }
 
         if (Time.time >= deathTime)

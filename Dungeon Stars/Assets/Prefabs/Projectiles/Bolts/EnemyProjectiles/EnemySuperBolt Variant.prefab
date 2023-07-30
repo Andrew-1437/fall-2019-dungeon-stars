@@ -202,6 +202,36 @@ PrefabInstance:
       propertyPath: NoiseModule.remapZ.maxCurve.m_Curve.Array.data[0].outSlope
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6712658822942189573, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: ShapeModule.angle
+      value: 51.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712658822942189573, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712658822942189573, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712658822942189573, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.36078432
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712658822942189573, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.2509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712658822942189573, guid: db93be6bf0435c9469d007fc634b3462,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6859009391071759235, guid: db93be6bf0435c9469d007fc634b3462,
         type: 3}
       propertyPath: m_Color.b

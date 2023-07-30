@@ -7,6 +7,61 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 98822311870443331, guid: 6127c61b4daaa354db80b7357022d683,
+        type: 3}
+      propertyPath: ShapeModule.angle
+      value: 62.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 98822311870443331, guid: 6127c61b4daaa354db80b7357022d683,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 98822311870443331, guid: 6127c61b4daaa354db80b7357022d683,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 98822311870443331, guid: 6127c61b4daaa354db80b7357022d683,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 98822311870443331, guid: 6127c61b4daaa354db80b7357022d683,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 98822311870443331, guid: 6127c61b4daaa354db80b7357022d683,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.3019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 98822311870443331, guid: 6127c61b4daaa354db80b7357022d683,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.85098046
+      objectReference: {fileID: 0}
+    - target: {fileID: 98822311870443331, guid: 6127c61b4daaa354db80b7357022d683,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.73333335
+      objectReference: {fileID: 0}
+    - target: {fileID: 98822311870443331, guid: 6127c61b4daaa354db80b7357022d683,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 98822311870443331, guid: 6127c61b4daaa354db80b7357022d683,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 98822311870443331, guid: 6127c61b4daaa354db80b7357022d683,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 236202926833487045, guid: 6127c61b4daaa354db80b7357022d683,
         type: 3}
       propertyPath: m_Color.b

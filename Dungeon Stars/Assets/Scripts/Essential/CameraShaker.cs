@@ -9,14 +9,18 @@ public class CameraShaker : MonoBehaviour {
     private float shakeIntensity;
     public float smallShake;    //I'll have a small shake please
     public float largeShake;    //I'll have a large shake please
+    private Vector3 origPos;
 
     // Use this for initialization
-    void Start () {
+    void Start () 
+    {
+        origPos = transform.position;
         shakeIntensity = 0.0f;
     }
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void FixedUpdate () 
+    {
         //Camera Shake
         if (OmniController.omniController.enableCameraShake)
         {
@@ -27,7 +31,7 @@ public class CameraShaker : MonoBehaviour {
             }
             else
             {
-                transform.position = new Vector2(0.0f, 0.0f);
+                transform.position = origPos;
                 shakeIntensity = 0.0f;
             }
         }
@@ -35,7 +39,7 @@ public class CameraShaker : MonoBehaviour {
 
     private void ShakeCamera(float intensity)
     {
-        transform.position = Random.insideUnitCircle * Mathf.Min(intensity, .4f);
+        transform.position = (Vector2)origPos + (Random.insideUnitCircle * Mathf.Min(intensity, .4f));
     }
 
     public void SmallShake()
