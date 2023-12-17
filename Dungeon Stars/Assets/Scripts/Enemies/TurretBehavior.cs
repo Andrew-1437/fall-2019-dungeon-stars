@@ -143,8 +143,7 @@ public class TurretBehavior : MonoBehaviour {
     {
         while (true)
         {
-            if (!awake) { continue; } // Don't find targets when not awake
-            target = Functions.FindClosestByTag(targetTag, transform);
+            if (awake) { target = Functions.FindClosestByTag(targetTag, transform); }
             yield return new WaitForSeconds(.2f);
         }
     }
