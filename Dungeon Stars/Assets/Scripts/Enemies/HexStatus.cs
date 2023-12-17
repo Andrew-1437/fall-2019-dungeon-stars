@@ -28,6 +28,8 @@ public class HexStatus
     public int Stacks { get; set; }
     public float TimeForNextDecay { get; set; }
 
+    private float immunityTime = 0;
+
     /// <summary>
     /// Constructor. Sets current stacks to 0
     /// </summary>
@@ -53,6 +55,8 @@ public class HexStatus
     /// <param name="stacks">Number of stacks to apply. Default is one</param>
     public void ApplyStacks(int stacks = 1)
     {
+        if(Time.time <= immunityTime) { return; }
+
         Stacks += stacks;
         Stacks = Mathf.Clamp(Stacks, 0, 6);
 
@@ -72,6 +76,7 @@ public class HexStatus
 
     /// <summary>
     /// Begins a brief timer to cause a hexplosion at the target location.
+    /// This didn't work how I expected it to so WIP
     /// </summary>
     /// <param name="transform">The transform of the GameObject to spawn the hexplosion</param>
     public IEnumerator PreHexplode(Transform transform)
@@ -136,5 +141,15 @@ public class HexStatus
     public bool IsAtMaxStacks()
     {
         return Stacks == 6;
+    }
+
+    /// <summary>
+    /// Sets the current stacks to 0 and prevents new stacks from being applied for 3 seconds
+    /// </summary>
+    /// <param name="immuneTime">Amount of time to make immune to new stacks of Hex. Defaults to 3 seconds</param>
+    public void CleanseHex(float immuneTime = 3f)
+    {
+        Stacks = 0;
+        immunityTime = Time.time + immuneTime;
     }
 }

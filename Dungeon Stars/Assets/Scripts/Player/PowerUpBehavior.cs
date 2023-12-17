@@ -4,7 +4,18 @@ using UnityEngine;
 
 public class PowerUpBehavior : MonoBehaviour {
 
-    public enum PowerUps { None, LevelUp, Repair, HpRepair, SpeedUp, FireUp, Ammo, BoltDrone };
+    public enum PowerUps 
+    { 
+        None, 
+        LevelUp, 
+        Repair, 
+        HpRepair, 
+        SpeedUp, 
+        FireUp, 
+        Ammo, 
+        BoltDrone, 
+        Cleanse 
+    };
 
     public PowerUps type;
 
@@ -57,6 +68,76 @@ public class PowerUpBehavior : MonoBehaviour {
     }
 
     /// <summary>
+    /// Applies the power up's effect to the player
+    /// </summary>
+    /// <param name="player">Player controller that triggered the power up</param>
+    public void ApplyPowerUp(PlayerController player)
+    {
+        switch (type)
+        {
+            // Immediately restore half the shield
+            case PowerUps.Repair:
+                player.shield = Mathf.Min(player.maxShield, player.shield + player.maxShield * 0.5f);
+                player.shieldDown = false;
+                player.shieldSprite.SetTrigger("Restored");
+                player.hex.CleanseHex();
+                break;
+
+            // Immediately restore 75% of missing hp and shield
+            case PowerUps.HpRepair:
+                player.hp = Mathf.Min(player.maxHp, player.hp + (player.maxHp - player.hp) * 0.75f);
+                player.shield = Mathf.Min(player.maxShield, player.shield + (player.maxShield - player.shield) * 0.75f);
+                player.shieldDown = false;
+                player.shieldSprite.SetTrigger("Restored");
+                player.hex.CleanseHex();
+                break;
+
+            // Increases fire rate and reduces heat gen
+            case PowerUps.FireUp:
+                player.fireRateMod = 0.75f;
+                player.heatGenMod = 0.2f;
+                player.fireRateEnd = Time.time + duration * OmniController.omniController.powerUpDurationScale;
+                player.fireRateFX.Play();
+                break;
+
+            // Increases speed & prevents Hex buildup during that time
+            case PowerUps.SpeedUp:
+                player.speedMod = 1.25f;
+                player.speedEnd = Time.time + duration * OmniController.omniController.powerUpDurationScale;
+                player.speedFX.Play();
+                player.hex.CleanseHex(duration);
+                break;
+
+            // Increases power level by 1
+            case PowerUps.LevelUp:
+                player.LevelUp();
+                player.hex.CleanseHex();
+                break;
+
+            // Resets ammo to max
+            case PowerUps.Ammo:
+                player.primary.ReplenishAmmo();
+                player.secondary.ReplenishAmmo();
+                player.explosive.ReplenishAmmo();
+                break;
+
+            // Summons a bolt-shooting drone to assist
+            case PowerUps.BoltDrone:
+                Summon(player.isPlayer2);
+                break;
+
+            // Removes Hex debuff
+            case PowerUps.Cleanse:
+                player.hex.CleanseHex();
+                break;
+
+            // Shouldn't be reachable but just in case
+            default:
+                break;
+        }
+    }
+
+    /// <summary>
     /// Instantiates a drone that will follow the player around
     /// </summary>
     /// <param name="byPlayerTwo">Set to true if summoned by player two</param>
@@ -70,10 +151,13 @@ public class PowerUpBehavior : MonoBehaviour {
 
     /// <summary>
     /// When the power up is collected by a player
-    /// Will add to the player's score, play a sound, and delete this power up
+    /// will apply the power up's effects,
+    /// add to the player's score, play a sound, and delete this power up
     /// </summary>
-    public void OnCollected()
+    public void OnCollected(PlayerController player)
     {
+        ApplyPowerUp(player);
+
         collectAudio.Play();
         GM.GameController.AddScore(score);
         collectAudio.gameObject.transform.parent = null;

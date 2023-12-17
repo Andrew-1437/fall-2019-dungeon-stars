@@ -64,13 +64,19 @@ public class PlayerController : MonoBehaviour {
     #endregion
 
     #region Local Modifiers
+    [HideInInspector]
     public float dmgMod;    // Value to modify damage taken, for things like armor (1 = full damage, 0 = no damage, >1 = Extra damage, <0 = Healing??)
-    private float fireRateMod;
-    private float heatGenMod;  // Fire rate boost also reduces heat generated if using heat
-    private float fireRateEnd;
+    [HideInInspector]
+    public float fireRateMod;
+    [HideInInspector]
+    public float heatGenMod;  // Fire rate boost also reduces heat generated if using heat
+    [HideInInspector]
+    public float fireRateEnd;
 
-    private float speedMod;
-    private float speedEnd;
+    [HideInInspector]
+    public float speedMod;
+    [HideInInspector]
+    public float speedEnd;
 
     private float shieldBoostEnd;
     
@@ -416,55 +422,7 @@ public class PlayerController : MonoBehaviour {
             OmniController.omniController.powerUpsCollected++;
             PowerUpBehavior pow = other.gameObject.GetComponent<PowerUpBehavior>();
             
-            // Immediately restore half the shield
-            if (pow.type == PowerUpBehavior.PowerUps.Repair)
-            {
-                shield = Mathf.Min(maxShield,shield+maxShield*0.5f);
-                shieldDown = false;
-                shieldSprite.SetTrigger("Restored");
-                
-            }
-            // Immediately restore 75% of missing hp and shield
-            if (pow.type == PowerUpBehavior.PowerUps.HpRepair)
-            {
-                hp = Mathf.Min(maxHp, hp + (maxHp - hp) * 0.75f);
-                shield = Mathf.Min(maxShield, shield + (maxShield - shield) * 0.75f);
-                shieldDown = false;
-                shieldSprite.SetTrigger("Restored");
-            }
-            // Increases fire rate and reduces heat gen
-            if (pow.type == PowerUpBehavior.PowerUps.FireUp)
-            {
-                fireRateMod = 0.75f;
-                heatGenMod = 0.2f;
-                fireRateEnd = Time.time + pow.duration * OmniController.omniController.powerUpDurationScale;
-                fireRateFX.Play();
-            }
-            // Increases speed
-            if (pow.type == PowerUpBehavior.PowerUps.SpeedUp)
-            {
-                speedMod = 1.25f;
-                speedEnd = Time.time + pow.duration * OmniController.omniController.powerUpDurationScale;
-                speedFX.Play();
-            }
-            // Increases power level by 1
-            if (pow.type == PowerUpBehavior.PowerUps.LevelUp)
-            {
-                LevelUp();
-            }
-            // Resets ammo to max
-            if (pow.type == PowerUpBehavior.PowerUps.Ammo)
-            {
-                primary.ReplenishAmmo();
-                secondary.ReplenishAmmo();
-                explosive.ReplenishAmmo();
-            }
-            // Summons a bolt-shooting drone to assist
-            if (pow.type == PowerUpBehavior.PowerUps.BoltDrone)
-            {
-                pow.Summon(isPlayer2);
-            }
-            pow.OnCollected();
+            pow.OnCollected(this);
         }
 
 
@@ -537,7 +495,7 @@ public class PlayerController : MonoBehaviour {
     /// Increases the power level of the player when they collect a LevelUp
     /// This increases their HP & Shields and improves their weapons
     /// </summary>
-    private void LevelUp()
+    public void LevelUp()
     {
         level++;
         if (level > 4)
