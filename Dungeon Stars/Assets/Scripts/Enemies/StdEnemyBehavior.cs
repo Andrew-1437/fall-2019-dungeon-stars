@@ -39,7 +39,7 @@ public class StdEnemyBehavior : MonoBehaviour {
         nextFire = 0.0f;
         awake = false;
 
-        gm = GM.gameController;
+        gm = GM.GameController;
         rb = GetComponent<Rigidbody2D>();
         ob = GetComponent<ObstacleBehavior>();
         
@@ -134,23 +134,23 @@ public class StdEnemyBehavior : MonoBehaviour {
     private GameObject GetNearestPlayer()
     {
         // If player 2 does not exist but player 1 does, target player 1
-        if (GM.gameController.player2 == null && GM.gameController.player != null)
+        if (GM.GameController.player2 == null && GM.GameController.player != null)
         {
-            return GM.gameController.player;
+            return GM.GameController.player;
         }
         // If player 1 does not exist but player 2 does, target player 2
-        else if (GM.gameController.player == null && GM.gameController.player2 != null)
+        else if (GM.GameController.player == null && GM.GameController.player2 != null)
         {
-            return GM.gameController.player2;
+            return GM.GameController.player2;
         }
         // If both exist, compare the distance between us and both players and return closer one
-        else if (GM.gameController.player != null && GM.gameController.player2 != null)
+        else if (GM.GameController.player != null && GM.GameController.player2 != null)
         {
-            if (Vector3.Distance(transform.position, GM.gameController.player.transform.position) <=
-            Vector3.Distance(transform.position, GM.gameController.player2.transform.position))
-                return GM.gameController.player;
+            if (Vector3.Distance(transform.position, GM.GameController.player.transform.position) <=
+            Vector3.Distance(transform.position, GM.GameController.player2.transform.position))
+                return GM.GameController.player;
             else
-                return GM.gameController.player2;
+                return GM.GameController.player2;
         }
         // If none exist, return null
         else

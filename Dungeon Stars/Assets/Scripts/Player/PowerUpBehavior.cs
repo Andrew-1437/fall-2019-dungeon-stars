@@ -35,7 +35,7 @@ public class PowerUpBehavior : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if (GM.gameController.gameStart)
+        if (GM.GameController.gameStart)
         {
             if (awake)
             {
@@ -75,7 +75,7 @@ public class PowerUpBehavior : MonoBehaviour {
     public void OnCollected()
     {
         collectAudio.Play();
-        GM.gameController.AddScore(score);
+        GM.GameController.AddScore(score);
         collectAudio.gameObject.transform.parent = null;
         Destroy(gameObject);
         Destroy(collectAudio.gameObject, 2f);
@@ -105,8 +105,8 @@ public class PowerUpBehavior : MonoBehaviour {
     {
         Vector3 startPos = transform.position;
         Vector3 endPos = new Vector3(
-            Random.Range(GM.gameController.leftBounds, GM.gameController.rightBounds),
-            GM.gameController.upperBounds);
+            Random.Range(GM.GameController.leftBounds, GM.GameController.rightBounds),
+            GM.GameController.upperBounds);
         float startTime = Time.time;
         float duration = Random.Range(1.2f, 2.2f);
 

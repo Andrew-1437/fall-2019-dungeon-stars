@@ -17,7 +17,7 @@ public class GameStarter : MonoBehaviour {
 
     private void Start()
     {
-        gm = GM.gameController;
+        gm = GM.GameController;
 
         triggered = false;
     }

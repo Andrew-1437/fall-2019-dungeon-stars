@@ -18,7 +18,7 @@ public class DebrisBehavior : MonoBehaviour {
     {
         angVel = Random.Range(-1*rotate, rotate);
 
-        gm = GM.gameController;
+        gm = GM.GameController;
         rb = GetComponent<Rigidbody2D>();
     }
 

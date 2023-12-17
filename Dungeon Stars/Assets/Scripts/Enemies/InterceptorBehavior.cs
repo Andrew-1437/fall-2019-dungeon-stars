@@ -29,7 +29,7 @@ public class InterceptorBehavior : MonoBehaviour
         /* When the interceptor enters the scene, it will fly forward before firing two missiles.
          * Then it will fly offscreen at an angle, accelerating rapidly towards the sides of the screen.
          */
-        if (GM.gameController.gameStart)
+        if (GM.GameController.gameStart)
         {
             if (awake)
             {

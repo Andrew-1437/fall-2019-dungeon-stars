@@ -26,11 +26,11 @@ public class DroneBehavior : MonoBehaviour
         timeSpawned = Time.time;
 
         // Set to follow player 1's poition
-        if (!followPlayer2 && GM.gameController.player != null)
-            playerTransform = GM.gameController.player.transform;
+        if (!followPlayer2 && GM.GameController.player != null)
+            playerTransform = GM.GameController.player.transform;
         // Set to follow player 2's position
-        else if (followPlayer2 && GM.gameController.player2 != null)
-            playerTransform = GM.gameController.player2.transform;
+        else if (followPlayer2 && GM.GameController.player2 != null)
+            playerTransform = GM.GameController.player2.transform;
     }
 
     private void FixedUpdate()

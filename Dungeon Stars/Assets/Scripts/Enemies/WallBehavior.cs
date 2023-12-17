@@ -19,14 +19,14 @@ public class WallBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GM.gameController.gameStart)
+        if(GM.GameController.gameStart)
             rb.velocity = Vector2.down;
     }
     
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag(Tags.Player))
         {
             PlayerController pc = collision.gameObject.GetComponent<PlayerController>();
             // Stun the player

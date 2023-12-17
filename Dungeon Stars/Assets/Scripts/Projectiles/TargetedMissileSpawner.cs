@@ -62,11 +62,11 @@ public class TargetedMissileSpawner : MonoBehaviour
     // Fires a single missile at a randomized location
     public void FireMissile()
     {
-        if (GM.gameController.player && targetPlayer)
+        if (GM.GameController.player && targetPlayer)
         {
             Destroy(
                 Instantiate(missiles, 
-                GM.gameController.player.transform.position + Random.insideUnitSphere * 15f, 
+                GM.GameController.player.transform.position + Random.insideUnitSphere * 15f, 
                 transform.rotation), 1.5f);
         }
         else

@@ -36,7 +36,7 @@ public class LargeEnemyBehavior : MonoBehaviour {
         {
             print("Ohshit! Obstacle cannot find camera!");
         }
-        gm = GM.gameController;
+        gm = GM.GameController;
     }
 
     protected void Update()

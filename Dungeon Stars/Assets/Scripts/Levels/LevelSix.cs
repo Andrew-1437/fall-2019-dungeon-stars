@@ -22,12 +22,12 @@ public class LevelSix : MonoBehaviour
 
     public void HexPlayers()
     {
-        Transform playerPos = GM.gameController.playerController.transform;
+        Transform playerPos = GM.GameController.playerController.transform;
         Instantiate(Hexplosion, playerPos.position, playerPos.rotation);
 
-        if (GM.gameController.twoPlayerMode)
+        if (GM.GameController.twoPlayerMode)
         {
-            playerPos = GM.gameController.playerController2.transform; 
+            playerPos = GM.GameController.playerController2.transform; 
             Instantiate(Hexplosion, playerPos.position, playerPos.rotation);
         }
     }

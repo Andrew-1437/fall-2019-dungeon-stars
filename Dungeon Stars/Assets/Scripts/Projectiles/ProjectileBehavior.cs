@@ -99,12 +99,12 @@ public class ProjectileBehavior : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (gameObject.tag == "EnemyProjectile" && other.tag == "AntiProjectile")
+        if (gameObject.CompareTag(Tags.EnemyProjectile) && other.CompareTag(Tags.AntiProjectile))
         {
             DestroyProjectile();
         }
 
-        if (other.tag == "Wall")
+        if (other.CompareTag(Tags.Wall))
         {
             DestroyProjectile();
         }

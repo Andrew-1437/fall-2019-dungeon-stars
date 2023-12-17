@@ -64,7 +64,7 @@ public class Boss3Behavior : MonoBehaviour
         if (multiCannon1 != null) cann1hp = cannon1.hp;
         if (multiCannon2 != null) cann2hp = cannon2.hp;
         boss.hp = cann1hp + cann2hp;
-        GM.gameController.UpdateBossHpBar(boss.hp);
+        GM.GameController.UpdateBossHpBar(boss.hp);
         if (boss.hp <= 0) boss.BeginDeathSequence();
         
     }

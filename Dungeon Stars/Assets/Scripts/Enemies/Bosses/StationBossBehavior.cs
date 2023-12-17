@@ -39,7 +39,7 @@ public class StationBossBehavior : StationBehavior
             destroyables.Add(weakPoint.GetComponent<ObstacleBehavior>());
         }
         UpdateHp();
-        GM.gameController.SetBossHpBar(boss.bossTitle, boss.hp);
+        GM.GameController.SetBossHpBar(boss.bossTitle, boss.hp);
     }
 
     private new void Update()

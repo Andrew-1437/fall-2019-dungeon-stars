@@ -25,7 +25,7 @@ public class StationBehavior : MonoBehaviour {
 
     protected void Start()
     {
-        gm = GM.gameController;
+        gm = GM.GameController;
         rb = GetComponent<Rigidbody2D>();
         ob = GetComponent<ObstacleBehavior>();
     }

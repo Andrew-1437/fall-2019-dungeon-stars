@@ -154,7 +154,7 @@ public class PlayerController : MonoBehaviour {
             print("Ohshit! Camera not found by player!");
         }
 
-        gm = GM.gameController;
+        gm = GM.GameController;
         rb = GetComponent<Rigidbody2D>();
 
         hex = new HexStatus();
@@ -223,7 +223,7 @@ public class PlayerController : MonoBehaviour {
     {
         // If the game is paused, do not allow firing of weapons
         // If disabled, do not allow firing of weapons
-        if (!GM.gameController.gamePaused && !disabled)
+        if (!GM.GameController.gamePaused && !disabled)
         {
             // Primary Fire
             if ((!isPlayer2 && Input.GetButton("Fire1")) || (isPlayer2 && Input.GetButton("Fire12")))
@@ -368,7 +368,7 @@ public class PlayerController : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other)
     {
         //Damage from projectiles/missiles
-        if(other.tag == "EnemyProjectile" || other.tag == "EnemyMissile")
+        if(other.CompareTag(Tags.EnemyProjectile) || other.CompareTag(Tags.EnemyMissile))
         {
             ProjectileBehavior hit = other.gameObject.GetComponent<ProjectileBehavior>();
 
@@ -379,7 +379,7 @@ public class PlayerController : MonoBehaviour {
         }
 
         // Collision damage
-        if(other.tag == "Obstacle")
+        if(other.CompareTag(Tags.Obstacle))
         {
             ObstacleBehavior obstacle = other.gameObject.GetComponent<ObstacleBehavior>();
 
@@ -398,14 +398,14 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        if (other.tag == "Laser")
+        if (other.CompareTag(Tags.Laser))
         {
             float dmg = other.gameObject.GetComponent<ProjectileBehavior>().dmgValue * dmgMod;
             Damage(dmg);
         }
 
         //PowerUps
-        if (other.tag == "PowerUp")
+        if (other.CompareTag(Tags.PowerUp))
         {
             OmniController.omniController.powerUpsCollected++;
             PowerUpBehavior pow = other.gameObject.GetComponent<PowerUpBehavior>();
@@ -473,7 +473,7 @@ public class PlayerController : MonoBehaviour {
     private void OnTriggerStay2D(Collider2D other)
     {
         // Continuous damage
-        if(other.tag == "Dps")
+        if(other.CompareTag(Tags.Dps))
         {
             Damage(other.gameObject.GetComponent<ProjectileBehavior>().dmgValue);
         }
@@ -494,7 +494,7 @@ public class PlayerController : MonoBehaviour {
         rb.freezeRotation = false;
         rb.angularVelocity = Random.Range(-420f, 420f);
         rb.angularDrag = 0f;
-        rb.velocity = rb.velocity + Random.insideUnitCircle * Random.Range(3f, 10f);
+        rb.velocity += Random.insideUnitCircle * Random.Range(3f, 10f);
         
         yield return new WaitForSeconds(Random.Range(1f, 3.5f));
 

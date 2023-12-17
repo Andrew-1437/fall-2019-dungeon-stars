@@ -87,14 +87,14 @@ public class BossBehavior : LargeEnemyBehavior {
             hp = 0;
             BeginDeathSequence();
         }
-        GM.gameController.UpdateBossHpBar(hp);
+        GM.GameController.UpdateBossHpBar(hp);
     }
 
     //Wakes boss from another script
     public void Wake()
     {
         awake = true;
-        GM.gameController.SetBossHpBar(bossTitle, hp);
+        GM.GameController.SetBossHpBar(bossTitle, hp);
     }
 
 

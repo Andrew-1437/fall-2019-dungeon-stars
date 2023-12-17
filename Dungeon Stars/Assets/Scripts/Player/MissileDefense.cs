@@ -29,7 +29,7 @@ public class MissileDefense : MonoBehaviour
             nextFire = Time.time + fireRate;
 
             // Get some points for killing a missile
-            GM.gameController.AddScore(10);
+            GM.GameController.AddScore(10);
 
             // Display a line renderer to see the missile get zapped
             StartCoroutine(FireAntiMissile(collision.transform.position));

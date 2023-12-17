@@ -12,7 +12,7 @@ public class BackgroundMove : MonoBehaviour {
 
     private void Start()
     {
-        gm = GM.gameController;
+        gm = GM.GameController;
         rb = GetComponent<Rigidbody2D>();
     }
 

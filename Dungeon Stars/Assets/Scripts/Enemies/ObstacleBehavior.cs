@@ -58,7 +58,7 @@ public class ObstacleBehavior : MonoBehaviour {
         {
             print("Ohshit! Obstacle cannot find camera!");
         }
-        gm = GM.gameController;
+        gm = GM.GameController;
 
         hp = hp * OmniController.omniController.obstacleHpScale;
         

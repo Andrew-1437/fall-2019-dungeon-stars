@@ -47,7 +47,7 @@ public class TurretBehavior : MonoBehaviour {
         nextFire = 0f;
         bool wasSleeping = !awake;
 
-        if (targetTag == "") targetTag = "Player";  // If targetTag is empty, target player
+        if (targetTag == "") targetTag = Tags.Player;  // If targetTag is empty, target player
 
         if (!ignoreObstacle)
             thisObstacle = GetComponent<ObstacleBehavior>();
@@ -57,7 +57,7 @@ public class TurretBehavior : MonoBehaviour {
             hardpoint = transform;
         }
 
-        gm = GM.gameController;
+        gm = GM.GameController;
 
         StartCoroutine(FindTargetsAsync());
     }
@@ -85,7 +85,7 @@ public class TurretBehavior : MonoBehaviour {
             if (target != null)
             {
                 // If the target is the player and they are playing the "Vector Hunter" stealth ship, the turret's turn speed is reduced
-                if (targetTag == "Player" && target.GetComponent<PlayerController>().id.Equals(ShipsEnum.ShipID.VECTOR))
+                if (targetTag == Tags.Player && target.GetComponent<PlayerController>().id.Equals(ShipsEnum.ShipID.VECTOR))
                     turnSpeedMod = .35f;
                 else
                     turnSpeedMod = 1f;
@@ -149,7 +149,7 @@ public class TurretBehavior : MonoBehaviour {
     {
         // For turrets targeting the player, we dont need to use FindGameObjectByTag()
         // This is uglier but theoretically faster
-        if(targetTag == "Player")
+        if(targetTag == Tags.Player)
         {
             // If player 2 does not exist but player 1 does, target player 1
             if (gm.player2 == null && gm.player != null)

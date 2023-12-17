@@ -84,7 +84,7 @@ public class Weapon : MonoBehaviour
             Instantiate(PowerLevels[powerLevel], spawner.position, spawner.rotation),
             20);
         // Subtract score for every shot fired
-        GM.gameController.AddRawScore(-Mathf.Max(WeaponCost - Mathf.FloorToInt(WeaponCost * (1f - fireRateMod)), 0));
+        GM.GameController.AddRawScore(-Mathf.Max(WeaponCost - Mathf.FloorToInt(WeaponCost * (1f - fireRateMod)), 0));
 
         // Deduct one from ammo each time weapon is fired
         if (Capacity > 0)

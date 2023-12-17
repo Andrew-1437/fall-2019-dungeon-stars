@@ -13,11 +13,25 @@ public class GM : MonoBehaviour {
     const float LEVEL_LOWER_BOUND = -12.6f;
     const float LEVEL_RIGHT_BOUND = 27f;
     const float LEVEL_LEFT_BOUND = -27f;
+
+    // Fungus messages
+    private const string FungusP1Death = "death";
+    private const string FungusP2Death = "death p2";
+    private const string FungusBossDeath = "boss dead";
+    private const string FungusLevelComplete = "LevelComplete";
+    private const string FungusGameOver = "GameOver";
+
+    // Player Prefs Ints
+    private const string PlayerPrefsHighestLevel = "highestLevelCompleted";
+    
+    // Score animations
+    private const string ScoreMaxMultiplier = "MaxMultiplier";
+    private const string ScoreNewMultiplier = "NewMultiplier";
     #endregion
 
     // Singleton Instance
     [HideInInspector]
-    public static GM gameController;
+    public static GM GameController;
 
     #region References
     [Header("References")]
@@ -136,21 +150,25 @@ public class GM : MonoBehaviour {
         {
             playerObject = OmniController.omniController.selectedShip;
             if (twoPlayerMode)
+            {
                 playerObject2 = OmniController.omniController.selectedShip2;
+            }
         }
         if (boss)
         {
             bossStats = boss.GetComponent<BossBehavior>();
             bossMaxHp = bossStats.hp;
         }
-        if (gameController != null && gameController != this)
+        if (GameController != null && GameController != this)
         {
-            Destroy(gameController.gameObject);
+            Destroy(GameController.gameObject);
         }
-        gameController = this;
+        GameController = this;
 
         if (OmniController.omniController.infiniteLives)
+        {
             playerLives = int.MaxValue;
+        }
 
         soloUIElements.SetActive(!twoPlayerMode);
         duoUIElements.SetActive(twoPlayerMode);
@@ -174,17 +192,15 @@ public class GM : MonoBehaviour {
     {
         gameStart = true;
         SpawnPlayer();
-        if (twoPlayerMode)
-            SpawnPlayer2();
+        if (twoPlayerMode) { SpawnPlayer2(); }
         GameStarter.OnGameStart -= GameStarter_OnGameStart;
     }
 
     private void Update()
     {
-        if(Input.GetButtonDown("Pause"))
-            PauseGame(!gamePaused);
+        if (Input.GetButtonDown("Pause")) { PauseGame(!gamePaused); }
 
-        //Debug*************
+        #region Debug Tools
         if (OmniController.omniController.enableDebug)
         {
             //Quick exit to menu
@@ -223,7 +239,7 @@ public class GM : MonoBehaviour {
             if (Input.GetKeyDown("0"))
             {
                 print("Respawning Player...");
-                player = GameObject.FindWithTag("Player");
+                player = GameObject.FindWithTag(Tags.Player);
                 if (player != null)
                     player.GetComponent<PlayerController>().Die();
                 if (twoPlayerMode && player2 != null)
@@ -255,6 +271,7 @@ public class GM : MonoBehaviour {
                 AwakenBoss();
             }
         }
+        #endregion
 
         // SCORE MULTIPLIER UPDATES ==========
         if (scoreMultiplier > 1 && Time.time > endMultiplierTime)
@@ -262,17 +279,15 @@ public class GM : MonoBehaviour {
             ResetMultiplier();
         }
 
-
-        //GUI Updates
+        #region GUI Updates
         lives.text = "Lives: " + playerLives;
         scores.text = "Score: " + score.ToString();
+        if (score < 0) { score = 0; }
         scoreMultiplierDisp.text = "x" + scoreMultiplier.ToString();
-        if (scoreMultiplier <= 1)   // Only show multiplier if bonus is greater than 1
-            scoreMultiplierDisp.enabled = false;
-        else
-            scoreMultiplierDisp.enabled = true;
+        
+        scoreMultiplierDisp.enabled = scoreMultiplier > 1;  // Only show multiplier if bonus is greater than 1
 
-        // ONE PLAYER ===================
+        #region One Player Mode
         if (!twoPlayerMode)
         {
             if (player != null)
@@ -334,6 +349,9 @@ public class GM : MonoBehaviour {
                 level.text = "Power: 0";
             }
         }
+        #endregion
+
+        #region Two Player Mode
         // TWO PLAYER ===================
         else
         {
@@ -446,14 +464,15 @@ public class GM : MonoBehaviour {
                 level2.text = "Power: 0";
             }
         }
+        #endregion
 
-        if (score<0)
-        {
-            score = 0;
-        }
-        
+        #endregion
+
     }
 
+    /// <summary>
+    /// Begins the boss sequence
+    /// </summary>
     public void AwakenBoss()
     {
         OnBossActivate?.Invoke();
@@ -476,22 +495,24 @@ public class GM : MonoBehaviour {
         if(endLevelOnBossDeath)
             EndLevel();
         else
-            mainFlowchart.SendFungusMessage("boss dead");
+            mainFlowchart.SendFungusMessage(FungusBossDeath);
     }
 
-    // Tells fungus that we have finished the level and are ready to move on to the next scene
+    /// <summary>
+    /// Tells fungus that we have finished the level and are ready to move on to the next scene
+    /// </summary>
     public void EndLevel()
     {
         OnLevelEnd?.Invoke();
         OnLevelComplete?.Invoke();
-        mainFlowchart.SendFungusMessage("LevelComplete");
+        mainFlowchart.SendFungusMessage(FungusLevelComplete);
 
         // Save the highest level completed but ignore if we are in Endless Mode
         if (!OmniController.omniController.endlessMode)
         {
-            if (PlayerPrefs.GetInt("highestLevelCompleted", 0) < levelIndex)
+            if (PlayerPrefs.GetInt(PlayerPrefsHighestLevel, 0) < levelIndex)
             {
-                PlayerPrefs.SetInt("highestLevelCompleted", levelIndex);
+                PlayerPrefs.SetInt(PlayerPrefsHighestLevel, levelIndex);
             }
         }
 
@@ -499,77 +520,70 @@ public class GM : MonoBehaviour {
         UnsubAllEvents();
     }
 
-    // Tells fungus to load in the game summary because we have no lives left
+    /// <summary>
+    /// Tells fungus to load in the game summary because we have no lives left
+    /// </summary>
     public void GameOver()
     {
         OnLevelEnd?.Invoke();
-        mainFlowchart.SendFungusMessage("GameOver");
+        mainFlowchart.SendFungusMessage(FungusGameOver);
 
         // Unsubscribe to events at the end of the level
         UnsubAllEvents();
     }
 
-    // Depreciating
-    public void FindPlayer()
-    {
-        player = GameObject.FindWithTag("Player");
-        if (player == null)
-        {
-            print("Ohshit! GM cannot find player!");
-            return;
-        }
-        playerController = player.GetComponent<PlayerController>();
-    }
-
-    // Does what it says
+    /// <summary>
+    /// Spawns the player into the game
+    /// </summary>
     public void SpawnPlayer()
     {
         // If available lives, spawn the player
         if (playerLives > 0)
         {
-            player = Instantiate(playerObject, transform.position, transform.rotation) as GameObject;
+            player = Instantiate(playerObject, transform.position, transform.rotation);
             Instantiate(fx, transform.position, transform.rotation);
             GetComponent<AudioSource>().Play();
             playerController = player.GetComponent<PlayerController>();
+
             // If we are spawning in for the first time, do not subtract a life
-            if (!initialSpawn1)
-                playerLives--;
-            else
-                initialSpawn1 = false;
+            if (!initialSpawn1) { playerLives--; }
+            else { initialSpawn1 = false; }
         }
         else
         {
             // If both player 1 and player 2 are dead with no lives, end the game
-            if( player == null && player2 == null)
-                GameOver();
+            if (player == null && player2 == null) { GameOver(); }
         }
     }
-    // Same as above but for player 2 (can probably combine these two)
+
+    /// <summary>
+    /// Same as above but for player 2 (can probably combine these two)
+    /// </summary>
     public void SpawnPlayer2()
     {
         // If available lives, spawn the player
         if (playerLives > 0)
         {
-            player2 = Instantiate(playerObject2, transform.position - (Vector3.up * 3f), transform.rotation) as GameObject;
+            player2 = Instantiate(playerObject2, transform.position - (Vector3.up * 3f), transform.rotation);
             Instantiate(fx, transform.position, transform.rotation);
             GetComponent<AudioSource>().Play();
             playerController2 = player2.GetComponent<PlayerController>();
             playerController2.isPlayer2 = true;
             // If we are spawning in for the first time, do not subtract a life
-            if (!initialSpawn2)
-                playerLives--;
-            else
-                initialSpawn2 = false;
+            if (!initialSpawn2) { playerLives--; }
+            else { initialSpawn2 = false; }
         }
         else
         {
             // If both player 1 and player 2 are dead with no lives, end the game
-            if (player == null && player2 == null)
-                GameOver();
+            if (player == null && player2 == null) { GameOver(); }
         }
     }
 
-    // Invoked on a player's death
+    /// <summary>
+    /// Invoked on a player's death
+    /// </summary>
+    /// <param name="pc">Player Controller of the player that died</param>
     private void PlayerController_OnPlayerDeath(PlayerController pc)
     {
         hasDied = true;
@@ -582,25 +596,28 @@ public class GM : MonoBehaviour {
                 GameOver();    // Call fungus flowchart to end game when out of lives
         }
         else
+        {
             DeathText(pc.isPlayer2);    // Calls Fungus flowchart that will display a death flavor text then respawn player
+        }
 
         AddRawScore(-OmniController.omniController.deathPenalty);   // Lose score from dying
         StartCoroutine(CoolTimeSlowFX());   // Briefly slow down time when player dies
         ResetMultiplier();  // Set score multiplier to 0
     }
 
-    // Tells fungus flowchart to say a death flavor text when player dies
-    public void DeathText(bool p2)
+    /// <summary>
+    /// Tells fungus flowchart to say a death flavor text when player dies
+    /// </summary>
+    /// <param name="isPlayer2">If the player that died is player 2</param>
+    public void DeathText(bool isPlayer2)
     {
-        if (p2)
-        {
-            mainFlowchart.SendFungusMessage("death p2");
-            return;
-        }
-        mainFlowchart.SendFungusMessage("death");
+        mainFlowchart.SendFungusMessage(isPlayer2 ? FungusP2Death : FungusP1Death);
     }
 
-    // Returns true if the player has died at least once this level
+    /// <summary>
+    /// Returns true if the player has died at least once this level
+    /// </summary>
+    /// <returns>True if player has died at least once</returns>
     public bool HasDied()
     {
         return hasDied;
@@ -629,10 +646,10 @@ public class GM : MonoBehaviour {
         {
             scoreMultiplier++;
             if (scoreMultiplier == 10)
-                scoreMultiplierAnim.SetBool("MaxMultiplier", true);
+                scoreMultiplierAnim.SetBool(ScoreMaxMultiplier, true);
             else
-                scoreMultiplierAnim.SetBool("MaxMultiplier", false);
-            scoreMultiplierAnim.SetTrigger("NewMultiplier");
+                scoreMultiplierAnim.SetBool(ScoreMaxMultiplier, false);
+            scoreMultiplierAnim.SetTrigger(ScoreNewMultiplier);
         }
         score = Mathf.Clamp(score, 0, int.MaxValue);
     }
@@ -648,10 +665,14 @@ public class GM : MonoBehaviour {
     {
         scoreMultiplier = 1;
         chainedKills = 0;
-        scoreMultiplierAnim.SetBool("MaxMultiplier", false);
+        scoreMultiplierAnim.SetBool(ScoreMaxMultiplier, false);
     }
 
-    // Calculates and displays score when the level ends
+    /// <summary>
+    /// Calculates and displays score when the level ends
+    /// Invoked by Fungus
+    /// </summary>
+    /// <returns>The score after all multipliers and bonuses have been applied</returns>
     public int FinalScore()
     {
         int finalScore = score;
@@ -665,11 +686,18 @@ public class GM : MonoBehaviour {
 
         totalScore.text = "Total Score: " + total;
 
-        if(OmniController.omniController != null)
+        if (OmniController.omniController != null)
+        {
             OmniController.omniController.totalScore += total;
+        }
         return total;
     }
 
+    /// <summary>
+    /// Calculates the score bonus depending on how much 
+    /// special ammo the player has left at the end of the level
+    /// </summary>
+    /// <returns>Ammo score bonus to add to score</returns>
     public int CalcAmmoScore()
     {
         // Prevent possible error if a player is dead when score is calculated
@@ -692,6 +720,11 @@ public class GM : MonoBehaviour {
             return (int)((player1PercentAmmo + player2PercentAmmo / 2f) * baseAmmoScore);
     }
 
+    /// <summary>
+    /// Calculates the score bonus depending on how much
+    /// health the player has at the end of the level
+    /// </summary>
+    /// <returns>HP score bonus to add to score</returns>
     public int CalcHpScore()
     {
         // Prevent possible error if a player is dead when score is calculated
@@ -714,6 +747,11 @@ public class GM : MonoBehaviour {
             return (int)((player1PercentHp + player2PercentHp) / 2f * baseHpScore);
     }
 
+    /// <summary>
+    /// Unlocks a ship in the ship selection
+    /// Called by Fungus
+    /// </summary>
+    /// <param name="id">Ship Enum ID</param>
     public void UnlockShipInLevel(ShipsEnum.ShipID id)
     {
         OmniController.omniController.UnlockShip((int)id);
@@ -735,34 +773,48 @@ public class GM : MonoBehaviour {
         leftBounds = LEVEL_LEFT_BOUND;
     }
 
+    /// <summary>
+    /// Fungus hook to start/stop level
+    /// </summary>
+    /// <param name="start">Start or stop the game</param>
     public void SetGameState(bool start)
     {
         gameStart = start;
     }
 
+    /// <summary>
+    /// Fungus hook to change the time scale
+    /// </summary>
+    /// <param name="x">Time scale</param>
     public void SetTimeScale(float x)
     {
         Time.timeScale = x;
     }
 
-    // Pauses and unpauses game and displays or hides pause menu
-    public void PauseGame(bool paused)
+    /// <summary>
+    /// Pauses and unpauses game and displays or hides pause menu
+    /// </summary>
+    /// <param name="isPaused">Is the game paused</param>
+    public void PauseGame(bool isPaused)
     {
-        gamePaused = paused;
-        pauseMenu.SetActive(paused);
-        if(paused)
-            Time.timeScale = 0f;
-        else
-            Time.timeScale = OmniController.omniController.globalTimeScale;
+        gamePaused = isPaused;
+        pauseMenu.SetActive(isPaused);
+        Time.timeScale = isPaused ? 0f : OmniController.omniController.globalTimeScale;
     }
 
-    // Method to tell Omnicontroller that we have won the game. Used by fungus on the last level.
+    /// <summary>
+    /// Method to tell Omnicontroller that we have won the game. 
+    /// Used by fungus on the last level.
+    /// </summary>
     public void CompleteGame()
     {
         OmniController.omniController.completedGame = true;
     }
 
-    // Unsubscribes all listeners in this class. Must call this before every level transition or wierd things happen
+    /// <summary>
+    /// Unsubscribes all listeners in this class. 
+    /// Must call this before every level transition or wierd things happen
+    /// </summary>
     private void UnsubAllEvents()
     {
         GameStarter.OnGameStart -= GameStarter_OnGameStart;
@@ -770,6 +822,9 @@ public class GM : MonoBehaviour {
         BossBehavior.OnBossDeath -= BossBehavior_OnBossDeath;
     }
 
+    /// <summary>
+    /// Slows down time for a bit
+    /// </summary>
     private IEnumerator CoolTimeSlowFX()
     {
         float currTimeScale = .3f;
@@ -791,6 +846,9 @@ public class GM : MonoBehaviour {
         SetTimeScale(OmniController.omniController.globalTimeScale);
     }
 
+    /// <summary>
+    /// Fungus hook to exit the level and return to the main menu
+    /// </summary>
     public void ExitToMainMenu()
     {
         OnLevelEnd?.Invoke();

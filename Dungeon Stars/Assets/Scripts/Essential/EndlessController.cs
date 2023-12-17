@@ -112,7 +112,7 @@ public class EndlessController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GM.gameController.gameStart)
+        if(GM.GameController.gameStart)
         {
             if(spawnEnemies && Time.time >= timeForNextGroup)
             {
@@ -195,10 +195,10 @@ public class EndlessController : MonoBehaviour
     // Spawns the next boss from the list and links it to the GM
     public void SpawnBoss()
     {
-        GM.gameController.boss =
+        GM.GameController.boss =
             Instantiate(
                 bossesList[(difficultyLevel / 6 - 1) % bossesList.Length]);
-        GM.gameController.AwakenBoss();
+        GM.GameController.AwakenBoss();
     }
 
     public void IncreaseDifficulty()
