@@ -410,9 +410,9 @@ public class Summary : MonoBehaviour
         
     }
 
-    public void UnlockShipInSummary(ShipsEnum.ShipID id)
+    public void UnlockShipInSummary(ShipsEnum.ShipID ShipId)
     {
-        OmniController.omniController.UnlockShip((int)id);
+        OmniController.omniController.UnlockShip(ShipId);
     }
 
     // Fungus helper method cause Fungus can't access a static singleton (or at least I dont know how)

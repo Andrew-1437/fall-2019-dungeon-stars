@@ -129,8 +129,8 @@ public class PlayerController : MonoBehaviour {
     // Initialize**********
     void Start()
     {
-        maxHp = maxHp * OmniController.omniController.playerHpScale;
-        maxShield = maxShield * OmniController.omniController.playerShieldScale;
+        maxHp *= OmniController.omniController.playerHpScale;
+        maxShield *= OmniController.omniController.playerShieldScale;
 
         hp = maxHp;
         shield = maxShield;
@@ -275,9 +275,11 @@ public class PlayerController : MonoBehaviour {
 
         // Out of bounds death
         // Involuntary movement (walls) could move the player beyond the screen bounds and thus kill them
-        if (transform.position.x > gm.rightBounds + 1 || transform.position.x < gm.leftBounds - 1 || 
+        if (transform.position.x > gm.rightBounds + 1 || transform.position.x < gm.leftBounds - 1 ||
             transform.position.y > gm.upperBounds + 1 || transform.position.y < gm.lowerBounds - 1)
+        {
             Die();
+        }
 
         //Debug Tools
         if (OmniController.omniController.enableDebug)
@@ -350,10 +352,14 @@ public class PlayerController : MonoBehaviour {
 
         // Stunned
         if (stunned && Time.time >= stunEndTime)
+        {
             stunned = false;
+        }
         // Disabled
         if (disabled && Time.time >= disableEndTime)
+        {
             disabled = false;
+        }
 
         // End spawn invulnerability after enought time has passed
         if(Time.time > endSpawnInvincible)
@@ -478,8 +484,11 @@ public class PlayerController : MonoBehaviour {
             Damage(other.gameObject.GetComponent<ProjectileBehavior>().dmgValue);
         }
     }
-    
-    // Disables and stuns player while they fly around, on fire, until they explode and die.
+
+    /// <summary>
+    /// Begins the death sequence, disabling and stunning the player while they 
+    /// spiral out of control on fire, until they explode and die.
+    /// </summary>
     public IEnumerator DieSequence()
     {
         if (!alive) { yield break; }
@@ -501,7 +510,11 @@ public class PlayerController : MonoBehaviour {
         Die();
     }
 
-    //Kills player "Ripperoni"
+    /// <summary>
+    /// Kills player "Ripperoni"
+    /// Increments their death counter, destroys this game object, and
+    /// spawns a massive explosion as the player dies horribly
+    /// </summary>
     public void Die()
     {
         OmniController.omniController.timesDied++;
@@ -520,7 +533,10 @@ public class PlayerController : MonoBehaviour {
         OnPlayerDeath?.Invoke(this);
     }
 
-
+    /// <summary>
+    /// Increases the power level of the player when they collect a LevelUp
+    /// This increases their HP & Shields and improves their weapons
+    /// </summary>
     private void LevelUp()
     {
         level++;
@@ -537,7 +553,13 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    // Take damage normally. First absorbed by shield, then hull
+    /// <summary>
+    /// Applies damage to the player, accounting for damage modifiers this player has.
+    /// First, any modifiers that apply are multiplied to the incoming damage.
+    /// This damage is first applied to the shield, then applied to the hull
+    /// If any is leftover from the shield, that is also applied to the hull
+    /// </summary>
+    /// <param name="baseDmg">Incoming damage from one source</param>
     public void Damage(float baseDmg)
     {
         if (!invincible)
@@ -573,7 +595,12 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    // Damage IGNORES shields. Directly to hull
+    /// <summary>
+    /// Applies damage to the player, accounting for damage modifiers this player has.
+    /// First, any modifiers that apply are multiplied to the incoming damage.
+    /// This damage is applied directly to the ship's HP, ignoring shields
+    /// </summary>
+    /// <param name="baseDmg">Incoming damage</param>
     public void HullDamage(float baseDmg)
     {
         if (!invincible)
@@ -600,7 +627,10 @@ public class PlayerController : MonoBehaviour {
         heat += applyHeat * heatGenMod;
     }
 
-    // Halt Movement
+    /// <summary>
+    /// Prevents movement for a time
+    /// </summary>
+    /// <param name="seconds">Seconds to stun</param>
     public void Stun(float seconds)
     {
         stunned = true;
@@ -608,13 +638,22 @@ public class PlayerController : MonoBehaviour {
         stunEndTime = Mathf.Max(stunEndTime, Time.time) + seconds;
     }
 
+    /// <summary>
+    /// Prevents shooting for a time
+    /// </summary>
+    /// <param name="seconds">Seconds to disable</param>
     public void Disable(float seconds)
     {
         disabled = true;
-        // Set stun end time to be seconds from now, or extend current stun end time if we are already stunned
+        // Set disable end time to be seconds from now, or extend current disable end time if we are already disabled
         disableEndTime = Mathf.Max(disableEndTime, Time.time) + seconds;
     }
 
+    /// <summary>
+    /// Displays a floating damage text that shows how much damage we took
+    /// This text appears near the player and moves around a bit
+    /// </summary>
+    /// <param name="dmg">The damage to display</param>
     private void DisplayDamage(float dmg)
     {
         if (!OmniController.omniController.showDamageNumbers) { return; }

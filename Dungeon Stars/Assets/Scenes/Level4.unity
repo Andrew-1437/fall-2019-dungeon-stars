@@ -6843,7 +6843,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &991868820
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -7342,7 +7342,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 86.54718
     y: -22.032501
-    width: 107
+    width: 67
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -7650,7 +7650,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &991868857
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -7955,7 +7955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &991868871
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -7997,7 +7997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &991868874
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8042,7 +8042,7 @@ MonoBehaviour:
   callMode: 0
 --- !u!114 &991868875
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8063,7 +8063,7 @@ MonoBehaviour:
   targetGameObjectOLD: {fileID: 0}
 --- !u!114 &991868876
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8077,7 +8077,7 @@ MonoBehaviour:
   indentLevel: 0
 --- !u!114 &991868877
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8320,7 +8320,7 @@ MonoBehaviour:
     vector3Val: {x: 0, y: 0, z: 0}
 --- !u!114 &991868878
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8503,7 +8503,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -67.45282
     y: 68.96751
-    width: 106
+    width: 66
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12274,7 +12274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 0}
+  selectedFlowchart: {fileID: 991868810}
 --- !u!4 &1596599740
 Transform:
   m_ObjectHideFlags: 1
@@ -15647,7 +15647,7 @@ PrefabInstance:
     - target: {fileID: 677459759403048358, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: selectedBlocks.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 677459759403048358, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
@@ -16134,7 +16134,7 @@ PrefabInstance:
     - target: {fileID: 3672931476469656402, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -370.35992
+      value: -370.35995
       objectReference: {fileID: 0}
     - target: {fileID: 3714608534395630364, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}

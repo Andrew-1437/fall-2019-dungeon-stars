@@ -34,14 +34,12 @@ public class StationBehavior : MonoBehaviour {
     {
         if (gm.gameStart)
         {
-            float hexSpeedMod;
-            if (ob == null) { hexSpeedMod = 1f; }
-            else { hexSpeedMod = ob.hex.GetHexSpeedMod(); }
-
-            if (awake)
-                rb.velocity = Vector2.down * speed * OmniController.omniController.obstacleSpeedScale * hexSpeedMod;
-            else
-                rb.velocity = Vector2.down;
+            float hexSpeedMod = (ob == null) ? 
+                1f : 
+                ob.hex.GetHexSpeedMod();
+            rb.velocity = awake ?
+                Vector2.down * speed * OmniController.omniController.obstacleSpeedScale * hexSpeedMod :
+                Vector2.down;
             rb.angularVelocity = rotate;
         }
     }
@@ -71,7 +69,7 @@ public class StationBehavior : MonoBehaviour {
 
     protected void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Bounds")
+        if (other.CompareTag(Tags.Bounds))
         {
             awake = true;
         }

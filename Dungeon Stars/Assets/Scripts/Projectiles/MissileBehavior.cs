@@ -19,7 +19,7 @@ public class MissileBehavior : ProjectileBehavior {
         base.Start();
         if (targetTag != "")
         {
-            target = FindClosestByTag(targetTag);
+            target = Functions.FindClosestByTag(targetTag, transform); 
         }
     }
 
@@ -32,7 +32,7 @@ public class MissileBehavior : ProjectileBehavior {
         {
             if (target != null)
             {
-                if (targetTag == "Player" && target.GetComponent<PlayerController>().id.Equals(ShipsEnum.ShipID.VECTOR))
+                if (targetTag == Tags.Player && target.GetComponent<PlayerController>().id.Equals(ShipsEnum.ShipID.VECTOR))
                     turnSpeedMod = .5f;
                 else
                     turnSpeedMod = 1f;
@@ -47,7 +47,7 @@ public class MissileBehavior : ProjectileBehavior {
             else
             {
                 // Acquire new target
-                target = FindClosestByTag(targetTag);
+                target = Functions.FindClosestByTag(targetTag, transform);
             }
         }
 
@@ -60,11 +60,11 @@ public class MissileBehavior : ProjectileBehavior {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (gameObject.tag == "EnemyMissile" && other.tag == "AntiProjectile")
+        if (gameObject.CompareTag(Tags.EnemyMissile) && other.CompareTag(Tags.AntiProjectile))
         {
             DestroyProjectile();
         }
-        if (other.tag == "Wall")
+        if (other.CompareTag(Tags.Wall))
         {
             Detonate();
         }
@@ -110,42 +110,5 @@ public class MissileBehavior : ProjectileBehavior {
         // Clean up payload if it doesn't clean itself up
         Destroy(
             Instantiate(explosion, transform.position, transform.rotation),5);
-    }
-
-    GameObject FindClosestByTag(string tag)
-    {
-        GameObject[] gos;
-        gos = GameObject.FindGameObjectsWithTag(tag);
-        GameObject closest = null;
-        float distance = Mathf.Infinity;
-        Vector3 position = transform.position;
-        //print(gos.Length);
-        foreach (GameObject go in gos)
-        {
-            if (tag == "Player")
-            {
-                Vector3 diff = go.transform.position - position;
-                float curDistance = diff.sqrMagnitude;
-                if (curDistance < distance)
-                {
-                    closest = go;
-                    distance = curDistance;
-                }
-            }
-            else
-            {
-                if (go.GetComponent<ObstacleBehavior>().awake)
-                {
-                    Vector3 diff = go.transform.position - position;
-                    float curDistance = diff.sqrMagnitude;
-                    if (curDistance < distance)
-                    {
-                        closest = go;
-                        distance = curDistance;
-                    }
-                }
-            }
-        }
-        return closest;
     }
 }

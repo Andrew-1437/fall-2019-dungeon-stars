@@ -53,8 +53,9 @@ public class BeamWeapon : MonoBehaviour
             aim = false;
 
             // If in auto mode, set the next aimEndTime to what it should be. Otherwise, don't so that we don't shoot again
-            if (auto) aimEndTime = shootEndTime + aimTime * OmniController.omniController.enemyFireRateScale;
-            else aimEndTime = Mathf.Infinity;
+            aimEndTime = auto ? 
+                shootEndTime + aimTime * OmniController.omniController.enemyFireRateScale : 
+                Mathf.Infinity;
 
         }
         else if (Time.time > targetEndTime)
@@ -65,19 +66,21 @@ public class BeamWeapon : MonoBehaviour
             firing = true;
 
             // Same logic as with aimEndTime
-            if (auto) targetEndTime = aimEndTime + targetTime * OmniController.omniController.enemyFireRateScale;
-            else targetEndTime = Mathf.Infinity;
+            targetEndTime = auto ? 
+                aimEndTime + targetTime * OmniController.omniController.enemyFireRateScale : 
+                Mathf.Infinity;
         }
         else if (Time.time > shootEndTime)
         {
             aim = true;
 
             // Same logic as with aimEndTime
-            if (auto) shootEndTime = targetEndTime + shootTime;
-            else shootEndTime = Mathf.Infinity;
+            shootEndTime = auto ? 
+                targetEndTime + shootTime : 
+                Mathf.Infinity;
         }
 
-        if (aim) RotateTowards("Player");
+        if (aim) { RotateTowards(Tags.Player); }
 
         if (firing && Time.time > damageEndTime) firing = false;
 

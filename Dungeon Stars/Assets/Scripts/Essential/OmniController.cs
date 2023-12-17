@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Class that controls everything in the whole game
+/// This persists for the entire game session and
+/// serves as a means to store session data
+/// </summary>
 public class OmniController : MonoBehaviour
 {
     // Singleton instance
@@ -120,7 +125,9 @@ public class OmniController : MonoBehaviour
         //Time.timeScale = globalTimeScale;
     }
 
-    // Resets all variables used to track player's gameplay
+    /// <summary>
+    /// Resets all variables used to track player's gameplay
+    /// </summary>
     public void ResetGameplayVariables()
     {
         totalScore = 0;
@@ -132,7 +139,9 @@ public class OmniController : MonoBehaviour
         completedGame = false;
     }
 
-    // Reset all global modifiers back to the default value of 1
+    /// <summary>
+    /// Reset all global modifiers back to the default value of 1
+    /// </summary>
     public void ResetModifiers()
     {
         playerHpScale = 1f;
@@ -152,11 +161,13 @@ public class OmniController : MonoBehaviour
         ChangeTimeScale(1f);
     }
 
-    // Unlocks a ship by setting its corresponding index to true
-    // Theoretically, can be done with UnlockShip(ShipsEnum.SHIPID)
-    public void UnlockShip(int index)
+    /// <summary>
+    /// Unlocks a ship by setting its corresponding index to true
+    /// </summary>
+    /// <param name="ShipId">Enum ID of the Ship to unlock</param>
+    public void UnlockShip(ShipsEnum.ShipID ShipId)
     {
-        unlockedShips[index] = true;
+        unlockedShips[(int)ShipId] = true;
         SaveUnlockedShips();
     }
 

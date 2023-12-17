@@ -5,6 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
+/// <summary>
+/// Game Controller (or the Game Master) class that controls things that happens
+/// in a level. This includes updating UI, spawning players, and controlling flow.
+/// </summary>
 public class GM : MonoBehaviour {
 
     #region Constants
@@ -754,7 +758,7 @@ public class GM : MonoBehaviour {
     /// <param name="id">Ship Enum ID</param>
     public void UnlockShipInLevel(ShipsEnum.ShipID id)
     {
-        OmniController.omniController.UnlockShip((int)id);
+        OmniController.omniController.UnlockShip(id);
     }
 
     public void SetLevelBounds(float left, float right, float up, float down)

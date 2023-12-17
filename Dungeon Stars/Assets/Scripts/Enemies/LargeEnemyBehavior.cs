@@ -53,11 +53,12 @@ public class LargeEnemyBehavior : MonoBehaviour {
             if (Time.time > subexplodeTime)
             {
                 Destroy(
-                    Instantiate(subExplosion, transform.position + Random.insideUnitSphere * subExplodeRadius, transform.rotation), 3f);
+                    Instantiate(subExplosion, 
+                    transform.position + Random.insideUnitSphere * subExplodeRadius, 
+                    transform.rotation), 3f);
                 subexplodeTime = Time.time + Random.Range(.05f, .35f);
             }
-            if (Time.time > dieTime)
-                Die();
+            if (Time.time > dieTime) { Die(); }
         }
         
     }
@@ -69,8 +70,10 @@ public class LargeEnemyBehavior : MonoBehaviour {
         Destroy(
             Instantiate(explosion, transform.position, transform.rotation), 5f);
         DisplayScore();
-        if(gameCamera)
+        if (gameCamera)
+        {
             gameCamera.GetComponent<CameraShaker>().LargeShake(0.2f);
+        }
         gm.AddScore(score);
     }
 

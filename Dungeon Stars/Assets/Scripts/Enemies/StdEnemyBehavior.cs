@@ -53,10 +53,11 @@ public class StdEnemyBehavior : MonoBehaviour {
             {
                 if (awake)
                 {
-                    if (ob == null) { hexSpeedMod = 1f; }
-                    else { hexSpeedMod = ob.hex.GetHexSpeedMod(); }
+                    hexSpeedMod = (ob == null) ?
+                        1f :
+                        ob.hex.GetHexSpeedMod();
 
-                    rb.velocity = ((transform.up + (Vector3)additionalMovementVector).normalized * 
+                    rb.velocity = ((transform.up + (Vector3)additionalMovementVector).normalized *
                         speed * OmniController.omniController.obstacleSpeedScale * hexSpeedMod) + Vector3.down;
                 }
                 else
@@ -73,7 +74,9 @@ public class StdEnemyBehavior : MonoBehaviour {
             }
         }
         else
+        {
             rb.velocity = Vector2.zero;
+        }
 
         if (lookAtPlayer)
         {
@@ -118,7 +121,7 @@ public class StdEnemyBehavior : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Bounds")
+        if(other.CompareTag(Tags.Bounds))
         {
             awake = true;
         }
@@ -148,13 +151,19 @@ public class StdEnemyBehavior : MonoBehaviour {
         {
             if (Vector3.Distance(transform.position, GM.GameController.player.transform.position) <=
             Vector3.Distance(transform.position, GM.GameController.player2.transform.position))
+            {
                 return GM.GameController.player;
+            }
             else
+            {
                 return GM.GameController.player2;
+            }
         }
         // If none exist, return null
         else
+        {
             return null;
+        }
     }
 
 

@@ -110,10 +110,12 @@ public class ObstacleBehavior : MonoBehaviour {
     {
         OmniController.omniController.enemiesKilled++;
         Destroy(gameObject);
-        if(explosion)
+        if (explosion)
+        {
             Destroy(
-                Instantiate(explosion, transform.position, transform.rotation), 
+                Instantiate(explosion, transform.position, transform.rotation),
                 5f);
+        }
         DisplayScore();
         camera.GetComponent<CameraShaker>().CustomShake(collisionVal / 60.0f);
 
@@ -144,8 +146,7 @@ public class ObstacleBehavior : MonoBehaviour {
         {
             GameObject scoreText = Instantiate(floatingScoreText, 
                 transform.position, 
-                Quaternion.Euler(0f, 0f, Random.Range(-30f,30f))
-                ) as GameObject;
+                Quaternion.Euler(0f, 0f, Random.Range(-30f,30f)));
             scoreText.GetComponent<TextMeshPro>().text = (score * gm.scoreMultiplier).ToString();
             scoreText.GetComponent<Rigidbody2D>().AddForce(Random.onUnitSphere, ForceMode2D.Impulse);
             Destroy(scoreText, 1);
@@ -160,8 +161,7 @@ public class ObstacleBehavior : MonoBehaviour {
         {
             GameObject dmgText = Instantiate(floatingDamageText,
                 transform.position + Random.insideUnitSphere,
-                Quaternion.Euler(0f, 0f, Random.Range(-45f, 45f))
-                ) as GameObject;
+                Quaternion.Euler(0f, 0f, Random.Range(-45f, 45f)));
             dmgText.GetComponent<TextMeshPro>().text = ((int)dmg).ToString();
             dmgText.GetComponent<Rigidbody2D>().AddForce(Random.onUnitSphere * 3f, ForceMode2D.Impulse);
             Destroy(dmgText, .5f);

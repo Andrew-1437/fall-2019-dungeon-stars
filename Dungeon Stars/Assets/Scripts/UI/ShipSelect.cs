@@ -125,7 +125,7 @@ public class ShipSelect : MonoBehaviour
 
         if (OmniController.omniController.enableDebug && Input.GetKeyDown(KeyCode.Space))
         {
-            OmniController.omniController.UnlockShip((int)ship.id);
+            OmniController.omniController.UnlockShip(ship.id);
         }
 
         if(!OmniController.omniController.twoPlayerMode)
