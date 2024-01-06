@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 527919400893782657}
   - component: {fileID: 8054332496149197255}
+  - component: {fileID: 5259382266386763163}
   m_Layer: 0
   m_Name: HeavyShot Lvl4
   m_TagString: Untagged
@@ -131,6 +132,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5259382266386763163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8262575008038989756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9e46fdca4ba9c4ca839f037020a17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.3
 --- !u!1001 &2875030038973906180
 PrefabInstance:
   m_ObjectHideFlags: 0

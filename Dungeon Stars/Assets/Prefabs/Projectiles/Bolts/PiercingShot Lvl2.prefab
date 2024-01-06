@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 102636205242105521}
   - component: {fileID: 631145836100358422}
+  - component: {fileID: 7121277765986133928}
   m_Layer: 0
   m_Name: PiercingShot Lvl2
   m_TagString: Untagged
@@ -129,6 +130,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7121277765986133928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4608429394026987126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9e46fdca4ba9c4ca839f037020a17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.3
 --- !u!1001 &4149609958061190751
 PrefabInstance:
   m_ObjectHideFlags: 0

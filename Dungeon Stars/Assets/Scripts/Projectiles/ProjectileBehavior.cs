@@ -26,6 +26,15 @@ public class ProjectileBehavior : MonoBehaviour {
             transform.rotation = Quaternion.Euler(0f, 0f,
                 transform.rotation.eulerAngles.z + Random.Range(-inaccuracy, inaccuracy));
         }
+
+        if (particleFX != null)
+        {
+            AudioSource[] audioSources = particleFX.GetComponents<AudioSource>();
+            foreach (AudioSource audio in audioSources)
+            {
+                audio.pitch += Random.Range(-.3f, .3f);
+            }
+        }
     }
 
     protected void FixedUpdate () {

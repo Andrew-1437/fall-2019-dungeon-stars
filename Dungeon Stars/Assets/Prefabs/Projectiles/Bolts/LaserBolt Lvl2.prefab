@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 679487575866753306}
   - component: {fileID: 7869261106397036894}
+  - component: {fileID: 7503306829072007869}
   m_Layer: 0
   m_Name: LaserBolt Lvl2
   m_TagString: Untagged
@@ -129,6 +130,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7503306829072007869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2314858000855863748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9e46fdca4ba9c4ca839f037020a17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.3
 --- !u!1001 &3120294261717641535
 PrefabInstance:
   m_ObjectHideFlags: 0

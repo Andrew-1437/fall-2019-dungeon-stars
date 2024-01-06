@@ -158,6 +158,7 @@ public class PowerUpBehavior : MonoBehaviour {
     {
         ApplyPowerUp(player);
 
+        collectAudio.pitch += Random.Range(-.1f, .1f);
         collectAudio.Play();
         GM.GameController.AddScore(score);
         collectAudio.gameObject.transform.parent = null;

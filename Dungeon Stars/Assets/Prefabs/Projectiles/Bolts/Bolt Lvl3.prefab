@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7816526469000863611}
   - component: {fileID: 3413078091972657494}
+  - component: {fileID: 2388146022978472426}
   m_Layer: 0
   m_Name: Bolt Lvl3
   m_TagString: Untagged
@@ -130,6 +131,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2388146022978472426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8597321315343796439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9e46fdca4ba9c4ca839f037020a17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pitchRange: 0.3
 --- !u!1001 &3064288367267652621
 PrefabInstance:
   m_ObjectHideFlags: 0
