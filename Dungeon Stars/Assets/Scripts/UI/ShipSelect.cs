@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.Assertions;
 
 public class ShipSelect : MonoBehaviour
 {
@@ -41,8 +42,16 @@ public class ShipSelect : MonoBehaviour
     {
         OmniController.omniController.LoadUnlockedShips();
         ships = OmniController.omniController.allShips;
-        SelectNextShip(0);
+        SelectShipAtIndex(0);
         sound = GetComponent<AudioSource>();
+
+        // Ships array should equal size of preview array
+        Assert.AreEqual(ships.Length, previewingShips.Length,
+            "Ships array length " + ships.Length +
+            " equals previewing ships array length" + previewingShips.Length);
+        Assert.AreEqual(ships.Length, OmniController.omniController.unlockedShips.Length,
+            "Ships array length "+ ships.Length + 
+            " equals unlocked ships array length" + OmniController.omniController.unlockedShips.Length);
     }
 
     // Update is called once per frame
@@ -110,7 +119,7 @@ public class ShipSelect : MonoBehaviour
             {
                 p2Picking = true;
                 //print("Player 1 ship selected");
-                SelectShipIndex(0);
+                SelectShipAtIndex(0);
             }
             else
             {
@@ -149,9 +158,9 @@ public class ShipSelect : MonoBehaviour
 
     public void SelectNextShip(int select = 1)
     {
-        index = (index + select);
-        if (index < 0) index = ships.Length - 1;
-        index = index % ships.Length;
+        index += select;
+        if (index < 0) { index = ships.Length - 1; }
+        index %= ships.Length;
         if (currentShip) { ship.LeaveScreen(); }
 
         currentShip = Instantiate(previewingShips[index], spawn) as GameObject;
@@ -159,11 +168,11 @@ public class ShipSelect : MonoBehaviour
         ship.unlocked = OmniController.omniController.unlockedShips[index];
     }
 
-    public void SelectShipIndex(int ind)
+    public void SelectShipAtIndex(int ind)
     {
         index = ind;
         if (index < 0) index = ships.Length - 1;
-        index = index % ships.Length;
+        index %= ships.Length;
         if (currentShip) { ship.LeaveScreen(); }
 
         currentShip = Instantiate(previewingShips[index], spawn) as GameObject;

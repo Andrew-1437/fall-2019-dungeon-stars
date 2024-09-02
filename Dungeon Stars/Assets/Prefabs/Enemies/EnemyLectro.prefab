@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 114506133027303934}
   - component: {fileID: 114241128091395112}
   - component: {fileID: 9199470003796192532}
+  - component: {fileID: 3270957526278077340}
   m_Layer: 6
   m_Name: EnemyLectro
   m_TagString: Obstacle
@@ -110,6 +111,7 @@ MonoBehaviour:
   shootDelay: 1.9
   fireRate: 0.08
   burstTime: 0.6
+  ShootOnAwake: 1
 --- !u!114 &114241128091395112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +151,24 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.15919606}
   m_Size: {x: 1.3300118, y: 3.1193416}
   m_Direction: 0
+--- !u!114 &3270957526278077340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882230194084962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8764dae4a2ac8af428069090b33a1297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Projectile: {fileID: 8434112883702766647, guid: 3c8dd108c8abd4e4e8d6538f187f1f3b,
+    type: 3}
+  BurstFireRate: 0.08
+  ShotPerBurst: 9
+  Hardpoint: {fileID: 4457281880098294}
+  Delay: 0
 --- !u!1 &9110133938827548338
 GameObject:
   m_ObjectHideFlags: 0

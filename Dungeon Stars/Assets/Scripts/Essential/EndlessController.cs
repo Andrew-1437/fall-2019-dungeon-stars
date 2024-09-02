@@ -66,7 +66,7 @@ public class EndlessController : MonoBehaviour
     // When player dies
     private void PlayerController_OnPlayerDeath(PlayerController pc)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     // When boss is killed

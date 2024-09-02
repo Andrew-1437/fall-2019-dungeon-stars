@@ -226,11 +226,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  dmgValue: 8
+  dmgValue: 12
   lifeTime: 3
   perist: 0
   inaccuracy: 0
   particleFX: {fileID: 1436586334037756119}
   hitFx: {fileID: 0}
   initForce: 7
-  convergeStrength: 3
+  convergeForce: 3
+  convergeStrength: 1.2
+  targetTag: Obstacle

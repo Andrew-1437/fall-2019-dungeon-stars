@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -110,6 +111,10 @@ public class OmniController : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
         globalTimeScale = 1;
+
+        Assert.AreEqual(unlockedShips.Length, allShips.Length,
+            "Unlocked ships array length " + unlockedShips.Length +
+            " does not equal all ships array length " + allShips.Length);
     }
 
     private void Update()
@@ -204,13 +209,23 @@ public class OmniController : MonoBehaviour
     // Loads the unlockedShips bool array from PLayerPrefs by converting it from a Json string
     public void LoadUnlockedShips()
     {
+        bool[] savedUnlocks;
         string jsonShips = PlayerPrefs.GetString("unlockedShips", "{}");
         if (jsonShips != "{}")
         {
-            unlockedShips = JsonHelper.FromJson<bool>(jsonShips);
+            savedUnlocks = JsonHelper.FromJson<bool>(jsonShips);
+
+            // Cannot directly assign saved array to unlocked ships in case its size is different
+            for (int i = 0; i < savedUnlocks.Length; i++)
+            {
+                if (i >= unlockedShips.Length) {  return; }
+                unlockedShips[i] = savedUnlocks[i];
+            }
         }
         else
+        {
             ResetUnlockedShips();
+        }
     }
 
     public void ChangeTimeScale(float newTimeScale)

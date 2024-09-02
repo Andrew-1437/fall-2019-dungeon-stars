@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class StdEnemyBehavior : MonoBehaviour {
 
@@ -10,42 +13,51 @@ public class StdEnemyBehavior : MonoBehaviour {
     public float turn;
     public Vector2 additionalMovementVector;
     public bool lookAtPlayer;
-    private float hexSpeedMod;
 
     //Weapons*********************
     [Header("Attack")]
+    [Obsolete]
     public GameObject projectile;
+    [Obsolete]
     public Transform hardpoint;
     public float shootDelay;
+    [Obsolete]
     public float fireRate;
+    [Obsolete]
     public float burstTime;
-    private float burstEnd;
-    private float nextBurst;
     private float nextFire;
+    public bool ShootOnAwake;
 
     protected bool awake;
 
     private bool stunned = false;
     private float stunTimer;
 
-    GM gm;
-    Rigidbody2D rb;
-    ObstacleBehavior ob;
+    protected GM gm;
+    protected Rigidbody2D rb;
+    protected ObstacleBehavior ob;
+    protected Shooter shooter;
 
 
     protected void Start()
     {
-        nextBurst = 0.0f;
         nextFire = 0.0f;
         awake = false;
 
         gm = GM.GameController;
         rb = GetComponent<Rigidbody2D>();
         ob = GetComponent<ObstacleBehavior>();
-        
+        shooter = GetComponent<Shooter>();
+
+        // Check to convert all enemies to use the new Shooter component.
+        // Enemies will not work until they have been converted to use it
+        if (projectile != null)
+        {
+            Assert.IsNotNull(shooter, "Enemy is using old shooting behavior - update this one dipshit");
+        }
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         if (gm.gameStart)
         {
@@ -53,12 +65,8 @@ public class StdEnemyBehavior : MonoBehaviour {
             {
                 if (awake)
                 {
-                    hexSpeedMod = (ob == null) ?
-                        1f :
-                        ob.hex.GetHexSpeedMod();
-
                     rb.velocity = ((transform.up + (Vector3)additionalMovementVector).normalized *
-                        speed * OmniController.omniController.obstacleSpeedScale * hexSpeedMod) + Vector3.down;
+                        speed * GetSpeedMod()) + Vector3.down;
                 }
                 else
                 {
@@ -80,7 +88,7 @@ public class StdEnemyBehavior : MonoBehaviour {
 
         if (lookAtPlayer)
         {
-            GameObject target = GetNearestPlayer();
+            GameObject target = Functions.FindNearestPlayer(transform);
             if (target != null)
             {
                 /*
@@ -90,32 +98,19 @@ public class StdEnemyBehavior : MonoBehaviour {
                 else
                     turnSpeedMod = 1f;*/
 
-                Vector3 targetDir = target.transform.position - transform.position;
-
-                float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg - 90;
-                Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, q, turn * Time.fixedDeltaTime);
+                Functions.RotateTowardsTarget(gameObject, target, turn);
             }
         }
     }
     
 
     // Update is called once per frame
-    protected void Update () {
-        if (awake && (Time.time > nextBurst || Time.time < burstEnd))
+    protected void Update () 
+    {
+        if (awake && (shooter != null) && (Time.time > nextFire))
         {
-            if(Time.time >= burstEnd)
-            {
-                nextBurst = Time.time + shootDelay;
-                burstEnd = Time.time + burstTime;
-            }
-            if (Time.time > nextFire && Time.time < burstEnd)
-            {
-                Destroy(
-                    Instantiate(projectile, hardpoint.position, hardpoint.rotation), 5f);
-                nextFire = Time.time + fireRate * OmniController.omniController.enemyFireRateScale;
-            }
-            
+            shooter.Shoot();
+            nextFire = Time.time + shootDelay;
         }
 	}
 
@@ -123,7 +118,7 @@ public class StdEnemyBehavior : MonoBehaviour {
     {
         if(other.CompareTag(Tags.Bounds))
         {
-            awake = true;
+            OnAwake();
         }
     }
 
@@ -133,37 +128,22 @@ public class StdEnemyBehavior : MonoBehaviour {
         stunTimer = Time.time + stunTime;
     }
 
-    // Returns the game object of the nearest player, or null if there are none
-    private GameObject GetNearestPlayer()
+    protected virtual void OnAwake()
     {
-        // If player 2 does not exist but player 1 does, target player 1
-        if (GM.GameController.player2 == null && GM.GameController.player != null)
-        {
-            return GM.GameController.player;
-        }
-        // If player 1 does not exist but player 2 does, target player 2
-        else if (GM.GameController.player == null && GM.GameController.player2 != null)
-        {
-            return GM.GameController.player2;
-        }
-        // If both exist, compare the distance between us and both players and return closer one
-        else if (GM.GameController.player != null && GM.GameController.player2 != null)
-        {
-            if (Vector3.Distance(transform.position, GM.GameController.player.transform.position) <=
-            Vector3.Distance(transform.position, GM.GameController.player2.transform.position))
-            {
-                return GM.GameController.player;
-            }
-            else
-            {
-                return GM.GameController.player2;
-            }
-        }
-        // If none exist, return null
-        else
-        {
-            return null;
-        }
+        awake = true;
+        if (ShootOnAwake) { shooter.Shoot(); }
+        nextFire = Time.time + shootDelay;
+    }
+
+    /// <summary>
+    /// Returns the modifer to multiply to the enemy's speed based on effects acting on this enemy
+    /// </summary>
+    /// <returns>Modifier to multiply the speed by</returns>
+    protected float GetSpeedMod()
+    {
+        float hexSpeedMod = (ob == null) ? 1f : ob.hex.GetHexSpeedMod();
+
+        return OmniController.omniController.obstacleSpeedScale * hexSpeedMod;
     }
 
 

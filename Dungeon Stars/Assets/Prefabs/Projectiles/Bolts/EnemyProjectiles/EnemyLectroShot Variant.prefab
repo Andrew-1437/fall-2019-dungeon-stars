@@ -9,23 +9,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4348787334614272627, guid: ecbbd71eec92d14448ced69073bd1328,
         type: 3}
-      propertyPath: dmgValue
-      value: 2.5
+      propertyPath: speed
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4348787334614272627, guid: ecbbd71eec92d14448ced69073bd1328,
         type: 3}
-      propertyPath: speed
-      value: 0.5
+      propertyPath: dmgValue
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4451706636244354111, guid: ecbbd71eec92d14448ced69073bd1328,
         type: 3}
       propertyPath: m_Name
-      value: EnemyLectroShot
+      value: EnemyLectroShot Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4451706636244354111, guid: ecbbd71eec92d14448ced69073bd1328,
         type: 3}
       propertyPath: m_TagString
       value: EnemyProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453558732939274373, guid: ecbbd71eec92d14448ced69073bd1328,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4453558732939274373, guid: ecbbd71eec92d14448ced69073bd1328,
         type: 3}
@@ -44,6 +49,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4453558732939274373, guid: ecbbd71eec92d14448ced69073bd1328,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4453558732939274373, guid: ecbbd71eec92d14448ced69073bd1328,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -55,16 +65,6 @@ PrefabInstance:
     - target: {fileID: 4453558732939274373, guid: ecbbd71eec92d14448ced69073bd1328,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4453558732939274373, guid: ecbbd71eec92d14448ced69073bd1328,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4453558732939274373, guid: ecbbd71eec92d14448ced69073bd1328,
-        type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4453558732939274373, guid: ecbbd71eec92d14448ced69073bd1328,
@@ -84,8 +84,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7787349789990357115, guid: ecbbd71eec92d14448ced69073bd1328,
         type: 3}
-      propertyPath: m_Color.r
-      value: 0.62627935
+      propertyPath: m_Color.b
+      value: 0.9716981
       objectReference: {fileID: 0}
     - target: {fileID: 7787349789990357115, guid: ecbbd71eec92d14448ced69073bd1328,
         type: 3}
@@ -94,8 +94,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7787349789990357115, guid: ecbbd71eec92d14448ced69073bd1328,
         type: 3}
-      propertyPath: m_Color.b
-      value: 0.9716981
+      propertyPath: m_Color.r
+      value: 0.62627935
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecbbd71eec92d14448ced69073bd1328, type: 3}

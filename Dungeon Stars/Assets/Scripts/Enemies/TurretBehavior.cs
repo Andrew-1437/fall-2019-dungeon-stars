@@ -92,11 +92,7 @@ public class TurretBehavior : MonoBehaviour {
                 else
                     turnSpeedMod = 1f;
 
-                Vector3 targetDir = target.transform.position - transform.position;
-
-                float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg - 90;
-                Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, q, turn * Time.deltaTime * turnSpeedMod);
+                Functions.RotateTowardsTarget(gameObject, target, turn * turnSpeedMod);
             }
         }
 
@@ -120,7 +116,7 @@ public class TurretBehavior : MonoBehaviour {
     {
         Destroy(
             Instantiate(projectile, hardpoint.position, hardpoint.rotation), 
-            5f);
+            30f);
         nextFire = Time.time + fireRate * OmniController.omniController.enemyFireRateScale;
     }
 

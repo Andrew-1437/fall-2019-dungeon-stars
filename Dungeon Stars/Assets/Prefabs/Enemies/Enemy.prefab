@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 114506133027303934}
   - component: {fileID: 114241128091395112}
   - component: {fileID: 593400223327421085}
+  - component: {fileID: 3092921313314948095}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Obstacle
@@ -100,16 +101,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86112901b817d54ea5e5691938e522c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5.5
+  speed: 4.2
   turn: 0
   additionalMovementVector: {x: 0, y: 0}
   lookAtPlayer: 0
   projectile: {fileID: 9167071922923515404, guid: db93be6bf0435c9469d007fc634b3462,
     type: 3}
   hardpoint: {fileID: 4457281880098294}
-  shootDelay: 5
+  shootDelay: 4.5
   fireRate: 0.5
   burstTime: 2
+  ShootOnAwake: 1
 --- !u!114 &114241128091395112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +151,24 @@ CapsuleCollider2D:
   m_Offset: {x: -0, y: -0.07579517}
   m_Size: {x: 2.0761304, y: 4.1975365}
   m_Direction: 0
+--- !u!114 &3092921313314948095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882230194084962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8764dae4a2ac8af428069090b33a1297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Projectile: {fileID: 9167071922923515404, guid: db93be6bf0435c9469d007fc634b3462,
+    type: 3}
+  BurstFireRate: 0.5
+  ShotPerBurst: 4
+  Hardpoint: {fileID: 4457281880098294}
+  Delay: 0
 --- !u!1 &2037880410694140931
 GameObject:
   m_ObjectHideFlags: 0

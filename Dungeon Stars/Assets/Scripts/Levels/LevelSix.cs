@@ -1,3 +1,4 @@
+using Fungus;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,13 @@ public class LevelSix : MonoBehaviour
 
     public BackgroundMove Background;
     public GameObject Hexplosion;
+    public EnemyGroup HexTurrets;
+    public Flowchart flowchart;
 
+    private void Start()
+    {
+        HexTurrets.OnGroupKilled += OnHexTurretsDestroyed;
+    }
 
     public void StopBackground()
     {
@@ -38,5 +45,11 @@ public class LevelSix : MonoBehaviour
         turret.hex.ApplyStacks(6);
         Transform turretTransform = turret.transform;
         Instantiate(Hexplosion, turretTransform.position, turretTransform.rotation);
+    }
+
+    private void OnHexTurretsDestroyed()
+    {
+        HexTurrets.OnGroupKilled -= OnHexTurretsDestroyed;
+        flowchart.SendFungusMessage("Continue");
     }
 }

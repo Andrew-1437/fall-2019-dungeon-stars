@@ -13,11 +13,15 @@ public class BombBehavior : ProjectileBehavior
     public bool proxy;
     public bool keyUp;
     public bool keyDown;
+    public bool timer;
+
+    private float startTime;
 
     // Start is called before the first frame update
     protected void Start()
     {
         base.Start();
+        startTime = Time.time;
     }
 
     protected void FixedUpdate()
@@ -31,6 +35,10 @@ public class BombBehavior : ProjectileBehavior
         base.Update();
         if(keyUp && Input.GetButtonUp("Fire3") ||
             keyDown && Input.GetButtonDown("Fire3"))
+        {
+            Detonate();
+        }
+        if(timer &&  Time.time >= (startTime + lifeTime)) 
         {
             Detonate();
         }
@@ -51,7 +59,7 @@ public class BombBehavior : ProjectileBehavior
     public void Detonate()
     {
         Instantiate(payload, transform.position, transform.rotation);
-        Destroy(gameObject);
+        DestroyProjectile();
     }
 
 }

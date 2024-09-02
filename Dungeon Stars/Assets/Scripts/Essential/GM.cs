@@ -542,7 +542,7 @@ public class GM : MonoBehaviour {
     public void SpawnPlayer()
     {
         // If available lives, spawn the player
-        if (playerLives > 0)
+        if (initialSpawn1 || playerLives > 0)
         {
             player = Instantiate(playerObject, transform.position, transform.rotation);
             Instantiate(fx, transform.position, transform.rotation);
@@ -566,7 +566,7 @@ public class GM : MonoBehaviour {
     public void SpawnPlayer2()
     {
         // If available lives, spawn the player
-        if (playerLives > 0)
+        if (initialSpawn2 || playerLives > 0)
         {
             player2 = Instantiate(playerObject2, transform.position - (Vector3.up * 3f), transform.rotation);
             Instantiate(fx, transform.position, transform.rotation);

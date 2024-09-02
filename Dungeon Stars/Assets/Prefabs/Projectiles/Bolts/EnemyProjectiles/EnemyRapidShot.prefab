@@ -80,8 +80,23 @@ PrefabInstance:
     - target: {fileID: 3540193702589059166, guid: 4aa5f039e09717846a5e3e8fd2982e24,
         type: 3}
       propertyPath: dmgValue
-      value: 4.5
+      value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 4427702431649565788, guid: 4aa5f039e09717846a5e3e8fd2982e24,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427702431649565788, guid: 4aa5f039e09717846a5e3e8fd2982e24,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427702431649565788, guid: 4aa5f039e09717846a5e3e8fd2982e24,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a125dee820eb4a41a2d997dc26a3fcf, type: 3}
     - target: {fileID: 7019578273677251158, guid: 4aa5f039e09717846a5e3e8fd2982e24,
         type: 3}
       propertyPath: m_Color.b
