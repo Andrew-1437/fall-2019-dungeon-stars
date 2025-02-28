@@ -14,5 +14,12 @@ public class Tags
     public const string SuperBounds = "SuperBounds";
     public const string AntiProjectile = "AntiProjectile";
     public const string Dps = "Dps";
+}
 
+public class FsmState
+{
+    public const string Start = "Start Game";
+    public const string StartBoss = "Start Boss";
+    public const string GameOver = "Game Over";
+    public const string CompleteLevel = "Complete Level";
 }

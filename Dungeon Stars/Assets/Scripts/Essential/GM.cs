@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System;
 
 /// <summary>
 /// Game Controller (or the Game Master) class that controls things that happens
@@ -31,6 +32,12 @@ public class GM : MonoBehaviour {
     // Score animations
     private const string ScoreMaxMultiplier = "MaxMultiplier";
     private const string ScoreNewMultiplier = "NewMultiplier";
+
+    public enum Players
+    {
+        Player1,
+        Player2
+    }
     #endregion
 
     // Singleton Instance
@@ -111,6 +118,7 @@ public class GM : MonoBehaviour {
     public TMP_ColorGradient shieldOnColor;
     public TMP_ColorGradient shieldOffColor;
     public GameObject pauseMenu;
+    public AudioSource respawnPing;
 
     [Header("Two Player UI")]
     public GameObject duoUIElements;
@@ -135,7 +143,9 @@ public class GM : MonoBehaviour {
     #endregion
 
     [Header("Flowchart")]
+    [Obsolete]
     public Fungus.Flowchart mainFlowchart;
+    public PlayMakerFSM Flowchart;
 
     #region Events
     public delegate void GmDelegate();
@@ -479,8 +489,10 @@ public class GM : MonoBehaviour {
     /// </summary>
     public void AwakenBoss()
     {
+        boss.SetActive(true);
         OnBossActivate?.Invoke();
         bossWarnUI.GetComponent<FlashUI>().Flash();
+        Flowchart.SetState(FsmState.StartBoss);
     }
 
     public void SetBossHpBar(string title, float bossStartingHp)
@@ -496,10 +508,15 @@ public class GM : MonoBehaviour {
 
     private void BossBehavior_OnBossDeath()
     {
-        if(endLevelOnBossDeath)
+        if (endLevelOnBossDeath)
+        {
             EndLevel();
+        }
         else
+        {
             mainFlowchart.SendFungusMessage(FungusBossDeath);
+            //Flowchart.SetState(FsmState.);
+        }
     }
 
     /// <summary>
@@ -509,7 +526,8 @@ public class GM : MonoBehaviour {
     {
         OnLevelEnd?.Invoke();
         OnLevelComplete?.Invoke();
-        mainFlowchart.SendFungusMessage(FungusLevelComplete);
+        //mainFlowchart.SendFungusMessage(FungusLevelComplete);
+        Flowchart.SetState(FsmState.CompleteLevel);
 
         // Save the highest level completed but ignore if we are in Endless Mode
         if (!OmniController.omniController.endlessMode)
@@ -530,7 +548,8 @@ public class GM : MonoBehaviour {
     public void GameOver()
     {
         OnLevelEnd?.Invoke();
-        mainFlowchart.SendFungusMessage(FungusGameOver);
+        //mainFlowchart.SendFungusMessage(FungusGameOver);
+        Flowchart.SetState(FsmState.GameOver);
 
         // Unsubscribe to events at the end of the level
         UnsubAllEvents();
@@ -601,7 +620,8 @@ public class GM : MonoBehaviour {
         }
         else
         {
-            DeathText(pc.isPlayer2);    // Calls Fungus flowchart that will display a death flavor text then respawn player
+            //DeathText(pc.isPlayer2);    // Calls Fungus flowchart that will display a death flavor text then respawn player
+            StartCoroutine(RespawnPlayerAfterDeath(pc.isPlayer2 ? Players.Player2 : Players.Player1));
         }
 
         AddRawScore(-OmniController.omniController.deathPenalty);   // Lose score from dying
@@ -848,6 +868,34 @@ public class GM : MonoBehaviour {
         }
 
         SetTimeScale(OmniController.omniController.globalTimeScale);
+    }
+
+    /// <summary>
+    /// Waits a few seconds and plays a sound effect before respawning the player that died
+    /// </summary>
+    /// <param name="player">Player</param>
+    private IEnumerator RespawnPlayerAfterDeath(Players player)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            yield return new WaitForSeconds(1f);
+
+            respawnPing.Play();
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        switch (player)
+        {
+            case Players.Player1:
+                SpawnPlayer();
+                break;
+            case Players.Player2:
+                SpawnPlayer2();
+                break;
+            default: 
+                break;
+        }
     }
 
     /// <summary>
