@@ -298,6 +298,59 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2796cdf0c775c248be4ef53d0a062df, type: 3}
+--- !u!1 &37012594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 37012596}
+  - component: {fileID: 37012595}
+  m_Layer: 0
+  m_Name: PlayMakerGUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &37012595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37012594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -73581967, guid: de72a6d2da64d114d95e3c5a01cfaec5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previewOnGUI: 1
+  enableGUILayout: 0
+  drawStateLabels: 1
+  enableStateLabelsInBuilds: 0
+  GUITextureStateLabels: 0
+  GUITextStateLabels: 0
+  filterLabelsWithDistance: 0
+  maxLabelDistance: 10
+  controlMouseCursor: 1
+  labelScale: 1
+--- !u!4 &37012596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37012594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &38418809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1146,7 +1199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 3
+  itemId: 9
   indentLevel: 0
   description: 
   targetObject: {fileID: 1316183281}
@@ -13656,7 +13709,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1915930491
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -14432,6 +14485,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: -178.5617
       objectReference: {fileID: 0}
+    - target: {fileID: 1166102277441559088, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: fsm.variables.stringVariables.Array.data[0].value
+      value: Level3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166102277441559088, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: fsm.states.Array.data[3].actionData.fsmVarParams.Array.data[0].stringValue
+      value: L
+      objectReference: {fileID: 0}
     - target: {fileID: 1442933791517670570, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -14495,7 +14558,7 @@ PrefabInstance:
     - target: {fileID: 3672931476469656402, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -370.35992
+      value: -370.35995
       objectReference: {fileID: 0}
     - target: {fileID: 3714608534395630364, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
@@ -14626,6 +14689,7 @@ PrefabInstance:
     - {fileID: 7973466359431362884, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
     - {fileID: 8165778744814086511, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
     - {fileID: 8197805566145150742, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
+    - {fileID: 5744370256476311367, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0ea578368fa70084d8a1e8638cf45cca, type: 3}
 --- !u!114 &2021848589 stripped
 MonoBehaviour:

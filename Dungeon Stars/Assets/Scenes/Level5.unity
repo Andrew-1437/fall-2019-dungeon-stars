@@ -21343,7 +21343,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &270371472
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -22304,7 +22304,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &270371502
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -56033,6 +56033,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 677459759397034880, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 677459759403040860, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: nodeRect.width
@@ -56512,7 +56517,7 @@ PrefabInstance:
     - target: {fileID: 3672931476469656402, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -370.36005
+      value: -370.36008
       objectReference: {fileID: 0}
     - target: {fileID: 3815891625947465024, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
@@ -56559,6 +56564,11 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 424243406}
+    - target: {fileID: 8106325559792050901, guid: 0ea578368fa70084d8a1e8638cf45cca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8197805566145150742, guid: 0ea578368fa70084d8a1e8638cf45cca,
         type: 3}
       propertyPath: methodParameters.Array.data[0].objValue.stringValue
