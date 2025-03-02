@@ -23,11 +23,18 @@ public class StationBehavior : MonoBehaviour {
     protected Rigidbody2D rb;
     protected ObstacleBehavior ob;
 
+    public EnemyIndicator Indicator;
+
     protected void Start()
     {
         gm = GM.GameController;
         rb = GetComponent<Rigidbody2D>();
         ob = GetComponent<ObstacleBehavior>();
+
+        if (Indicator != null)
+        {
+            Indicator.InitIndicator(gameObject);
+        }
     }
 
     protected void FixedUpdate()

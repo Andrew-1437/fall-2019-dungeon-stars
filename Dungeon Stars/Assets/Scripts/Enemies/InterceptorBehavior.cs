@@ -17,10 +17,17 @@ public class InterceptorBehavior : MonoBehaviour
 
     Rigidbody2D rb;
 
+    public EnemyIndicator Indicator;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        if (Indicator != null)
+        {
+            Indicator.InitIndicator(gameObject);
+        }
     }
 
     // Update is called once per frame

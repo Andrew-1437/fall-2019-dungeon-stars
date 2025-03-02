@@ -28,7 +28,11 @@ public class StdEnemyBehavior : MonoBehaviour {
     private float nextFire;
     public bool ShootOnAwake;
 
-    protected bool awake;
+    [Header("References")]
+    public EnemyIndicator Indicator;
+
+    [HideInInspector]
+    public bool awake;
 
     private bool stunned = false;
     private float stunTimer;
@@ -54,6 +58,11 @@ public class StdEnemyBehavior : MonoBehaviour {
         if (projectile != null)
         {
             Assert.IsNotNull(shooter, "Enemy is using old shooting behavior - update this one dipshit");
+        }
+
+        if (Indicator != null)
+        {
+            Indicator.InitIndicator(gameObject);
         }
     }
 
