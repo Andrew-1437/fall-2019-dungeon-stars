@@ -29,7 +29,7 @@ public class EnemyIndicator : MonoBehaviour
         TargetRb = target.GetComponent<Rigidbody2D>();
         TargetBehavior = target.GetComponent<StdEnemyBehavior>();
         CapsuleCollider2D coll = target.GetComponent<CapsuleCollider2D>();
-        Offset = coll.size.y / 2f;
+        Offset = coll ? coll.size.y / 2f : 0;
 
         transform.rotation = Quaternion.identity;
 
@@ -83,7 +83,7 @@ public class EnemyIndicator : MonoBehaviour
     {
         Vector3 pos = TargetTransform.position;
 
-        if (TargetBehavior.awake)
+        if (TargetBehavior != null && TargetBehavior.awake)
         {
             return (pos.x < -MaxHoriz - 1f || pos.x > MaxHoriz + 1f) || (pos.y < -MaxVert - 1f || pos.y > MaxVert + 1f);
         }
