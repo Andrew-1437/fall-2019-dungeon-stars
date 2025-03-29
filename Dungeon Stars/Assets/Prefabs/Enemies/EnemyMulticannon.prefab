@@ -416,7 +416,7 @@ PrefabInstance:
     - target: {fileID: 544054970019931042, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
         type: 3}
       propertyPath: BurstFireRate
-      value: 0.7
+      value: 0.07
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 33741781708008690, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5, type: 3}
@@ -458,7 +458,7 @@ MonoBehaviour:
     type: 3}
   shootDelay: 2.5
   fireRate: 0.05
-  burstTime: 0.6
+  burstTime: 0.84
   turn: 190
   hardpoint: {fileID: 3529638911033537463}
   awake: 0

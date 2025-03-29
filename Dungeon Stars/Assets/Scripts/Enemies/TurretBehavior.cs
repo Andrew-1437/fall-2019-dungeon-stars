@@ -20,8 +20,8 @@ public class TurretBehavior : MonoBehaviour {
     public float fireRate;
     public float burstTime;
     protected float burstEnd = 0f;
-    protected float nextBurst = Mathf.Infinity;
-    protected float nextFire = Mathf.Infinity;
+    protected float nextBurst = 0f;
+    protected float nextFire = 0f;
 
     public float turn;
     float turnSpeedMod = 1f;

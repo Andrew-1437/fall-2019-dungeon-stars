@@ -11,7 +11,7 @@ public class Boss3TurretBehavior : TurretBehavior
 
     private float angle = 0;
 
-    private new void Start()
+    private void Start()
     {
         base.Start();
         
@@ -20,12 +20,16 @@ public class Boss3TurretBehavior : TurretBehavior
     }
 
     // Update is called once per frame
-    private new void Update()
+    private void Update()
     {
         if (!doSpinAttack)
+        {
             base.Update();
+        }
         else
+        {
             SpinAttack();
+        }
     }
 
     private void Boss3TurretBehavior_OnBurstEnd()
