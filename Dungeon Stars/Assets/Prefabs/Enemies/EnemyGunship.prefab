@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86112901b817d54ea5e5691938e522c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1.45
   turn: 0
   additionalMovementVector: {x: 0, y: 0}
   lookAtPlayer: 0
@@ -368,6 +368,27 @@ PrefabInstance:
         type: 3}
       propertyPath: shootDelay
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467467980886414680, guid: 2fdf6b2d8729ecb4189b935012a72486,
+        type: 3}
+      propertyPath: Projectile
+      value: 
+      objectReference: {fileID: 8858488452273952274, guid: 4e5477223d8879a4a843a47bc502545a,
+        type: 3}
+    - target: {fileID: 1467467980886414680, guid: 2fdf6b2d8729ecb4189b935012a72486,
+        type: 3}
+      propertyPath: ShotPerBurst
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467467980886414680, guid: 2fdf6b2d8729ecb4189b935012a72486,
+        type: 3}
+      propertyPath: BurstFireRate
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467467980886414680, guid: 2fdf6b2d8729ecb4189b935012a72486,
+        type: 3}
+      propertyPath: TimeBetweenBursts
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4359687181457673863, guid: 2fdf6b2d8729ecb4189b935012a72486,
         type: 3}

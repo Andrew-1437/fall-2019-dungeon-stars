@@ -10,6 +10,7 @@ public class Shooter : MonoBehaviour
     public float BurstFireRate;
     public int ShotPerBurst;
     public Transform Hardpoint;
+    public float TimeBetweenBursts;
     public float Delay;
 
     /// <summary>

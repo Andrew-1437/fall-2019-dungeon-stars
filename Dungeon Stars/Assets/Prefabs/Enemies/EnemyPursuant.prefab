@@ -9947,7 +9947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6015b2ba4a823d440bb14097dabb88a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 120
+  hp: 50
   collisionVal: 0
   invincible: 0
   explosion: {fileID: 100010, guid: 74f150540a0de664bac84f89b4c8c69a, type: 3}
@@ -9991,6 +9991,7 @@ MonoBehaviour:
   BurstFireRate: 0.05
   ShotPerBurst: 9
   Hardpoint: {fileID: 4064850269798726009}
+  TimeBetweenBursts: 3.5
   Delay: 0
 --- !u!114 &5279272483440379298
 MonoBehaviour:

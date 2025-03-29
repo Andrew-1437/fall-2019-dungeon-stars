@@ -5774,7 +5774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4432350491282226, guid: 2fdf6b2d8729ecb4189b935012a72486, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.53
+      value: 4.9000006
       objectReference: {fileID: 0}
     - target: {fileID: 4432350491282226, guid: 2fdf6b2d8729ecb4189b935012a72486, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5849,6 +5849,27 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4874809734237705233, guid: 3d8b2211aac084a4e87b1cd57151eb25,
         type: 3}
+    - target: {fileID: 1467467980886414680, guid: 2fdf6b2d8729ecb4189b935012a72486,
+        type: 3}
+      propertyPath: Projectile
+      value: 
+      objectReference: {fileID: 4874809734237705233, guid: 3d8b2211aac084a4e87b1cd57151eb25,
+        type: 3}
+    - target: {fileID: 1467467980886414680, guid: 2fdf6b2d8729ecb4189b935012a72486,
+        type: 3}
+      propertyPath: ShotPerBurst
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467467980886414680, guid: 2fdf6b2d8729ecb4189b935012a72486,
+        type: 3}
+      propertyPath: BurstFireRate
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467467980886414680, guid: 2fdf6b2d8729ecb4189b935012a72486,
+        type: 3}
+      propertyPath: TimeBetweenBursts
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6169300455977243288, guid: 2fdf6b2d8729ecb4189b935012a72486,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -11167,7 +11188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4432350491282226, guid: 2fdf6b2d8729ecb4189b935012a72486, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.529999
+      value: 4.9
       objectReference: {fileID: 0}
     - target: {fileID: 4432350491282226, guid: 2fdf6b2d8729ecb4189b935012a72486, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11242,6 +11263,27 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4874809734237705233, guid: 3d8b2211aac084a4e87b1cd57151eb25,
         type: 3}
+    - target: {fileID: 1467467980886414680, guid: 2fdf6b2d8729ecb4189b935012a72486,
+        type: 3}
+      propertyPath: Projectile
+      value: 
+      objectReference: {fileID: 4874809734237705233, guid: 3d8b2211aac084a4e87b1cd57151eb25,
+        type: 3}
+    - target: {fileID: 1467467980886414680, guid: 2fdf6b2d8729ecb4189b935012a72486,
+        type: 3}
+      propertyPath: ShotPerBurst
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467467980886414680, guid: 2fdf6b2d8729ecb4189b935012a72486,
+        type: 3}
+      propertyPath: BurstFireRate
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467467980886414680, guid: 2fdf6b2d8729ecb4189b935012a72486,
+        type: 3}
+      propertyPath: TimeBetweenBursts
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6169300455977243288, guid: 2fdf6b2d8729ecb4189b935012a72486,
         type: 3}
       propertyPath: m_LocalScale.x

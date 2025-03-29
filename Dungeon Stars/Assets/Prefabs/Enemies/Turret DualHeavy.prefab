@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8537409940661268387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5703136352757652318}
+  m_Layer: 6
+  m_Name: ProjectileSpawn (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5703136352757652318
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8537409940661268387}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.79, y: 2.84, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6877768847021405668}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1095489379154994376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -143,5 +173,46 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.12
       objectReference: {fileID: 0}
+    - target: {fileID: 7458314337935264497, guid: b63bb350b34d04b4ea1a7606a1730be4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458314337935264497, guid: b63bb350b34d04b4ea1a7606a1730be4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.84
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b63bb350b34d04b4ea1a7606a1730be4, type: 3}
+--- !u!1 &6879392976244934858 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5785848712636574722, guid: b63bb350b34d04b4ea1a7606a1730be4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1095489379154994376}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6877768847021405668 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5782986524778451244, guid: b63bb350b34d04b4ea1a7606a1730be4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1095489379154994376}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7264539764551587621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6879392976244934858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8764dae4a2ac8af428069090b33a1297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Projectile: {fileID: 3339778990311314017, guid: 9480438243514d347b3a555d78d78556,
+    type: 3}
+  BurstFireRate: 1
+  ShotPerBurst: 1
+  Hardpoint: {fileID: 5703136352757652318}
+  TimeBetweenBursts: 4
+  Delay: 0.5

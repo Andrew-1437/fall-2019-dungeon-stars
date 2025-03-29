@@ -181,7 +181,7 @@ PrefabInstance:
     - target: {fileID: 114241128091395112, guid: c2796cdf0c775c248be4ef53d0a062df,
         type: 3}
       propertyPath: hp
-      value: 45
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 114241128091395112, guid: c2796cdf0c775c248be4ef53d0a062df,
         type: 3}
@@ -629,6 +629,27 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 0aa3ef93099a0c64a91e024763288095,
         type: 3}
+    - target: {fileID: 3092921313314948095, guid: c2796cdf0c775c248be4ef53d0a062df,
+        type: 3}
+      propertyPath: Projectile
+      value: 
+      objectReference: {fileID: 3929727460643241032, guid: 7c94ab1860f0639448b985fcd22ac614,
+        type: 3}
+    - target: {fileID: 3092921313314948095, guid: c2796cdf0c775c248be4ef53d0a062df,
+        type: 3}
+      propertyPath: ShotPerBurst
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092921313314948095, guid: c2796cdf0c775c248be4ef53d0a062df,
+        type: 3}
+      propertyPath: BurstFireRate
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092921313314948095, guid: c2796cdf0c775c248be4ef53d0a062df,
+        type: 3}
+      propertyPath: TimeBetweenBursts
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5336100708318455589, guid: c2796cdf0c775c248be4ef53d0a062df,
         type: 3}
       propertyPath: m_Sprite
@@ -712,3 +733,22 @@ MonoBehaviour:
   extraShootDelay: 2
   extraFireRate: 0.9
   extraBurstTime: 1.5
+--- !u!114 &8740191948114226977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3972432263591956790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8764dae4a2ac8af428069090b33a1297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Projectile: {fileID: 3452725030957787798, guid: 70ea590f0538bf64ba9b30f6cb8d9e8b,
+    type: 3}
+  BurstFireRate: 0.9
+  ShotPerBurst: 2
+  Hardpoint: {fileID: 601390031977641570}
+  TimeBetweenBursts: 5
+  Delay: 0

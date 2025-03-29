@@ -105,6 +105,27 @@ PrefabInstance:
       propertyPath: shootDelay
       value: 3.3
       objectReference: {fileID: 0}
+    - target: {fileID: 544054970019931042, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
+        type: 3}
+      propertyPath: Projectile
+      value: 
+      objectReference: {fileID: 3339778990311314017, guid: 9480438243514d347b3a555d78d78556,
+        type: 3}
+    - target: {fileID: 544054970019931042, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
+        type: 3}
+      propertyPath: ShotPerBurst
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 544054970019931042, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
+        type: 3}
+      propertyPath: BurstFireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 544054970019931042, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
+        type: 3}
+      propertyPath: TimeBetweenBursts
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4021633060785246447, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
         type: 3}
       propertyPath: m_LocalPosition.y

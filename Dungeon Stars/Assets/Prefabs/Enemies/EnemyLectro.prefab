@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6015b2ba4a823d440bb14097dabb88a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 40
+  hp: 15
   collisionVal: 25
   invincible: 0
   explosion: {fileID: 100010, guid: 74f150540a0de664bac84f89b4c8c69a, type: 3}
@@ -168,9 +168,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Projectile: {fileID: 8434112883702766647, guid: 3c8dd108c8abd4e4e8d6538f187f1f3b,
     type: 3}
-  BurstFireRate: 0.08
+  BurstFireRate: 0.12
   ShotPerBurst: 9
   Hardpoint: {fileID: 4457281880098294}
+  TimeBetweenBursts: 2.4
   Delay: 0
 --- !u!1 &9110133938827548338
 GameObject:
@@ -198,7 +199,7 @@ Transform:
   m_GameObject: {fileID: 9110133938827548338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 4273209801555802}
   m_RootOrder: 2
@@ -358,6 +359,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032526646750162946, guid: dac51c5aaafd9e74ab25a7af751536e6,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032526646750162946, guid: dac51c5aaafd9e74ab25a7af751536e6,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 3032526646750162946, guid: dac51c5aaafd9e74ab25a7af751536e6,
         type: 3}

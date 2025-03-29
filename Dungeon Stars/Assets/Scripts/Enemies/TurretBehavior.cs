@@ -1,7 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
+[RequireComponent(typeof(Shooter))]
 public class TurretBehavior : MonoBehaviour {
 
     #region Targeting
@@ -12,6 +15,7 @@ public class TurretBehavior : MonoBehaviour {
     #endregion
 
     #region Shooting & Aiming
+    private Shooter[] shooters;
     public float shootDelay;
     public float fireRate;
     public float burstTime;
@@ -42,15 +46,19 @@ public class TurretBehavior : MonoBehaviour {
     public event TurretDelegate OnBurstEnd;
 
     // Use this for initialization
-    protected void Start () {
-        nextBurst = Time.time + shootDelay;
+    protected void Start () 
+    {
         nextFire = 0f;
-        bool wasSleeping = !awake;
 
-        if (targetTag == "") targetTag = Tags.Player;  // If targetTag is empty, target player
+        if (string.IsNullOrEmpty(targetTag))
+        {
+            targetTag = Tags.Player;  // If targetTag is empty, target player
+        }
 
         if (!ignoreObstacle)
+        {
             thisObstacle = GetComponent<ObstacleBehavior>();
+        }
 
         if (hardpoint == null)
         {
@@ -58,6 +66,8 @@ public class TurretBehavior : MonoBehaviour {
         }
 
         gm = GM.GameController;
+
+        shooters = GetComponents<Shooter>();
 
         StartCoroutine(FindTargetsAsync());
     }
@@ -114,10 +124,8 @@ public class TurretBehavior : MonoBehaviour {
 
     public void Fire()
     {
-        Destroy(
-            Instantiate(projectile, hardpoint.position, hardpoint.rotation), 
-            30f);
-        nextFire = Time.time + fireRate * OmniController.omniController.enemyFireRateScale;
+        Array.ForEach(shooters, shooter => shooter.Shoot());
+        nextFire = Time.time + shooters.First().TimeBetweenBursts * OmniController.omniController.enemyFireRateScale;
     }
 
     public void HoldFire(bool state)

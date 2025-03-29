@@ -19,7 +19,6 @@ public class PursuantBehavior : StdEnemyBehavior
     {
         base.Start();
 
-        shooter = GetComponent<Shooter>();
         speed += Random.Range(-1f, 1f);
 
         offset = Random.insideUnitSphere * (Distance / 2f);

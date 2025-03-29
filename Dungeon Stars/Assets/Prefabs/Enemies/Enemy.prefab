@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1409191051199428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.43, z: 0}
+  m_LocalPosition: {x: 0, y: 0.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4273209801555802}
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86112901b817d54ea5e5691938e522c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4.2
+  speed: 3.7
   turn: 0
   additionalMovementVector: {x: 0, y: 0}
   lookAtPlayer: 0
@@ -110,8 +110,8 @@ MonoBehaviour:
     type: 3}
   hardpoint: {fileID: 4457281880098294}
   shootDelay: 4.5
-  fireRate: 0.5
-  burstTime: 2
+  fireRate: 0.8
+  burstTime: 2.5
   ShootOnAwake: 1
   Indicator: {fileID: 3839653277707427683}
   awake: 0
@@ -127,12 +127,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6015b2ba4a823d440bb14097dabb88a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 30
+  hp: 15
   collisionVal: 25
   invincible: 0
   explosion: {fileID: 100010, guid: 74f150540a0de664bac84f89b4c8c69a, type: 3}
   hitFX: {fileID: 0}
-  score: 400
+  score: 300
   awake: 0
   isATurret: 0
   dontDieOnScreenExit: 0
@@ -168,9 +168,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Projectile: {fileID: 9167071922923515404, guid: db93be6bf0435c9469d007fc634b3462,
     type: 3}
-  BurstFireRate: 0.5
+  BurstFireRate: 0.8
   ShotPerBurst: 4
   Hardpoint: {fileID: 4457281880098294}
+  TimeBetweenBursts: 4
   Delay: 0
 --- !u!1 &2037880410694140931
 GameObject:
@@ -198,7 +199,7 @@ Transform:
   m_GameObject: {fileID: 2037880410694140931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.45, y: 0.45, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 4273209801555802}
   m_RootOrder: 2
@@ -362,7 +363,12 @@ PrefabInstance:
     - target: {fileID: 3032526646750162946, guid: dac51c5aaafd9e74ab25a7af751536e6,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032526646750162946, guid: dac51c5aaafd9e74ab25a7af751536e6,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3032526646750162946, guid: dac51c5aaafd9e74ab25a7af751536e6,
         type: 3}

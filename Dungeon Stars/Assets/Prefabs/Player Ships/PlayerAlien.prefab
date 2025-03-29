@@ -112,7 +112,7 @@ MonoBehaviour:
   shieldDelay: 4
   shieldDown: 0
   level: 0
-  speed: 17.4
+  speed: 22
   rotate: 20
   spawner: {fileID: 4120237883135858}
   primary: {fileID: 3352429461601540721, guid: d6deee3ec8a7e9548b714143cd63c7f0, type: 3}
@@ -121,6 +121,11 @@ MonoBehaviour:
   explosive: {fileID: 3352429461601540721, guid: cb8ce7e820a972341822ecfd8515c2c9,
     type: 3}
   dmgMod: 1
+  fireRateMod: 0
+  heatGenMod: 0
+  fireRateEnd: 0
+  speedMod: 0
+  speedEnd: 0
   invincible: 0
   enableHeat: 0
   heat: 0

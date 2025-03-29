@@ -92,6 +92,27 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 544054970019931042, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
+        type: 3}
+      propertyPath: Projectile
+      value: 
+      objectReference: {fileID: 1300305888479880, guid: 838af0ffa43ebe44f922dc96ed68e024,
+        type: 3}
+    - target: {fileID: 544054970019931042, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
+        type: 3}
+      propertyPath: ShotPerBurst
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 544054970019931042, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
+        type: 3}
+      propertyPath: BurstFireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 544054970019931042, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
+        type: 3}
+      propertyPath: TimeBetweenBursts
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4021633060785246447, guid: 9b9f78e5fcd2a564bbd8a080cb1cdca5,
         type: 3}
       propertyPath: m_LocalPosition.y

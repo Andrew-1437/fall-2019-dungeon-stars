@@ -53,8 +53,7 @@ public class MissileBehavior : ProjectileBehavior {
 
         if (Time.time >= deathTime)
         {
-            DestroyProjectile();
-            Instantiate(explosion, transform.position, transform.rotation);
+            Detonate();
         }
     }
 

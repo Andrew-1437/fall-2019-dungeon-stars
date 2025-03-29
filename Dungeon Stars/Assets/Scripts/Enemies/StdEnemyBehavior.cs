@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -16,14 +17,20 @@ public class StdEnemyBehavior : MonoBehaviour {
 
     //Weapons*********************
     [Header("Attack")]
-    [Obsolete]
+    [Obsolete("Use Shooter component")]
+    [Tooltip("Obsolete - Use Shooter component")]
     public GameObject projectile;
-    [Obsolete]
+    [Obsolete("Use Shooter component")]
+    [Tooltip("Obsolete - Use Shooter component")]
     public Transform hardpoint;
+    [Obsolete("Use Shooter component")]
+    [Tooltip("Obsolete - Use Shooter component")]
     public float shootDelay;
-    [Obsolete]
+    [Obsolete("Use Shooter component")]
+    [Tooltip("Obsolete - Use Shooter component")]
     public float fireRate;
-    [Obsolete]
+    [Obsolete("Use Shooter component")]
+    [Tooltip("Obsolete - Use Shooter component")]
     public float burstTime;
     private float nextFire;
     public bool ShootOnAwake;
@@ -40,7 +47,7 @@ public class StdEnemyBehavior : MonoBehaviour {
     protected GM gm;
     protected Rigidbody2D rb;
     protected ObstacleBehavior ob;
-    protected Shooter shooter;
+    protected Shooter[] shooters;
 
 
     protected void Start()
@@ -51,13 +58,13 @@ public class StdEnemyBehavior : MonoBehaviour {
         gm = GM.GameController;
         rb = GetComponent<Rigidbody2D>();
         ob = GetComponent<ObstacleBehavior>();
-        shooter = GetComponent<Shooter>();
+        shooters = GetComponents<Shooter>();
 
         // Check to convert all enemies to use the new Shooter component.
         // Enemies will not work until they have been converted to use it
         if (projectile != null)
         {
-            Assert.IsNotNull(shooter, "Enemy is using old shooting behavior - update this one dipshit");
+            Assert.IsNotNull(shooters, "Enemy is using old shooting behavior - update this one dipshit");
         }
 
         if (Indicator != null)
@@ -116,10 +123,9 @@ public class StdEnemyBehavior : MonoBehaviour {
     // Update is called once per frame
     protected void Update () 
     {
-        if (awake && (shooter != null) && (Time.time > nextFire))
+        if (awake && (shooters?.Length > 0) && (Time.time > nextFire))
         {
-            shooter.Shoot();
-            nextFire = Time.time + shootDelay;
+            Shoot();
         }
 	}
 
@@ -137,11 +143,16 @@ public class StdEnemyBehavior : MonoBehaviour {
         stunTimer = Time.time + stunTime;
     }
 
+    public void Shoot()
+    {
+        Array.ForEach(shooters, shooter => shooter.Shoot());
+        nextFire = Time.time + shooters.First().TimeBetweenBursts;
+    }
+
     protected virtual void OnAwake()
     {
         awake = true;
-        if (ShootOnAwake) { shooter.Shoot(); }
-        nextFire = Time.time + shootDelay;
+        if (ShootOnAwake) { Shoot(); }
     }
 
     /// <summary>

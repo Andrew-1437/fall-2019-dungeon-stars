@@ -91,6 +91,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8931213308300670560, guid: 2615326f9ca74934aa93a0f98ef574df,
+        type: 3}
+      propertyPath: Projectile
+      value: 
+      objectReference: {fileID: 5829562676108106003, guid: 523be33a7fc8f314ea084f72c968c74c,
+        type: 3}
+    - target: {fileID: 8931213308300670560, guid: 2615326f9ca74934aa93a0f98ef574df,
+        type: 3}
+      propertyPath: ShotPerBurst
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8931213308300670560, guid: 2615326f9ca74934aa93a0f98ef574df,
+        type: 3}
+      propertyPath: TimeBetweenBursts
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8952077846082271620, guid: 2615326f9ca74934aa93a0f98ef574df,
         type: 3}
       propertyPath: m_Color.b

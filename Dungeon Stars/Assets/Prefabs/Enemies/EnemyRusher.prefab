@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6015b2ba4a823d440bb14097dabb88a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 15
+  hp: 5
   collisionVal: 10
   invincible: 0
   explosion: {fileID: 100010, guid: 74f150540a0de664bac84f89b4c8c69a, type: 3}
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86112901b817d54ea5e5691938e522c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 7.5
   turn: 0
   additionalMovementVector: {x: 0, y: 0}
   lookAtPlayer: 0
@@ -119,7 +119,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2.1951303, y: 3.4744725}
+  m_Size: {x: 1.4599962, y: 2.575975}
   m_Direction: 0
 --- !u!1 &2843988369336523023
 GameObject:
@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 2843988369336523023}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4710609142361000}
   m_RootOrder: 1
@@ -224,12 +224,12 @@ PrefabInstance:
     - target: {fileID: 3032526646750162946, guid: dac51c5aaafd9e74ab25a7af751536e6,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 3032526646750162946, guid: dac51c5aaafd9e74ab25a7af751536e6,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 3032526646750162946, guid: dac51c5aaafd9e74ab25a7af751536e6,
         type: 3}
