@@ -13,6 +13,8 @@ public class Shooter : MonoBehaviour
     public float TimeBetweenBursts;
     public float Delay;
 
+    public GameObject PreFireFx;
+
     /// <summary>
     /// Fires a single burst of the shooter
     /// </summary>
@@ -34,7 +36,14 @@ public class Shooter : MonoBehaviour
     /// </summary>
     private IEnumerator FireBurst()
     {
-        if (Delay > 0) { yield return new WaitForSeconds(Delay); }
+        if (Delay > 0) 
+        {
+            if (PreFireFx != null)
+            {
+                Destroy(Instantiate(PreFireFx, Hardpoint), 1f);
+            }
+            yield return new WaitForSeconds(Delay); 
+        }
 
         int shots = 0;
 
